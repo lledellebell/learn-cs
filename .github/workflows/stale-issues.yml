@@ -1,0 +1,21 @@
+name: 오래된 이슈 관리
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 자정에 실행
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: '이 이슈는 30일 동안 활동이 없어 오래된 이슈로 표시되었습니다. 10일 내에 활동이 없으면 자동으로 닫힙니다.'
+          stale-pr-message: '이 PR은 30일 동안 활동이 없어 오래된 PR로 표시되었습니다. 10일 내에 활동이 없으면 자동으로 닫힙니다.'
+          stale-issue-label: '오래된 이슈'
+          stale-pr-label: '오래된 PR'
+          days-before-stale: 30
+          days-before-close: 10
+          exempt-issue-labels: '논의 중,우선순위'
+          exempt-pr-labels: '논의 중,우선순위'

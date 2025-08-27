@@ -1,0 +1,20 @@
+algorithms:
+  - '(algorithms|알고리즘)'
+data-structures:
+  - '(data structures|자료구조)'
+databases:
+  - '(databases|데이터베이스)'
+networking:
+  - '(networking|네트워킹)'
+operating-systems:
+  - '(operating systems|운영체제)'
+security:
+  - '(security|보안)'
+web-development:
+  - '(web development|웹 개발)'
+documentation:
+  - '(documentation|문서화)'
+enhancement:
+  - '(enhancement|개선|기능 추가)'
+bug:
+  - '(bug|오류|버그)'
