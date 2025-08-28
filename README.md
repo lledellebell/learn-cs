@@ -32,11 +32,11 @@
 ## 목차
 
 - [알고리즘 (Algorithms)](/algorithms/): 알고리즘 설계, 분석 및 구현
-- [자료구조 (Data Structures)](/data-structures/): 기본 및 고급 자료구조
+- [자료구조 (Data Structures)](/data-structures/): 기본 및 자료구조
 - [네트워킹 (Networking)](/networking/): 네트워크 프로토콜, HTTP, TCP/IP 등
 - [운영체제 (Operating Systems)](/operating-systems/): OS 개념, 프로세스, 스레드, 메모리 관리
 - [데이터베이스 (Databases)](/databases/): SQL, NoSQL, 데이터 모델링, 쿼리 최적화
-- [웹 개발 (Web Development)](/web-development/): 프론트엔드, 백엔드 기술
+- [웹 개발 (Web Development)](/web-development/): 프론트엔드, 백엔드
 - [보안 (Security)](/security/): 암호화, 인증, 권한 부여, 웹 보안
 
 ## 학습 방법
@@ -49,13 +49,13 @@
 ## 참고 자료
 
 - 책, 강의, 온라인 자료 등의 출처 기록
-- 유용한 링크 모음
+- 링크 모음
 
 ## 학습 계획
 
 - [ ] **기초 개념 학습**: 각 분야의 핵심 개념과 이론 학습
 - [ ] **실습 프로젝트**: 학습한 개념을 적용한 소규모 프로젝트 구현
-- [ ] **심화 학습**: 고급 주제와 알고리즘 탐구
+- [ ] **심화 학습**: 다양한 주제와 알고리즘 탐구
 - [ ] **종합 프로젝트**: 여러 분야를 통합한 프로젝트 개발
 
 ## 학습 자료
