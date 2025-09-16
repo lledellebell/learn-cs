@@ -1,0 +1,30 @@
+{{ ... }}
+node_modules/
+
+# Environment variables
+.env
+
+# Private content backup directories (created during submodule setup)
+private_backup_*/
+private/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+{{ ... }}
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

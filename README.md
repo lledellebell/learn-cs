@@ -33,6 +33,7 @@
 
 - [알고리즘 (Algorithms)](/algorithms/): 알고리즘 설계, 분석 및 구현
 - [자료구조 (Data Structures)](/data-structures/): 기본 및 자료구조
+- [프로그래밍 언어 (Languages)](/languages/): 언어별 핵심 개념과 패러다임
 - [네트워킹 (Networking)](/networking/): 네트워크 프로토콜, HTTP, TCP/IP 등
 - [운영체제 (Operating Systems)](/operating-systems/): OS 개념, 프로세스, 스레드, 메모리 관리
 - [데이터베이스 (Databases)](/databases/): SQL, NoSQL, 데이터 모델링, 쿼리 최적화
@@ -73,11 +74,44 @@
 - [MIT OpenCourseWare](https://ocw.mit.edu/)
 - [Coursera - 컴퓨터 과학 강좌](https://www.coursera.org/browse/computer-science)
 
-## 학습 일지
+## Private Content 관리
 
-| 날짜 | 학습 내용 | 관련 파일 |
-|--------|------------|----------|
-| 2025-08-27 | HTTP 인증 방식 | [http_authentication_methods.md](/networking/http/http_authentication_methods.md) |
+이 저장소는 **Git Submodule**을 사용하여 private content를 관리합니다. 면접 대비 자료와 커리어 관련 자료는 별도의 `private` 저장소에서 관리됩니다.
+
+### 초기 설정
+
+```bash
+# 1. GitHub에서 private 저장소 생성 (예: learn-cs-private)
+# 2. Submodule 설정 스크립트 실행
+npm run setup:submodule
+```
+
+### 일상 사용법
+
+```bash
+# Private content 상태 확인
+npm run private:status
+
+# Private content 업데이트 (다른 환경에서 변경사항 가져오기)
+npm run private:update
+
+# Private content 수정 후 커밋
+npm run private:commit "새로운 면접 자료 추가"
+
+# 새로운 면접 자료 생성
+node scripts/manage-private-content.js create "binary-search"
+node scripts/manage-private-content.js create "system-design" system-design
+```
+
+### 구조
+
+```
+learn-cs/
+├── private/                    # Git Submodule (별도 private 저장소)
+│   ├── interview/              # 면접 대비 자료
+│   └── career/                 # 커리어 관련 자료
+└── (public content)            # 공개 학습 자료
+```
 
 ## 기여 방법
 

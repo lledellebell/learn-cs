@@ -1,0 +1,24 @@
+{
+  "name": "learn-cs",
+  "version": "1.0.0",
+  "description": "Computer Science learning materials with private content management",
+  "scripts": {
+    "private:status": "node scripts/manage-private-content.js status",
+    "private:update": "node scripts/manage-private-content.js update",
+    "private:commit": "node scripts/manage-private-content.js commit",
+    "setup:submodule": "./scripts/setup-submodule.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lledellebell/learn-cs.git"
+  },
+  "keywords": [
+    "computer-science",
+    "algorithms",
+    "data-structures",
+    "learning",
+    "documentation"
+  ],
+  "author": "lledellebell",
+  "license": "MIT"
+}
