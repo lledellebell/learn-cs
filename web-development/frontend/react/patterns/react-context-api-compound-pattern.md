@@ -7,6 +7,41 @@ React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.
 `Context`는 컴포넌트 트리에서 데이터를 전역적으로 공유할 수 있게 해주는 React의 기능입니다. 
 `prop drilling` 없이 깊은 컴포넌트 계층에 데이터를 전달할 수 있습니다.
 
+### Context vs Provider 차이점
+
+많은 개발자들이 Context와 Provider를 혼동하는데, 실제로는 **Context와 Provider는 함께 동작하는 하나의 시스템**입니다.
+
+| 구분 | Context | Provider |
+|------|---------|----------|
+| **역할** | 데이터 저장소 정의 | 데이터 제공자 |
+| **생성** | `createContext()` | `Context.Provider` |
+| **기능** | 타입과 기본값 정의 | 실제 값 전달 |
+| **사용** | `useContext(Context)` | JSX에서 컴포넌트 감싸기 |
+
+```tsx
+// Context: 데이터 구조 정의
+const ThemeContext = createContext({
+  theme: 'light',
+  toggleTheme: () => {}
+});
+
+// Provider: 실제 데이터 제공
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState('light');
+  
+  return (
+    <ThemeContext.Provider value={{
+      theme,
+      toggleTheme: () => setTheme(prev => prev === 'light' ? 'dark' : 'light')
+    }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+```
+
+**Context만으로는 데이터 공유가 불가능**하며, 반드시 **Provider와 함께 사용**해야 합니다. Context는 "무엇을 공유할지"를 정의하고, Provider는 "실제 값을 어떻게 제공할지"를 구현합니다.
+
 ## `Compound Pattern`에서의 `Context` 활용
 
 ### 1. 기본 구조

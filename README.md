@@ -37,7 +37,7 @@
 - [네트워킹 (Networking)](/networking/): 네트워크 프로토콜, HTTP, TCP/IP 등
 - [운영체제 (Operating Systems)](/operating-systems/): OS 개념, 프로세스, 스레드, 메모리 관리
 - [데이터베이스 (Databases)](/databases/): SQL, NoSQL, 데이터 모델링, 쿼리 최적화
-- [웹 개발 (Web Development)](/web-development/): 프론트엔드, 백엔드
+- [웹 개발 (Web Development)](/web-development/): 프론트엔드, 백엔드, 툴
 - [보안 (Security)](/security/): 암호화, 인증, 권한 부여, 웹 보안
 
 ## 학습 방법
@@ -127,7 +127,7 @@ learn-cs/
 
 ### 자동화 워크플로우
 
-이 저장소는 다음과 같은 GitHub Actions 자동화를 사용합니다:
+이 저장소는 다음과 같은 GitHub Actions 자동화를 사용합니다.
 
 - **마크다운 링크 검사**: 모든 마크다운 파일의 링크가 유효한지 검사합니다.
 - **자동 라벨링**: 이슈와 PR에 자동으로 관련 라벨을 붙입니다.
