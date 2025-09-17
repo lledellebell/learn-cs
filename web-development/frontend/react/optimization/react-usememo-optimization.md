@@ -91,7 +91,7 @@ const ArticleList = ({ articles, searchTerm, sortBy }) => {
 
 ### 2. 객체/배열 참조 최적화
 ```tsx
-const TodayWeeklyInsight = ({ articles }) => {
+const Weekly = ({ articles }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -104,24 +104,49 @@ const TodayWeeklyInsight = ({ articles }) => {
     totalItems: articles.length
   }), [currentIndex, isAutoPlaying, articles.length]);
 
-  // 스타일 객체 메모이제이션
-  const containerStyles = useMemo(() => ({
-    transform: `translateX(-${currentIndex * 100}%)`,
-    transition: isAutoPlaying ? 'transform 0.3s ease' : 'none'
-  }), [currentIndex, isAutoPlaying]);
+  // CSS 클래스명 메모이제이션
+  const containerClassName = useMemo(() => {
+    const baseClass = 'weekly-container';
+    const animationClass = isAutoPlaying ? 'weekly-container--animated' : 'weekly-container--static';
+    return `${baseClass} ${animationClass}`;
+  }, [isAutoPlaying]);
+
+  // CSS 변수를 통한 동적 스타일 제어
+  const containerStyle = useMemo(() => ({
+    '--slide-index': currentIndex
+  }), [currentIndex]);
 
   return (
-    <WeeklyInsightContext.Provider value={contextValue}>
-      <div className="weekly-insight">
-        <div style={containerStyles}>
+    <WeeklyContext.Provider value={contextValue}>
+      <div className="weekly-wrapper">
+        <div 
+          className={containerClassName}
+          style={containerStyle}
+        >
           {articles.map((article, index) => (
             <ArticleSlide key={article.id} article={article} />
           ))}
         </div>
       </div>
-    </WeeklyInsightContext.Provider>
+    </WeeklyContext.Provider>
   );
 };
+```
+
+**CSS 예시:**
+```css
+.weekly-container {
+  display: flex;
+  transform: translateX(calc(var(--slide-index) * -100%));
+}
+
+.weekly-container--animated {
+  transition: transform 0.3s ease;
+}
+
+.weekly-container--static {
+  transition: none;
+}
 ```
 
 ### 3. 함수 메모이제이션과 조합
@@ -181,7 +206,7 @@ const ExpensiveComponent = ({ data, shouldOptimize }) => {
 };
 ```
 
-### 2. 다단계 메모이제이션
+### 2. 여러 단계의 메모이제이션
 ```tsx
 const ComplexDashboard = ({ rawData, userPreferences }) => {
   // 1단계: 기본 데이터 처리

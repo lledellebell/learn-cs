@@ -1,5 +1,7 @@
 # `React`에서 `Composite`/`Compound` Pattern 활용 가이드
 
+> **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: "sailboat")이고, Composite(합성어)는 여러 다른 재료나 부분들로 만들어진 것을 의미하며, 일반적으로 결합하는 행위나 여러 구성 요소로 만들어진 구조를 설명하는 단어입니다. 
+
 ## 개요
 
 `Composite Pattern`과 `Compound Pattern`은 React에서 복잡한 UI 컴포넌트를 구성할 때 쓰이는 디자인 패턴입니다. 
@@ -110,7 +112,7 @@ const Daily: DailyComponent = ({ children, ...props }) => {
 
   return (
     <DailyContext.Provider value={contextValue}>
-      <section className="daily-brief" {...props}>
+      <section className="daily" {...props}>
         {children}
       </section>
     </DailyContext.Provider>
@@ -317,7 +319,7 @@ describe('카드 컴포넌트 통합 테스트', () => {
 });
 ```
 
-## 실무 팁과 베스트 프랙티스
+## 베스트 프랙티스
 
 ### 1. 점진적 마이그레이션
 ```tsx
