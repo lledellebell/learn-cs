@@ -1,0 +1,12 @@
+{
+  "sessions": [],
+  "totalStudyTime": 0,
+  "categoryProgress": {},
+  "lastUpdated": "2025-09-18T06:56:44.528Z",
+  "lastAnalysis": {
+    "date": "2025-09-18T06:56:44.511Z",
+    "totalDocuments": 21,
+    "imbalanceCount": 5,
+    "recommendationCount": 6
+  }
+}
