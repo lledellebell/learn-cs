@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "Computer Science learning materials with private content management",
   "scripts": {
-    "private:status": "node scripts/manage-private-content.js status",
-    "private:update": "node scripts/manage-private-content.js update",
-    "private:commit": "node scripts/manage-private-content.js commit",
-    "setup:submodule": "./scripts/setup-submodule.sh",
+    "docs:update": "node scripts/generate-navigation.js && node scripts/update-readme.js",
+    "nav:generate": "node scripts/generate-navigation.js",
     "nav:update": "node scripts/update-readme.js",
-    "docs:update": "npm run nav:update",
-    "docs:full-update": "npm run docs:update",
+    "search": "node scripts/search.js",
     "stats": "node scripts/stats.js",
-    "search": "node scripts/search.js"
+    "balance": "node scripts/learning-balance.js",
+    "learning:check": "node scripts/learning-balance.js",
+    "docs:validate": "node scripts/validate-documents.js",
+    "docs:hook": "node scripts/auto-commit-hook.js",
+    "docs:full-update": "npm run docs:update && npm run docs:validate"
   },
   "repository": {
     "type": "git",
