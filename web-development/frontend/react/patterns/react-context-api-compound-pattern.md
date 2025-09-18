@@ -1,8 +1,6 @@
 # `Context API`를 활용한 `Compound Pattern` 구현
 
-React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.
-
-## `Context API`란?
+> React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.
 
 `Context`는 컴포넌트 트리에서 데이터를 전역적으로 공유할 수 있게 해주는 React의 기능입니다. 
 `prop drilling` 없이 깊은 컴포넌트 계층에 데이터를 전달할 수 있습니다.
