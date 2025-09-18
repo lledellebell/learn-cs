@@ -9,7 +9,11 @@
     "setup:submodule": "./scripts/setup-submodule.sh",
     "nav:generate": "node scripts/generate-navigation.js",
     "nav:update": "node scripts/update-readme.js",
-    "docs:update": "npm run nav:update"
+    "docs:update": "npm run nav:update",
+    "docs:validate": "node scripts/validate-documents.js",
+    "docs:check": "node scripts/simple-docs-check.js",
+    "docs:hook": "node scripts/auto-commit-hook.js",
+    "docs:full-update": "npm run docs:update && npm run docs:check"
   },
   "repository": {
     "type": "git",
