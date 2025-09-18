@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * 네비게이션 자동 생성 스크립트
- * 프로젝트 내 모든 마크다운 문서를 스캔하여 카테고리별로 정리된 네비게이션을 생성합니다.
+ * 목차 자동 생성 스크립트
+ * 프로젝트 내 모든 마크다운 문서를 스캔하여 카테고리별로 정리된 목차을 생성합니다.
  */
 
 class NavigationGenerator {
@@ -200,7 +200,7 @@ class NavigationGenerator {
     return new Date(date) > threeDaysAgo;
   }
 
-  // 네비게이션 마크다운 생성
+  // 목차 마크다운 생성
   generateNavigationMarkdown() {
     const categories = this.groupByCategory();
     const totalDocs = this.documents.length;
@@ -413,10 +413,10 @@ if (require.main === module) {
     console.log(`  ${category.title}: ${category.count}개`);
   }
   
-  // 네비게이션을 파일로 저장
+  // 목차을 파일로 저장
   const outputPath = path.join(__dirname, '..', 'NAVIGATION.md');
   fs.writeFileSync(outputPath, navigation);
-  console.log(`\n✅ 네비게이션이 ${outputPath}에 생성되었습니다.`);
+  console.log(`\n✅ 목차가 ${outputPath}에 생성되었습니다.`);
   
   // README.md 업데이트도 제공
   console.log('\n📄 README.md 업데이트를 위해 다음 명령어를 실행하세요:');

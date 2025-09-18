@@ -6,7 +6,7 @@ const NavigationGenerator = require('./generate-navigation');
 
 /**
  * README.md 자동 업데이트 스크립트
- * 네비게이션 섹션을 자동으로 생성하고 README.md에 삽입합니다.
+ * 목차 섹션을 자동으로 생성하고 README.md에 삽입합니다.
  */
 
 class ReadmeUpdater {
@@ -24,11 +24,11 @@ class ReadmeUpdater {
     return fs.readFileSync(this.readmePath, 'utf8');
   }
 
-  // 네비게이션 섹션 생성
+  // 목차 섹션 생성
   generateNavigationSection() {
     const { navigation, stats } = this.generator.run();
     
-    // 간소화된 네비게이션 (README용)
+    // 간소화된 목차 (README용)
     const categories = this.generator.groupByCategory();
     let quickNav = `## 목차\n\n`;
     quickNav += `> **총 ${stats.totalDocuments}개의 문서** | 마지막 업데이트: ${new Date().toLocaleDateString('ko-KR')}\n\n`;
@@ -101,11 +101,11 @@ class ReadmeUpdater {
     const currentContent = this.readCurrentReadme();
     const navigationSection = this.generateNavigationSection();
     
-    // 네비게이션 섹션 마커
+    // 목차 섹션 마커
     const startMarker = '<!-- NAVIGATION_START -->';
     const endMarker = '<!-- NAVIGATION_END -->';
     
-    // 기존 네비게이션 섹션이 있는지 확인
+    // 기존 목차 섹션이 있는지 확인
     const startIndex = currentContent.indexOf(startMarker);
     const endIndex = currentContent.indexOf(endMarker);
     
@@ -117,7 +117,7 @@ class ReadmeUpdater {
                   '\n\n' + navigationSection +
                   currentContent.substring(endIndex);
     } else {
-      // 목차 섹션 뒤에 네비게이션 추가
+      // 목차 섹션 뒤에 목차 추가
       const tocEndPattern = /## 목차[\s\S]*?(?=\n## )/;
       const match = currentContent.match(tocEndPattern);
       
