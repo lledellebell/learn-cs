@@ -1,0 +1,49 @@
+name: Documentation Update
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**.md'
+      - 'scripts/**'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - '**.md'
+      - 'scripts/**'
+  schedule:
+    # 매주 월요일 오전 9시 (UTC)에 실행
+    - cron: '0 9 * * 1'
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+        
+    - name: Update navigation if needed
+      run: |
+        npm run docs:update
+        if [ -n "$(git diff --name-only)" ]; then
+          echo "Navigation files were updated"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md NAVIGATION.md
+          git commit -m "docs: auto-update navigation [skip ci]" || exit 0
+          git push
+        else
+          echo "No navigation updates needed"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
