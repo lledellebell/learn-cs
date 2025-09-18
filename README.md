@@ -7,12 +7,12 @@
 <div align="center">
 
 <!-- 프로젝트 상태 -->
-![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025--08--27-blue)
+![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025-09-18-blue)
 ![Status](https://img.shields.io/badge/상태-진행%20중-success)
 ![Progress](https://img.shields.io/badge/학습진행도-1%25-yellow)
 
 <!-- 콘텐츠 정보 -->
-![Topics](https://img.shields.io/badge/주제-7개-brightgreen)
+![Topics](https://img.shields.io/badge/주제-4개-brightgreen)
 ![Language](https://img.shields.io/badge/언어-한국어-orange)
 ![Code Examples](https://img.shields.io/badge/코드예제-포함-informational)
 
@@ -29,16 +29,74 @@
 <p>이 저장소는 컴퓨터 과학(CS) 개념과 기술을 학습하고 기록하기 위한 공간입니다.</p>
 </div>
 
+<!-- NAVIGATION_START -->
+
 ## 목차
 
-- [알고리즘 (Algorithms)](/algorithms/): 알고리즘 설계, 분석 및 구현
-- [자료구조 (Data Structures)](/data-structures/): 기본 및 자료구조
-- [프로그래밍 언어 (Languages)](/languages/): 언어별 핵심 개념과 패러다임
-- [네트워킹 (Networking)](/networking/): 네트워크 프로토콜, HTTP, TCP/IP 등
-- [운영체제 (Operating Systems)](/operating-systems/): OS 개념, 프로세스, 스레드, 메모리 관리
-- [데이터베이스 (Databases)](/databases/): SQL, NoSQL, 데이터 모델링, 쿼리 최적화
-- [웹 개발 (Web Development)](/web-development/): 프론트엔드, 백엔드, 툴
-- [보안 (Security)](/security/): 암호화, 인증, 권한 부여, 웹 보안
+> **총 19개의 문서** | 마지막 업데이트: 2025. 9. 18.
+
+### 카테고리
+
+- **[알고리즘 (Algorithms)](#algorithms)** (1개 문서)
+- **[프로그래밍 언어 (Languages)](#languages)** (5개 문서)
+- **[네트워킹 (Networking)](#networking)** (1개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (12개 문서)
+
+### 최근 추가된 문서
+
+- **[CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)**
+- **[웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)**
+- **[React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)**
+- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
+- **[React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md)**
+
+### 전체 목차
+
+모든 문서의 상세한 목록과 설명은 <u><b>[NAVIGATION.md](./NAVIGATION.md)</b></u>에서 확인하실 수 있습니다.
+
+<details>
+<summary><strong>알고리즘 (Algorithms)</strong> (1개)</summary>
+
+- [메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)
+
+</details>
+
+<details>
+<summary><strong>프로그래밍 언어 (Languages)</strong> (5개)</summary>
+
+- [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md)
+- [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)
+- [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
+- [Get Return Type](/languages/typescript/get_return_type.md)
+- [메타프로그래밍(Metaprogramming)](/languages/typescript/metaprogramming-concept.md)
+
+</details>
+
+<details>
+<summary><strong>네트워킹 (Networking)</strong> (1개)</summary>
+
+- [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md)
+
+</details>
+
+<details>
+<summary><strong>웹 개발 (Web Development)</strong> (12개)</summary>
+
+- [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
+- [CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
+- [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
+- [(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
+- [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
+- [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
+- [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
+- [React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)
+- [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md)
+- [`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md)
+- ... 그 외 2개 문서
+
+</details>
+
+<!-- NAVIGATION_END -->
 
 ## 학습 방법
 
@@ -54,10 +112,10 @@
 
 ## 학습 계획
 
-- [ ] **기초 개념 학습**: 각 분야의 핵심 개념과 이론 학습
-- [ ] **실습 프로젝트**: 학습한 개념을 적용한 소규모 프로젝트 구현
-- [ ] **심화 학습**: 다양한 주제와 알고리즘 탐구
-- [ ] **종합 프로젝트**: 여러 분야를 통합한 프로젝트 개발
+- [x] **기초 개념 학습**: 각 분야의 핵심 개념과 이론 학습
+- [x] **실습 프로젝트**: 학습한 개념을 적용한 소규모 프로젝트 구현
+- [x] **심화 학습**: 다양한 주제와 알고리즘 탐구
+- [x] **종합 프로젝트**: 여러 분야를 통합한 프로젝트 개발
 
 ## 학습 자료
 
