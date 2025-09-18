@@ -7,9 +7,11 @@
     "private:update": "node scripts/manage-private-content.js update",
     "private:commit": "node scripts/manage-private-content.js commit",
     "setup:submodule": "./scripts/setup-submodule.sh",
-    "nav:generate": "node scripts/generate-navigation.js",
     "nav:update": "node scripts/update-readme.js",
-    "docs:update": "npm run nav:update"
+    "docs:update": "npm run nav:update",
+    "docs:full-update": "npm run docs:update",
+    "stats": "node scripts/stats.js",
+    "search": "node scripts/search.js"
   },
   "repository": {
     "type": "git",
