@@ -41,9 +41,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add README.md NAVIGATION.md
           git commit -m "docs: auto-update navigation [skip ci]" || exit 0
-          git push
         else
           echo "No navigation updates needed"
         fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
