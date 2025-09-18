@@ -49,7 +49,7 @@ echo "🔗 메인 저장소에 submodule을 추가합니다..."
 git submodule add "$repo_url" private
 
 # 5. .gitmodules 파일 확인
-echo "📄 .gitmodules 파일이 생성되었습니다:"
+echo "📄 .gitmodules 파일이 생성되었습니다."
 cat .gitmodules
 
 # 6. 사용법 안내
