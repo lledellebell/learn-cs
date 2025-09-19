@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 19개의 문서**(마지막 업데이트 정보: 2025년 9월 18일 오후 03:23)
+> **총 20개의 문서**(마지막 업데이트 정보: 2025년 9월 19일 오전 10:46)
 
 > 최근 수정된 문서:
->- **CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지** (2025년 9월 18일)
+>- **Prisma ORM 가이드** (2025년 9월 19일)
 
 ### 알고리즘 (Algorithms)
 
@@ -11,7 +11,7 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
-| [메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md) | 2025년 9월 16일 | 2025년 9월 18일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md) | 2025년 9월 16일 | 2025년 9월 19일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 
 ### 프로그래밍 언어 (Languages)
 
@@ -38,7 +38,15 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
-| [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md) | 2025년 9월 16일 | 2025년 9월 16일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md) | 2025년 9월 16일 | 2025년 9월 16일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+### 데이터베이스 (Databases)
+
+SQL, NoSQL, 데이터 모델링, 쿼리 최적화
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Prisma ORM 가이드](/databases/prisma-orm-guide.md) | 2025년 9월 19일 | 2025년 9월 19일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 
 ### 웹 개발 (Web Development)
 
@@ -76,12 +84,13 @@
 | 프로그래밍 언어 (Languages) | 5개 |
 | 알고리즘 (Algorithms) | 1개 |
 | 네트워킹 (Networking) | 1개 |
+| 데이터베이스 (Databases) | 1개 |
 
 ### 최근 수정된 문서
 
+1. **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)** - 2025년 9월 19일
+1. **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)** - 2025년 9월 19일
 1. **[CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)** - 2025년 9월 18일
 1. **[웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)** - 2025년 9월 18일
 1. **[React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)** - 2025년 9월 18일
-1. **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)** - 2025년 9월 18일
-1. **[React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md)** - 2025년 9월 18일
 
