@@ -616,43 +616,255 @@ const postsByUser = await prisma.post.groupBy({
 ## 쿼리 패턴
 
 ### 1. 트랜잭션 처리
+
+트랜잭션은 **여러 데이터베이스 작업을 하나의 단위로 묶어서 처리**하는 기능입니다. 모든 작업이 성공하거나, 하나라도 실패하면 전체를 취소(롤백)합니다.
+
+#### 왜 트랜잭션이 필요한가?
+
+**문제 상황:**
 ```typescript
-// 순차 트랜잭션
+// ❌ 트랜잭션 없이 송금 처리
+async function transferMoney(senderId, receiverId, amount) {
+  // 1단계: 송금자 계좌에서 차감
+  await prisma.account.update({
+    where: { id: senderId },
+    data: { balance: { decrement: amount } }
+  });
+  
+  // 💥 여기서 서버가 다운되면?
+  // 송금자 돈은 차감됐는데 수신자는 받지 못함!
+  
+  // 2단계: 수신자 계좌에 추가
+  await prisma.account.update({
+    where: { id: receiverId },
+    data: { balance: { increment: amount } }
+  });
+}
+```
+
+#### 순차 트랜잭션 (Interactive Transaction)
+모든 작업을 하나의 트랜잭션으로 묶어서 안전하게 처리
+
+```typescript
+// ✅ 트랜잭션으로 안전한 송금 처리
 const transferMoney = await prisma.$transaction(async (tx) => {
-  // 송금자 계좌에서 차감
+  // 1단계: 송금자 계좌에서 차감
   const sender = await tx.account.update({
     where: { id: senderId },
     data: { balance: { decrement: amount } }
   });
 
+  // 잔액 검증
   if (sender.balance < 0) {
-    throw new Error('잔액 부족');
+    throw new Error('잔액 부족'); // 전체 트랜잭션 롤백
   }
 
-  // 수신자 계좌에 추가
-  await tx.account.update({
+  // 2단계: 수신자 계좌에 추가
+  const receiver = await tx.account.update({
     where: { id: receiverId },
     data: { balance: { increment: amount } }
   });
 
-  // 거래 기록 생성
-  return tx.transaction.create({
+  // 3단계: 거래 기록 생성
+  const transactionRecord = await tx.transaction.create({
     data: {
       senderId,
       receiverId,
       amount,
-      type: 'TRANSFER'
+      type: 'TRANSFER',
+      timestamp: new Date()
     }
   });
+
+  return { sender, receiver, transactionRecord };
 });
 
-// 배치 트랜잭션
-const batchOperations = await prisma.$transaction([
-  prisma.user.create({ data: { email: 'user1@example.com' } }),
-  prisma.user.create({ data: { email: 'user2@example.com' } }),
-  prisma.post.deleteMany({ where: { published: false } })
-]);
+console.log('송금 완료:', transferMoney);
 ```
+
+**트랜잭션의 특징:**
+- **원자성(Atomicity)**: 모든 작업이 성공하거나 모두 실패
+- **일관성(Consistency)**: 데이터베이스 규칙 유지
+- **격리성(Isolation)**: 다른 트랜잭션과 독립적 실행
+- **지속성(Durability)**: 성공한 변경사항은 영구 저장
+
+#### 배치 트랜잭션 (Batch Transaction)
+여러 독립적인 작업을 한 번에 실행
+
+```typescript
+// 여러 작업을 배치로 처리
+const batchOperations = await prisma.$transaction([
+  // 새 사용자 생성
+  prisma.user.create({ 
+    data: { email: 'user1@example.com', name: 'User 1' } 
+  }),
+  prisma.user.create({ 
+    data: { email: 'user2@example.com', name: 'User 2' } 
+  }),
+  
+  // 미발행 게시글 삭제
+  prisma.post.deleteMany({ 
+    where: { published: false } 
+  }),
+  
+  // 카테고리 업데이트
+  prisma.category.update({
+    where: { id: 1 },
+    data: { name: '업데이트된 카테고리' }
+  })
+]);
+
+console.log('배치 작업 결과:', batchOperations);
+```
+
+#### 트랜잭션 타임아웃 설정
+
+트랜잭션이 너무 오래 실행되면 **데이터베이스 리소스를 독점**하고 **다른 요청을 차단**할 수 있습니다.
+
+**문제 상황:**
+```typescript
+// ❌ 타임아웃 없는 위험한 트랜잭션
+const result = await prisma.$transaction(async (tx) => {
+  // 수백만 개의 레코드 처리 - 매우 오래 걸림
+  const allUsers = await tx.user.findMany(); // 10만 개 사용자
+  
+  for (const user of allUsers) {
+    await tx.post.create({
+      data: { title: `${user.name}의 게시글`, authorId: user.id }
+    }); // 각각 개별 쿼리 - 매우 비효율적
+  }
+  
+  // 💥 이 트랜잭션이 30분 동안 실행되면?
+  // - 데이터베이스 연결 고갈
+  // - 다른 사용자 요청 차단
+  // - 메모리 부족
+});
+```
+
+**해결책: 타임아웃 설정**
+```typescript
+// ✅ 안전한 타임아웃 설정
+const result = await prisma.$transaction(
+  async (tx) => {
+    // 효율적인 배치 처리
+    const users = await tx.user.findMany({ take: 1000 }); // 1000개씩 제한
+    
+    const posts = await tx.post.createMany({
+      data: users.map(user => ({
+        title: `${user.name}의 게시글`,
+        authorId: user.id
+      }))
+    }); // 한 번에 배치 처리
+    
+    return { users, posts };
+  },
+  {
+    maxWait: 5000,   // 5초 내에 트랜잭션 시작 못하면 에러
+    timeout: 10000,  // 10초 내에 완료 못하면 롤백
+  }
+);
+```
+
+**타임아웃 설정의 이유:**
+
+1. **리소스 보호**
+   - 데이터베이스 연결 풀 고갈 방지
+   - 메모리 사용량 제한
+
+2. **성능 보장**
+   - 다른 사용자 요청 차단 방지
+   - 시스템 전체 응답성 유지
+
+3. **장애 방지**
+   - 무한 대기 상황 방지
+   - 데드락 상황에서 자동 복구
+
+**실제 사용 예시:**
+```typescript
+try {
+  const result = await prisma.$transaction(
+    async (tx) => {
+      // 복잡한 비즈니스 로직
+      return await processLargeDataset(tx);
+    },
+    {
+      maxWait: 2000,   // 2초 내에 시작
+      timeout: 30000,  // 30초 내에 완료
+    }
+  );
+} catch (error) {
+  if (error.code === 'P2028') {
+    console.log('트랜잭션 타임아웃 발생');
+    // 재시도 로직 또는 에러 처리
+  }
+}
+```
+
+#### 실제 사용 사례들
+
+**1. 주문 처리 시스템:**
+```typescript
+const processOrder = await prisma.$transaction(async (tx) => {
+  // 재고 확인 및 차감
+  const product = await tx.product.update({
+    where: { id: productId },
+    data: { stock: { decrement: quantity } }
+  });
+  
+  if (product.stock < 0) {
+    throw new Error('재고 부족');
+  }
+  
+  // 주문 생성
+  const order = await tx.order.create({
+    data: { userId, productId, quantity, total: product.price * quantity }
+  });
+  
+  // 결제 처리
+  const payment = await tx.payment.create({
+    data: { orderId: order.id, amount: order.total, status: 'COMPLETED' }
+  });
+  
+  return { order, payment, product };
+});
+```
+
+**2. 게시글 좋아요 토글:**
+```typescript
+const toggleLike = await prisma.$transaction(async (tx) => {
+  // 기존 좋아요 확인
+  const existingLike = await tx.like.findUnique({
+    where: { userId_postId: { userId, postId } }
+  });
+  
+  if (existingLike) {
+    // 좋아요 취소
+    await tx.like.delete({
+      where: { id: existingLike.id }
+    });
+    
+    await tx.post.update({
+      where: { id: postId },
+      data: { likeCount: { decrement: 1 } }
+    });
+    
+    return { action: 'unliked' };
+  } else {
+    // 좋아요 추가
+    await tx.like.create({
+      data: { userId, postId }
+    });
+    
+    await tx.post.update({
+      where: { id: postId },
+      data: { likeCount: { increment: 1 } }
+    });
+    
+    return { action: 'liked' };
+  }
+});
+```
+
 
 ### 2. Raw 쿼리 사용
 ```typescript
