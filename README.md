@@ -7,12 +7,12 @@
 <div align="center">
 
 <!-- 프로젝트 상태 -->
-![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025-09-18-blue)
+![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025-09-19-blue)
 ![Status](https://img.shields.io/badge/상태-진행%20중-success)
 ![Progress](https://img.shields.io/badge/학습진행도-1%25-yellow)
 
 <!-- 콘텐츠 정보 -->
-![Topics](https://img.shields.io/badge/주제-4개-brightgreen)
+![Topics](https://img.shields.io/badge/주제-5개-brightgreen)
 ![Language](https://img.shields.io/badge/언어-한국어-orange)
 ![Code Examples](https://img.shields.io/badge/코드예제-포함-informational)
 
@@ -33,22 +33,23 @@
 
 ## 목차
 
-> **총 19개의 문서** | 마지막 업데이트: 2025. 9. 18.
+> **총 20개의 문서** | 마지막 업데이트: 2025. 9. 19.
 
 ### 카테고리
 
 - **[알고리즘 (Algorithms)](#algorithms)** (1개 문서)
 - **[프로그래밍 언어 (Languages)](#languages)** (5개 문서)
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
+- **[데이터베이스 (Databases)](#databases)** (1개 문서)
 - **[웹 개발 (Web Development)](#webdevelopment)** (12개 문서)
 
 ### 최근 추가된 문서
 
+- **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)**
+- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
 - **[CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)**
 - **[웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)**
 - **[React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)**
-- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
-- **[React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md)**
 
 ### 전체 목차
 
@@ -76,6 +77,13 @@
 <summary><strong>네트워킹 (Networking)</strong> (1개)</summary>
 
 - [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md)
+
+</details>
+
+<details>
+<summary><strong>데이터베이스 (Databases)</strong> (1개)</summary>
+
+- [Prisma ORM 가이드](/databases/prisma-orm-guide.md)
 
 </details>
 

@@ -10,9 +10,8 @@
     "stats": "node scripts/stats.js",
     "balance": "node scripts/learning-balance.js",
     "learning:check": "node scripts/learning-balance.js",
-    "docs:validate": "node scripts/validate-documents.js",
     "docs:hook": "node scripts/auto-commit-hook.js",
-    "docs:full-update": "npm run docs:update && npm run docs:validate"
+    "docs:full-update": "npm run docs:update"
   },
   "repository": {
     "type": "git",
