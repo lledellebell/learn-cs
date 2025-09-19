@@ -17,6 +17,9 @@
 
 Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가 데이터베이스와 상호작용할 때 겪는 다음과 같은 문제들을 해결합니다.
 
+> **ORM이란?**<br/>
+> ORM(Object-Relational Mapping)은 객체 지향 프로그래밍(Object-Oriented Programming)에서 관계형 데이터베이스 관리 시스템(Relational Database Management System)을 사용하여 데이터를 관리하는 방법입니다.
+
 ### 기존 데이터베이스 작업의 문제점
 - **타입 안전성 부족**: SQL 쿼리나 기존 ORM에서 런타임 에러 발생
 - **복잡한 설정**: 데이터베이스 연결, 마이그레이션, 스키마 관리의 복잡성
@@ -28,10 +31,30 @@ Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapp
 Prisma는 이러한 문제들을 다음 4가지 핵심 도구로 해결합니다.
 
 ### 구성요소
-- **Prisma Schema**: 데이터베이스 스키마를 선언적으로 정의
-- **Prisma Client**: 타입 안전한 데이터베이스 클라이언트 자동 생성
-- **Prisma Migrate**: 데이터베이스 마이그레이션 도구
-- **Prisma Studio**: 데이터베이스 GUI 관리 도구
+- **Prisma Schema**: 데이터베이스 스키마를 `.prisma` 파일로 정의 (코드)
+- **Prisma Client**: 타입 안전한 데이터베이스 클라이언트 자동 생성 (코드)
+- **Prisma Migrate**: 데이터베이스 마이그레이션 도구 (CLI 명령어)
+- **Prisma Studio**: 데이터베이스 GUI 관리 도구 (웹 인터페이스)
+
+
+### [Prisma Studio](https://www.prisma.io/studio)
+Prisma의 GUI 인터페이스입니다.
+
+![Prisma Studio](https://cdn.sanity.io/images/p2zxqf70/production/a9526606e3bd3ac55fe881d9a94e4725d33225a0-881x533.svg)
+
+[출처](https://cdn.sanity.io)
+
+```bash
+# Prisma Studio 실행
+npx prisma studio
+```
+
+브라우저에서 `http://localhost:5555`로 접속하면:
+- 테이블 데이터 조회/편집
+- 관계 데이터 시각화
+- 실시간 데이터베이스 탐색
+
+또는 [Prisma VSCode Extension](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)을 사용하여 Prisma Studio를 실행할 수 있습니다.
 
 ### 주요 장점
 ```typescript
@@ -52,14 +75,39 @@ const user = await prisma.user.findUnique({
 
 ## 개념
 
-### 1. 스키마 우선 개발 (Schema-First)
+### 1. 선언적 vs 명령적 접근법
+Prisma는 **"무엇을 원하는지"만 정의**하면, **"어떻게 할지"는 Prisma가 알아서 처리**합니다.
+
+#### 명령적(Imperative) 방식 - 단계별 명령
+```typescript
+// "어떻게 할지"를 단계별로 명령
+// 1단계: 테이블 생성
+await db.query(`CREATE TABLE users (...)`);
+await db.query(`CREATE TABLE posts (...)`);
+
+// 2단계: 인덱스 생성
+await db.query(`CREATE INDEX idx_user_email ON users(email)`);
+
+// 3단계: 외래키 제약조건 추가
+await db.query(`ALTER TABLE posts ADD CONSTRAINT fk_author ...`);
+
+// 4단계: 데이터 조회 (복잡한 JOIN)
+await db.query(`
+  SELECT u.*, p.title 
+  FROM users u 
+  LEFT JOIN posts p ON u.id = p.author_id 
+  WHERE u.email = ?
+`);
+```
+
+#### 선언적(Declarative) 방식 - 결과만 정의
 ```prisma
-// schema.prisma
+// "무엇을 원하는지"만 선언
 model User {
   id    Int     @id @default(autoincrement())
-  email String  @unique
+  email String  @unique  // 자동으로 인덱스 생성됨
   name  String?
-  posts Post[]
+  posts Post[]           // 자동으로 관계 설정됨
 }
 
 model Post {
@@ -67,34 +115,252 @@ model Post {
   title    String
   content  String?
   author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
+  authorId Int    // 자동으로 외래키 제약조건 생성됨
 }
 ```
 
+```typescript
+// 복잡한 JOIN도 간단하게
+const user = await prisma.user.findUnique({
+  where: { email },
+  include: { posts: true }  // Prisma가 자동으로 JOIN 처리
+});
+```
+
+**선언적 접근법의 장점:**
+- **추상화**: 복잡한 SQL 작성 불필요
+- **자동화**: 인덱스, 제약조건 자동 생성
+- **일관성**: 항상 같은 방식으로 동작
+- **안전성**: 타입 체크와 관계 검증 자동화
+
 ### 2. 관계형 데이터 모델링
+
+Prisma에서 테이블 간의 관계를 정의하는 방법을 살펴보겠습니다.
+
+#### 일대다 관계 (1:N)
+한 사용자가 여러 게시글을 작성할 수 있는 관계입니다.
+
 ```prisma
-// 일대다 관계
 model User {
   id    Int    @id @default(autoincrement())
-  posts Post[] // 한 사용자가 여러 게시글
+  email String @unique
+  name  String
+  posts Post[] // 배열로 표현 = "여러 개"
 }
 
 model Post {
-  id       Int  @id @default(autoincrement())
-  author   User @relation(fields: [authorId], references: [id])
-  authorId Int
+  id       Int    @id @default(autoincrement())
+  title    String
+  content  String
+  // 관계 정의: Post는 하나의 User에 속함
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int    // 외래키 필드
+}
+```
+
+**실제 생성되는 SQL:**
+```sql
+CREATE TABLE "User" (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE "Post" (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  "authorId" INTEGER NOT NULL,
+  FOREIGN KEY ("authorId") REFERENCES "User"(id)
+);
+```
+
+**사용 예시:**
+```typescript
+// 사용자와 그의 모든 게시글 조회
+const userWithPosts = await prisma.user.findUnique({
+  where: { id: 1 },
+  include: { posts: true }
+});
+
+// 게시글과 작성자 정보 조회
+const postWithAuthor = await prisma.post.findUnique({
+  where: { id: 1 },
+  include: { author: true }
+});
+```
+
+#### 일대일 관계 (1:1)
+한 사용자가 하나의 프로필을 가지는 관계입니다.
+
+```prisma
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  profile Profile? // ?는 선택적 관계 (nullable)
 }
 
-// 다대다 관계
+model Profile {
+  id     Int    @id @default(autoincrement())
+  bio    String?
+  avatar String?
+  // 일대일 관계: Profile은 하나의 User에만 속함
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int    @unique // @unique가 중요! 일대일 보장
+}
+```
+
+**사용 예시:**
+```typescript
+// 사용자 생성과 동시에 프로필 생성
+const user = await prisma.user.create({
+  data: {
+    email: "john@example.com",
+    profile: {
+      create: {
+        bio: "개발자입니다",
+        avatar: "avatar.jpg"
+      }
+    }
+  },
+  include: { profile: true }
+});
+```
+
+#### 다대다 관계 (N:M)
+게시글이 여러 카테고리에 속하고, 카테고리도 여러 게시글을 가질 수 있는 관계입니다.
+
+```prisma
 model Post {
   id         Int        @id @default(autoincrement())
-  categories Category[]
+  title      String
+  categories Category[] // 여러 카테고리
 }
 
 model Category {
   id    Int    @id @default(autoincrement())
-  posts Post[]
+  name  String @unique
+  posts Post[] // 여러 게시글
 }
+```
+
+**실제 생성되는 SQL (중간 테이블 자동 생성):**
+```sql
+CREATE TABLE "Post" (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE "Category" (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) UNIQUE NOT NULL
+);
+
+-- Prisma가 자동으로 생성하는 중간 테이블
+CREATE TABLE "_CategoryToPost" (
+  "A" INTEGER NOT NULL REFERENCES "Category"(id),
+  "B" INTEGER NOT NULL REFERENCES "Post"(id)
+);
+```
+
+**사용 예시:**
+```typescript
+// 게시글 생성과 동시에 카테고리 연결
+const post = await prisma.post.create({
+  data: {
+    title: "Prisma 가이드",
+    categories: {
+      connect: [
+        { id: 1 }, // 기존 카테고리 연결
+        { id: 2 }
+      ],
+      create: [
+        { name: "새 카테고리" } // 새 카테고리 생성 후 연결
+      ]
+    }
+  },
+  include: { categories: true }
+});
+```
+
+#### 명시적 다대다 관계 (중간 테이블 커스터마이징)
+중간 테이블에 추가 필드가 필요한 경우:
+
+```prisma
+model User {
+  id            Int            @id @default(autoincrement())
+  email         String         @unique
+  postLikes     PostLike[]     // 중간 테이블을 통한 관계
+}
+
+model Post {
+  id        Int        @id @default(autoincrement())
+  title     String
+  userLikes PostLike[] // 중간 테이블을 통한 관계
+}
+
+// 중간 테이블을 명시적으로 정의
+model PostLike {
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
+  likedAt   DateTime @default(now()) // 추가 필드
+  
+  @@id([userId, postId]) // 복합 기본키
+}
+```
+
+**사용 예시:**
+```typescript
+// 좋아요 추가 (시간 정보 포함)
+const like = await prisma.postLike.create({
+  data: {
+    userId: 1,
+    postId: 5
+  }
+});
+
+// 사용자가 좋아요한 게시글과 시간 조회
+const userLikes = await prisma.user.findUnique({
+  where: { id: 1 },
+  include: {
+    postLikes: {
+      include: { post: true },
+      orderBy: { likedAt: 'desc' }
+    }
+  }
+});
+```
+
+#### 자기 참조 관계 (Self-Relation)
+댓글의 대댓글처럼 같은 테이블 내에서의 관계:
+
+```prisma
+model Comment {
+  id        Int       @id @default(autoincrement())
+  content   String
+  // 부모 댓글 (선택적)
+  parent    Comment?  @relation("CommentReplies", fields: [parentId], references: [id])
+  parentId  Int?
+  // 자식 댓글들
+  replies   Comment[] @relation("CommentReplies")
+}
+```
+
+**사용 예시:**
+```typescript
+// 댓글과 모든 대댓글 조회
+const commentWithReplies = await prisma.comment.findUnique({
+  where: { id: 1 },
+  include: {
+    replies: {
+      include: {
+        replies: true // 대댓글의 대댓글까지
+      }
+    }
+  }
+});
 ```
 
 ## 설치 및 설정
