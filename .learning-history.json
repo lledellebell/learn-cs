@@ -2,11 +2,11 @@
   "sessions": [],
   "totalStudyTime": 0,
   "categoryProgress": {},
-  "lastUpdated": "2025-09-19T01:19:56.492Z",
+  "lastUpdated": "2025-09-22T06:50:02.397Z",
   "lastAnalysis": {
-    "date": "2025-09-19T01:19:56.491Z",
-    "totalDocuments": 21,
+    "date": "2025-09-22T06:50:02.396Z",
+    "totalDocuments": 2118,
     "imbalanceCount": 5,
-    "recommendationCount": 6
+    "recommendationCount": 5
   }
 }
