@@ -7,7 +7,7 @@
 <div align="center">
 
 <!-- 프로젝트 상태 -->
-![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025-09-19-blue)
+![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025-10-01-blue)
 ![Status](https://img.shields.io/badge/상태-진행%20중-success)
 ![Progress](https://img.shields.io/badge/학습진행도-1%25-yellow)
 
@@ -33,23 +33,23 @@
 
 ## 목차
 
-> **총 20개의 문서** | 마지막 업데이트: 2025. 9. 19.
+> **총 29개의 문서** | 마지막 업데이트: 2025. 10. 1.
 
 ### 카테고리
 
 - **[알고리즘 (Algorithms)](#algorithms)** (1개 문서)
-- **[프로그래밍 언어 (Languages)](#languages)** (5개 문서)
+- **[프로그래밍 언어 (Languages)](#languages)** (11개 문서)
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (12개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (15개 문서)
 
 ### 최근 추가된 문서
 
-- **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)**
-- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
-- **[CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)**
-- **[웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)**
-- **[React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)**
+- **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)**
+- **[## 참조](/web-development/frontend/css/object-position_&_object-fit.md)**
+- **[this](/languages/javascript/this.md)**
+- **[mask-composite](/web-development/frontend/css/mask-composite.md)**
+- **[factory_pattern](/languages/javascript/factory_pattern.md)**
 
 ### 전체 목차
 
@@ -63,13 +63,19 @@
 </details>
 
 <details>
-<summary><strong>프로그래밍 언어 (Languages)</strong> (5개)</summary>
+<summary><strong>프로그래밍 언어 (Languages)</strong> (11개)</summary>
 
+- [callback](/languages/javascript/callback.md)
+- [factory_pattern](/languages/javascript/factory_pattern.md)
 - [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md)
+- [instance](/languages/javascript/instance.md)
 - [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
+- [prototype](/languages/javascript/prototype.md)
+- [prototype_chain](/languages/javascript/prototype_chain.md)
+- [this](/languages/javascript/this.md)
 - [Get Return Type](/languages/typescript/get_return_type.md)
-- [메타프로그래밍(Metaprogramming)](/languages/typescript/metaprogramming-concept.md)
+- ... 그 외 1개 문서
 
 </details>
 
@@ -88,9 +94,11 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (12개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (15개)</summary>
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
+- [mask-composite](/web-development/frontend/css/mask-composite.md)
+- [## 참조](/web-development/frontend/css/object-position_&_object-fit.md)
 - [CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
 - [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
 - [(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
@@ -98,9 +106,7 @@
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
 - [React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)
-- [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md)
-- [`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md)
-- ... 그 외 2개 문서
+- ... 그 외 5개 문서
 
 </details>
 
