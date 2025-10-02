@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 30개의 문서**(마지막 업데이트 정보: 2025년 10월 2일 오후 04:20)
+> **총 31개의 문서**(마지막 업데이트 정보: 2025년 10월 2일 오후 05:13)
 
 > 최근 수정된 문서:
->- **인스턴스 (Instance)** (2025년 10월 2일)
+>- **JavaScript 네이밍 컨벤션: Public vs Private** (2025년 10월 2일)
 
 ### 알고리즘 (Algorithms)
 
@@ -21,6 +21,7 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [인스턴스 (Instance)](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [prototype](/languages/javascript/prototype.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
@@ -91,16 +92,16 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | 카테고리 | 문서 수 |
 |----------|--------|
 | 웹 개발 (Web Development) | 16개 |
-| 프로그래밍 언어 (Languages) | 11개 |
+| 프로그래밍 언어 (Languages) | 12개 |
 | 알고리즘 (Algorithms) | 1개 |
 | 네트워킹 (Networking) | 1개 |
 | 데이터베이스 (Databases) | 1개 |
 
 ### 최근 수정된 문서
 
+1. **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)** - 2025년 10월 2일
 1. **[인스턴스 (Instance)](/languages/javascript/instance.md)** - 2025년 10월 2일
 1. **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)** - 2025년 10월 2일
 1. **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)** - 2025년 10월 2일
 1. **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)** - 2025년 10월 2일
-1. **[`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md)** - 2025년 10월 2일
 
