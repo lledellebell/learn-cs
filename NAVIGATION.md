@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 30개의 문서**(마지막 업데이트 정보: 2025년 10월 2일 오후 03:33)
+> **총 30개의 문서**(마지막 업데이트 정보: 2025년 10월 2일 오후 04:20)
 
 > 최근 수정된 문서:
->- **HTML 새니타이징(Sanitization) - XSS 공격 방어** (2025년 10월 2일)
+>- **인스턴스 (Instance)** (2025년 10월 2일)
 
 ### 알고리즘 (Algorithms)
 
@@ -21,13 +21,13 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [인스턴스 (Instance)](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [prototype](/languages/javascript/prototype.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [prototype_chain](/languages/javascript/prototype_chain.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [this](/languages/javascript/this.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [factory_pattern](/languages/javascript/factory_pattern.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [instance](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [callback](/languages/javascript/callback.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 
@@ -98,9 +98,9 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 ### 최근 수정된 문서
 
+1. **[인스턴스 (Instance)](/languages/javascript/instance.md)** - 2025년 10월 2일
 1. **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)** - 2025년 10월 2일
 1. **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)** - 2025년 10월 2일
 1. **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)** - 2025년 10월 2일
 1. **[`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md)** - 2025년 10월 2일
-1. **[React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md)** - 2025년 10월 2일
 
