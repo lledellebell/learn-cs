@@ -45,11 +45,11 @@
 
 ### 최근 추가된 문서
 
+- **[인스턴스 (Instance)](/languages/javascript/instance.md)**
 - **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
 - **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)**
 - **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)**
 - **[`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md)**
-- **[React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md)**
 
 ### 전체 목차
 
@@ -68,7 +68,7 @@
 - [callback](/languages/javascript/callback.md)
 - [factory_pattern](/languages/javascript/factory_pattern.md)
 - [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md)
-- [instance](/languages/javascript/instance.md)
+- [인스턴스 (Instance)](/languages/javascript/instance.md)
 - [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
 - [prototype](/languages/javascript/prototype.md)
