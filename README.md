@@ -33,23 +33,23 @@
 
 ## 목차
 
-> **총 30개의 문서** | 마지막 업데이트: 2025. 10. 2.
+> **총 31개의 문서** | 마지막 업데이트: 2025. 10. 2.
 
 ### 카테고리
 
 - **[알고리즘 (Algorithms)](#algorithms)** (1개 문서)
-- **[프로그래밍 언어 (Languages)](#languages)** (11개 문서)
+- **[프로그래밍 언어 (Languages)](#languages)** (12개 문서)
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
 - **[웹 개발 (Web Development)](#webdevelopment)** (16개 문서)
 
 ### 최근 추가된 문서
 
+- **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
 - **[인스턴스 (Instance)](/languages/javascript/instance.md)**
 - **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
 - **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)**
 - **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)**
-- **[`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md)**
 
 ### 전체 목차
 
@@ -63,7 +63,7 @@
 </details>
 
 <details>
-<summary><strong>프로그래밍 언어 (Languages)</strong> (11개)</summary>
+<summary><strong>프로그래밍 언어 (Languages)</strong> (12개)</summary>
 
 - [callback](/languages/javascript/callback.md)
 - [factory_pattern](/languages/javascript/factory_pattern.md)
@@ -71,11 +71,11 @@
 - [인스턴스 (Instance)](/languages/javascript/instance.md)
 - [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
+- [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)
 - [prototype](/languages/javascript/prototype.md)
 - [prototype_chain](/languages/javascript/prototype_chain.md)
 - [this](/languages/javascript/this.md)
-- [Get Return Type](/languages/typescript/get_return_type.md)
-- ... 그 외 1개 문서
+- ... 그 외 2개 문서
 
 </details>
 
