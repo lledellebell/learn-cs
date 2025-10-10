@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 33개의 문서**(마지막 업데이트 정보: 2025년 10월 10일 오전 11:31)
+> **총 34개의 문서**(마지막 업데이트 정보: 2025년 10월 10일 오전 11:44)
 
 > 최근 수정된 문서:
->- **Custom Hooks 가이드 (React 공식 문서 기반)** (2025년 10월 10일)
+>- **`bind()` 메소드** (2025년 10월 10일)
 
 ### 알고리즘 (Algorithms)
 
@@ -21,6 +21,7 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [`bind()` 메소드](/languages/javascript/bind.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md) | 2025년 10월 2일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [인스턴스 (Instance)](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
@@ -94,16 +95,16 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | 카테고리 | 문서 수 |
 |----------|--------|
 | 웹 개발 (Web Development) | 18개 |
-| 프로그래밍 언어 (Languages) | 12개 |
+| 프로그래밍 언어 (Languages) | 13개 |
 | 알고리즘 (Algorithms) | 1개 |
 | 네트워킹 (Networking) | 1개 |
 | 데이터베이스 (Databases) | 1개 |
 
 ### 최근 수정된 문서
 
+1. **[`bind()` 메소드](/languages/javascript/bind.md)** - 2025년 10월 10일
 1. **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)** - 2025년 10월 10일
 1. **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)** - 2025년 10월 10일
 1. **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)** - 2025년 10월 10일
 1. **[인스턴스 (Instance)](/languages/javascript/instance.md)** - 2025년 10월 2일
-1. **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)** - 2025년 10월 2일
 
