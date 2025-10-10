@@ -7,7 +7,7 @@
 <div align="center">
 
 <!-- 프로젝트 상태 -->
-![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025-10-02-blue)
+![Last Updated](https://img.shields.io/badge/최종%20업데이트-2025/10/10-black)
 ![Status](https://img.shields.io/badge/상태-진행%20중-success)
 ![Progress](https://img.shields.io/badge/학습진행도-1%25-yellow)
 
@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 31개의 문서** | 마지막 업데이트: 2025. 10. 2.
+> **총 33개의 문서** | 마지막 업데이트: 2025. 10. 10.
 
 ### 카테고리
 
@@ -41,15 +41,15 @@
 - **[프로그래밍 언어 (Languages)](#languages)** (12개 문서)
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (16개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (18개 문서)
 
 ### 최근 추가된 문서
 
+- **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
+- **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
 - **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
 - **[인스턴스 (Instance)](/languages/javascript/instance.md)**
 - **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
-- **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)**
-- **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)**
 
 ### 전체 목차
 
@@ -94,19 +94,19 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (16개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (18개)</summary>
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [mask-composite](/web-development/frontend/css/mask-composite.md)
 - [## 참조](/web-development/frontend/css/object-position_&_object-fit.md)
 - [CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
+- [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)
 - [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
 - [(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
 - [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
-- [React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)
-- ... 그 외 6개 문서
+- ... 그 외 8개 문서
 
 </details>
 
