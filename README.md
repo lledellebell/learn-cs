@@ -33,23 +33,23 @@
 
 ## 목차
 
-> **총 33개의 문서** | 마지막 업데이트: 2025. 10. 10.
+> **총 34개의 문서** | 마지막 업데이트: 2025. 10. 10.
 
 ### 카테고리
 
 - **[알고리즘 (Algorithms)](#algorithms)** (1개 문서)
-- **[프로그래밍 언어 (Languages)](#languages)** (12개 문서)
+- **[프로그래밍 언어 (Languages)](#languages)** (13개 문서)
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
 - **[웹 개발 (Web Development)](#webdevelopment)** (18개 문서)
 
 ### 최근 추가된 문서
 
+- **[`bind()` 메소드](/languages/javascript/bind.md)**
 - **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
 - **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
 - **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
 - **[인스턴스 (Instance)](/languages/javascript/instance.md)**
-- **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
 
 ### 전체 목차
 
@@ -63,8 +63,9 @@
 </details>
 
 <details>
-<summary><strong>프로그래밍 언어 (Languages)</strong> (12개)</summary>
+<summary><strong>프로그래밍 언어 (Languages)</strong> (13개)</summary>
 
+- [`bind()` 메소드](/languages/javascript/bind.md)
 - [callback](/languages/javascript/callback.md)
 - [factory_pattern](/languages/javascript/factory_pattern.md)
 - [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md)
@@ -74,8 +75,7 @@
 - [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)
 - [prototype](/languages/javascript/prototype.md)
 - [prototype_chain](/languages/javascript/prototype_chain.md)
-- [this](/languages/javascript/this.md)
-- ... 그 외 2개 문서
+- ... 그 외 3개 문서
 
 </details>
 
