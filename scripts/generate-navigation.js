@@ -17,7 +17,8 @@ class NavigationGenerator {
       '.git',
       '.github',
       'private', // private 폴더는 제외
-      'scripts'
+      'scripts',
+      'mcp-servers' // MCP 서버 폴더 제외
     ];
   }
 

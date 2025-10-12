@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CS 학습 노트</title>
+    <link>https://github.com/lledellebell/learn-cs</link>
+    <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
+    <language>ko</language>
+    <lastBuildDate>Mon, 13 Oct 2025 06:45:21 +0000</lastBuildDate>
+    <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
+      <title>CS 학습 노트</title>
+      <link>https://github.com/lledellebell/learn-cs</link>
+    </image>
+
+    <item>
+      <title>`bind()` 메소드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/bind.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/bind.md</guid>
+      <pubDate>Mon, 13 Oct 2025 06:45:21 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>- [정의](#정의)</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Custom Hooks 가이드 (React 공식 문서 기반)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md</guid>
+      <pubDate>Mon, 13 Oct 2025 06:45:21 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; React 공식 문서를 기반으로 작성된 Custom Hooks 가이드</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Custom Hook 리팩토링: useAsync</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</guid>
+      <pubDate>Mon, 13 Oct 2025 06:45:21 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>- [문제 상황](#문제-상황)</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>JavaScript의 Mutation vs Non-Mutation 심화</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation-examples.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation-examples.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>&gt; 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>JavaScript 네이밍 컨벤션: Public vs Private</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/naming-conventions.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/naming-conventions.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>prototype</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>prototype에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>prototype_chain</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>prototype_chain에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>this</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>this에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>mask-composite</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>mask-composite에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>## 참조</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>- https://drafts.csswg.org/css-images/#propdef-object-fit</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유와 사용할 수 있는 방법을 분석해보겠습니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`npm`에 라이브러리 배포하기</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/npm-library-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/npm-library-guide.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>HTML 새니타이징(Sanitization) - XSS 공격 방어</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>callback</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>callback에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>factory_pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>factory_pattern에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>인스턴스 (Instance)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/instance.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/instance.md</guid>
+      <pubDate>Thu, 02 Oct 2025 19:58:37 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Prisma ORM 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:43 +0000</pubDate>
+      <category>데이터베이스</category>
+      <description>- [Prisma란?](#prisma란)</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`Context API`를 활용한 `Compound Pattern` 구현</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>React Provider Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Chrome User Agent Override 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`useMemo`를 활용한 성능 최적화</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Composite Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Compound Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Configuration over Composition Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>React 하이드레이션과 CSS 재적용 문제</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`React`에서 `Composite`/`Compound` Pattern 활용 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: &quot;sailboat&quot;)이고, Composite(합성어)...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Get Return Type</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>메타프로그래밍(Metaprogramming)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>HTTP 인증 방법 비교</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/networking/http/http_authentication_methods.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/networking/http/http_authentication_methods.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>네트워킹</category>
+      <description>| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>웹폰트 최적화 완전 가이드: 다운로드부터 배포까지</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>메모이제이션(Memoization)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>알고리즘</category>
+      <description>메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`forEach` vs `reduce`</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/foreach-vs-reduce-functional-programming.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/foreach-vs-reduce-functional-programming.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>함수형 프로그래밍 관점에서의 배열 메서드 선택</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>JavaScript에서 Mutation vs Non-Mutation</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation.md</guid>
+      <pubDate>Thu, 25 Sep 2025 20:05:32 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...</description>
+      <author>lledellebell</author>
+    </item>
+  </channel>
+</rss>

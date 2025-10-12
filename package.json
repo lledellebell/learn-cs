@@ -11,7 +11,11 @@
     "balance": "node scripts/learning-balance.js",
     "learning:check": "node scripts/learning-balance.js",
     "docs:hook": "node scripts/auto-commit-hook.js",
-    "docs:full-update": "npm run docs:update"
+    "docs:full-update": "npm run docs:update",
+    "feed:generate": "node scripts/generate-feeds.js",
+    "feed:rss": "node scripts/generate-rss.js",
+    "feed:json": "node scripts/generate-json-feed.js",
+    "publish": "npm run docs:update && npm run feed:generate"
   },
   "repository": {
     "type": "git",
