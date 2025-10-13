@@ -2304,10 +2304,11 @@ pre {
 .home-news {
   padding: var(--space-16) 0;
   background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.02) 100%),
     linear-gradient(180deg, transparent 0%, rgba(255, 35, 10, 0.015) 50%, transparent 100%),
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 0, 0, 0.04) 39px, rgba(0, 0, 0, 0.04) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0, 0, 0, 0.04) 39px, rgba(0, 0, 0, 0.04) 40px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+    repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0, 0, 0, 0.02) 19px, rgba(0, 0, 0, 0.02) 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(0, 0, 0, 0.02) 19px, rgba(0, 0, 0, 0.02) 20px);
+  background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
   border-top: var(--border-width) solid var(--color-border);
   border-bottom: var(--border-width) solid var(--color-border);
   position: relative;
@@ -2315,10 +2316,11 @@ pre {
 
 [data-theme="dark"] .home-news {
   background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, 0.03) 100%),
     linear-gradient(180deg, transparent 0%, rgba(255, 35, 10, 0.03) 50%, transparent 100%),
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+    repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(255, 255, 255, 0.03) 19px, rgba(255, 255, 255, 0.03) 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(255, 255, 255, 0.03) 19px, rgba(255, 255, 255, 0.03) 20px);
+  background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
 }
 
 .home-news .home-section-title::after{
