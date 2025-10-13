@@ -1,0 +1,68 @@
+<header class="site-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="{{ '/' | relative_url }}" class="site-logo">
+      {{ site.title }}
+    </a>
+
+    <!-- Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="nav-list" id="navList" aria-hidden="true">
+        <li>
+          <a href="{{ '/' | relative_url }}" class="nav-link" {% if page.url == '/' %}aria-current="page"{% endif %}>
+            홈
+          </a>
+        </li>
+        <li>
+          <a href="/learn-cs/algorithms/" class="nav-link">알고리즘</a>
+        </li>
+        <li>
+          <a href="/learn-cs/languages/" class="nav-link">언어</a>
+        </li>
+        <li>
+          <a href="/learn-cs/web-development/" class="nav-link">웹</a>
+        </li>
+        <li>
+          <a href="/learn-cs/databases/" class="nav-link">DB</a>
+        </li>
+        <li>
+          <a href="/learn-cs/networking/" class="nav-link">네트워크</a>
+        </li>
+        <li>
+          <a href="/learn-cs/NAVIGATION.html" class="nav-link">전체</a>
+        </li>
+        <li>
+          <a href="https://github.com/lledellebell/learn-cs" class="nav-link" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+      </ul>
+
+      <!-- Theme Toggle -->
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Toggle dark mode"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="navList"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+</header>

@@ -1,30 +1,23 @@
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <ol class="breadcrumb-list">
     <li class="breadcrumb-item">
-      <a href="{{ '/' | relative_url }}">
-        <i class="fas fa-home"></i>
-        홈
-      </a>
+      <a href="{{ '/' | relative_url }}">홈</a>
     </li>
 
     {% assign path_parts = page.path | split: '/' %}
-    {% assign accumulated_path = '' %}
 
     {% for part in path_parts %}
       {% unless forloop.last %}
-        {% assign accumulated_path = accumulated_path | append: '/' | append: part %}
         <li class="breadcrumb-item">
-          <i class="fas fa-chevron-right"></i>
-          <a href="{{ accumulated_path | relative_url }}">
-            {{ part | replace: '-', ' ' | capitalize }}
-          </a>
+          <span class="breadcrumb-separator">/</span>
+          <span>{{ part | replace: '-', ' ' | capitalize }}</span>
         </li>
       {% endunless %}
     {% endfor %}
 
-    <li class="breadcrumb-item active">
-      <i class="fas fa-chevron-right"></i>
-      <span>{{ page.title | default: page.name }}</span>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-separator">/</span>
+      <span aria-current="page">{{ page.title | default: page.name }}</span>
     </li>
   </ol>
 </nav>

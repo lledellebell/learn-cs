@@ -1,49 +1,24 @@
 <footer class="site-footer">
-  <div class="container-lg px-3">
-    <div class="footer-content">
-      <!-- Footer Info -->
-      <div class="footer-section">
-        <h3 class="footer-title">{{ site.title }}</h3>
-        <p class="footer-description">{{ site.description }}</p>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="footer-section">
-        <h4 class="footer-subtitle">빠른 링크</h4>
-        <ul class="footer-links">
-          <li><a href="{{ '/' | relative_url }}">홈</a></li>
-          <li><a href="/learn-cs/NAVIGATION.html">전체 목차</a></li>
-          <li><a href="https://github.com/lledellebell/learn-cs">GitHub</a></li>
-          <li><a href="/learn-cs/feed.xml">RSS</a></li>
-        </ul>
-      </div>
-
-      <!-- Categories -->
-      <div class="footer-section">
-        <h4 class="footer-subtitle">카테고리</h4>
-        <ul class="footer-links">
-          <li><a href="/learn-cs/algorithms/">알고리즘</a></li>
-          <li><a href="/learn-cs/languages/">프로그래밍 언어</a></li>
-          <li><a href="/learn-cs/web-development/">웹 개발</a></li>
-          <li><a href="/learn-cs/databases/">데이터베이스</a></li>
-          <li><a href="/learn-cs/networking/">네트워킹</a></li>
-        </ul>
-      </div>
-
-      <!-- Social -->
-      <div class="footer-section">
-        <h4 class="footer-subtitle">소셜</h4>
-        <div class="footer-social">
-          <a href="https://github.com/lledellebell/learn-cs" target="_blank" title="GitHub">
-            <i class="fab fa-github"></i>
+  <div class="container">
+    <nav class="footer-content" aria-label="Footer navigation">
+      <ul class="footer-links">
+        <li>
+          <a href="{{ '/' | relative_url }}">홈</a>
+        </li>
+        <li>
+          <a href="/learn-cs/NAVIGATION.html">전체 목차</a>
+        </li>
+        <li>
+          <a href="https://github.com/lledellebell/learn-cs" target="_blank" rel="noopener noreferrer">
+            GitHub
           </a>
-        </div>
-      </div>
-    </div>
+        </li>
+        <li>
+          <a href="/learn-cs/feed.xml">RSS</a>
+        </li>
+      </ul>
 
-    <div class="footer-bottom">
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
-      <p>Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and ❤️</p>
-    </div>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Built with Jekyll.</p>
+    </nav>
   </div>
 </footer>
