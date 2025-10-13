@@ -1,3 +1,8 @@
+---
+title: Jekyll 로컬 개발 가이드
+date: 2025-10-13
+layout: page
+---
 # Jekyll 로컬 개발 가이드
 
 이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.

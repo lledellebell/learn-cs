@@ -1,3 +1,8 @@
+---
+title: JavaScript에서 Mutation vs Non-Mutation
+date: 2025-10-02
+layout: page
+---
 # JavaScript에서 Mutation vs Non-Mutation
 
 JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용법을 알아봅니다.

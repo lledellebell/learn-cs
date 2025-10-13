@@ -1,3 +1,9 @@
+---
+title: Custom Hooks 가이드 (React 공식 문서 기반)
+date: 2025-10-10
+last_modified_at: 2025-10-13
+layout: page
+---
 # Custom Hooks 가이드 (React 공식 문서 기반)
 
 > React 공식 문서를 기반으로 작성된 Custom Hooks 가이드

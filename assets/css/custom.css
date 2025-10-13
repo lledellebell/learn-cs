@@ -189,8 +189,10 @@ code {
 }
 
 pre {
+  position: relative;
   margin: var(--space-6) 0;
   padding: var(--space-6);
+  padding-top: var(--space-10);
   background: rgba(245, 245, 245, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -198,17 +200,163 @@ pre {
   border-radius: var(--border-radius);
   overflow-x: auto;
   font-size: 0.875rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] pre {
   background: rgba(23, 23, 23, 0.8);
   border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 pre code {
   padding: 0;
   background: none;
   border: none;
+}
+
+/* Code Language Label */
+pre::before {
+  content: attr(data-language);
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-4);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-sm);
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 1;
+}
+
+[data-theme="dark"] pre::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 769px) {
+  pre:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  pre::before {
+    opacity: 1;
+    font-size: 0.6875rem;
+    padding: 2px var(--space-2);
+    top: var(--space-2);
+    left: var(--space-3);
+  }
+
+  pre {
+    padding-top: calc(var(--space-6) + var(--space-4));
+  }
+}
+
+/* Touch 디바이스에서는 항상 표시 */
+@media (hover: none) {
+  pre::before {
+    opacity: 1;
+  }
+}
+
+pre[data-language="javascript"]::before,
+pre[data-language="js"]::before {
+  background: #f7df1e;
+  color: #000;
+}
+
+pre[data-language="typescript"]::before,
+pre[data-language="ts"]::before {
+  background: #3178c6;
+  color: #fff;
+}
+
+pre[data-language="python"]::before,
+pre[data-language="py"]::before {
+  background: #3776ab;
+  color: #fff;
+}
+
+pre[data-language="html"]::before {
+  background: #e34c26;
+  color: #fff;
+}
+
+pre[data-language="css"]::before {
+  background: #264de4;
+  color: #fff;
+}
+
+pre[data-language="json"]::before {
+  background: #292929;
+  color: #fff;
+}
+
+pre[data-language="bash"]::before,
+pre[data-language="shell"]::before,
+pre[data-language="sh"]::before {
+  background: #4eaa25;
+  color: #fff;
+}
+
+pre[data-language="java"]::before {
+  background: #007396;
+  color: #fff;
+}
+
+pre[data-language="go"]::before {
+  background: #00add8;
+  color: #fff;
+}
+
+pre[data-language="rust"]::before {
+  background: #ce422b;
+  color: #fff;
+}
+
+pre[data-language="ruby"]::before,
+pre[data-language="rb"]::before {
+  background: #cc342d;
+  color: #fff;
+}
+
+pre[data-language="php"]::before {
+  background: #777bb4;
+  color: #fff;
+}
+
+pre[data-language="sql"]::before {
+  background: #f29111;
+  color: #fff;
+}
+
+pre[data-language="yaml"]::before,
+pre[data-language="yml"]::before {
+  background: #cb171e;
+  color: #fff;
+}
+
+pre[data-language="markdown"]::before,
+pre[data-language="md"]::before {
+  background: #083fa1;
+  color: #fff;
+}
+
+pre[data-language="jsx"]::before {
+  background: #61dafb;
+  color: #000;
+}
+
+pre[data-language="tsx"]::before {
+  background: #007acc;
+  color: #fff;
 }
 
 /* =========================================
@@ -835,8 +983,26 @@ pre {
   color: var(--color-white)
 }
 
-pre:hover .code-copy-btn {
-  opacity: 1;
+@media (min-width: 769px) {
+  pre:hover .code-copy-btn {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .code-copy-btn {
+    opacity: 1;
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.6875rem;
+    top: var(--space-2);
+    right: var(--space-2);
+  }
+}
+
+@media (hover: none) {
+  .code-copy-btn {
+    opacity: 1;
+  }
 }
 
 .code-copy-btn:hover {

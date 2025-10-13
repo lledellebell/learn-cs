@@ -1,3 +1,9 @@
+---
+title: Custom Hook 리팩토링: useAsync
+date: 2025-10-10
+last_modified_at: 2025-10-13
+layout: page
+---
 # Custom Hook 리팩토링: useAsync
 
 ## 문제 상황

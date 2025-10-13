@@ -1,3 +1,8 @@
+---
+title: HTTP 인증 방법 비교
+date: 2025-10-02
+layout: page
+---
 # HTTP 인증 방법 비교
 
 ## 인증 방식 비교 표

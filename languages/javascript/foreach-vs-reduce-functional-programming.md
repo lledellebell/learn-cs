@@ -1,3 +1,8 @@
+---
+title: `forEach` vs `reduce`
+date: 2025-10-02
+layout: page
+---
 # `forEach` vs `reduce`
 
 함수형 프로그래밍 관점에서의 배열 메서드 선택

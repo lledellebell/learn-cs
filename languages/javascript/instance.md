@@ -1,3 +1,8 @@
+---
+title: 인스턴스 (Instance)
+date: 2025-10-02
+layout: page
+---
 # 인스턴스 (Instance)
 
 ## 개념

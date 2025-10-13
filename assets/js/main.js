@@ -222,6 +222,59 @@
   };
 
   // =========================================
+  // 코드 언어 감지 및 라벨 표시
+  // =========================================
+  const initCodeLanguageLabels = () => {
+    const codeBlocks = document.querySelectorAll('.article-body pre');
+
+    codeBlocks.forEach(block => {
+      let language = '';
+
+      const codeElement = block.querySelector('code');
+      if (codeElement) {
+        const classList = Array.from(codeElement.classList);
+        for (const className of classList) {
+          if (className.startsWith('language-')) {
+            language = className.replace('language-', '');
+            break;
+          }
+        }
+      }
+
+      if (!language) {
+        let parent = block.parentElement;
+        while (parent && parent !== document.body) {
+          const parentClasses = Array.from(parent.classList);
+          for (const className of parentClasses) {
+            if (className.startsWith('language-')) {
+              language = className.replace('language-', '');
+              break;
+            }
+          }
+          if (language) break;
+          parent = parent.parentElement;
+        }
+      }
+
+      if (!language) {
+        const preClasses = Array.from(block.classList);
+        for (const className of preClasses) {
+          if (className.startsWith('language-')) {
+            language = className.replace('language-', '');
+            break;
+          }
+        }
+      }
+
+      if (language) {
+        block.setAttribute('data-language', language);
+      } else {
+        block.setAttribute('data-language', 'code');
+      }
+    });
+  };
+
+  // =========================================
   // 코드 복사 버튼
   // =========================================
   const initCodeCopy = () => {
@@ -650,6 +703,7 @@
     initTheme();
     initMobileNav();
     generateTOC();
+    initCodeLanguageLabels();
     initCodeCopy();
     markExternalLinks();
     initCopyWatermark();

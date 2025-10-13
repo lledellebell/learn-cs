@@ -1,3 +1,8 @@
+---
+title: Factory Pattern
+date: 2025-10-13
+layout: page
+---
 # Factory Pattern
 
 팩토리 패턴(Factory Pattern)에 대한 문서입니다.

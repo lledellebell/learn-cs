@@ -1,6 +1,5 @@
 ---
-date: 2025-10-02
-last_modified_at: 2025-10-13
+date: 2025-10-13
 render_with_liquid: false
 layout: page
 ---

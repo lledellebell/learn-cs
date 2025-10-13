@@ -1,3 +1,9 @@
+---
+title: JavaScript 네이밍 컨벤션: Public vs Private
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # JavaScript 네이밍 컨벤션: Public vs Private
 
 ## 개요

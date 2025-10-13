@@ -1,3 +1,8 @@
+---
+title: Chrome User Agent Override 가이드
+date: 2025-10-02
+layout: page
+---
 # Chrome User Agent Override 가이드
 
 ## User Agent String 이해하기

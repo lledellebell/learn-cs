@@ -1,3 +1,8 @@
+---
+title: Callback
+date: 2025-10-13
+layout: page
+---
 # Callback
 
 콜백(Callback) 함수에 대한 문서입니다.

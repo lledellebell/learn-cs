@@ -1,3 +1,9 @@
+---
+title: JavaScript의 Mutation vs Non-Mutation 심화
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # JavaScript의 Mutation vs Non-Mutation 심화
 
 > 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.

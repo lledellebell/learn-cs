@@ -1,3 +1,9 @@
+---
+title: `React`에서 `Composite`/`Compound` Pattern 활용 가이드
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # `React`에서 `Composite`/`Compound` Pattern 활용 가이드
 
 > **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: "sailboat")이고, Composite(합성어)는 여러 다른 재료나 부분들로 만들어진 것을 의미하며, 일반적으로 결합하는 행위나 여러 구성 요소로 만들어진 구조를 설명하는 단어입니다. 

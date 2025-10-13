@@ -1,3 +1,9 @@
+---
+title: `useMemo`를 활용한 성능 최적화
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # `useMemo`를 활용한 성능 최적화
 
 `useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,

@@ -1,3 +1,8 @@
+---
+title: `bind()` 메소드
+date: 2025-10-10
+layout: page
+---
 # `bind()` 메소드
 
 ## 목차

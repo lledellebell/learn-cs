@@ -1,3 +1,9 @@
+---
+title: CSS Mask Composite
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # CSS Mask Composite
 
 CSS `mask-composite` 속성에 대한 문서입니다.

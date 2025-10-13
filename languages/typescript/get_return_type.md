@@ -1,3 +1,8 @@
+---
+title: Get Return Type
+date: 2025-10-02
+layout: page
+---
 # Get Return Type
 ## 출처
 

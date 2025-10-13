@@ -1,3 +1,9 @@
+---
+title: Composite Pattern
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # Composite Pattern
 
 **Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다. 

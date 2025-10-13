@@ -1,3 +1,8 @@
+---
+title: Prototype
+date: 2025-10-13
+layout: page
+---
 # Prototype
 
 JavaScript의 프로토타입(Prototype)에 대한 문서입니다.

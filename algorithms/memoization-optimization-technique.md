@@ -1,3 +1,9 @@
+---
+title: 메모이제이션(Memoization)
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # 메모이제이션(Memoization)
 
 메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.

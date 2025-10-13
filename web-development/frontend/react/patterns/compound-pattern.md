@@ -1,3 +1,9 @@
+---
+title: Compound Pattern
+date: 2025-10-02
+last_modified_at: 2025-10-13
+layout: page
+---
 # Compound Pattern
 
 **Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, 함께 사용될 때 더 강력한 기능을 발휘합니다.

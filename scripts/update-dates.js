@@ -2,11 +2,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
 
 /**
  * Front Matter 날짜 자동 업데이트 스크립트
- * Git 히스토리를 기반으로 date와 last_modified_at을 자동으로 설정합니다.
+ * NAVIGATION.md의 날짜 정보를 기반으로 date와 last_modified_at을 자동으로 설정합니다.
  */
 
 class DateUpdater {
@@ -14,36 +13,67 @@ class DateUpdater {
     this.rootDir = rootDir;
     this.updatedFiles = [];
     this.skippedFiles = [];
+    this.navigationData = null;
   }
 
   /**
-   * Git에서 파일의 최초 생성일 가져오기
+   * NAVIGATION.md 파싱하여 날짜 정보 추출
    */
-  getFileCreationDate(filePath) {
-    try {
-      const result = execSync(
-        `git log --follow --format=%aI --reverse "${filePath}" | head -1`,
-        { cwd: this.rootDir, encoding: 'utf8' }
-      ).trim();
-      return result ? new Date(result) : null;
-    } catch (error) {
-      return null;
+  parseNavigationFile() {
+    const navigationPath = path.join(this.rootDir, 'NAVIGATION.md');
+
+    if (!fs.existsSync(navigationPath)) {
+      throw new Error('NAVIGATION.md 파일을 찾을 수 없습니다.');
     }
+
+    const content = fs.readFileSync(navigationPath, 'utf8');
+    const dateMap = new Map();
+
+    // 마크다운 테이블에서 파일 정보 추출
+    // 형식: | [제목](/path/to/file.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![상태](...) |
+    const tableRowRegex = /\|\s*\[.*?\]\((\/.*?\.md)\)\s*\|\s*(\d{4}년 \d{1,2}월 \d{1,2}일)\s*\|\s*(\d{4}년 \d{1,2}월 \d{1,2}일)\s*\|/g;
+
+    let match;
+    while ((match = tableRowRegex.exec(content)) !== null) {
+      const [, filePath, creationDate, modificationDate] = match;
+
+      // 파일 경로 정규화 (앞의 / 제거)
+      const normalizedPath = filePath.startsWith('/') ? filePath.substring(1) : filePath;
+
+      dateMap.set(normalizedPath, {
+        creation: this.parseKoreanDate(creationDate),
+        modification: this.parseKoreanDate(modificationDate)
+      });
+    }
+
+    this.navigationData = dateMap;
+    console.log(`📋 NAVIGATION.md에서 ${dateMap.size}개 파일의 날짜 정보를 찾았습니다.\n`);
+    return dateMap;
   }
 
   /**
-   * Git에서 파일의 최종 수정일 가져오기
+   * 한국어 날짜 형식을 Date 객체로 변환
+   * 예: "2025년 10월 2일" -> Date(2025, 9, 2)
    */
-  getFileModificationDate(filePath) {
-    try {
-      const result = execSync(
-        `git log -1 --format=%aI "${filePath}"`,
-        { cwd: this.rootDir, encoding: 'utf8' }
-      ).trim();
-      return result ? new Date(result) : null;
-    } catch (error) {
-      return null;
+  parseKoreanDate(koreanDate) {
+    const match = koreanDate.match(/(\d{4})년 (\d{1,2})월 (\d{1,2})일/);
+    if (!match) return null;
+
+    const [, year, month, day] = match;
+    return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+  }
+
+  /**
+   * NAVIGATION.md에서 파일의 날짜 정보 가져오기
+   */
+  getFileDatesFromNavigation(filePath) {
+    if (!this.navigationData) {
+      this.parseNavigationFile();
     }
+
+    // 상대 경로로 변환
+    const relativePath = path.relative(this.rootDir, filePath);
+    return this.navigationData.get(relativePath) || null;
   }
 
   /**
@@ -112,19 +142,28 @@ class DateUpdater {
   }
 
   /**
+   * 마크다운에서 첫 번째 제목 추출
+   */
+  extractTitle(content) {
+    // Front matter 제거 후 첫 번째 # 제목 찾기
+    const withoutFrontMatter = content.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
+    const titleMatch = withoutFrontMatter.match(/^#\s+(.+)$/m);
+    return titleMatch ? titleMatch[1].trim() : null;
+  }
+
+  /**
    * 마크다운 파일의 날짜 업데이트
    */
   updateFileDate(filePath) {
     const relativePath = path.relative(this.rootDir, filePath);
 
-    // Git 날짜 정보 가져오기
-    const creationDate = this.getFileCreationDate(relativePath);
-    const modificationDate = this.getFileModificationDate(relativePath);
+    // NAVIGATION.md에서 날짜 정보 가져오기
+    const dates = this.getFileDatesFromNavigation(filePath);
 
-    if (!creationDate || !modificationDate) {
+    if (!dates) {
       this.skippedFiles.push({
         path: relativePath,
-        reason: 'Git 히스토리 없음'
+        reason: 'NAVIGATION.md에 날짜 정보 없음'
       });
       return false;
     }
@@ -133,28 +172,38 @@ class DateUpdater {
     const content = fs.readFileSync(filePath, 'utf8');
     const parsed = this.parseFrontMatter(content);
 
-    if (!parsed) {
-      this.skippedFiles.push({
-        path: relativePath,
-        reason: 'Front matter 없음'
-      });
-      return false;
-    }
-
-    const { frontMatter, contentWithoutFrontMatter } = parsed;
+    let frontMatter;
+    let contentWithoutFrontMatter;
     let updated = false;
 
-    // date가 없으면 추가
-    if (!frontMatter.date) {
-      frontMatter.date = this.formatDate(creationDate);
+    if (!parsed) {
+      // Front matter가 없는 경우 새로 생성
+      const title = this.extractTitle(content);
+
+      frontMatter = {
+        title: title || 'Untitled',
+        layout: 'page'
+      };
+      contentWithoutFrontMatter = content;
+      updated = true;
+    } else {
+      frontMatter = parsed.frontMatter;
+      contentWithoutFrontMatter = parsed.contentWithoutFrontMatter;
+    }
+
+    const formattedCreationDate = this.formatDate(dates.creation);
+    const formattedModificationDate = this.formatDate(dates.modification);
+
+    // date 업데이트
+    if (frontMatter.date !== formattedCreationDate) {
+      frontMatter.date = formattedCreationDate;
       updated = true;
     }
 
     // last_modified_at 업데이트 (생성일과 다른 경우에만)
-    const formattedModDate = this.formatDate(modificationDate);
-    if (formattedModDate !== frontMatter.date) {
-      if (frontMatter.last_modified_at !== formattedModDate) {
-        frontMatter.last_modified_at = formattedModDate;
+    if (formattedModificationDate !== formattedCreationDate) {
+      if (frontMatter.last_modified_at !== formattedModificationDate) {
+        frontMatter.last_modified_at = formattedModificationDate;
         updated = true;
       }
     } else {
@@ -187,6 +236,7 @@ class DateUpdater {
   findMarkdownFiles(dir = this.rootDir) {
     const files = [];
     const excludeDirs = ['node_modules', '.git', '_site', 'vendor'];
+    const excludeFiles = ['README.md', 'NAVIGATION.md'];
 
     const walk = (currentDir) => {
       const items = fs.readdirSync(currentDir);
@@ -199,7 +249,7 @@ class DateUpdater {
           if (!excludeDirs.includes(item) && !item.startsWith('.')) {
             walk(fullPath);
           }
-        } else if (item.endsWith('.md') && item !== 'README.md') {
+        } else if (item.endsWith('.md') && !excludeFiles.includes(item)) {
           files.push(fullPath);
         }
       }
@@ -213,6 +263,9 @@ class DateUpdater {
    * 모든 파일 업데이트
    */
   updateAll() {
+    console.log('🔍 NAVIGATION.md 파싱 중...\n');
+    this.parseNavigationFile();
+
     console.log('🔍 마크다운 파일 검색 중...\n');
     const files = this.findMarkdownFiles();
     console.log(`📝 ${files.length}개의 마크다운 파일을 찾았습니다.\n`);
@@ -257,10 +310,14 @@ class DateUpdater {
       }
     }
 
-    if (this.skippedFiles.length > 0 && this.skippedFiles.length <= 5) {
+    if (this.skippedFiles.length > 0) {
       console.log('\n⏭️  건너뛴 파일:');
-      for (const file of this.skippedFiles) {
+      const displayCount = Math.min(this.skippedFiles.length, 10);
+      for (const file of this.skippedFiles.slice(0, displayCount)) {
         console.log(`  - ${file.path} (${file.reason})`);
+      }
+      if (this.skippedFiles.length > 10) {
+        console.log(`  ... 외 ${this.skippedFiles.length - 10}개 파일\n`);
       }
     }
 

@@ -1,3 +1,8 @@
+---
+title: JSON Feed 사양
+date: 2025-10-13
+layout: page
+---
 # JSON Feed 사양
 
 ## 개요

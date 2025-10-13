@@ -1,3 +1,8 @@
+---
+title: Prototype Chain
+date: 2025-10-13
+layout: page
+---
 # Prototype Chain
 
 JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.

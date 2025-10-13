@@ -1,3 +1,8 @@
+---
+title: 메타프로그래밍(Metaprogramming)
+date: 2025-10-02
+layout: page
+---
 # 메타프로그래밍(Metaprogramming)
 
 메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.
