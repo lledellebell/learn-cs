@@ -1,3 +1,8 @@
+---
+render_with_liquid: false
+layout: page
+---
+
 # React Provider Pattern
 
 **Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop drilling 없이 깊은 컴포넌트 계층에 상태와 함수를 전달할 수 있게 해줍니다.

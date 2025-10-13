@@ -1,3 +1,8 @@
+---
+render_with_liquid: false
+layout: page
+---
+
 # `Context API`를 활용한 `Compound Pattern` 구현
 
 > React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.

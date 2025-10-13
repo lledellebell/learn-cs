@@ -1,3 +1,8 @@
+---
+render_with_liquid: false
+layout: page
+---
+
 # React 하이드레이션과 CSS 재적용 문제
 
 React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 있습니다. 이 글에서는 하이드레이션의 원리부터 실무에서 마주하는 문제들을 다룹니다.

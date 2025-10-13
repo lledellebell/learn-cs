@@ -1,3 +1,8 @@
+---
+render_with_liquid: false
+layout: page
+---
+
 # HTML 새니타이징(Sanitization) - XSS 공격 방어
 
 ## 개요

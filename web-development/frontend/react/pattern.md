@@ -1,3 +1,8 @@
+---
+render_with_liquid: false
+layout: page
+---
+
 # (수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
 
 Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유와 사용할 수 있는 방법을 분석해보겠습니다.

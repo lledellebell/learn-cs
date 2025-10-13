@@ -1,3 +1,8 @@
+---
+render_with_liquid: false
+layout: page
+---
+
 # Configuration over Composition Pattern
 
 **Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 설정 옵션을 제공하여 일관성과 사용성을 보장합니다.
