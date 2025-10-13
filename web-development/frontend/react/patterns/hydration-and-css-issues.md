@@ -1,5 +1,6 @@
 ---
 date: 2025-10-13
+title: React 하이드레이션과 CSS 재적용 문제
 render_with_liquid: false
 layout: page
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2025-10-13
+title: Configuration over Composition Pattern
 render_with_liquid: false
 layout: page
 ---

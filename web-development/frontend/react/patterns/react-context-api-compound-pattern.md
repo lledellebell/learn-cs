@@ -1,5 +1,6 @@
 ---
 date: 2025-10-13
+title: Context API`를 활용한 Compound Pattern 구현
 render_with_liquid: false
 layout: page
 ---

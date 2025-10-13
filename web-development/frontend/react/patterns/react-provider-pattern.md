@@ -1,5 +1,6 @@
 ---
 date: 2025-10-13
+title: React Provider Pattern
 render_with_liquid: false
 layout: page
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2025-10-13
+title: HTML 새니타이징(Sanitization) - XSS 공격 방어
 render_with_liquid: false
 layout: page
 ---
