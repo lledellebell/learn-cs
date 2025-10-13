@@ -22,7 +22,7 @@
 ## 기본 구조
 
 
-{% raw %}
+
 ```tsx
 // 1. Context 생성
 const MyContext = createContext<ContextType | undefined>(undefined);
@@ -60,7 +60,7 @@ export const useMyContext = () => {
   return context;
 };
 ```
-{% endraw %}
+
 
 
 ## 예제
@@ -68,7 +68,7 @@ export const useMyContext = () => {
 ### 1. **Theme Provider**
 
 
-{% raw %}
+
 ```tsx
 // 테마 관련 타입 정의
 interface ThemeContextType {
@@ -166,13 +166,13 @@ const Header = () => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ### 2. **Authentication Provider**
 
 
-{% raw %}
+
 ```tsx
 // 사용자 타입 정의
 interface User {
@@ -295,13 +295,13 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   return <>{children}</>;
 };
 ```
-{% endraw %}
+
 
 
 ### 3. **Shopping Cart Provider**
 
 
-{% raw %}
+
 ```tsx
 // 장바구니 아이템 타입
 interface CartItem {
@@ -454,7 +454,7 @@ const CartSummary: React.FC = () => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ## 패턴 활용 예시
@@ -462,7 +462,7 @@ const CartSummary: React.FC = () => {
 ### 1. **Multiple Providers 조합**
 
 
-{% raw %}
+
 ```tsx
 // 여러 Provider를 조합하는 패턴
 const AppProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -497,13 +497,13 @@ const App = () => (
   </ProviderComposer>
 );
 ```
-{% endraw %}
+
 
 
 ### 2. **Provider with Reducer**
 
 
-{% raw %}
+
 ```tsx
 // 복잡한 상태 관리를 위한 Reducer 패턴
 interface State {
@@ -562,13 +562,13 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ### 3. **Conditional Provider**
 
 
-{% raw %}
+
 ```tsx
 // 조건부 Provider 패턴
 const ConditionalProvider: React.FC<{
@@ -596,14 +596,14 @@ const App = () => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ## 장점
 
 ### 1. **Prop Drilling 해결**
 
-{% raw %}
+
 ```tsx
 // ❌ Prop Drilling
 const App = () => {
@@ -631,7 +631,7 @@ const UserMenu = () => {
   // ...
 };
 ```
-{% endraw %}
+
 
 
 ### 2. **중앙화된 상태 관리**
@@ -648,7 +648,7 @@ const UserMenu = () => {
 
 ### 1. **성능 고려사항**
 
-{% raw %}
+
 ```tsx
 // ❌ 매번 새 객체 생성으로 불필요한 리렌더링
 const MyProvider = ({ children }) => {
@@ -686,12 +686,12 @@ const MyProvider = ({ children }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ### 2. **과도한 리렌더링**
 
-{% raw %}
+
 ```tsx
 // 문제: 하나의 값이 변경되면 모든 소비자가 리렌더링
 const AppProvider = ({ children }) => {
@@ -715,7 +715,7 @@ const ThemeProvider = ({ children }) => {
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
 ```
-{% endraw %}
+
 
 
 ## 사용 시기
@@ -734,7 +734,7 @@ const ThemeProvider = ({ children }) => {
 
 ### 1. **타입 안전성 확보**
 
-{% raw %}
+
 ```tsx
 interface ContextType {
   state: State;
@@ -751,7 +751,7 @@ export const useMyContext = (): ContextType => {
   return context;
 };
 ```
-{% endraw %}
+
 
 
 ### 2. **에러 경계 설정**
@@ -790,7 +790,7 @@ const SafeProvider = ({ children }) => (
 
 ### 3. **개발자 도구 지원**
 
-{% raw %}
+
 ```tsx
 const MyProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
@@ -809,7 +809,7 @@ const MyProvider = ({ children }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ## 참고 자료

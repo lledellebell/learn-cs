@@ -319,6 +319,7 @@ pre code {
   justify-content: center;
   width: 36px;
   height: 36px;
+  color: var(--color-text);
   transition: all var(--transition);
   border-radius: 100%;
 }
@@ -478,8 +479,30 @@ pre code {
    Article Page
    ========================================= */
 .article-wrapper {
-  max-width: var(--content-width);
+  max-width: var(--max-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Desktop Layout: 6:4 ratio */
+@media (min-width: 769px) {
+  .article-wrapper {
+    flex-direction: row;
+    gap: var(--space-12);
+    align-items: flex-start;
+  }
+
+  .article-content-wrapper {
+    flex: 6;
+    min-width: 0;
+  }
+
+  .toc {
+    flex: 4;
+    max-width: 350px;
+  }
 }
 
 /* Breadcrumb */
@@ -539,22 +562,39 @@ pre code {
 
 /* Table of contents */
 .toc {
-  position: sticky;
-  top: calc(var(--header-height) + var(--space-6));
-  width: var(--sidebar-width);
   padding: var(--space-6);
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px) saturate(150%);
   -webkit-backdrop-filter: blur(10px) saturate(150%);
   border: var(--border-width) solid rgba(0, 0, 0, 0.08);
   border-radius: var(--border-radius-lg);
-  margin-bottom: var(--space-10);
-  z-index: 10;
+  z-index: 50;
+  order: -1;
 }
 
 [data-theme="dark"] .toc {
   background: rgba(255, 255, 255, 0.03);
   border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Desktop: Sticky on the right */
+@media (min-width: 769px) {
+  .toc {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6));
+    align-self: flex-start;
+    order: 1;
+  }
+}
+
+/* Mobile: Sticky below header when scrolling */
+@media (max-width: 768px) {
+  .toc {
+    position: sticky;
+    top: var(--header-height);
+    margin-bottom: var(--space-6);
+    order: -1;
+  }
 }
 
 .toc-title {
@@ -640,6 +680,7 @@ pre code {
 .article-body {
   font-size: 1.0625rem;
   line-height: 1.7;
+  width: 100%;
 }
 
 .article-body h1,
@@ -869,11 +910,20 @@ pre:hover .code-copy-btn {
     grid-template-columns: 1fr;
   }
 
+  /* Mobile Layout */
+  .article-wrapper {
+    flex-direction: column;
+  }
+
+  .article-content-wrapper {
+    width: 100%;
+    order: 1;
+  }
+
   /* Mobile TOC */
   .toc {
-    position: static;
     width: 100%;
-    margin-bottom: var(--space-6);
+    order: -1;
   }
 
   .toc-toggle {

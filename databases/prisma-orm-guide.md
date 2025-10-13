@@ -44,12 +44,12 @@ Prisma의 GUI 인터페이스입니다.
 
 [출처](https://cdn.sanity.io)
 
-{% raw %}
+
 ```bash
 # Prisma Studio 실행
 npx prisma studio
 ```
-{% endraw %}
+
 
 브라우저에서 `http://localhost:5555`로 접속하면:
 - 테이블 데이터 조회/편집
@@ -60,7 +60,7 @@ npx prisma studio
 
 ### 주요 장점
 
-{% raw %}
+
 ```typescript
 // 전통적인 SQL 쿼리
 const users = await db.query(`
@@ -76,7 +76,7 @@ const user = await prisma.user.findUnique({
   include: { posts: true }
 });
 ```
-{% endraw %}
+
 
 ## 개념
 
@@ -85,7 +85,7 @@ Prisma는 **"무엇을 원하는지"만 정의**하면, **"어떻게 할지"는 
 
 #### 명령적(Imperative) 방식 - 단계별 명령
 
-{% raw %}
+
 ```typescript
 // "어떻게 할지"를 단계별로 명령
 // 1단계: 테이블 생성
@@ -106,11 +106,11 @@ await db.query(`
   WHERE u.email = ?
 `);
 ```
-{% endraw %}
+
 
 #### 선언적(Declarative) 방식 - 결과만 정의
 
-{% raw %}
+
 ```prisma
 // "무엇을 원하는지"만 선언
 model User {
@@ -136,7 +136,7 @@ const user = await prisma.user.findUnique({
   include: { posts: true }  // Prisma가 자동으로 JOIN 처리
 });
 ```
-{% endraw %}
+
 
 **선언적 접근법의 장점:**
 - **추상화**: 복잡한 SQL 작성 불필요
@@ -151,7 +151,7 @@ Prisma에서 테이블 간의 관계를 정의하는 방법을 살펴보겠습�
 #### 일대다 관계 (1:N)
 한 사용자가 여러 게시글을 작성할 수 있는 관계입니다.
 
-{% raw %}
+
 ```prisma
 model User {
   id    Int    @id @default(autoincrement())
@@ -169,11 +169,11 @@ model Post {
   authorId Int    // 외래키 필드
 }
 ```
-{% endraw %}
+
 
 **실제 생성되는 SQL:**
 
-{% raw %}
+
 ```sql
 CREATE TABLE "User" (
   id SERIAL PRIMARY KEY,
@@ -189,11 +189,11 @@ CREATE TABLE "Post" (
   FOREIGN KEY ("authorId") REFERENCES "User"(id)
 );
 ```
-{% endraw %}
+
 
 **사용 예시:**
 
-{% raw %}
+
 ```typescript
 // 사용자와 그의 모든 게시글 조회
 const userWithPosts = await prisma.user.findUnique({
@@ -207,12 +207,12 @@ const postWithAuthor = await prisma.post.findUnique({
   include: { author: true }
 });
 ```
-{% endraw %}
+
 
 #### 일대일 관계 (1:1)
 한 사용자가 하나의 프로필을 가지는 관계입니다.
 
-{% raw %}
+
 ```prisma
 model User {
   id      Int      @id @default(autoincrement())
@@ -229,11 +229,11 @@ model Profile {
   userId Int    @unique // @unique가 중요! 일대일 보장
 }
 ```
-{% endraw %}
+
 
 **사용 예시:**
 
-{% raw %}
+
 ```typescript
 // 사용자 생성과 동시에 프로필 생성
 const user = await prisma.user.create({
@@ -249,12 +249,12 @@ const user = await prisma.user.create({
   include: { profile: true }
 });
 ```
-{% endraw %}
+
 
 #### 다대다 관계 (N:M)
 게시글이 여러 카테고리에 속하고, 카테고리도 여러 게시글을 가질 수 있는 관계입니다.
 
-{% raw %}
+
 ```prisma
 model Post {
   id         Int        @id @default(autoincrement())
@@ -268,11 +268,11 @@ model Category {
   posts Post[] // 여러 게시글
 }
 ```
-{% endraw %}
+
 
 **실제 생성되는 SQL (중간 테이블 자동 생성):**
 
-{% raw %}
+
 ```sql
 CREATE TABLE "Post" (
   id SERIAL PRIMARY KEY,
@@ -290,11 +290,11 @@ CREATE TABLE "_CategoryToPost" (
   "B" INTEGER NOT NULL REFERENCES "Post"(id)
 );
 ```
-{% endraw %}
+
 
 **사용 예시:**
 
-{% raw %}
+
 ```typescript
 // 게시글 생성과 동시에 카테고리 연결
 const post = await prisma.post.create({
@@ -313,12 +313,12 @@ const post = await prisma.post.create({
   include: { categories: true }
 });
 ```
-{% endraw %}
+
 
 #### 명시적 다대다 관계 (중간 테이블 커스터마이징)
 중간 테이블에 추가 필드가 필요한 경우:
 
-{% raw %}
+
 ```prisma
 model User {
   id            Int            @id @default(autoincrement())
@@ -343,11 +343,11 @@ model PostLike {
   @@id([userId, postId]) // 복합 기본키
 }
 ```
-{% endraw %}
+
 
 **사용 예시:**
 
-{% raw %}
+
 ```typescript
 // 좋아요 추가 (시간 정보 포함)
 const like = await prisma.postLike.create({
@@ -368,12 +368,12 @@ const userLikes = await prisma.user.findUnique({
   }
 });
 ```
-{% endraw %}
+
 
 #### 자기 참조 관계 (Self-Relation)
 댓글의 대댓글처럼 같은 테이블 내에서의 관계:
 
-{% raw %}
+
 ```prisma
 model Comment {
   id        Int       @id @default(autoincrement())
@@ -385,11 +385,11 @@ model Comment {
   replies   Comment[] @relation("CommentReplies")
 }
 ```
-{% endraw %}
+
 
 **사용 예시:**
 
-{% raw %}
+
 ```typescript
 // 댓글과 모든 대댓글 조회
 const commentWithReplies = await prisma.comment.findUnique({
@@ -403,13 +403,13 @@ const commentWithReplies = await prisma.comment.findUnique({
   }
 });
 ```
-{% endraw %}
+
 
 ## 설치 및 설정
 
 ### 1. 프로젝트 초기화
 
-{% raw %}
+
 ```bash
 # 새 프로젝트 생성
 npm init -y
@@ -424,11 +424,11 @@ DATABASE_URL="postgresql://username:password@localhost:5432/mydb"
 # 또는 SQLite
 DATABASE_URL="file:./dev.db"
 ```
-{% endraw %}
+
 
 ### 3. 스키마 파일 구조
 
-{% raw %}
+
 ```prisma
 // prisma/schema.prisma
 generator client {
@@ -440,13 +440,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 ```
-{% endraw %}
+
 
 ## 스키마 정의
 
 ### 1. 기본 데이터 타입
 
-{% raw %}
+
 ```prisma
 model User {
   id        Int      @id @default(autoincrement())
@@ -459,11 +459,11 @@ model User {
   profile   Json?    // JSON 데이터
 }
 ```
-{% endraw %}
+
 
 ### 2. 필드 속성
 
-{% raw %}
+
 ```prisma
 model Product {
   id          Int     @id @default(autoincrement())
@@ -478,11 +478,11 @@ model Product {
   @@map("products") // 테이블명 매핑
 }
 ```
-{% endraw %}
+
 
 ### 3. 복합 관계 예제
 
-{% raw %}
+
 ```prisma
 model User {
   id       Int       @id @default(autoincrement())
@@ -536,13 +536,13 @@ model Tag {
   posts Post[]
 }
 ```
-{% endraw %}
+
 
 ## 데이터베이스 마이그레이션
 
 ### 1. 마이그레이션 생성 및 적용
 
-{% raw %}
+
 ```bash
 # 마이그레이션 생성
 npx prisma migrate dev --name init
@@ -553,11 +553,11 @@ npx prisma migrate deploy
 # 마이그레이션 상태 확인
 npx prisma migrate status
 ```
-{% endraw %}
+
 
 ### 2. 스키마 동기화
 
-{% raw %}
+
 ```bash
 # 데이터베이스에서 스키마 가져오기
 npx prisma db pull
@@ -565,22 +565,22 @@ npx prisma db pull
 # 스키마를 데이터베이스에 푸시 (개발용)
 npx prisma db push
 ```
-{% endraw %}
+
 
 ### 3. 클라이언트 재생성
 
-{% raw %}
+
 ```bash
 # Prisma Client 생성
 npx prisma generate
 ```
-{% endraw %}
+
 
 ## Prisma Client 사용법
 
 ### 1. 기본 CRUD 작업
 
-{% raw %}
+
 ```typescript
 import { PrismaClient } from '@prisma/client';
 
@@ -633,11 +633,11 @@ await prisma.user.delete({
   where: { id: 1 }
 });
 ```
-{% endraw %}
+
 
 ### 2. 복잡한 쿼리 패턴
 
-{% raw %}
+
 ```typescript
 // 조건부 필터링
 const searchUsers = async (filters: {
@@ -683,7 +683,7 @@ const postsByUser = await prisma.post.groupBy({
   }
 });
 ```
-{% endraw %}
+
 
 ## 쿼리 패턴
 
@@ -695,7 +695,7 @@ const postsByUser = await prisma.post.groupBy({
 
 **문제 상황:**
 
-{% raw %}
+
 ```typescript
 // ❌ 트랜잭션 없이 송금 처리
 async function transferMoney(senderId, receiverId, amount) {
@@ -715,12 +715,12 @@ async function transferMoney(senderId, receiverId, amount) {
   });
 }
 ```
-{% endraw %}
+
 
 #### 순차 트랜잭션 (Interactive Transaction)
 모든 작업을 하나의 트랜잭션으로 묶어서 안전하게 처리
 
-{% raw %}
+
 ```typescript
 // ✅ 트랜잭션으로 안전한 송금 처리
 const transferMoney = await prisma.$transaction(async (tx) => {
@@ -757,7 +757,7 @@ const transferMoney = await prisma.$transaction(async (tx) => {
 
 console.log('송금 완료:', transferMoney);
 ```
-{% endraw %}
+
 
 **트랜잭션의 특징:**
 - **원자성(Atomicity)**: 모든 작업이 성공하거나 모두 실패
@@ -769,7 +769,7 @@ console.log('송금 완료:', transferMoney);
 여러 독립적인 작업을 한 번에 실행
 
 
-{% raw %}
+
 ```typescript
 // 여러 작업을 배치로 처리
 const batchOperations = await prisma.$transaction([
@@ -795,7 +795,7 @@ const batchOperations = await prisma.$transaction([
 
 console.log('배치 작업 결과:', batchOperations);
 ```
-{% endraw %}
+
 
 #### 트랜잭션 타임아웃 설정
 
@@ -803,7 +803,7 @@ console.log('배치 작업 결과:', batchOperations);
 
 **문제 상황:**
 
-{% raw %}
+
 ```typescript
 // ❌ 타임아웃 없는 위험한 트랜잭션
 const result = await prisma.$transaction(async (tx) => {
@@ -822,11 +822,11 @@ const result = await prisma.$transaction(async (tx) => {
   // - 메모리 부족
 });
 ```
-{% endraw %}
+
 
 **해결책: 타임아웃 설정**
 
-{% raw %}
+
 ```typescript
 // ✅ 안전한 타임아웃 설정
 const result = await prisma.$transaction(
@@ -849,7 +849,7 @@ const result = await prisma.$transaction(
   }
 );
 ```
-{% endraw %}
+
 
 **타임아웃 설정의 이유:**
 
@@ -867,7 +867,7 @@ const result = await prisma.$transaction(
 
 **실제 사용 예시:**
 
-{% raw %}
+
 ```typescript
 try {
   const result = await prisma.$transaction(
@@ -887,7 +887,7 @@ try {
   }
 }
 ```
-{% endraw %}
+
 
 #### 실제 사용 사례들
 

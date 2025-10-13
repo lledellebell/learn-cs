@@ -6,7 +6,7 @@ layout: default
   <div class="category-page">
     <!-- Category Header -->
     <header class="category-header">
-      <h1 class="category-page-title">{{ page.title }}</h1>
+      <h2 class="category-page-title">{{ page.title }}</h2>
       {% if page.description %}
         <p class="category-page-description">{{ page.description }}</p>
       {% endif %}
@@ -25,10 +25,10 @@ layout: default
 
     {% if all_posts.size > 0 %}
       <section class="category-posts">
-        <h2 class="category-posts-title">
+        <h3 class="category-posts-title">
           문서 목록
           <span class="category-posts-count">({{ all_posts.size }}개)</span>
-        </h2>
+        </h3>
 
         <ul class="category-posts-list">
           {% for post in all_posts %}

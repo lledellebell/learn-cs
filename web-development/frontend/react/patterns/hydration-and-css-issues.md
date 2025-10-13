@@ -9,7 +9,7 @@ React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적�
 ### 기본 원리
 
 
-{% raw %}
+
 ```jsx
 // 서버에서 렌더링된 HTML (정적)
 <div id="root">
@@ -21,7 +21,7 @@ React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적�
   <button onClick={handleClick}>클릭하세요</button> <!-- 이벤트 리스너 연결됨 -->
 </div>
 ```
-{% endraw %}
+
 
 
 ### 하이드레이션 과정
@@ -55,7 +55,7 @@ React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적�
 ### Next.js 예시
 
 
-{% raw %}
+
 ```jsx
 // pages/index.js
 export default function HomePage({ serverTime }) {
@@ -83,7 +83,7 @@ export async function getServerSideProps() {
   };
 }
 ```
-{% endraw %}
+
 
 
 **렌더링 결과:**
@@ -129,7 +129,7 @@ export async function getServerSideProps() {
 #### 2. 서버-클라이언트 스타일 불일치
 
 
-{% raw %}
+
 ```jsx
 // ❌ 문제가 되는 코드
 function ProblematicComponent() {
@@ -148,13 +148,13 @@ function ProblematicComponent() {
   );
 }
 ```
-{% endraw %}
+
 
 
 #### 3. 동적 스타일 적용
 
 
-{% raw %}
+
 ```jsx
 function Component() {
   const [mounted, setMounted] = useState(false);
@@ -173,7 +173,7 @@ function Component() {
   );
 }
 ```
-{% endraw %}
+
 
 
 ## Remix의 Route-based CSS 로딩
@@ -183,7 +183,7 @@ Remix는 각 라우트마다 필요한 CSS만 동적으로 로드하는 독특�
 ### 기본 구조
 
 
-{% raw %}
+
 ```tsx
 // app/routes/dashboard.tsx
 import type { LinksFunction } from "@remix-run/node";
@@ -197,7 +197,7 @@ export default function Dashboard() {
   return <div className="dashboard">대시보드</div>;
 }
 ```
-{% endraw %}
+
 
 
 ### 동작 과정
@@ -215,7 +215,7 @@ dashboard.css 동적 로드
 ### 중첩 라우트에서의 CSS 상속
 
 
-{% raw %}
+
 ```tsx
 // app/routes/dashboard.tsx (부모)
 export const links: LinksFunction = () => [
@@ -229,7 +229,7 @@ export const links: LinksFunction = () => [
 
 // 결과: dashboard-layout.css + analytics.css 모두 로드
 ```
-{% endraw %}
+
 
 
 ### 해결책과 최적화 방법
@@ -255,7 +255,7 @@ export const links: LinksFunction = () => [
 #### 2. CSS-in-JS 서버 사이드 렌더링
 
 
-{% raw %}
+
 ```jsx
 // styled-components 예시
 import { ServerStyleSheet } from 'styled-components';
@@ -275,13 +275,13 @@ const fullHtml = `
   </html>
 `;
 ```
-{% endraw %}
+
 
 
 #### 3. 조건부 렌더링 최적화
 
 
-{% raw %}
+
 ```jsx
 // ✅ 개선된 코드
 function ImprovedComponent() {
@@ -301,7 +301,7 @@ function ImprovedComponent() {
   );
 }
 ```
-{% endraw %}
+
 
 
 ```css
@@ -321,7 +321,7 @@ function ImprovedComponent() {
 #### 글로벌 CSS 우선 로딩
 
 
-{% raw %}
+
 ```tsx
 // app/root.tsx
 import type { LinksFunction } from "@remix-run/node";
@@ -331,13 +331,13 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalStyles },
 ];
 ```
-{% endraw %}
+
 
 
 #### 인라인 크리티컬 CSS
 
 
-{% raw %}
+
 ```tsx
 // app/root.tsx
 export default function App() {
@@ -362,12 +362,12 @@ export default function App() {
   );
 }
 ```
-{% endraw %}
+
 
 
 #### CSS 프리로딩
 
-{% raw %}
+
 ```tsx
 // 다음 페이지 CSS 미리 로드
 export default function HomePage() {
@@ -381,13 +381,13 @@ export default function HomePage() {
   return <div>홈페이지</div>;
 }
 ```
-{% endraw %}
+
 
 
 ### 5. 스켈레톤 UI 활용
 
 
-{% raw %}
+
 ```jsx
 function ComponentWithSkeleton() {
   const [loaded, setLoaded] = useState(false);
@@ -403,13 +403,13 @@ function ComponentWithSkeleton() {
   return <ActualContent />; // 실제 컨텐츠
 }
 ```
-{% endraw %}
+
 
 
 ### 6. 하이드레이션 디버깅
 
 
-{% raw %}
+
 ```jsx
 // 개발 환경에서 하이드레이션 문제 감지
 if (process.env.NODE_ENV === 'development') {
@@ -422,7 +422,7 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 ```
-{% endraw %}
+
 
 
 ## 성능 최적화 전략
@@ -430,7 +430,7 @@ if (process.env.NODE_ENV === 'development') {
 ### 1. Selective Hydration (React 18)
 
 
-{% raw %}
+
 ```jsx
 import { Suspense } from 'react';
 
@@ -448,13 +448,13 @@ function App() {
   );
 }
 ```
-{% endraw %}
+
 
 
 ### 2. 점진적 하이드레이션
 
 
-{% raw %}
+
 ```jsx
 // 뷰포트에 들어올 때만 하이드레이션
 function LazyHydratedComponent({ children }) {
@@ -480,13 +480,13 @@ function LazyHydratedComponent({ children }) {
   );
 }
 ```
-{% endraw %}
+
 
 
 ### 3. 하이드레이션 상태 관리
 
 
-{% raw %}
+
 ```jsx
 // 커스텀 훅으로 하이드레이션 상태 관리
 function useHydrated() {
@@ -513,7 +513,7 @@ function MyComponent() {
   );
 }
 ```
-{% endraw %}
+
 
 
 ## 모범 사례 요약

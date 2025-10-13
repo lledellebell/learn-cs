@@ -285,7 +285,7 @@ CSS는 전역 리소스이며 브라우저가 캐시하므로, 일반적으로 �
 - (A/B 테스트) 실험군별 다른 디자인 적용
 
 
-{% raw %}
+
 ```tsx
 // pages/_document.js (Next.js)
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -325,7 +325,7 @@ class MyDocument extends Document {
 
 export default MyDocument;
 ```
-{% endraw %}
+
 
 ## 6단계: 성능 측정 및 모니터링
 

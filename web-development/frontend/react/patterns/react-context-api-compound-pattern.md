@@ -17,7 +17,7 @@
 | **사용** | `useContext(Context)` | JSX에서 컴포넌트 감싸기 |
 
 
-{% raw %}
+
 ```tsx
 // Context: 데이터 구조 정의
 const ThemeContext = createContext({
@@ -39,7 +39,7 @@ const ThemeProvider = ({ children }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 **Context만으로는 데이터 공유가 불가능**하며, 반드시 **Provider와 함께 사용**해야 합니다. Context는 "무엇을 공유할지"를 정의하고, Provider는 "실제 값을 어떻게 제공할지"를 구현합니다.
@@ -49,7 +49,7 @@ const ThemeProvider = ({ children }) => {
 ### 1. 기본 구조
 
 
-{% raw %}
+
 ```tsx
 // Context 생성
 const DailyContext = createContext<DailyContextType | null>(null);
@@ -73,13 +73,13 @@ const Daily: DailyComponent = ({ children, ...props }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ### 2. `Context` 사용하는 서브컴포넌트
 
 
-{% raw %}
+
 ```tsx
 // Custom Hook으로 Context 접근
 const useDailyContext = () => {
@@ -101,14 +101,14 @@ const DailyHeader = ({ title, ...props }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ## `Context` 활용 사례
 
 ### 1. 상태 공유
 
-{% raw %}
+
 ```tsx
 const Weekly = createContext<{
   currentIndex: number;
@@ -135,12 +135,12 @@ const Weekly = ({ children }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ### 2. 네비게이션 컴포넌트에서 `Context` 활용
 
-{% raw %}
+
 ```tsx
 const Navigation = ({ showIndicator }) => {
   const { currentIndex, setCurrentIndex, isAutoPlaying } = useWeeklyContext();
@@ -154,7 +154,7 @@ const Navigation = ({ showIndicator }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ## `Context` 활용의 장점
@@ -175,7 +175,7 @@ const Navigation = ({ showIndicator }) => {
 
 ### 1. 다중 `Context`
 
-{% raw %}
+
 ```tsx
 // 서로 다른 관심사를 분리
 const UIStateContext = createContext(null);
@@ -189,12 +189,12 @@ const ComplexComponent = ({ children }) => (
   </UIStateContext.Provider>
 );
 ```
-{% endraw %}
+
 
 
 ### 2. `Context` + `Reducer` 패턴
 
-{% raw %}
+
 ```tsx
 const initialState = {
   currentSlide: 0,
@@ -227,14 +227,14 @@ const Swiper = ({ children }) => {
   );
 };
 ```
-{% endraw %}
+
 
 
 ## 주의사항
 
 ### 1. **성능 고려**
 
-{% raw %}
+
 ```tsx
 // ❌ 매번 새 객체 생성으로 불필요한 리렌더링
 const contextValue = {
@@ -248,12 +248,12 @@ const contextValue = useMemo(() => ({
   updateData: (newData) => setData(newData)
 }), [data]);
 ```
-{% endraw %}
+
 
 
 ### 2. **타입 안정성**
 
-{% raw %}
+
 ```tsx
 interface ContextType {
   currentIndex: number;
@@ -271,12 +271,12 @@ const useMyContext = (): ContextType => {
   return context;
 };
 ```
-{% endraw %}
+
 
 
 ### 3. **적절한 범위 설정**
 
-{% raw %}
+
 ```tsx
 // Context는 필요한 범위에서만 사용
 const ArticleListProvider = ({ children }) => (
@@ -294,7 +294,7 @@ const ArticleListProvider = ({ children }) => (
   </ArticleList>
 </ArticleListProvider>
 ```
-{% endraw %}
+
 
 
 ## 결론

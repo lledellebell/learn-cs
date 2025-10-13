@@ -37,13 +37,11 @@
   -webkit-backdrop-filter: blur(10px);
   border: var(--border-width) solid rgba(0, 0, 0, 0.1);
   border-radius: var(--border-radius);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="dark"] .category-content {
   background: rgba(255, 255, 255, 0.03);
   border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .category-posts {
@@ -112,7 +110,6 @@
   -webkit-backdrop-filter: blur(10px);
   border: var(--border-width) solid rgba(0, 0, 0, 0.1);
   border-radius: var(--border-radius);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   transition: all var(--transition);
 }
@@ -120,20 +117,17 @@
 [data-theme="dark"] .category-post-link {
   background: rgba(255, 255, 255, 0.03);
   border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .category-post-link:hover {
   background: rgba(255, 255, 255, 0.7);
   border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] .category-post-link:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .category-post-main {

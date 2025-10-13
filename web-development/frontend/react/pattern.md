@@ -84,7 +84,7 @@ Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리�
 
 ### 2. **사용 패턴의 차이**
 
-{% raw %}
+
 ```tsx
 // Card는 다양한 조합이 유용
 <Card>
@@ -102,7 +102,7 @@ Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리�
   hamburgerButton={{...}}
 />
 ```
-{% endraw %}
+
 
 ### 3. **복잡성 vs 유연성**
 - **Card 계열**: 유연성이 복잡성보다 중요 (다양한 콘텐츠 표현)

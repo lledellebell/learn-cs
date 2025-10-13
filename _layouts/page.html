@@ -4,11 +4,13 @@ layout: default
 
 <div class="container">
   <article class="article-wrapper">
-    <!-- Breadcrumb -->
-    {% include breadcrumb.html %}
+    <!-- Article Content Wrapper (Left side - 60%) -->
+    <div class="article-content-wrapper">
+      <!-- Breadcrumb -->
+      {% include breadcrumb.html %}
 
-    <!-- Article Header -->
-    <header class="article-header">
+      <!-- Article Header -->
+      <header class="article-header">
       <h1 class="article-title">{{ page.title }}</h1>
 
       <div class="article-meta">
@@ -108,10 +110,119 @@ layout: default
       </div>
     </header>
 
-    <!-- Reading Progress Bar -->
-    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+      <!-- Reading Progress Bar -->
+      <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
 
-    <!-- Table of Contents -->
+      <!-- Article Body -->
+      <div class="article-body">
+        {{ content }}
+      </div>
+
+      <!-- Related Posts -->
+      {% if page.tags or page.categories %}
+        {% assign related_posts = site.pages | where_exp: "post", "post.url != page.url" %}
+        {% assign matched_posts = "" | split: "" %}
+
+        {% for post in related_posts %}
+          {% assign match_score = 0 %}
+          {% for tag in page.tags %}
+            {% if post.tags contains tag %}
+              {% assign match_score = match_score | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          {% for category in page.categories %}
+            {% if post.categories contains category %}
+              {% assign match_score = match_score | plus: 2 %}
+            {% endif %}
+          {% endfor %}
+
+          {% if match_score > 0 %}
+            {% assign matched_posts = matched_posts | push: post %}
+        {% endif %}
+        {% endfor %}
+
+        {% if matched_posts.size > 0 %}
+          <aside class="related-posts">
+            <h2>관련 문서</h2>
+            <ul class="related-posts-list">
+              {% for post in matched_posts limit:5 %}
+                <li>
+                  <a href="{{ post.url }}">
+                    <span class="related-post-title">{{ post.title }}</span>
+                    {% if post.description %}
+                      <span class="related-post-desc">{{ post.description }}</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </aside>
+        {% endif %}
+      {% endif %}
+
+      <!-- Previous/Next Navigation -->
+      {% assign pages_list = site.pages | where_exp: "item", "item.path contains '.md'" | sort: "date" | reverse %}
+      {% assign current_index = nil %}
+      {% for item in pages_list %}
+        {% if item.url == page.url %}
+          {% assign current_index = forloop.index0 %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
+      {% if current_index %}
+        <nav class="page-navigation" aria-label="이전/다음 문서">
+          {% if current_index > 0 %}
+            {% assign prev_page = pages_list[current_index | minus: 1] %}
+            <a href="{{ prev_page.url }}" class="page-nav-link prev-page">
+              <span class="nav-direction">← 이전</span>
+              <span class="nav-title">{{ prev_page.title }}</span>
+            </a>
+          {% endif %}
+
+          {% assign next_index = current_index | plus: 1 %}
+          {% if next_index < pages_list.size %}
+            {% assign next_page = pages_list[next_index] %}
+            <a href="{{ next_page.url }}" class="page-nav-link next-page">
+              <span class="nav-direction">다음 →</span>
+              <span class="nav-title">{{ next_page.title }}</span>
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
+
+      <!-- Comments Section -->
+      {% if page.comments != false %}
+        <section class="comments-section">
+          <h2>댓글</h2>
+          <script src="https://utteranc.es/client.js"
+                  repo="lledellebell/learn-cs"
+                  issue-term="pathname"
+                  label="💬 comment"
+                  theme="preferred-color-scheme"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </section>
+      {% endif %}
+
+      <!-- Edit Link -->
+      <footer class="article-footer">
+        <button type="button" id="editBtn" class="edit-btn" aria-label="문서 수정 제안하기"
+                data-page-title="{{ page.title | escape }}"
+                data-page-path="{{ page.path }}"
+                data-page-url="{{ page.url | absolute_url }}"
+                data-env="{{ jekyll.environment | default: 'development' }}">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+          </svg>
+          이 문서 수정 제안하기
+        </button>
+      </footer>
+    </div>
+    <!-- End Article Content Wrapper -->
+
+    <!-- Table of Contents (Right side - 40%) -->
     {% if page.show_toc != false %}
       <nav class="toc" id="toc" aria-label="Table of contents">
         <!-- Mobile TOC Toggle Button -->
@@ -134,113 +245,6 @@ layout: default
         </div>
       </nav>
     {% endif %}
-
-    <!-- Article Body -->
-    <div class="article-body">
-      {{ content }}
-    </div>
-
-    <!-- Related Posts -->
-    {% if page.tags or page.categories %}
-      {% assign related_posts = site.pages | where_exp: "post", "post.url != page.url" %}
-      {% assign matched_posts = "" | split: "" %}
-
-      {% for post in related_posts %}
-        {% assign match_score = 0 %}
-        {% for tag in page.tags %}
-          {% if post.tags contains tag %}
-            {% assign match_score = match_score | plus: 1 %}
-          {% endif %}
-        {% endfor %}
-        {% for category in page.categories %}
-          {% if post.categories contains category %}
-            {% assign match_score = match_score | plus: 2 %}
-          {% endif %}
-        {% endfor %}
-
-        {% if match_score > 0 %}
-          {% assign matched_posts = matched_posts | push: post %}
-        {% endif %}
-      {% endfor %}
-
-      {% if matched_posts.size > 0 %}
-        <aside class="related-posts">
-          <h2>관련 문서</h2>
-          <ul class="related-posts-list">
-            {% for post in matched_posts limit:5 %}
-              <li>
-                <a href="{{ post.url }}">
-                  <span class="related-post-title">{{ post.title }}</span>
-                  {% if post.description %}
-                    <span class="related-post-desc">{{ post.description }}</span>
-                  {% endif %}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </aside>
-      {% endif %}
-    {% endif %}
-
-    <!-- Previous/Next Navigation -->
-    {% assign pages_list = site.pages | where_exp: "item", "item.path contains '.md'" | sort: "date" | reverse %}
-    {% assign current_index = nil %}
-    {% for item in pages_list %}
-      {% if item.url == page.url %}
-        {% assign current_index = forloop.index0 %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-
-    {% if current_index %}
-      <nav class="page-navigation" aria-label="이전/다음 문서">
-        {% if current_index > 0 %}
-          {% assign prev_page = pages_list[current_index | minus: 1] %}
-          <a href="{{ prev_page.url }}" class="page-nav-link prev-page">
-            <span class="nav-direction">← 이전</span>
-            <span class="nav-title">{{ prev_page.title }}</span>
-          </a>
-        {% endif %}
-
-        {% assign next_index = current_index | plus: 1 %}
-        {% if next_index < pages_list.size %}
-          {% assign next_page = pages_list[next_index] %}
-          <a href="{{ next_page.url }}" class="page-nav-link next-page">
-            <span class="nav-direction">다음 →</span>
-            <span class="nav-title">{{ next_page.title }}</span>
-          </a>
-        {% endif %}
-      </nav>
-    {% endif %}
-
-    <!-- Comments Section -->
-    {% if page.comments != false %}
-      <section class="comments-section">
-        <h2>댓글</h2>
-        <script src="https://utteranc.es/client.js"
-                repo="lledellebell/learn-cs"
-                issue-term="pathname"
-                label="💬 comment"
-                theme="preferred-color-scheme"
-                crossorigin="anonymous"
-                async>
-        </script>
-      </section>
-    {% endif %}
-
-    <!-- Edit Link -->
-    <footer class="article-footer">
-      <button type="button" id="editBtn" class="edit-btn" aria-label="문서 수정 제안하기"
-              data-page-title="{{ page.title | escape }}"
-              data-page-path="{{ page.path }}"
-              data-page-url="{{ page.url | absolute_url }}"
-              data-env="{{ jekyll.environment | default: 'development' }}">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-        </svg>
-        이 문서 수정 제안하기
-      </button>
-    </footer>
   </article>
 </div>
 
