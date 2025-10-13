@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <title>{{ page.title | default: site.title }}</title>
+
+  <!-- Primer CSS (GitHub Theme) -->
+  <link rel="stylesheet" href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- SEO Tags -->
+  {% if jekyll.environment == 'production' %}
+    {% include head-seo.html %}
+  {% endif %}
+</head>
+<body>
+  <div class="site-wrapper">
+    {% include navigation.html %}
+
+    <div class="main-content">
+      {% if page.layout == 'home' %}
+        {{ content }}
+      {% else %}
+        <div class="container-lg px-3 my-5 markdown-body">
+          <div class="content-wrapper">
+            {% if page.show_sidebar != false %}
+              {% include sidebar.html %}
+            {% endif %}
+
+            <main class="main-article">
+              {% if page.show_breadcrumb != false %}
+                {% include breadcrumb.html %}
+              {% endif %}
+
+              {{ content }}
+
+              {% if page.show_nav_links != false %}
+                {% include page-navigation.html %}
+              {% endif %}
+            </main>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% include footer.html %}
+  </div>
+
+  <!-- JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

@@ -72,23 +72,39 @@ relative_links:
 # Liquid 템플릿 비활성화 (코드 예제의 {{ }} 구문 보호)
 # 기술 문서 디렉토리만 선택적으로 적용
 defaults:
+  # All pages default layout
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+  # Home page
+  - scope:
+      path: "index.md"
+    values:
+      layout: "home"
+  # Disable Liquid for code examples
   - scope:
       path: "web-development"
     values:
       render_with_liquid: false
+      layout: "page"
   - scope:
       path: "languages"
     values:
       render_with_liquid: false
+      layout: "page"
   - scope:
       path: "databases"
     values:
       render_with_liquid: false
+      layout: "page"
   - scope:
       path: "algorithms"
     values:
       render_with_liquid: false
+      layout: "page"
   - scope:
       path: "networking"
     values:
       render_with_liquid: false
+      layout: "page"

@@ -1,0 +1,154 @@
+---
+layout: default
+---
+
+<div class="hero-section">
+  <div class="container-lg px-3">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ site.title }}</h1>
+      <p class="hero-description">{{ site.description }}</p>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <i class="fas fa-book"></i>
+          <span class="stat-number">{{ site.pages | size }}</span>
+          <span class="stat-label">문서</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-folder"></i>
+          <span class="stat-number">6</span>
+          <span class="stat-label">카테고리</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-clock"></i>
+          <span class="stat-number">최근 업데이트</span>
+          <span class="stat-label">{{ site.time | date: "%Y.%m.%d" }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-lg px-3 my-5">
+  <!-- Category Cards -->
+  <section class="category-section">
+    <h2 class="section-title">카테고리</h2>
+
+    <div class="category-grid">
+      <!-- Algorithms -->
+      <div class="category-card">
+        <div class="category-icon algorithms">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3 class="category-title">알고리즘</h3>
+        <p class="category-description">자료구조, 알고리즘, 최적화 기법</p>
+        <a href="/learn-cs/algorithms/" class="category-link">
+          문서 보기 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Languages -->
+      <div class="category-card">
+        <div class="category-icon languages">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="category-title">프로그래밍 언어</h3>
+        <p class="category-description">JavaScript, TypeScript 핵심 개념</p>
+        <a href="/learn-cs/languages/" class="category-link">
+          문서 보기 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Web Development -->
+      <div class="category-card">
+        <div class="category-icon web">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3 class="category-title">웹 개발</h3>
+        <p class="category-description">React, CSS, 성능 최적화</p>
+        <a href="/learn-cs/web-development/" class="category-link">
+          문서 보기 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Databases -->
+      <div class="category-card">
+        <div class="category-icon databases">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3 class="category-title">데이터베이스</h3>
+        <p class="category-description">SQL, ORM, 데이터 모델링</p>
+        <a href="/learn-cs/databases/" class="category-link">
+          문서 보기 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Networking -->
+      <div class="category-card">
+        <div class="category-icon networking">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3 class="category-title">네트워킹</h3>
+        <p class="category-description">HTTP, 프로토콜, 보안</p>
+        <a href="/learn-cs/networking/" class="category-link">
+          문서 보기 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div class="category-card">
+        <div class="category-icon misc">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <h3 class="category-title">기타</h3>
+        <p class="category-description">도구, 설정, 유용한 팁</p>
+        <a href="/learn-cs/NAVIGATION.html" class="category-link">
+          전체 목차 보기 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Updates -->
+  <section class="recent-section">
+    <h2 class="section-title">최근 업데이트</h2>
+    <div class="recent-list">
+      {% assign sorted_pages = site.pages | sort: 'date' | reverse %}
+      {% for page in sorted_pages limit:5 %}
+        {% if page.path contains '.md' and page.path != 'README.md' %}
+          <div class="recent-item">
+            <div class="recent-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="recent-content">
+              <a href="{{ page.url | relative_url }}" class="recent-title">
+                {{ page.title | default: page.name }}
+              </a>
+              <p class="recent-path">{{ page.path }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="quick-links-section">
+    <div class="quick-links-grid">
+      <a href="/learn-cs/NAVIGATION.html" class="quick-link-card">
+        <i class="fas fa-list"></i>
+        <span>전체 목차</span>
+      </a>
+      <a href="https://github.com/lledellebell/learn-cs" class="quick-link-card">
+        <i class="fab fa-github"></i>
+        <span>GitHub 저장소</span>
+      </a>
+      <a href="/learn-cs/feed.xml" class="quick-link-card">
+        <i class="fas fa-rss"></i>
+        <span>RSS 피드</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+{{ content }}

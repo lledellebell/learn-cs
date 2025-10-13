@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+<article class="article-content">
+  <header class="article-header">
+    <h1 class="article-title">{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="article-description">{{ page.description }}</p>
+    {% endif %}
+
+    <div class="article-meta">
+      {% if page.date %}
+        <span class="meta-item">
+          <i class="far fa-calendar"></i>
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%Y년 %m월 %d일" }}
+          </time>
+        </span>
+      {% endif %}
+
+      {% if page.author %}
+        <span class="meta-item">
+          <i class="far fa-user"></i>
+          {{ page.author }}
+        </span>
+      {% endif %}
+
+      <span class="meta-item">
+        <i class="far fa-clock"></i>
+        {{ content | number_of_words | divided_by: 200 | plus: 1 }}분 읽기
+      </span>
+    </div>
+  </header>
+
+  <!-- Table of Contents -->
+  {% if page.show_toc != false %}
+    <div id="toc" class="table-of-contents">
+      <h2 class="toc-title">
+        <i class="fas fa-list"></i>
+        목차
+      </h2>
+      <div id="toc-content"></div>
+    </div>
+  {% endif %}
+
+  <!-- Article Content -->
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  <!-- Article Footer -->
+  <footer class="article-footer">
+    <div class="article-tags">
+      {% if page.tags %}
+        <i class="fas fa-tags"></i>
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="article-actions">
+      <a href="https://github.com/lledellebell/learn-cs/edit/master/{{ page.path }}" class="btn-edit" target="_blank">
+        <i class="fas fa-edit"></i>
+        이 페이지 수정하기
+      </a>
+    </div>
+  </footer>
+</article>
