@@ -5,19 +5,26 @@
     </li>
 
     {% assign path_parts = page.path | split: '/' %}
+    {% assign accumulated_path = "" %}
 
     {% for part in path_parts %}
       {% unless forloop.last %}
+        {% if accumulated_path == "" %}
+          {% assign accumulated_path = part %}
+        {% else %}
+          {% assign accumulated_path = accumulated_path | append: '/' | append: part %}
+        {% endif %}
+
         <li class="breadcrumb-item">
           <span class="breadcrumb-separator">/</span>
-          <span>{{ part | replace: '-', ' ' | capitalize }}</span>
+          <a href="{{ '/' | append: accumulated_path | append: '/' | relative_url }}">{{ part | replace: '-', ' ' | capitalize }}</a>
         </li>
       {% endunless %}
     {% endfor %}
 
     <li class="breadcrumb-item">
       <span class="breadcrumb-separator">/</span>
-      <span aria-current="page">{{ page.title | default: page.name }}</span>
+      <a href="{{ page.url | relative_url }}" aria-current="page">{{ page.title | default: page.name }}</a>
     </li>
   </ol>
 </nav>

@@ -1,6 +1,21 @@
 /* =========================================
-   Learn CS
+   Fonts
    ========================================= */
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@v2.304/fonts/variable/woff2/JetBrainsMono[wght].woff2') format('woff2-variations');
+}
 
 /* =========================================
    CSS Variables
@@ -33,8 +48,8 @@
   --color-border-dark: var(--color-gray-400);
 
   /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+  --font-sans: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
   --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Spacing */
@@ -896,6 +911,11 @@ pre[data-language="tsx"]::before {
 
 .breadcrumb-item a:hover {
   color: var(--color-text);
+}
+
+.breadcrumb-item a[aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 600;
 }
 
 .breadcrumb-separator {

@@ -57,7 +57,8 @@ layout: default
                 <path d="M4.5 2a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h5.586l.854-.854a1.5 1.5 0 0 0 .439-1.06V3.914a1.5 1.5 0 0 0-.44-1.06L9.586 1.5a1.5 1.5 0 0 0-1.06-.44H4.5z"/>
               </svg>
               {% for category in page.categories %}
-                <a href="/categories/#{{ category | slugify }}" class="taxonomy-tag category-tag">{{ category }}</a>
+                {% assign category_slug = category | slugify %}
+                <a href="{{ '/categories/#' | append: category_slug | relative_url }}" class="taxonomy-tag category-tag">{{ category }}</a>
               {% endfor %}
             </div>
           {% endif %}
@@ -68,7 +69,8 @@ layout: default
                 <path d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
               </svg>
               {% for tag in page.tags %}
-                <a href="/tags/#{{ tag | slugify }}" class="taxonomy-tag tag-tag">{{ tag }}</a>
+                {% assign tag_slug = tag | slugify %}
+                <a href="{{ '/tags/#' | append: tag_slug | relative_url }}" class="taxonomy-tag tag-tag">{{ tag }}</a>
               {% endfor %}
             </div>
           {% endif %}
@@ -145,7 +147,7 @@ layout: default
             <ul class="related-posts-list">
               {% for post in matched_posts limit:5 %}
                 <li>
-                  <a href="{{ post.url }}">
+                  <a href="{{ post.url | relative_url }}">
                     <span class="related-post-title">{{ post.title }}</span>
                     {% if post.description %}
                       <span class="related-post-desc">{{ post.description }}</span>
@@ -173,7 +175,7 @@ layout: default
           {% if current_index > 0 %}
             {% assign prev_index = current_index | minus: 1 %}
             {% assign prev_page = pages_list[prev_index] %}
-            <a href="{{ prev_page.url }}" class="page-nav-link prev-page">
+            <a href="{{ prev_page.url | relative_url }}" class="page-nav-link prev-page">
               <span class="nav-direction">← 이전</span>
               <span class="nav-title">{{ prev_page.title }}</span>
             </a>
@@ -182,7 +184,7 @@ layout: default
           {% assign next_index = current_index | plus: 1 %}
           {% if next_index < pages_list.size %}
             {% assign next_page = pages_list[next_index] %}
-            <a href="{{ next_page.url }}" class="page-nav-link next-page">
+            <a href="{{ next_page.url | relative_url }}" class="page-nav-link next-page">
               <span class="nav-direction">다음 →</span>
               <span class="nav-title">{{ next_page.title }}</span>
             </a>
