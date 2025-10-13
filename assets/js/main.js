@@ -370,7 +370,7 @@
 
     // 모달 열기
     shareBtn.addEventListener('click', () => {
-      modal.add.classList.add('flex');
+      modal.classList.add('flex');
       modal.setAttribute('aria-hidden', 'false');
       // 첫 번째 버튼에 포커스
       modal.querySelector('.share-option')?.focus();

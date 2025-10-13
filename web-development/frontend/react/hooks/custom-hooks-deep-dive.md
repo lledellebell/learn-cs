@@ -2,15 +2,6 @@
 
 > React 공식 문서를 기반으로 작성된 Custom Hooks 가이드
 
-## 목차
-
-- [Custom Hooks란?](#custom-hooks란)
-- [왜 Custom Hooks를 사용하는가?](#왜-custom-hooks를-사용하는가)
-- [Custom Hooks 작성 규칙](#custom-hooks-작성-규칙)
-- [실전 예제](#실전-예제)
-- [Best Practices](#best-practices)
-- [주의사항](#주의사항)
-
 ## Custom Hooks란?
 
 Custom Hooks는 **컴포넌트 간에 상태 로직(stateful logic)을 공유**하기 위한 메커니즘입니다.

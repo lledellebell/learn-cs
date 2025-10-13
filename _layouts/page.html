@@ -115,7 +115,13 @@ layout: default
 
       <!-- Article Body -->
       <div class="article-body">
-        {{ content }}
+        {% assign content_parts = content | split: '<h1' %}
+        {% if content_parts.size > 1 %}
+          {% assign after_first_h1 = content_parts[1] | split: '</h1>' %}
+          {{ content_parts[0] }}{% if after_first_h1.size > 1 %}{{ after_first_h1[1] | join: '</h1>' }}{% endif %}
+        {% else %}
+          {{ content }}
+        {% endif %}
       </div>
 
       <!-- Related Posts -->

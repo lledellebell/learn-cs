@@ -714,7 +714,7 @@ pre code {
 .article-body blockquote {
   margin: var(--space-8) 0;
   padding: var(--space-4) var(--space-6);
-  border-left: 3px solid var(--color-black);
+  border: 3px solid var(--color-black);
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -722,7 +722,7 @@ pre code {
 }
 
 [data-theme="dark"] .article-body blockquote {
-  border-left-color: var(--color-white);
+  border-color: var(--color-white);
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -924,10 +924,12 @@ pre:hover .code-copy-btn {
   .toc {
     width: 100%;
     order: -1;
+    margin-bottom: 0;
   }
 
   .toc-toggle {
     display: flex;
+    margin-bottom: 0;
   }
 
   .toc-wrapper {
@@ -937,8 +939,30 @@ pre:hover .code-copy-btn {
   }
 
   .toc-wrapper.expanded {
-    max-height: 800px;
+    max-height: min(60vh, 400px);
+    overflow-y: auto;
     transition: max-height 0.5s ease-in;
+    padding: var(--space-4) 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .toc-wrapper.expanded::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc-wrapper.expanded::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc-wrapper.expanded::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .toc-wrapper.expanded::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-dark);
   }
 
   .toc-title {
