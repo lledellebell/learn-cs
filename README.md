@@ -46,11 +46,11 @@
 
 ### 최근 추가된 문서
 
-- **[`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md)**
+- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
+- **[ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법](/languages/typescript/get_return_type.md)**
+- **[HTTP 인증 방법 완벽 가이드](/networking/http/http_authentication_methods.md)**
+- **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
 - **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)**
-- **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
-- **[`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md)**
-- **[Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)**
 
 ### 전체 목차
 
@@ -68,15 +68,15 @@
 <summary><strong>프로그래밍 언어 (Languages)</strong> (14개)</summary>
 
 - [프로그래밍 언어](/languages/index.md)
-- [`bind()` 메소드](/languages/javascript/bind.md)
-- [Callback](/languages/javascript/callback.md)
-- [Factory Pattern](/languages/javascript/factory_pattern.md)
+- [`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법](/languages/javascript/bind.md)
+- [Callback - JavaScript 비동기의 시작점](/languages/javascript/callback.md)
+- [Factory Pattern - 객체를 만드는 똑똑한 방법](/languages/javascript/factory_pattern.md)
 - [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md)
 - [인스턴스 (Instance)](/languages/javascript/instance.md)
 - [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
 - [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)
-- [Prototype](/languages/javascript/prototype.md)
+- [Prototype - JavaScript의 숨은 마법을 이해하기](/languages/javascript/prototype.md)
 - ... 그 외 4개 문서
 
 </details>
@@ -84,7 +84,7 @@
 <details>
 <summary><strong>네트워킹 (Networking)</strong> (2개)</summary>
 
-- [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md)
+- [HTTP 인증 방법 완벽 가이드](/networking/http/http_authentication_methods.md)
 - [네트워킹](/networking/index.md)
 
 </details>
@@ -102,7 +102,7 @@
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
-- [## 참조](/web-development/frontend/css/object-position_&_object-fit.md)
+- [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/frontend/css/object-position_&_object-fit.md)
 - [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
 - [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)
 - [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
