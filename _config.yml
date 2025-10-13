@@ -3,6 +3,7 @@ title: Learn CS
 description: Computer Science learning materials
 url: "https://lledellebell.github.io"
 baseurl: "/learn-cs"
+repository: lledellebell/learn-cs
 
 # 빌드 설정
 markdown: kramdown
