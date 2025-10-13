@@ -321,6 +321,7 @@ pre code {
   width: 36px;
   height: 36px;
   transition: all var(--transition);
+  border-radius: 100%;
 }
 
 [data-theme="dark"] .theme-toggle {

@@ -160,8 +160,12 @@
       button.addEventListener('click', async () => {
         const code = block.querySelector('code')?.textContent || block.textContent;
 
+        // 워터마크 추가
+        const watermark = `\n\n// 출처: ${document.title}\n// ${window.location.href}`;
+        const textWithWatermark = code + watermark;
+
         try {
-          await navigator.clipboard.writeText(code);
+          await navigator.clipboard.writeText(textWithWatermark);
           button.textContent = 'Copied!';
           button.setAttribute('aria-label', '코드가 클립보드에 복사됨');
 
@@ -205,6 +209,31 @@
   };
 
   // =========================================
+  // 텍스트 복사 시 워터마크 추가
+  // =========================================
+  const initCopyWatermark = () => {
+    document.addEventListener('copy', (e) => {
+      // 선택된 텍스트 가져오기
+      const selection = window.getSelection();
+      const selectedText = selection.toString();
+
+      // 텍스트가 선택되지 않았거나 너무 짧으면 워터마크 추가 안 함
+      if (!selectedText || selectedText.length < 10) {
+        return;
+      }
+
+      // 워터마크 생성
+      const pageTitle = document.title;
+      const pageUrl = window.location.href;
+      const watermark = `\n\n━━━━━━━━━━━━━━━━━━━━━━\n출처: ${pageTitle}\n${pageUrl}`;
+
+      // 클립보드에 워터마크가 포함된 텍스트 복사
+      e.preventDefault();
+      e.clipboardData.setData('text/plain', selectedText + watermark);
+    });
+  };
+
+  // =========================================
   // 키보드 단축키
   // =========================================
   const initKeyboardShortcuts = () => {
@@ -238,6 +267,7 @@
     generateTOC();
     initCodeCopy();
     markExternalLinks();
+    initCopyWatermark();
     initKeyboardShortcuts();
 
     console.log('✅ Learn CS 초기화 완료');
