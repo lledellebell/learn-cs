@@ -2303,14 +2303,22 @@ pre {
    ========================================= */
 .home-news {
   padding: var(--space-16) 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 35, 10, 0.015) 50%, transparent 100%);
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(255, 35, 10, 0.015) 50%, transparent 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 0, 0, 0.04) 39px, rgba(0, 0, 0, 0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0, 0, 0, 0.04) 39px, rgba(0, 0, 0, 0.04) 40px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
   border-top: var(--border-width) solid var(--color-border);
   border-bottom: var(--border-width) solid var(--color-border);
   position: relative;
 }
 
 [data-theme="dark"] .home-news {
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 35, 10, 0.03) 50%, transparent 100%);
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(255, 35, 10, 0.03) 50%, transparent 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
 }
 
 .home-news .home-section-title::after{
