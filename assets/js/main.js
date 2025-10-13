@@ -977,7 +977,6 @@
     wrapper.addEventListener('mouseleave', () => {
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
-        const currentX = getCurrentTransform();
         track.style.animation = 'news-scroll 6s linear infinite';
         track.style.transform = '';
       }, 3000);

@@ -2379,6 +2379,56 @@ pre {
   position: relative;
 }
 
+/* 좌측 그라데이션 페이드 효과 */
+.home-news-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .home-news-wrapper::before {
+  background: linear-gradient(to right,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(18, 18, 18, 0.8) 40%,
+    rgba(18, 18, 18, 0) 100%
+  );
+}
+
+/* 우측 그라데이션 페이드 효과 */
+.home-news-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .home-news-wrapper::after {
+  background: linear-gradient(to left,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(18, 18, 18, 0.8) 40%,
+    rgba(18, 18, 18, 0) 100%
+  );
+}
+
 /* 네비게이션 버튼 공통 스타일 */
 .home-news-nav {
   position: absolute;
