@@ -1,6 +1,6 @@
 ---
 date: 2025-10-13
-title: CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지
+title: CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지
 render_with_liquid: false
 layout: page
 ---

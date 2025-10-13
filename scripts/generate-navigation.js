@@ -79,8 +79,26 @@ class NavigationGenerator {
   extractTitle(filePath) {
     try {
       const content = fs.readFileSync(filePath, 'utf8');
-      const titleMatch = content.match(/^#\s+(.+)$/m);
-      return titleMatch ? titleMatch[1].trim() : path.basename(filePath, '.md');
+
+      // 1. frontmatter에서 title 추출 시도
+      const frontMatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
+      if (frontMatterMatch) {
+        const frontMatter = frontMatterMatch[1];
+        const titleMatch = frontMatter.match(/^title:\s*(.+)$/m);
+        if (titleMatch) {
+          return titleMatch[1].trim();
+        }
+      }
+
+      // 2. 본문에서 첫 번째 # 제목 추출
+      const withoutFrontMatter = content.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
+      const headingMatch = withoutFrontMatter.match(/^#\s+(.+)$/m);
+      if (headingMatch) {
+        return headingMatch[1].trim();
+      }
+
+      // 3. 파일명 사용
+      return path.basename(filePath, '.md');
     } catch (error) {
       return path.basename(filePath, '.md');
     }

@@ -1,39 +1,29 @@
 ---
 date: 2025-10-13
+title: Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
 render_with_liquid: false
 layout: page
 ---
 {% raw %}
-# (수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
+# Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
 
-Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유와 사용할 수 있는 방법을 분석해보겠습니다.
+혹시 이런 의문을 가져보신 적 있으신가요? "Card 컴포넌트는 Compound 패턴을 사용하는데, 왜 Header는 그냥 props로만 관리하지?" 저도 처음엔 똑같이 궁금했습니다. 이 글에서는 그 이유를 함께 알아보겠습니다.
 
-## 현재 Header가 Compound 패턴을 사용하지 않는 이유
+## 먼저, 두 패턴을 비교해볼까요?
 
-### 1. **단일 책임 원칙**
-Header는 하나의 명확한 역할(페이지 상단 네비게이션)을 가지고 있어서 내부 구조를 외부에 노출할 필요가 적습니다.
+### Compound 패턴으로 만든다면?
 
-### 2. **고정된 레이아웃**
-Header의 구조는 비교적 고정적입니다.
-- 홈페이지: 햄버거메뉴 + 로고 + 사이드버튼
-- 서브페이지: 뒤로가기 + 홈버튼
+Header를 Compound 패턴으로 만들면 이렇게 생겼을 겁니다:
 
-### 3. **복잡성 vs 유연성 트레이드오프**
-현재는 props로 충분히 커스터마이징이 가능하여 Compound 패턴의 복잡성이 필요하지 않았습니다.
-
-## Compound 패턴을 적용한다면?
-
-메모리에서 보듯이 Card, Daily, Weekly 컴포넌트들은 Compound 패턴을 성공적으로 사용하고 있습니다. Header에도 적용할 수 있습니다.
-
-```ts
-// 가능한 Compound 패턴 구조
+```tsx
+// Compound 패턴 스타일
 <Header>
   <Header.HamburgerButton onClick={handleMenu} />
-  <Header.Logo href="/" useMainHeading={true} />
+  <Header.Logo href="/" useMainHeading />
   <Header.SideButton onClick={handleIntro} />
 </Header>
 
-// 또는 서브페이지
+// 서브페이지용
 <Header>
   <Header.BackButton onClick={goBack} />
   <Header.HomeButton href="/" />
@@ -41,99 +31,175 @@ Header의 구조는 비교적 고정적입니다.
 </Header>
 ```
 
-## Compound 패턴의 장단점
+### 현재 Configuration 패턴은?
 
-**장점:**
-- 더 세밀한 제어 가능
-- 각 서브컴포넌트의 독립적 사용
-- 레이아웃 순서 변경 가능
-- 조건부 렌더링이 더 명확
+현재 Header는 이렇게 사용하고 있습니다:
 
-**단점:**
-- API 복잡성 증가
-- 잘못된 조합 가능성
-- 기본 레이아웃 보장의 어려움
-
-## 결론
-
-현재 Header는 **Configuration over Composition** 접근법을 사용하고 있습니다. 이는:
-
-1. **일관성**: 모든 페이지에서 동일한 Header 구조 보장
-2. **단순성**: 개발자가 복잡한 조합을 고민할 필요 없음
-3. **안정성**: 잘못된 레이아웃 조합 방지
-
-하지만 더 유연한 Header가 필요하다면 Compound 패턴을 적용할 수 있습니다. 어떤 방향을 선호하시나요?
-
-Header에 Compound 패턴을 적용해보겠습니다. 현재 메모리에서 보듯이 Card, Daily, TodayWeeklyInsight 컴포넌트들이 이 패턴을 성공적으로 사용하고 있으니, Header에도 동일한 접근법을 적용할 수 있습니다.
-
-Header에 Compound 패턴을 적용하겠습니다. 기존 메모리에서 본 Card, Daily, TodayWeeklyInsight 컴포넌트들과 동일한 패턴을 사용하겠습니다.
-
-먼저 Header 컴포넌트를 Compound 패턴으로 리팩토링하겠습니다.
-
-현재 Header를 Compound 패턴으로 리팩토링하는 중이었는데, 이 작업이 너무 복잡해질 수 있습니다. 
-
-실제로 Header 컴포넌트의 경우 Compound 패턴이 적합하지 않을 수 있는 이유들이 있습니다.
-
-1. **고정된 레이아웃**: Header는 브랜딩과 일관성이 중요하여 자유로운 조합보다는 정해진 패턴이 더 적합
-2. **복잡성 증가**: 현재 props 기반 API가 이미 충분히 유연하고 사용하기 쉬움
-3. **잘못된 사용 가능성**: 개발자가 잘못된 조합으로 Header를 구성할 위험
-
-변경사항을 되돌리고 원래 Header 구조로 복원하겠습니다.
-
-Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리하면:
-
-## Header가 Compound 패턴을 사용하지 않는 이유
-
-### 1. **컴포넌트의 성격 차이**
-- **Card, Daily, Weekly**: 콘텐츠 표시 컴포넌트로 다양한 조합이 필요
-- **Header**: 네비게이션 컴포넌트로 일관된 구조가 중요
-
-### 2. **사용 패턴의 차이**
-
-
-```ts
-// Card는 다양한 조합이 유용
-<Card>
-  <Card.Image />
-  <Card.Body>
-    <Card.Headline />
-    <Card.Description />
-  </Card.Body>
-</Card>
-
-// Header는 고정된 패턴이 더 적합
+```tsx
+// Configuration 패턴 스타일
 <Header
-  isHome={true}
-  showHamburgerMenu={true}
-  hamburgerButton={{...}}
+  isHome
+  showHamburgerMenu
+  hamburgerButton={{
+    onClick: handleMenu,
+    ariaLabel: '메뉴 열기'
+  }}
+  logo={{
+    href: '/',
+    useMainHeading: true
+  }}
 />
 ```
 
+언뜻 보면 Compound 패턴이 더 직관적으로 보일 수 있습니다. 그런데 왜 Configuration 패턴을 선택했을까요?
 
-### 3. **복잡성 vs 유연성**
-- **Card 계열**: 유연성이 복잡성보다 중요 (다양한 콘텐츠 표현)
-- **Header**: 일관성이 유연성보다 중요 (브랜딩, UX 일관성)
+## Header가 특별한 이유
 
-### 4. **잘못된 사용 방지**
-Header에 Compound 패턴을 적용하면:
-```ts
-// 잘못된 조합 가능성
+### 1. 컴포넌트의 역할이 다릅니다
+
+Card나 Daily 같은 컴포넌트를 떠올려보세요. 이들은 **콘텐츠를 표시**하는 역할입니다:
+
+```tsx
+// Card는 다양한 내용을 담을 수 있어요
+<Card>
+  <Card.Image src="photo.jpg" />
+  <Card.Body>
+    <Card.Headline>제목</Card.Headline>
+    <Card.Description>설명</Card.Description>
+  </Card.Body>
+</Card>
+
+// 또는 이미지 없이도 가능
+<Card>
+  <Card.Body>
+    <Card.Headline>제목만</Card.Headline>
+  </Card.Body>
+</Card>
+```
+
+반면 Header는 **네비게이션**이라는 명확한 역할이 있습니다. 모든 페이지에서 일관되게 보여야 하고, 사용자가 헷갈리지 않아야 합니다.
+
+### 2. 구조가 비교적 고정적입니다
+
+웹사이트의 Header를 떠올려보세요. 대부분 이런 패턴을 따르죠:
+
+- **홈페이지**: 메뉴 버튼 + 로고 + 부가 버튼
+- **서브페이지**: 뒤로가기 + 로고 + 홈 버튼
+
+이 구조는 거의 변하지 않습니다. 왜일까요? 바로 **사용자 경험의 일관성** 때문입니다. 사용자가 페이지를 이동할 때마다 Header의 위치나 구조가 바뀌면 혼란스럽겠죠?
+
+### 3. 잘못된 사용을 방지할 수 있습니다
+
+만약 Compound 패턴을 사용한다면 이런 실수가 발생할 수 있습니다:
+
+```tsx
+// 이런 조합도 가능해집니다 😱
 <Header>
   <Header.Logo />
-  <Header.Logo /> {/* 중복 로고 */}
-  {/* 뒤로가기 버튼 없음 */}
+  <Header.Logo /> {/* 로고가 두 개? */}
+  {/* 뒤로가기 버튼은 어디 갔지? */}
+</Header>
+
+// 아니면 이런 식으로...
+<Header>
+  <Header.SideButton />
+  {/* 로고가 없네요? */}
+  <Header.HamburgerButton />
 </Header>
 ```
 
-### 5. **현재 API의 충분함**
-현재 props 기반 API로도 필요한 모든 커스터마이징이 가능:
-- 각 버튼의 attributes 추가
-- 조건부 표시/숨김
-- 이벤트 핸들러 커스터마이징
+Configuration 패턴을 사용하면 이런 실수를 컴포넌트 내부에서 방지할 수 있습니다.
 
-## 결론
+## 언제 어떤 패턴을 써야 할까요?
 
-Header는 **Configuration over Composition** 패턴이 더 적합합니다. 이는 일관된 사용자 경험과 개발자 경험을 보장하면서도 필요한 유연성을 제공합니다.
+### Compound 패턴이 좋은 경우
 
-Card 같은 콘텐츠 컴포넌트와 Header 같은 레이아웃 컴포넌트는 서로 다른 설계 철학이 필요한 것이 맞습니다.
+**"다양한 조합이 필요한 콘텐츠 컴포넌트"**
+
+- Card, Modal, Accordion
+- 탭, 드롭다운, 리스트
+- 매번 다른 구조로 사용될 수 있는 컴포넌트
+
+```tsx
+// 이런 유연성이 필요할 때
+<Card>
+  <Card.Image />
+  <Card.Title />
+  <Card.Actions>
+    <Button>좋아요</Button>
+    <Button>공유</Button>
+  </Card.Actions>
+</Card>
+```
+
+### Configuration 패턴이 좋은 경우
+
+**"일관된 구조가 중요한 레이아웃 컴포넌트"**
+
+- Header, Footer, Navigation
+- Sidebar, Toolbar
+- 브랜딩이나 UX 일관성이 중요한 컴포넌트
+
+```tsx
+// 이런 명확한 설정이 필요할 때
+<Header
+  variant="home"
+  showMenu
+  menuItems={menuItems}
+  onMenuClick={handleMenu}
+/>
+```
+
+## 실제 장단점을 비교해보면
+
+### Compound 패턴의 장점
+- 레이아웃을 자유롭게 변경 가능
+- 조건부 렌더링이 명확
+- 각 서브컴포넌트를 독립적으로 사용 가능
+
+### Compound 패턴의 단점
+- API가 복잡해질 수 있음
+- 잘못된 조합이 가능
+- 기본 레이아웃을 보장하기 어려움
+
+### Configuration 패턴의 장점
+- 일관된 구조 보장
+- 사용이 간단하고 명확
+- 잘못된 사용 방지
+- 타입 안정성 확보 용이
+
+### Configuration 패턴의 단점
+- 새로운 변형 추가 시 props 증가
+- 매우 복잡한 조합은 어려울 수 있음
+
+## 결론: 적재적소가 중요합니다
+
+Header에 Configuration 패턴을 사용하는 것은 **의도적인 선택**입니다. 이는:
+
+1. **일관성**: 모든 페이지에서 예측 가능한 네비게이션 제공
+2. **단순성**: 개발자가 복잡한 조합을 고민할 필요 없음
+3. **안정성**: 잘못된 레이아웃 조합 방지
+4. **유지보수**: 변경사항을 한 곳에서 관리
+
+Card와 같은 콘텐츠 컴포넌트는 유연성이 중요하지만, Header와 같은 레이아웃 컴포넌트는 일관성이 더 중요합니다. 각 컴포넌트의 역할과 목적에 맞는 패턴을 선택하는 것이 좋은 설계입니다.
+
+**핵심은 이것입니다**: 모든 패턴이 좋은 것도, 나쁜 것도 아닙니다. 상황과 목적에 맞게 선택하는 것이 중요합니다.
+
+## 참고 자료
+
+### 관련 문서
+- [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
+- [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
+- [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
+- [React에서 Composite/Compound Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md)
+
+### 외부 자료
+- [React Patterns - Compound Components](https://kentcdodds.com/blog/compound-components-with-react-hooks) - Kent C. Dodds
+- [When to Use Compound Components](https://www.patterns.dev/posts/compound-pattern) - Patterns.dev
+- [Composition vs Configuration](https://americanexpress.io/composition-vs-configuration) - American Express Technology Blog
+- [Design Patterns for Modern Web Development](https://www.smashingmagazine.com/2021/08/react-component-design-patterns-2021/) - Smashing Magazine
+
+### React 공식 문서
+- [Composition vs Inheritance](https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children) - React Docs
+- [Thinking in React](https://react.dev/learn/thinking-in-react) - React Docs
 {% endraw %}

@@ -46,11 +46,11 @@
 
 ### 최근 추가된 문서
 
-- **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)**
+- **[Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)**
+- **[CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)**
+- **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
 - **[Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)**
-- **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
-- **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
-- **[(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)**
+- **[React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md)**
 
 ### 전체 목차
 
@@ -59,7 +59,7 @@
 <details>
 <summary><strong>알고리즘 (Algorithms)</strong> (2개)</summary>
 
-- [index](/algorithms/index.md)
+- [알고리즘](/algorithms/index.md)
 - [메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)
 
 </details>
@@ -67,7 +67,7 @@
 <details>
 <summary><strong>프로그래밍 언어 (Languages)</strong> (14개)</summary>
 
-- [index](/languages/index.md)
+- [프로그래밍 언어](/languages/index.md)
 - [`bind()` 메소드](/languages/javascript/bind.md)
 - [Callback](/languages/javascript/callback.md)
 - [Factory Pattern](/languages/javascript/factory_pattern.md)
@@ -85,14 +85,14 @@
 <summary><strong>네트워킹 (Networking)</strong> (2개)</summary>
 
 - [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md)
-- [index](/networking/index.md)
+- [네트워킹](/networking/index.md)
 
 </details>
 
 <details>
 <summary><strong>데이터베이스 (Databases)</strong> (2개)</summary>
 
-- [index](/databases/index.md)
+- [데이터베이스](/databases/index.md)
 - [Prisma ORM 가이드](/databases/prisma-orm-guide.md)
 
 </details>
@@ -103,10 +103,10 @@
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
 - [## 참조](/web-development/frontend/css/object-position_&_object-fit.md)
-- [CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
+- [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
 - [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)
 - [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
-- [(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
+- [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
 - [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
@@ -119,7 +119,7 @@
 
 - [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)
 - [저작권 및 이용 정책](/copyright.md)
-- [index](/index.md)
+- [Learn CS](/index.md)
 
 </details>
 

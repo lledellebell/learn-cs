@@ -148,7 +148,14 @@ class DateUpdater {
     // Front matter 제거 후 첫 번째 # 제목 찾기
     const withoutFrontMatter = content.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
     const titleMatch = withoutFrontMatter.match(/^#\s+(.+)$/m);
-    return titleMatch ? titleMatch[1].trim() : null;
+    if (titleMatch) {
+      return titleMatch[1].trim();
+    }
+
+    // Liquid 태그 제거 후 다시 시도
+    const withoutLiquid = withoutFrontMatter.replace(/\{%\s*raw\s*%\}/g, '').replace(/\{%\s*endraw\s*%\}/g, '');
+    const titleMatch2 = withoutLiquid.match(/^#\s+(.+)$/m);
+    return titleMatch2 ? titleMatch2[1].trim() : null;
   }
 
   /**
@@ -180,8 +187,12 @@ class DateUpdater {
       // Front matter가 없는 경우 새로 생성
       const title = this.extractTitle(content);
 
+      if (!title) {
+        console.warn(`⚠️  경고: ${relativePath} 파일에 제목(# 제목)이 없습니다.`);
+      }
+
       frontMatter = {
-        title: title || 'Untitled',
+        title: title || path.basename(filePath, '.md'),
         layout: 'page'
       };
       contentWithoutFrontMatter = content;
@@ -189,6 +200,19 @@ class DateUpdater {
     } else {
       frontMatter = parsed.frontMatter;
       contentWithoutFrontMatter = parsed.contentWithoutFrontMatter;
+
+      // title이 없으면 본문에서 추출
+      if (!frontMatter.title) {
+        const title = this.extractTitle(content);
+        if (title) {
+          frontMatter.title = title;
+          updated = true;
+        } else {
+          console.warn(`⚠️  경고: ${relativePath} 파일의 frontmatter에 title이 없습니다.`);
+          frontMatter.title = path.basename(filePath, '.md');
+          updated = true;
+        }
+      }
     }
 
     const formattedCreationDate = this.formatDate(dates.creation);
@@ -293,7 +317,8 @@ class DateUpdater {
     console.log(`📊 통계:`);
     console.log(`  - 총 파일: ${this.updatedFiles.length + this.skippedFiles.length}개`);
     console.log(`  - 업데이트됨: ${this.updatedFiles.length}개`);
-    console.log(`  - 건너뜀: ${this.skippedFiles.length}개\n`);
+    console.log(`  - 건너뜀: ${this.skippedFiles.length}개`);
+    console.log(`  ℹ️  README.md와 NAVIGATION.md는 자동으로 제외됩니다.\n`);
 
     if (this.updatedFiles.length > 0) {
       console.log('📝 업데이트된 파일:');
