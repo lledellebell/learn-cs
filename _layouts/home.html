@@ -262,7 +262,7 @@ layout: default
 
       <div class="home-recent-grid">
         {% assign md_pages = site.pages | where_exp: "item", "item.path contains '.md'" %}
-        {% assign sorted_pages = md_pages | sort: 'last_modified_at' | reverse %}
+        {% assign sorted_pages = md_pages | sort: 'date' | reverse %}
         {% assign count = 0 %}
         {% for page in sorted_pages %}
           {% if page.path != 'README.md' and page.path != 'index.md' and page.title and count < 6 %}
