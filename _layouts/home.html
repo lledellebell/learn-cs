@@ -9,39 +9,110 @@ layout: default
     <p class="hero-description">{{ site.description }}</p>
   </section>
 
+  <!-- Quick Stats -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">{{ site.pages | where_exp: "item", "item.path contains '.md'" | size }}</div>
+        <div class="stat-label">문서</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">카테고리</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ site.time | date: "%Y.%m" }}</div>
+        <div class="stat-label">최근 업데이트</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Categories -->
   <section class="categories">
     <h2 class="section-title">카테고리</h2>
 
     <div class="category-grid">
-      <a href="/learn-cs/algorithms/" class="category-card">
+      <a href="{{ '/algorithms/' | relative_url }}" class="category-card">
         <h3 class="category-title">알고리즘</h3>
         <p class="category-description">자료구조, 알고리즘, 최적화 기법</p>
+        <span class="category-arrow">→</span>
       </a>
 
-      <a href="/learn-cs/languages/" class="category-card">
+      <a href="{{ '/languages/' | relative_url }}" class="category-card">
         <h3 class="category-title">프로그래밍 언어</h3>
         <p class="category-description">JavaScript, TypeScript 핵심 개념</p>
+        <span class="category-arrow">→</span>
       </a>
 
-      <a href="/learn-cs/web-development/" class="category-card">
+      <a href="{{ '/web-development/' | relative_url }}" class="category-card">
         <h3 class="category-title">웹 개발</h3>
         <p class="category-description">React, CSS, 성능 최적화</p>
+        <span class="category-arrow">→</span>
       </a>
 
-      <a href="/learn-cs/databases/" class="category-card">
+      <a href="{{ '/databases/' | relative_url }}" class="category-card">
         <h3 class="category-title">데이터베이스</h3>
         <p class="category-description">SQL, ORM, 데이터 모델링</p>
+        <span class="category-arrow">→</span>
       </a>
 
-      <a href="/learn-cs/networking/" class="category-card">
+      <a href="{{ '/networking/' | relative_url }}" class="category-card">
         <h3 class="category-title">네트워킹</h3>
         <p class="category-description">HTTP, 프로토콜, 보안</p>
+        <span class="category-arrow">→</span>
       </a>
 
-      <a href="/learn-cs/NAVIGATION.html" class="category-card">
+      <a href="{{ '/NAVIGATION.html' | relative_url }}" class="category-card">
         <h3 class="category-title">전체 목차</h3>
         <p class="category-description">모든 문서 보기</p>
+        <span class="category-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Recent Updates -->
+  <section class="recent-section">
+    <h2 class="section-title">최근 문서</h2>
+
+    <div class="recent-grid">
+      {% assign md_pages = site.pages | where_exp: "item", "item.path contains '.md'" %}
+      {% assign sorted_pages = md_pages | sort: 'date' | reverse %}
+      {% assign count = 0 %}
+      {% for page in sorted_pages %}
+        {% if page.path != 'README.md' and page.path != 'index.md' and page.title and count < 6 %}
+          <a href="{{ page.url | relative_url }}" class="recent-card">
+            <h3 class="recent-title">{{ page.title }}</h3>
+            <p class="recent-path">{{ page.path }}</p>
+          </a>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="quick-links-section">
+    <h2 class="section-title">바로가기</h2>
+
+    <div class="quick-links-grid">
+      <a href="{{ '/NAVIGATION.html' | relative_url }}" class="quick-link-card">
+        <div class="quick-link-icon">📚</div>
+        <div class="quick-link-title">전체 목차</div>
+      </a>
+
+      <a href="https://github.com/lledellebell/learn-cs" class="quick-link-card" target="_blank" rel="noopener noreferrer">
+        <div class="quick-link-icon">💻</div>
+        <div class="quick-link-title">GitHub</div>
+      </a>
+
+      <a href="{{ '/copyright.html' | relative_url }}" class="quick-link-card">
+        <div class="quick-link-icon">©</div>
+        <div class="quick-link-title">저작권</div>
+      </a>
+
+      <a href="{{ '/feed.xml' | relative_url }}" class="quick-link-card">
+        <div class="quick-link-icon">📡</div>
+        <div class="quick-link-title">RSS 피드</div>
       </a>
     </div>
   </section>
