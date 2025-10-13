@@ -193,14 +193,20 @@ layout: default
                   {% assign content_part = parts[0] %}
                   {% assign link_part = parts[1] %}
 
-                  {% comment %} 제목은 첫 줄 {% endcomment %}
+                  {% comment %} 제목은 첫 줄, 요약은 두 번째 줄부터 {% endcomment %}
                   {% capture newline %}
                   {% endcapture %}
                   {% assign lines = content_part | split: newline %}
                   {% assign title_line = lines[0] | strip %}
 
-                  {% comment %} 요약은 제목 제거 후 나머지 {% endcomment %}
-                  {% assign summary = content_part | remove_first: title_line | strip %}
+                  {% comment %} 요약: 첫 번째 줄을 제외한 나머지 줄들을 조합 {% endcomment %}
+                  {% assign summary = '' %}
+                  {% for line in lines %}
+                    {% if forloop.index > 1 %}
+                      {% assign summary = summary | append: line %}
+                    {% endif %}
+                  {% endfor %}
+                  {% assign summary = summary | strip %}
 
                   {% comment %} URL 추출 {% endcomment %}
                   {% assign url = link_part | split: '[' | last | split: ']' | first %}
