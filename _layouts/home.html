@@ -183,7 +183,11 @@ layout: default
               <p class="home-recent-path">
                 {% assign path_parts = page.path | split: '/' %}
                 {% if path_parts.size > 1 %}
-                  {{ path_parts | slice: 0, path_parts.size | minus: 1 | join: ' / ' }}
+                  {% for part in path_parts %}
+                    {% unless forloop.last %}
+                      {% if forloop.first == false %} / {% endif %}{{ part }}
+                    {% endunless %}
+                  {% endfor %}
                 {% endif %}
               </p>
             </a>
