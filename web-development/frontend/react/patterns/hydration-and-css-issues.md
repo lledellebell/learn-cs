@@ -3,6 +3,7 @@ render_with_liquid: false
 layout: page
 ---
 
+{% raw %}
 # React 하이드레이션과 CSS 재적용 문제
 
 React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 있습니다. 이 글에서는 하이드레이션의 원리부터 실무에서 마주하는 문제들을 다룹니다.
@@ -564,3 +565,4 @@ function MyComponent() {
 - **[Patterns.dev - Server-Side Rendering](https://www.patterns.dev/posts/server-side-rendering/)** - SSR 패턴과 하이드레이션 전략
 - **[Smashing Magazine - A Deep Dive Into Next.js Static Generation](https://www.smashingmagazine.com/2021/04/incremental-static-regeneration-nextjs/)** - Next.js 렌더링 전략 비교
 - **[CSS-Tricks - Critical CSS](https://css-tricks.com/how-do-you-determine-what-your-critical-css-is/)** - 크리티컬 CSS 식별 및 최적화
+{% endraw %}

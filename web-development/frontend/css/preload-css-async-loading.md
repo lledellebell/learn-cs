@@ -3,6 +3,7 @@ render_with_liquid: false
 layout: page
 ---
 
+{% raw %}
 # CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지
 
 웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.
@@ -586,3 +587,4 @@ function loadCSSWithSW(href) {
 
 ### 관련 문서
 - **[폰트 최적화: preload와 FOUT 방지](./font-optimization-preload-fout.md)** - 폰트 로딩 최적화 전문 가이드
+{% endraw %}

@@ -3,6 +3,7 @@ render_with_liquid: false
 layout: page
 ---
 
+{% raw %}
 # `Context API`를 활용한 `Compound Pattern` 구현
 
 > React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.
@@ -309,3 +310,5 @@ const ArticleListProvider = ({ children }) => (
 다만 성능과 타입 안정성을 고려하여 설계해야 합니다.
 
 # 참고
+
+{% endraw %}

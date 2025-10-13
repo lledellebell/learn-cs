@@ -3,6 +3,7 @@ render_with_liquid: false
 layout: page
 ---
 
+{% raw %}
 # HTML 새니타이징(Sanitization) - XSS 공격 방어
 
 ## 개요
@@ -238,3 +239,4 @@ payloads.forEach(payload => {
 - [DOMPurify Documentation](https://github.com/cure53/DOMPurify)
 - [MDN: TreeWalker](https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker)
 - infinite-text-scroller 구현: `/Users/a220330001/Git/Personal/infinite-text-scroller/src/index.js:45-84`
+{% endraw %}

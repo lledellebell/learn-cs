@@ -3,6 +3,7 @@ render_with_liquid: false
 layout: page
 ---
 
+{% raw %}
 # (수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
 
 Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유와 사용할 수 있는 방법을 분석해보겠습니다.
@@ -135,3 +136,4 @@ Header에 Compound 패턴을 적용하면:
 Header는 **Configuration over Composition** 패턴이 더 적합합니다. 이는 일관된 사용자 경험과 개발자 경험을 보장하면서도 필요한 유연성을 제공합니다.
 
 Card 같은 콘텐츠 컴포넌트와 Header 같은 레이아웃 컴포넌트는 서로 다른 설계 철학이 필요한 것이 맞습니다.
+{% endraw %}
