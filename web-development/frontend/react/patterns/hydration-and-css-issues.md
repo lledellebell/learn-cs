@@ -1,8 +1,9 @@
 ---
+date: 2025-09-18
+last_modified_at: 2025-10-13
 render_with_liquid: false
 layout: page
 ---
-
 {% raw %}
 # React 하이드레이션과 CSS 재적용 문제
 

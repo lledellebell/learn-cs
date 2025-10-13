@@ -1,8 +1,9 @@
 ---
+date: 2025-09-18
+last_modified_at: 2025-10-13
 render_with_liquid: false
 layout: page
 ---
-
 {% raw %}
 # CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지
 

@@ -1,8 +1,9 @@
 ---
+date: 2025-09-26
+last_modified_at: 2025-10-13
 render_with_liquid: false
 layout: page
 ---
-
 {% raw %}
 # (수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
 

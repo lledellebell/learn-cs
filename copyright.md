@@ -1,10 +1,10 @@
 ---
-layout: page
 title: 저작권 및 이용 정책
+date: 2025-10-13
+layout: page
 description: Learn CS의 콘텐츠 저작권 및 이용 조건
 show_toc: false
 ---
-
 # 저작권 및 이용 정책
 
 최종 업데이트: {{ site.time | date: "%Y년 %m월 %d일" }}

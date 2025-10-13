@@ -142,9 +142,9 @@
           // 모바일에서 목차 닫기
           if (window.innerWidth <= 768) {
             const tocToggle = document.getElementById('tocToggle');
-            const tocWrapper = document.querySelector('.toc-wrapper');
-            if (tocToggle && tocWrapper) {
-              tocWrapper.classList.remove('expanded');
+            const tocContainer = document.getElementById('toc');
+            if (tocToggle && tocContainer) {
+              tocContainer.classList.remove('expanded');
               tocToggle.setAttribute('aria-expanded', 'false');
             }
           }
@@ -164,9 +164,9 @@
   // =========================================
   const initMobileTOC = () => {
     const tocToggle = document.getElementById('tocToggle');
-    const tocWrapper = document.querySelector('.toc-wrapper');
+    const tocContainer = document.getElementById('toc');
 
-    if (!tocToggle || !tocWrapper) return;
+    if (!tocToggle || !tocContainer) return;
 
     tocToggle.addEventListener('click', () => {
       const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
@@ -175,9 +175,18 @@
       tocToggle.setAttribute('aria-expanded', newState);
 
       if (newState) {
-        tocWrapper.classList.add('expanded');
+        tocContainer.classList.add('expanded');
       } else {
-        tocWrapper.classList.remove('expanded');
+        tocContainer.classList.remove('expanded');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!tocContainer.contains(e.target) && tocContainer.classList.contains('expanded')) {
+          tocContainer.classList.remove('expanded');
+          tocToggle.setAttribute('aria-expanded', 'false');
+        }
       }
     });
   };
