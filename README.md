@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 36개의 문서** | 마지막 업데이트: 2025. 10. 13.
+> **총 38개의 문서** | 마지막 업데이트: 2025. 10. 13.
 
 ### 카테고리
 
@@ -42,15 +42,15 @@
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
 - **[웹 개발 (Web Development)](#webdevelopment)** (19개 문서)
-- **[기타 (Miscellaneous)](#misc)** (1개 문서)
+- **[기타 (Miscellaneous)](#misc)** (3개 문서)
 
 ### 최근 추가된 문서
 
-- **[Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)**
-- **[CSS Mask Composite](/web-development/frontend/css/mask-composite.md)**
-- **[this Keyword](/languages/javascript/this.md)**
-- **[Prototype Chain](/languages/javascript/prototype_chain.md)**
-- **[Prototype](/languages/javascript/prototype.md)**
+- **[저작권 및 이용 정책](/copyright.md)**
+- **[index](/index.md)**
+- **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)**
+- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
+- **[Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)**
 
 ### 전체 목차
 
@@ -112,9 +112,11 @@
 </details>
 
 <details>
-<summary><strong>기타 (Miscellaneous)</strong> (1개)</summary>
+<summary><strong>기타 (Miscellaneous)</strong> (3개)</summary>
 
 - [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)
+- [저작권 및 이용 정책](/copyright.md)
+- [index](/index.md)
 
 </details>
 

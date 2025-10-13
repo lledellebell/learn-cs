@@ -1,6 +1,5 @@
 /* =========================================
-   Learn CS - 메인 JavaScript
-   Semantic, Accessible, Minimal
+   Learn CS
    ========================================= */
 
 (function() {
@@ -87,7 +86,7 @@
   };
 
   // =========================================
-  // 목차 자동 생성
+  // 목차 자동 생성 + 스크롤 하이라이트
   // =========================================
   const generateTOC = () => {
     const articleBody = document.querySelector('.article-body');
@@ -122,7 +121,7 @@
       const indent = level === 2 ? '' : level === 3 ? 'padding-left: 1rem;' : 'padding-left: 2rem;';
 
       tocHTML += `<li style="${indent}">
-        <a href="#${id}">${text}</a>
+        <a href="#${id}" data-target="${id}">${text}</a>
       </li>`;
     });
 
@@ -141,6 +140,39 @@
           target.focus();
         }
       });
+    });
+
+    // 스크롤 시 현재 섹션 하이라이트
+    initTOCHighlight(headings);
+  };
+
+  // =========================================
+  // 목차 하이라이트
+  // =========================================
+  const initTOCHighlight = (headings) => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const tocLink = document.querySelector(`#tocList a[data-target="${id}"]`);
+
+        if (tocLink) {
+          if (entry.isIntersecting) {
+            // 모든 링크의 active 제거
+            document.querySelectorAll('#tocList a').forEach(link => {
+              link.classList.remove('active');
+            });
+            // 현재 링크에 active 추가
+            tocLink.classList.add('active');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-100px 0px -66%',
+      threshold: 0
+    });
+
+    headings.forEach(heading => {
+      observer.observe(heading);
     });
   };
 
@@ -259,6 +291,203 @@
   };
 
   // =========================================
+  // 읽는 시간 계산
+  // =========================================
+  const calculateReadingTime = () => {
+    const readingTimeElement = document.getElementById('readingTimeText');
+    if (!readingTimeElement) return;
+
+    const articleBody = document.querySelector('.article-body');
+    if (!articleBody) return;
+
+    // 텍스트 추출 (코드 블록 제외)
+    const text = articleBody.textContent || '';
+    const wordsPerMinute = 200; // 평균 읽기 속도
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+
+    readingTimeElement.textContent = `${readingTime}분 읽기`;
+  };
+
+  // =========================================
+  // 인쇄 최적화
+  // =========================================
+  const initPrint = () => {
+    const printBtn = document.getElementById('printBtn');
+    if (!printBtn) return;
+
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  };
+
+  // =========================================
+  // 공유 기능
+  // =========================================
+  const initShare = () => {
+    const shareBtn = document.getElementById('shareBtn');
+    const modal = document.getElementById('shareModal');
+    const closeBtn = modal?.querySelector('.modal-close');
+    const shareOptions = document.querySelectorAll('.share-option');
+
+    if (!shareBtn || !modal) return;
+
+    // 모달 열기
+    shareBtn.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modal.setAttribute('aria-hidden', 'false');
+      // 첫 번째 버튼에 포커스
+      modal.querySelector('.share-option')?.focus();
+    });
+
+    // 모달 닫기
+    const closeModal = () => {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      shareBtn.focus();
+    };
+
+    closeBtn?.addEventListener('click', closeModal);
+
+    // 외부 클릭 시 닫기
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // ESC 키로 닫기
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+
+    // 공유 옵션 처리
+    shareOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const shareType = option.getAttribute('data-share');
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+
+        let shareUrl = '';
+
+        switch (shareType) {
+          case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            break;
+          case 'linkedin':
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            break;
+          case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            break;
+          case 'copy':
+            navigator.clipboard.writeText(window.location.href).then(() => {
+              const originalText = option.innerHTML;
+              option.innerHTML = '<svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> 복사됨!';
+              setTimeout(() => {
+                option.innerHTML = originalText;
+              }, 2000);
+            }).catch(err => {
+              console.error('링크 복사 실패:', err);
+            });
+            break;
+        }
+
+        if (shareType !== 'copy') {
+          closeModal();
+        }
+      });
+    });
+  };
+
+  // =========================================
+  // 북마크/읽기 진행률 저장
+  // =========================================
+  const initBookmark = () => {
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    const bookmarkIcon = document.getElementById('bookmarkIcon');
+    const bookmarkText = document.getElementById('bookmarkText');
+
+    if (!bookmarkBtn) return;
+
+    const pageUrl = window.location.pathname;
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+
+    // 북마크 상태 확인
+    const updateBookmarkUI = () => {
+      if (bookmarks[pageUrl]) {
+        bookmarkIcon.innerHTML = '<path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>';
+        bookmarkText.textContent = '북마크됨';
+        bookmarkBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        bookmarkIcon.innerHTML = '<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>';
+        bookmarkText.textContent = '북마크';
+        bookmarkBtn.setAttribute('aria-pressed', 'false');
+      }
+    };
+
+    updateBookmarkUI();
+
+    // 북마크 토글
+    bookmarkBtn.addEventListener('click', () => {
+      if (bookmarks[pageUrl]) {
+        delete bookmarks[pageUrl];
+      } else {
+        bookmarks[pageUrl] = {
+          title: document.title,
+          timestamp: new Date().toISOString(),
+          scrollPosition: window.scrollY
+        };
+      }
+
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      updateBookmarkUI();
+    });
+
+    // 스크롤 위치 저장 (디바운스)
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (bookmarks[pageUrl]) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          bookmarks[pageUrl].scrollPosition = window.scrollY;
+          localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        }, 500);
+      }
+    });
+
+    // 페이지 로드 시 스크롤 위치 복원
+    if (bookmarks[pageUrl]?.scrollPosition) {
+      window.scrollTo(0, bookmarks[pageUrl].scrollPosition);
+    }
+  };
+
+  // =========================================
+  // 읽기 진행률 표시
+  // =========================================
+  const initReadingProgress = () => {
+    const progressBar = document.getElementById('readingProgress');
+    if (!progressBar) return;
+
+    const updateProgress = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / documentHeight) * 100;
+
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+    };
+
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+  };
+
+  // =========================================
   // 초기화
   // =========================================
   const init = () => {
@@ -269,6 +498,11 @@
     markExternalLinks();
     initCopyWatermark();
     initKeyboardShortcuts();
+    calculateReadingTime();
+    initPrint();
+    initShare();
+    initBookmark();
+    initReadingProgress();
 
     console.log('✅ Learn CS 초기화 완료');
   };
