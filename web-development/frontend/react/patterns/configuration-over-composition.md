@@ -246,7 +246,9 @@ const Navigation: React.FC<NavigationProps> = ({
     </header>
   );
 };
+```
 
+```tsx
 // 사용법 - 설정만으로 모든 변형 제어
 <Navigation
   variant="main"
