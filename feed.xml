@@ -5,13 +5,83 @@
     <link>https://github.com/lledellebell/learn-cs</link>
     <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 13 Oct 2025 09:14:29 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 09:35:00 +0000</lastBuildDate>
     <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
       <title>CS 학습 노트</title>
       <link>https://github.com/lledellebell/learn-cs</link>
     </image>
+
+    <item>
+      <title>Jekyll 로컬 개발 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:34:29 +0000</pubDate>
+      <category>기타</category>
+      <description>이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>CSS Mask Composite</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</guid>
+      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>CSS `mask-composite` 속성에 대한 문서입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>this Keyword</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:31:20 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>JavaScript의 `this` 키워드에 대한 문서입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Prototype Chain</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:31:19 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Prototype</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:31:17 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>JavaScript의 프로토타입(Prototype)에 대한 문서입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Factory Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:31:16 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>팩토리 패턴(Factory Pattern)에 대한 문서입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Callback</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:31:14 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>콜백(Callback) 함수에 대한 문서입니다.</description>
+      <author>lledellebell</author>
+    </item>
 
     <item>
       <title>JSON Feed 사양</title>
@@ -214,16 +284,6 @@
     </item>
 
     <item>
-      <title>mask-composite</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>mask-composite에 대한 학습 노트</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>## 참조</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</guid>
@@ -264,52 +324,12 @@
     </item>
 
     <item>
-      <title>prototype</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>prototype에 대한 학습 노트</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>prototype_chain</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>prototype_chain에 대한 학습 노트</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>this</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>this에 대한 학습 노트</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>Get Return Type</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md</guid>
       <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
       <category>프로그래밍 언어</category>
       <description>- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>factory_pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>factory_pattern에 대한 학습 노트</description>
       <author>lledellebell</author>
     </item>
 
@@ -340,16 +360,6 @@
       <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
       <category>데이터베이스</category>
       <description>- [Prisma란?](#prisma란)</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>callback</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>callback에 대한 학습 노트</description>
       <author>lledellebell</author>
     </item>
 

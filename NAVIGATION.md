@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 35개의 문서**(마지막 업데이트 정보: 2025년 10월 13일 오전 09:19)
+> **총 36개의 문서**(마지막 업데이트 정보: 2025년 10월 13일 오전 09:38)
 
 > 최근 수정된 문서:
->- **JSON Feed 사양** (2025년 10월 13일)
+>- **Jekyll 로컬 개발 가이드** (2025년 10월 13일)
 
 ### 알고리즘 (Algorithms)
 
@@ -21,17 +21,17 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [this Keyword](/languages/javascript/this.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Prototype Chain](/languages/javascript/prototype_chain.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Prototype](/languages/javascript/prototype.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Factory Pattern](/languages/javascript/factory_pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Callback](/languages/javascript/callback.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [`bind()` 메소드](/languages/javascript/bind.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md) | 2025년 10월 2일 | 2025년 10월 10일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [인스턴스 (Instance)](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [prototype](/languages/javascript/prototype.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [prototype_chain](/languages/javascript/prototype_chain.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [this](/languages/javascript/this.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [factory_pattern](/languages/javascript/factory_pattern.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [callback](/languages/javascript/callback.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
 #### TypeScript
 
@@ -64,6 +64,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [CSS Mask Composite](/web-development/frontend/css/mask-composite.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
@@ -78,7 +79,6 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | [CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [mask-composite](/web-development/frontend/css/mask-composite.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [## 참조](/web-development/frontend/css/object-position_&_object-fit.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
 #### 가이드
@@ -94,6 +94,14 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 |------|----------|------------|------|
 | [Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
+### 기타 (Miscellaneous)
+
+기타 학습 자료
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+
 ---
 
 ### 통계
@@ -105,12 +113,13 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | 알고리즘 (Algorithms) | 1개 |
 | 네트워킹 (Networking) | 1개 |
 | 데이터베이스 (Databases) | 1개 |
+| 기타 (Miscellaneous) | 1개 |
 
 ### 최근 수정된 문서
 
-1. **[JSON Feed 사양](/web-development/guides/json-feed-specification.md)** - 2025년 10월 13일
-1. **[`bind()` 메소드](/languages/javascript/bind.md)** - 2025년 10월 10일
-1. **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)** - 2025년 10월 10일
-1. **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)** - 2025년 10월 10일
-1. **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)** - 2025년 10월 10일
+1. **[Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)** - 2025년 10월 13일
+1. **[CSS Mask Composite](/web-development/frontend/css/mask-composite.md)** - 2025년 10월 13일
+1. **[this Keyword](/languages/javascript/this.md)** - 2025년 10월 13일
+1. **[Prototype Chain](/languages/javascript/prototype_chain.md)** - 2025년 10월 13일
+1. **[Prototype](/languages/javascript/prototype.md)** - 2025년 10월 13일
 

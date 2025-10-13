@@ -16,6 +16,139 @@
   ],
   "items": [
     {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md",
+      "title": "Jekyll 로컬 개발 가이드",
+      "content_html": "<p>이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.</p>",
+      "content_text": "이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.",
+      "summary": "이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.",
+      "date_published": "2025-10-13T00:34:29.803Z",
+      "date_modified": "2025-10-13T00:35:00.760Z",
+      "tags": [
+        "기타"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
+      "title": "CSS Mask Composite",
+      "content_html": "<p>CSS `mask-composite` 속성에 대한 문서입니다.</p>",
+      "content_text": "CSS `mask-composite` 속성에 대한 문서입니다.",
+      "summary": "CSS `mask-composite` 속성에 대한 문서입니다.",
+      "date_published": "2025-10-02T06:22:17.587Z",
+      "date_modified": "2025-10-13T00:31:22.517Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
+      "title": "this Keyword",
+      "content_html": "<p>JavaScript의 `this` 키워드에 대한 문서입니다.</p>",
+      "content_text": "JavaScript의 `this` 키워드에 대한 문서입니다.",
+      "summary": "JavaScript의 `this` 키워드에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:31:20.507Z",
+      "date_modified": "2025-10-13T00:31:20.510Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
+      "title": "Prototype Chain",
+      "content_html": "<p>JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.</p>",
+      "content_text": "JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.",
+      "summary": "JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:31:19.149Z",
+      "date_modified": "2025-10-13T00:31:19.152Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
+      "title": "Prototype",
+      "content_html": "<p>JavaScript의 프로토타입(Prototype)에 대한 문서입니다.</p>",
+      "content_text": "JavaScript의 프로토타입(Prototype)에 대한 문서입니다.",
+      "summary": "JavaScript의 프로토타입(Prototype)에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:31:17.963Z",
+      "date_modified": "2025-10-13T00:31:17.966Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
+      "title": "Factory Pattern",
+      "content_html": "<p>팩토리 패턴(Factory Pattern)에 대한 문서입니다.</p>",
+      "content_text": "팩토리 패턴(Factory Pattern)에 대한 문서입니다.",
+      "summary": "팩토리 패턴(Factory Pattern)에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:31:16.543Z",
+      "date_modified": "2025-10-13T00:31:16.546Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
+      "title": "Callback",
+      "content_html": "<p>콜백(Callback) 함수에 대한 문서입니다.</p>",
+      "content_text": "콜백(Callback) 함수에 대한 문서입니다.",
+      "summary": "콜백(Callback) 함수에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:31:14.727Z",
+      "date_modified": "2025-10-13T00:31:14.731Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/json-feed-specification.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/json-feed-specification.md",
       "title": "JSON Feed 사양",
@@ -23,7 +156,7 @@
       "content_text": "JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...",
       "summary": "JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...",
       "date_published": "2025-10-12T23:57:58.892Z",
-      "date_modified": "2025-10-13T00:14:29.413Z",
+      "date_modified": "2025-10-13T00:21:42.901Z",
       "tags": [
         "웹 개발"
       ],
@@ -396,25 +529,6 @@
       ]
     },
     {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
-      "title": "mask-composite",
-      "content_html": "<p>mask-composite에 대한 학습 노트</p>",
-      "content_text": "mask-composite에 대한 학습 노트",
-      "summary": "mask-composite에 대한 내용",
-      "date_published": "2025-10-02T06:22:17.587Z",
-      "date_modified": "2025-10-02T06:22:17.587Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
       "title": "## 참조",
@@ -491,63 +605,6 @@
       ]
     },
     {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
-      "title": "prototype",
-      "content_html": "<p>prototype에 대한 학습 노트</p>",
-      "content_text": "prototype에 대한 학습 노트",
-      "summary": "prototype에 대한 내용",
-      "date_published": "2025-10-02T06:22:17.583Z",
-      "date_modified": "2025-10-02T06:22:17.583Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
-      "title": "prototype_chain",
-      "content_html": "<p>prototype_chain에 대한 학습 노트</p>",
-      "content_text": "prototype_chain에 대한 학습 노트",
-      "summary": "prototype_chain에 대한 내용",
-      "date_published": "2025-10-02T06:22:17.583Z",
-      "date_modified": "2025-10-02T06:22:17.583Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
-      "title": "this",
-      "content_html": "<p>this에 대한 학습 노트</p>",
-      "content_text": "this에 대한 학습 노트",
-      "summary": "this에 대한 내용",
-      "date_published": "2025-10-02T06:22:17.583Z",
-      "date_modified": "2025-10-02T06:22:17.583Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md",
       "title": "Get Return Type",
@@ -556,25 +613,6 @@
       "summary": "- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...",
       "date_published": "2025-10-02T06:22:17.583Z",
       "date_modified": "2025-10-02T06:22:17.583Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
-      "title": "factory_pattern",
-      "content_html": "<p>factory_pattern에 대한 학습 노트</p>",
-      "content_text": "factory_pattern에 대한 학습 노트",
-      "summary": "factory_pattern에 대한 내용",
-      "date_published": "2025-10-02T06:22:17.582Z",
-      "date_modified": "2025-10-02T06:22:17.582Z",
       "tags": [
         "프로그래밍 언어"
       ],
@@ -634,25 +672,6 @@
       "date_modified": "2025-10-02T06:22:17.581Z",
       "tags": [
         "데이터베이스"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
-      "title": "callback",
-      "content_html": "<p>callback에 대한 학습 노트</p>",
-      "content_text": "callback에 대한 학습 노트",
-      "summary": "callback에 대한 내용",
-      "date_published": "2025-10-02T06:22:17.581Z",
-      "date_modified": "2025-10-02T06:22:17.581Z",
-      "tags": [
-        "프로그래밍 언어"
       ],
       "authors": [
         {

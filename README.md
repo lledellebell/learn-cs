@@ -12,7 +12,7 @@
 ![Progress](https://img.shields.io/badge/학습진행도-1%25-yellow)
 
 <!-- 콘텐츠 정보 -->
-![Topics](https://img.shields.io/badge/주제-5개-brightgreen)
+![Topics](https://img.shields.io/badge/주제-6개-brightgreen)
 ![Language](https://img.shields.io/badge/언어-한국어-orange)
 ![Code Examples](https://img.shields.io/badge/코드예제-포함-informational)
 
@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 35개의 문서** | 마지막 업데이트: 2025. 10. 13.
+> **총 36개의 문서** | 마지막 업데이트: 2025. 10. 13.
 
 ### 카테고리
 
@@ -42,14 +42,15 @@
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
 - **[웹 개발 (Web Development)](#webdevelopment)** (19개 문서)
+- **[기타 (Miscellaneous)](#misc)** (1개 문서)
 
 ### 최근 추가된 문서
 
-- **[JSON Feed 사양](/web-development/guides/json-feed-specification.md)**
-- **[`bind()` 메소드](/languages/javascript/bind.md)**
-- **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
-- **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
-- **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
+- **[Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)**
+- **[CSS Mask Composite](/web-development/frontend/css/mask-composite.md)**
+- **[this Keyword](/languages/javascript/this.md)**
+- **[Prototype Chain](/languages/javascript/prototype_chain.md)**
+- **[Prototype](/languages/javascript/prototype.md)**
 
 ### 전체 목차
 
@@ -66,15 +67,15 @@
 <summary><strong>프로그래밍 언어 (Languages)</strong> (13개)</summary>
 
 - [`bind()` 메소드](/languages/javascript/bind.md)
-- [callback](/languages/javascript/callback.md)
-- [factory_pattern](/languages/javascript/factory_pattern.md)
+- [Callback](/languages/javascript/callback.md)
+- [Factory Pattern](/languages/javascript/factory_pattern.md)
 - [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md)
 - [인스턴스 (Instance)](/languages/javascript/instance.md)
 - [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
 - [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)
-- [prototype](/languages/javascript/prototype.md)
-- [prototype_chain](/languages/javascript/prototype_chain.md)
+- [Prototype](/languages/javascript/prototype.md)
+- [Prototype Chain](/languages/javascript/prototype_chain.md)
 - ... 그 외 3개 문서
 
 </details>
@@ -97,7 +98,7 @@
 <summary><strong>웹 개발 (Web Development)</strong> (19개)</summary>
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
-- [mask-composite](/web-development/frontend/css/mask-composite.md)
+- [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
 - [## 참조](/web-development/frontend/css/object-position_&_object-fit.md)
 - [CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
 - [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)
@@ -107,6 +108,13 @@
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
 - ... 그 외 9개 문서
+
+</details>
+
+<details>
+<summary><strong>기타 (Miscellaneous)</strong> (1개)</summary>
+
+- [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)
 
 </details>
 
