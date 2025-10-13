@@ -173,7 +173,8 @@ layout: default
       {% if current_index %}
         <nav class="page-navigation" aria-label="이전/다음 문서">
           {% if current_index > 0 %}
-            {% assign prev_page = pages_list[current_index | minus: 1] %}
+            {% assign prev_index = current_index | minus: 1 %}
+            {% assign prev_page = pages_list[prev_index] %}
             <a href="{{ prev_page.url }}" class="page-nav-link prev-page">
               <span class="nav-direction">← 이전</span>
               <span class="nav-title">{{ prev_page.title }}</span>
