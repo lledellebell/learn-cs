@@ -107,6 +107,7 @@ const Button: React.FC<ButtonProps> = ({
 
 ### 2. **Navigation 컴포넌트**
 
+{% raw %}
 ```tsx
 interface NavigationProps {
   // 네비게이션 타입 설정
@@ -242,7 +243,7 @@ const Navigation: React.FC<NavigationProps> = ({
 };
 
 // 사용법 - 설정만으로 모든 변형 제어
-<Navigation 
+<Navigation
   variant="main"
   brand={{ text: "MyApp", logo: "/logo.png" }}
   menuItems={[
@@ -255,9 +256,12 @@ const Navigation: React.FC<NavigationProps> = ({
   }}
 />
 ```
+{% endraw %}
+
 
 ### 3. **Card 컴포넌트 비교**
 
+{% raw %}
 ```tsx
 // Configuration 방식
 interface CardProps {
@@ -364,6 +368,7 @@ const Card: React.FC<CardProps> = ({
   </Card.Body>
 </Card>
 ```
+{% endraw %}
 
 ## 장점
 

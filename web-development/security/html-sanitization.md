@@ -198,11 +198,15 @@ const clean = DOMPurify.sanitize(dirty);
 
 ### 2. 템플릿 리터럴 (안전)
 
+
+{% raw %}
 ```javascript
 // React, Vue 등의 프레임워크는 자동 이스케이핑
 <div>{userInput}</div> // XSS 안전
 <div dangerouslySetInnerHTML={{__html: sanitize(userInput)}} /> // 명시적 표시
 ```
+{% endraw %}
+
 
 ## 테스트 방법
 

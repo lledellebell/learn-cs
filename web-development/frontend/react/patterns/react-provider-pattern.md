@@ -21,6 +21,8 @@
 
 ## 기본 구조
 
+
+{% raw %}
 ```tsx
 // 1. Context 생성
 const MyContext = createContext<ContextType | undefined>(undefined);
@@ -29,19 +31,19 @@ const MyContext = createContext<ContextType | undefined>(undefined);
 export const MyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // 상태 관리
   const [state, setState] = useState(initialState);
-  
+
   // 비즈니스 로직
   const actions = {
     updateState: (newState: StateType) => setState(newState),
     resetState: () => setState(initialState),
   };
-  
+
   // Context 값 제공
   const contextValue = {
     state,
     ...actions
   };
-  
+
   return (
     <MyContext.Provider value={contextValue}>
       {children}
@@ -49,7 +51,7 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({ children }
   );
 };
 
-// 3. Custom Hook 생성
+// 3. Custom Hook 생成
 export const useMyContext = () => {
   const context = useContext(MyContext);
   if (context === undefined) {
@@ -58,11 +60,15 @@ export const useMyContext = () => {
   return context;
 };
 ```
+{% endraw %}
+
 
 ## 예제
 
 ### 1. **Theme Provider**
 
+
+{% raw %}
 ```tsx
 // 테마 관련 타입 정의
 interface ThemeContextType {
@@ -96,12 +102,12 @@ const themes = {
 // Theme Provider 구현
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  
+
   // 테마 토글 함수
   const toggleTheme = useCallback(() => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   }, []);
-  
+
   // 로컬 스토리지 동기화
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
@@ -109,19 +115,19 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setTheme(savedTheme);
     }
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem('theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
-  
+
   const contextValue: ThemeContextType = {
     theme,
     colors: themes[theme],
     toggleTheme,
     setTheme
   };
-  
+
   return (
     <ThemeContext.Provider value={contextValue}>
       {children}
@@ -149,7 +155,7 @@ const App = () => (
 
 const Header = () => {
   const { theme, colors, toggleTheme } = useTheme();
-  
+
   return (
     <header style={{ backgroundColor: colors.background, color: colors.text }}>
       <h1>My App</h1>
@@ -160,9 +166,13 @@ const Header = () => {
   );
 };
 ```
+{% endraw %}
+
 
 ### 2. **Authentication Provider**
 
+
+{% raw %}
 ```tsx
 // 사용자 타입 정의
 interface User {
@@ -187,14 +197,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // 로그인 함수
   const login = useCallback(async (email: string, password: string) => {
     setIsLoading(true);
     try {
       const response = await authAPI.login({ email, password });
       const userData = response.data.user;
-      
+
       setUser(userData);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(userData));
@@ -204,34 +214,34 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setIsLoading(false);
     }
   }, []);
-  
+
   // 로그아웃 함수
   const logout = useCallback(() => {
     setUser(null);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
   }, []);
-  
+
   // 프로필 업데이트 함수
   const updateProfile = useCallback(async (data: Partial<User>) => {
     if (!user) return;
-    
+
     try {
       const response = await authAPI.updateProfile(data);
       const updatedUser = response.data.user;
-      
+
       setUser(updatedUser);
       localStorage.setItem('user', JSON.stringify(updatedUser));
     } catch (error) {
       throw new Error('프로필 업데이트에 실패했습니다.');
     }
   }, [user]);
-  
+
   // 초기 인증 상태 확인
   useEffect(() => {
     const token = localStorage.getItem('token');
     const savedUser = localStorage.getItem('user');
-    
+
     if (token && savedUser) {
       try {
         const userData = JSON.parse(savedUser);
@@ -241,10 +251,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         localStorage.removeItem('user');
       }
     }
-    
+
     setIsLoading(false);
   }, []);
-  
+
   const contextValue: AuthContextType = {
     user,
     isLoading,
@@ -253,7 +263,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     logout,
     updateProfile
   };
-  
+
   return (
     <AuthContext.Provider value={contextValue}>
       {children}
@@ -273,21 +283,25 @@ export const useAuth = () => {
 // 사용 예시
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
-  
+
   if (isLoading) {
     return <div>로딩 중...</div>;
   }
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
-  
+
   return <>{children}</>;
 };
 ```
+{% endraw %}
+
 
 ### 3. **Shopping Cart Provider**
 
+
+{% raw %}
 ```tsx
 // 장바구니 아이템 타입
 interface CartItem {
@@ -313,12 +327,12 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 // Cart Provider 구현
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>([]);
-  
+
   // 아이템 추가
   const addItem = useCallback((newItem: Omit<CartItem, 'quantity'>) => {
     setItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === newItem.id);
-      
+
       if (existingItem) {
         return prevItems.map(item =>
           item.id === newItem.id
@@ -326,44 +340,44 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             : item
         );
       }
-      
+
       return [...prevItems, { ...newItem, quantity: 1 }];
     });
   }, []);
-  
+
   // 아이템 제거
   const removeItem = useCallback((id: string) => {
     setItems(prevItems => prevItems.filter(item => item.id !== id));
   }, []);
-  
+
   // 수량 업데이트
   const updateQuantity = useCallback((id: string, quantity: number) => {
     if (quantity <= 0) {
       removeItem(id);
       return;
     }
-    
+
     setItems(prevItems =>
       prevItems.map(item =>
         item.id === id ? { ...item, quantity } : item
       )
     );
   }, [removeItem]);
-  
+
   // 장바구니 비우기
   const clearCart = useCallback(() => {
     setItems([]);
   }, []);
-  
+
   // 계산된 값들
-  const totalItems = useMemo(() => 
+  const totalItems = useMemo(() =>
     items.reduce((total, item) => total + item.quantity, 0)
   , [items]);
-  
+
   const totalPrice = useMemo(() =>
     items.reduce((total, item) => total + (item.price * item.quantity), 0)
   , [items]);
-  
+
   // 로컬 스토리지 동기화
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
@@ -375,11 +389,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
     }
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(items));
   }, [items]);
-  
+
   const contextValue: CartContextType = {
     items,
     totalItems,
@@ -389,7 +403,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     updateQuantity,
     clearCart
   };
-  
+
   return (
     <CartContext.Provider value={contextValue}>
       {children}
@@ -409,7 +423,7 @@ export const useCart = () => {
 // 사용 예시
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const { addItem } = useCart();
-  
+
   const handleAddToCart = () => {
     addItem({
       id: product.id,
@@ -418,7 +432,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
       image: product.image
     });
   };
-  
+
   return (
     <div className="product-card">
       <img src={product.image} alt={product.name} width={100} height={100} loading="lazy" />
@@ -431,7 +445,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
 const CartSummary: React.FC = () => {
   const { totalItems, totalPrice } = useCart();
-  
+
   return (
     <div className="cart-summary">
       <p>총 {totalItems}개 상품</p>
@@ -440,11 +454,15 @@ const CartSummary: React.FC = () => {
   );
 };
 ```
+{% endraw %}
+
 
 ## 패턴 활용 예시
 
 ### 1. **Multiple Providers 조합**
 
+
+{% raw %}
 ```tsx
 // 여러 Provider를 조합하는 패턴
 const AppProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -479,9 +497,13 @@ const App = () => (
   </ProviderComposer>
 );
 ```
+{% endraw %}
+
 
 ### 2. **Provider with Reducer**
 
+
+{% raw %}
 ```tsx
 // 복잡한 상태 관리를 위한 Reducer 패턴
 interface State {
@@ -491,7 +513,7 @@ interface State {
   notifications: Notification[];
 }
 
-type Action = 
+type Action =
   | { type: 'SET_USER'; payload: User | null }
   | { type: 'TOGGLE_THEME' }
   | { type: 'ADD_TO_CART'; payload: CartItem }
@@ -502,19 +524,19 @@ const appReducer = (state: State, action: Action): State => {
     case 'SET_USER':
       return { ...state, user: action.payload };
     case 'TOGGLE_THEME':
-      return { 
-        ...state, 
-        theme: state.theme === 'light' ? 'dark' : 'light' 
+      return {
+        ...state,
+        theme: state.theme === 'light' ? 'dark' : 'light'
       };
     case 'ADD_TO_CART':
-      return { 
-        ...state, 
-        cart: [...state.cart, action.payload] 
+      return {
+        ...state,
+        cart: [...state.cart, action.payload]
       };
     case 'ADD_NOTIFICATION':
-      return { 
-        ...state, 
-        notifications: [...state.notifications, action.payload] 
+      return {
+        ...state,
+        notifications: [...state.notifications, action.payload]
       };
     default:
       return state;
@@ -523,7 +545,7 @@ const appReducer = (state: State, action: Action): State => {
 
 const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
-  
+
   const contextValue = {
     state,
     dispatch,
@@ -532,7 +554,7 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     toggleTheme: () => dispatch({ type: 'TOGGLE_THEME' }),
     addToCart: (item: CartItem) => dispatch({ type: 'ADD_TO_CART', payload: item }),
   };
-  
+
   return (
     <AppContext.Provider value={contextValue}>
       {children}
@@ -540,9 +562,13 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 ```
+{% endraw %}
+
 
 ### 3. **Conditional Provider**
 
+
+{% raw %}
 ```tsx
 // 조건부 Provider 패턴
 const ConditionalProvider: React.FC<{
@@ -559,7 +585,7 @@ const ConditionalProvider: React.FC<{
 // 사용 예시
 const App = () => {
   const isAuthenticated = useAuth();
-  
+
   return (
     <ConditionalProvider
       condition={isAuthenticated}
@@ -570,10 +596,14 @@ const App = () => {
   );
 };
 ```
+{% endraw %}
+
 
 ## 장점
 
 ### 1. **Prop Drilling 해결**
+
+{% raw %}
 ```tsx
 // ❌ Prop Drilling
 const App = () => {
@@ -601,6 +631,8 @@ const UserMenu = () => {
   // ...
 };
 ```
+{% endraw %}
+
 
 ### 2. **중앙화된 상태 관리**
 - 관련된 상태와 로직을 한 곳에서 관리
@@ -615,16 +647,18 @@ const UserMenu = () => {
 ## 단점
 
 ### 1. **성능 고려사항**
+
+{% raw %}
 ```tsx
 // ❌ 매번 새 객체 생성으로 불필요한 리렌더링
 const MyProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
-  
+
   const contextValue = {
     state,
     updateState: (newState) => setState(newState) // 매번 새 함수
   };
-  
+
   return (
     <MyContext.Provider value={contextValue}>
       {children}
@@ -635,16 +669,16 @@ const MyProvider = ({ children }) => {
 // ✅ useMemo와 useCallback으로 최적화
 const MyProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
-  
+
   const updateState = useCallback((newState) => {
     setState(newState);
   }, []);
-  
+
   const contextValue = useMemo(() => ({
     state,
     updateState
   }), [state, updateState]);
-  
+
   return (
     <MyContext.Provider value={contextValue}>
       {children}
@@ -652,17 +686,21 @@ const MyProvider = ({ children }) => {
   );
 };
 ```
+{% endraw %}
+
 
 ### 2. **과도한 리렌더링**
+
+{% raw %}
 ```tsx
 // 문제: 하나의 값이 변경되면 모든 소비자가 리렌더링
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [theme, setTheme] = useState('light');
   const [cart, setCart] = useState([]);
-  
+
   const value = { user, setUser, theme, setTheme, cart, setCart };
-  
+
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
@@ -677,6 +715,8 @@ const ThemeProvider = ({ children }) => {
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
 ```
+{% endraw %}
+
 
 ## 사용 시기
 
@@ -693,6 +733,8 @@ const ThemeProvider = ({ children }) => {
 ## 모범 사례
 
 ### 1. **타입 안전성 확보**
+
+{% raw %}
 ```tsx
 interface ContextType {
   state: State;
@@ -709,6 +751,8 @@ export const useMyContext = (): ContextType => {
   return context;
 };
 ```
+{% endraw %}
+
 
 ### 2. **에러 경계 설정**
 ```tsx
@@ -745,17 +789,19 @@ const SafeProvider = ({ children }) => (
 ```
 
 ### 3. **개발자 도구 지원**
+
+{% raw %}
 ```tsx
 const MyProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
-  
+
   // 개발 모드에서 디버깅 정보 제공
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
       window.__MY_PROVIDER_STATE__ = state;
     }
   }, [state]);
-  
+
   return (
     <MyContext.Provider value={{ state, setState }}>
       {children}
@@ -763,6 +809,8 @@ const MyProvider = ({ children }) => {
   );
 };
 ```
+{% endraw %}
+
 
 ## 참고 자료
 

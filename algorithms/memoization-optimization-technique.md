@@ -7,6 +7,7 @@
 
 일반적인 함수는 같은 입력값이라도 매번 처음부터 계산을 수행합니다.
 
+{% raw %}
 ```js
 // 메모이제이션 없이 - 매번 계산
 function slowCalculation(n) {
@@ -22,9 +23,11 @@ function slowCalculation(n) {
 slowCalculation(5); // "5을 계산 중..." 출력 후 결과 반환
 slowCalculation(5); // 또 다시 "5을 계산 중..." 출력 후 같은 결과 반환 (비효율적!)
 ```
+{% endraw %}
 
 메모이제이션을 적용하면 한 번 계산한 결과를 저장해두고 재사용할 수 있습니다.
 
+{% raw %}
 ```js
 // 메모이제이션 적용 - 한 번 계산하고 저장
 function memoizedCalculation() {
@@ -53,6 +56,7 @@ const fastCalculation = memoizedCalculation();
 fastCalculation(5); // "5을 계산 중..." 출력 후 결과 반환 (첫 번째 호출)
 fastCalculation(5); // "5의 결과를 캐시에서 가져옴" 출력 후 즉시 반환 (두 번째 호출)
 ```
+{% endraw %}
 
 이처럼 메모이제이션을 사용하면 동일한 입력에 대해 두 번째 호출부터는 계산 시간을 크게 단축할 수 있습니다.
 
@@ -62,6 +66,7 @@ fastCalculation(5); // "5의 결과를 캐시에서 가져옴" 출력 후 즉시
 
 웹 애플리케이션에서 같은 API를 반복 호출할 때, 이전 결과를 저장해두고 재사용하는 방법입니다.
 
+{% raw %}
 ```js
 class APICache {
   constructor(ttl = 300000) { // 5분 TTL
@@ -90,12 +95,14 @@ class APICache {
 const apiCache = new APICache();
 const getUserProfile = (userId) => apiCache.memoizedFetch(`/api/users/${userId}`);
 ```
+{% endraw %}
 
 ### 2. 최적화
 
 전자상거래에서 할인, 세금, 배송비를 포함한 최종 가격을 계산하는 것은 연산입니다. 
 동일한 상품과 할인 조건으로 여러 번 가격을 조회할 때마다 매번 새로 계산하는 것은 비효율적이므로, 한 번 계산한 결과를 저장해두고 재사용합니다.
 
+{% raw %}
 ```js
 const priceCalculator = (() => {
   const cache = new Map();
@@ -124,6 +131,7 @@ const priceCalculator = (() => {
   };
 })();
 ```
+{% endraw %}
 
 ## 시간/공간 복잡도 분석
 
@@ -131,6 +139,7 @@ const priceCalculator = (() => {
 
 메모이제이션의 핵심 가치는 **시간 복잡도의 극적인 개선**입니다.
 
+{% raw %}
 ```js
 // 피보나치 수열 복잡도 비교
 // 일반 재귀: O(2^n) - 지수적 증가
@@ -161,6 +170,7 @@ console.log('n=40일 때:');
 console.log('일반 재귀: 약 1,664,079,648번의 함수 호출');
 console.log('메모이제이션: 정확히 40번의 함수 호출');
 ```
+{% endraw %}
 
 ### 공간 복잡도 트레이드오프
 
@@ -173,6 +183,7 @@ console.log('메모이제이션: 정확히 40번의 함수 호출');
 - 입력값의 개수만큼 캐시 공간이 필요
 - 메모리가 부족하면 오히려 성능 저하 발생 가능
 
+{% raw %}
 ```js
 // 트레이드오프 분석 예시
 const analyzeTradeoff = (inputRange, functionComplexity) => {
@@ -199,9 +210,11 @@ console.log('작은 데이터셋 (100개):', analyzeTradeoff(100, 1000));
 console.log('큰 데이터셋 (100만개):', analyzeTradeoff(1000000, 1000));
 // 메모리: 64MB, 시간 절약: 999,999,000,000번의 계산 → 1,000,000번
 ```
+{% endraw %}
 
 #### 메모리 사용량 실측
 
+{% raw %}
 ```js
 // 실제 메모리 사용량 측정
 const measureMemoryUsage = () => {
@@ -229,6 +242,7 @@ const measureMemoryUsage = () => {
   };
 };
 ```
+{% endraw %}
 
 #### 언제 트레이드오프가 유리한가?
 
@@ -242,6 +256,7 @@ const measureMemoryUsage = () => {
 - 메모리가 제한적인 환경
 - 캐시 크기가 무제한 증가할 수 있을 때
 
+{% raw %}
 ```js
 // 트레이드오프 결정 로직
 const shouldUseMemoization = (scenario) => {
@@ -279,7 +294,9 @@ console.log('간단한 계산:', shouldUseMemoization({
   availableMemory: 1000000 // 1MB 여유
 })); // → recommended: false, 시간 절약 효과 미미
 ```
+{% endraw %}
 
+{% raw %}
 ```js
 class SpaceComplexityAnalysis {
   constructor() {
@@ -319,6 +336,7 @@ class SpaceComplexityAnalysis {
   }
 }
 ```
+{% endraw %}
 
 ## 메모이제이션의 한계와 주의사항
 
@@ -326,6 +344,7 @@ class SpaceComplexityAnalysis {
 
 **문제:** 캐시가 무한정 증가하여 메모리 부족 발생
 
+{% raw %}
 ```js
 // ❌ 위험한 패턴 - 메모리 누수 가능성
 const dangerousMemo = (() => {
@@ -375,11 +394,13 @@ class SafeMemoization {
   }
 }
 ```
+{% endraw %}
 
 ### 2. 참조 타입 키 처리 문제
 
 **문제:** 객체나 배열을 키로 사용할 때 직렬화 오버헤드
 
+{% raw %}
 ```js
 // ❌ 비효율적인 객체 키 처리
 const inefficientMemo = (() => {
@@ -408,11 +429,13 @@ const efficientObjectMemo = (() => {
   };
 })();
 ```
+{% endraw %}
 
 ### 3. 함수 순수성 요구사항
 
 **문제:** 부작용이 있는 함수는 메모이제이션 부적합
 
+{% raw %}
 ```js
 // ❌ 부작용이 있는 함수 - 메모이제이션 부적합
 let counter = 0;
@@ -444,6 +467,7 @@ const isPureForMemoization = (fn, testInput, iterations = 10) => {
   };
 };
 ```
+{% endraw %}
 
 ## 성능 측정과 최적화 전략
 
@@ -451,6 +475,7 @@ const isPureForMemoization = (fn, testInput, iterations = 10) => {
 
 메모이제이션의 효과를 확인하려면 실제 성능을 측정해야 합니다. 피보나치 수열은 메모이제이션의 효과를 극명하게 보여주는 대표적인 예시입니다.
 
+{% raw %}
 ```js
 // 성능 측정 유틸리티
 function benchmark(fn, iterations = 1000) {
@@ -485,6 +510,7 @@ const fibonacciMemo = (() => {
 console.log('일반 재귀:', benchmark(() => fibonacciNormal(30), 10));
 console.log('메모이제이션:', benchmark(() => fibonacciMemo(30), 10));
 ```
+{% endraw %}
 
 **예상 결과:**
 - 일반 재귀: 약 100-200ms (fibonacci(30) 기준)
@@ -498,6 +524,7 @@ console.log('메모이제이션:', benchmark(() => fibonacciMemo(30), 10));
 
 React에서 `useMemo`를 사용하여 복잡한 데이터 처리나 객체 생성을 최적화하는 방법입니다.
 
+{% raw %}
 ```jsx
 // 대용량 데이터 처리 컴포넌트
 const DataVisualization = ({ rawData, filters, sortConfig }) => {
@@ -541,11 +568,13 @@ const DataVisualization = ({ rawData, filters, sortConfig }) => {
   return <Chart {...chartConfig} />;
 };
 ```
+{% endraw %}
 
 ### 2. Node.js 백엔드 최적화
 
 서버에서 데이터베이스 쿼리 결과를 캐싱하여 동일한 요청에 대해 빠르게 응답하는 방법입니다.
 
+{% raw %}
 ```js
 // 데이터베이스 쿼리 결과 캐싱
 const QueryCache = require('node-cache');
@@ -575,11 +604,13 @@ const getUserOrders = async (userId, status) => {
   );
 };
 ```
+{% endraw %}
 
 ## 디버깅과 테스트 전략
 
 ### 1. 메모이제이션 동작 추적
 
+{% raw %}
 ```js
 // 디버깅을 위한 메모이제이션 래퍼
 const debugMemoize = (fn, name = 'anonymous') => {
@@ -630,9 +661,11 @@ expensiveFunction(2, 10); // Cache MISS
 expensiveFunction(2, 10); // Cache HIT
 console.log(expensiveFunction.getStats()); // { hits: 1, misses: 1, hitRate: 0.5, cacheSize: 1 }
 ```
+{% endraw %}
 
 ### 2. 단위 테스트 작성
 
+{% raw %}
 ```js
 // Jest를 사용한 메모이제이션 테스트
 describe('Memoization Tests', () => {
@@ -683,9 +716,11 @@ describe('Memoization Tests', () => {
   });
 });
 ```
+{% endraw %}
 
 ### 3. 성능 프로파일링
 
+{% raw %}
 ```js
 // 메모리 사용량 모니터링
 class MemoryAwareMemoization {
@@ -746,11 +781,13 @@ class MemoryAwareMemoization {
   }
 }
 ```
+{% endraw %}
 
 ## 프로덕션 환경 고려사항
 
 ### 1. 환경별 설정 관리
 
+{% raw %}
 ```js
 // 환경별 메모이제이션 설정
 const MemoConfig = {
@@ -812,9 +849,11 @@ const createMemoization = (env = process.env.NODE_ENV) => {
   };
 };
 ```
+{% endraw %}
 
 ### 2. 모니터링과 메트릭스
 
+{% raw %}
 ```js
 // 프로덕션 메모이제이션 모니터링
 class ProductionMemoization {
@@ -905,9 +944,11 @@ class ProductionMemoization {
   }
 }
 ```
+{% endraw %}
 
 ### 3. 캐시 전략 비교
 
+{% raw %}
 ```js
 // 다양한 캐시 전략
 const CacheStrategies = {
@@ -1000,6 +1041,7 @@ const compareStrategies = async () => {
   }
 };
 ```
+{% endraw %}
 
 ## 메모이제이션 패턴
 
@@ -1014,6 +1056,7 @@ const compareStrategies = async () => {
 - 오래 사용되지 않은 데이터는 앞으로도 사용될 가능성이 낮음
 - 실제 프로그램에서 80-20 법칙이 적용됨 (20%의 데이터가 80%의 시간 동안 사용)
 
+{% raw %}
 ```js
 // LRU의 효과를 보여주는 예시
 const accessPattern = [1, 2, 3, 1, 2, 4, 1, 2]; // 1, 2가 자주 사용됨
@@ -1024,6 +1067,7 @@ const accessPattern = [1, 2, 3, 1, 2, 4, 1, 2]; // 1, 2가 자주 사용됨
 
 #### 다른 전략과의 비교
 
+{% raw %}
 ```js
 // 캐시 히트율 비교 (일반적인 웹 애플리케이션 패턴)
 const simulateAccess = (strategy, cacheSize, accessPattern) => {
@@ -1045,7 +1089,9 @@ console.log('FIFO 히트율:', simulateAccess('FIFO', 3, webAccessPattern)); // 
 console.log('LRU 히트율:', simulateAccess('LRU', 3, webAccessPattern));   // ~64%
 console.log('LFU 히트율:', simulateAccess('LFU', 3, webAccessPattern));   // ~57%
 ```
+{% endraw %}
 
+{% raw %}
 ```js
 class LRUCache {
   constructor(capacity) {
@@ -1095,6 +1141,7 @@ const memoizeWithLRU = (fn, cacheSize = 100) => {
 
 Promise를 반환하는 비동기 함수의 결과를 캐싱하는 방법입니다.
 
+{% raw %}
 ```js
 const memoizeAsync = (asyncFn, ttl = 300000) => {
   const cache = new Map();
@@ -1127,11 +1174,13 @@ const fetchUserData = memoizeAsync(async (userId) => {
   return response.json();
 }, 60000); // 1분 캐시
 ```
+{% endraw %}
 
 ## TypeScript 타입 안전성
 
 ### 1. 제네릭을 활용한 타입 안전한 메모이제이션
 
+{% raw %}
 ```typescript
 // 기본 메모이제이션 타입 정의
 type MemoizedFunction<T extends (...args: any[]) => any> = T & {
@@ -1186,9 +1235,11 @@ const calculateDistance = (x1: number, y1: number, x2: number, y2: number): numb
 const memoizedDistance = memoize(calculateDistance);
 // 타입 추론: MemoizedFunction<(x1: number, y1: number, x2: number, y2: number) => number>
 ```
+{% endraw %}
 
 ### 2. 비동기 함수 메모이제이션 타입
 
+{% raw %}
 ```typescript
 // 비동기 함수 메모이제이션 타입
 type AsyncMemoizedFunction<T extends (...args: any[]) => Promise<any>> = T & {
@@ -1251,6 +1302,7 @@ const memoizedFetchUser = memoizeAsync(fetchUser, 60000);
 
 ### 3. 클래스 메서드 데코레이터
 
+{% raw %}
 ```typescript
 // 메모이제이션 데코레이터 타입
 type MethodDecorator<T = any> = (
@@ -1322,9 +1374,11 @@ class MathService {
   }
 }
 ```
+{% endraw %}
 
 ### 4. 타입 제약 조건
 
+{% raw %}
 ```typescript
 // 순수 함수만 메모이제이션 가능하도록 타입 제약
 type PureFunction<T extends readonly any[], R> = (...args: T) => R;
@@ -1372,9 +1426,11 @@ const memoizedAdd = memoizePure(pureAdd); // ✅ 허용
 // const impureLog = (msg: string): void => console.log(msg);
 // const memoizedLog = memoizePure(impureLog); // ❌ void 반환 타입으로 인해 의미 없음
 ```
+{% endraw %}
 
 ### 5. React Hook과의 통합
 
+{% raw %}
 ```typescript
 import { useCallback, useRef, useMemo } from 'react';
 
@@ -1429,6 +1485,7 @@ const ExpensiveComponent: React.FC<Props> = ({ data }) => {
   return <div>Result: {result}</div>;
 };
 ```
+{% endraw %}
 
 ## 참고 자료
 

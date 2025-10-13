@@ -68,3 +68,10 @@ titles_from_headings:
 relative_links:
   enabled: true
   collections: false
+
+# Liquid 템플릿 비활성화 (코드 예제의 {{ }} 구문 보호)
+defaults:
+  - scope:
+      path: ""
+    values:
+      render_with_liquid: false

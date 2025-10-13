@@ -83,6 +83,8 @@ Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리�
 - **Header**: 네비게이션 컴포넌트로 일관된 구조가 중요
 
 ### 2. **사용 패턴의 차이**
+
+{% raw %}
 ```tsx
 // Card는 다양한 조합이 유용
 <Card>
@@ -94,12 +96,13 @@ Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리�
 </Card>
 
 // Header는 고정된 패턴이 더 적합
-<Header 
+<Header
   isHome={true}
   showHamburgerMenu={true}
   hamburgerButton={{...}}
 />
 ```
+{% endraw %}
 
 ### 3. **복잡성 vs 유연성**
 - **Card 계열**: 유연성이 복잡성보다 중요 (다양한 콘텐츠 표현)

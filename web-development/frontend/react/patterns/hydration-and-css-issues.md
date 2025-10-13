@@ -8,6 +8,8 @@ React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적�
 
 ### 기본 원리
 
+
+{% raw %}
 ```jsx
 // 서버에서 렌더링된 HTML (정적)
 <div id="root">
@@ -19,6 +21,8 @@ React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적�
   <button onClick={handleClick}>클릭하세요</button> <!-- 이벤트 리스너 연결됨 -->
 </div>
 ```
+{% endraw %}
+
 
 ### 하이드레이션 과정
 
@@ -50,16 +54,18 @@ React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적�
 
 ### Next.js 예시
 
+
+{% raw %}
 ```jsx
 // pages/index.js
 export default function HomePage({ serverTime }) {
   const [clientTime, setClientTime] = useState(null);
-  
+
   useEffect(() => {
     // 클라이언트에서만 실행
     setClientTime(new Date().toISOString());
   }, []);
-  
+
   return (
     <div>
       <h1>서버 시간: {serverTime}</h1>
@@ -77,6 +83,8 @@ export async function getServerSideProps() {
   };
 }
 ```
+{% endraw %}
+
 
 **렌더링 결과:**
 1. **서버 렌더링**: `serverTime`이 포함된 HTML 생성
@@ -120,17 +128,19 @@ export async function getServerSideProps() {
 
 #### 2. 서버-클라이언트 스타일 불일치
 
+
+{% raw %}
 ```jsx
 // ❌ 문제가 되는 코드
 function ProblematicComponent() {
   const [isClient, setIsClient] = useState(false);
-  
+
   useEffect(() => {
     setIsClient(true); // 클라이언트에서만 true
   }, []);
-  
+
   return (
-    <div style={{ 
+    <div style={{
       backgroundColor: isClient ? 'blue' : 'red' // 색상 변경됨
     }}>
       컨텐츠
@@ -138,19 +148,23 @@ function ProblematicComponent() {
   );
 }
 ```
+{% endraw %}
+
 
 #### 3. 동적 스타일 적용
 
+
+{% raw %}
 ```jsx
 function Component() {
   const [mounted, setMounted] = useState(false);
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   return (
-    <div 
+    <div
       className={mounted ? 'client-style' : 'server-style'}
       // 하이드레이션 시 클래스가 변경됨
     >
@@ -159,6 +173,8 @@ function Component() {
   );
 }
 ```
+{% endraw %}
+
 
 ## Remix의 Route-based CSS 로딩
 
@@ -166,6 +182,8 @@ Remix는 각 라우트마다 필요한 CSS만 동적으로 로드하는 독특�
 
 ### 기본 구조
 
+
+{% raw %}
 ```tsx
 // app/routes/dashboard.tsx
 import type { LinksFunction } from "@remix-run/node";
@@ -179,6 +197,8 @@ export default function Dashboard() {
   return <div className="dashboard">대시보드</div>;
 }
 ```
+{% endraw %}
+
 
 ### 동작 과정
 
@@ -194,19 +214,23 @@ dashboard.css 동적 로드
 
 ### 중첩 라우트에서의 CSS 상속
 
+
+{% raw %}
 ```tsx
 // app/routes/dashboard.tsx (부모)
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/styles/dashboard-layout.css" }
 ];
 
-// app/routes/dashboard.analytics.tsx (자식)  
+// app/routes/dashboard.analytics.tsx (자식)
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/styles/analytics.css" }
 ];
 
 // 결과: dashboard-layout.css + analytics.css 모두 로드
 ```
+{% endraw %}
+
 
 ### 해결책과 최적화 방법
 
@@ -230,6 +254,8 @@ export const links: LinksFunction = () => [
 
 #### 2. CSS-in-JS 서버 사이드 렌더링
 
+
+{% raw %}
 ```jsx
 // styled-components 예시
 import { ServerStyleSheet } from 'styled-components';
@@ -249,20 +275,24 @@ const fullHtml = `
   </html>
 `;
 ```
+{% endraw %}
+
 
 #### 3. 조건부 렌더링 최적화
 
+
+{% raw %}
 ```jsx
 // ✅ 개선된 코드
 function ImprovedComponent() {
   const [isClient, setIsClient] = useState(false);
-  
+
   useEffect(() => {
     setIsClient(true);
   }, []);
-  
+
   return (
-    <div 
+    <div
       className="base-style" // 기본 스타일 유지
       data-hydrated={isClient} // CSS에서 처리
     >
@@ -271,6 +301,8 @@ function ImprovedComponent() {
   );
 }
 ```
+{% endraw %}
+
 
 ```css
 /* CSS에서 부드러운 전환 */
@@ -288,6 +320,8 @@ function ImprovedComponent() {
 
 #### 글로벌 CSS 우선 로딩
 
+
+{% raw %}
 ```tsx
 // app/root.tsx
 import type { LinksFunction } from "@remix-run/node";
@@ -297,9 +331,13 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalStyles },
 ];
 ```
+{% endraw %}
+
 
 #### 인라인 크리티컬 CSS
 
+
+{% raw %}
 ```tsx
 // app/root.tsx
 export default function App() {
@@ -324,9 +362,12 @@ export default function App() {
   );
 }
 ```
+{% endraw %}
+
 
 #### CSS 프리로딩
 
+{% raw %}
 ```tsx
 // 다음 페이지 CSS 미리 로드
 export default function HomePage() {
@@ -336,31 +377,39 @@ export default function HomePage() {
     link.href = "/styles/dashboard.css";
     document.head.appendChild(link);
   }, []);
-  
+
   return <div>홈페이지</div>;
 }
 ```
+{% endraw %}
+
 
 ### 5. 스켈레톤 UI 활용
 
+
+{% raw %}
 ```jsx
 function ComponentWithSkeleton() {
   const [loaded, setLoaded] = useState(false);
-  
+
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
   }, []);
-  
+
   if (!loaded) {
     return <SkeletonLoader />; // 스켈레톤 표시
   }
-  
+
   return <ActualContent />; // 실제 컨텐츠
 }
 ```
+{% endraw %}
+
 
 ### 6. 하이드레이션 디버깅
 
+
+{% raw %}
 ```jsx
 // 개발 환경에서 하이드레이션 문제 감지
 if (process.env.NODE_ENV === 'development') {
@@ -373,11 +422,15 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 ```
+{% endraw %}
+
 
 ## 성능 최적화 전략
 
 ### 1. Selective Hydration (React 18)
 
+
+{% raw %}
 ```jsx
 import { Suspense } from 'react';
 
@@ -385,25 +438,29 @@ function App() {
   return (
     <div>
       <Header /> {/* 즉시 하이드레이션 */}
-      
+
       <Suspense fallback={<div>로딩중...</div>}>
         <HeavyComponent /> {/* 지연 하이드레이션 */}
       </Suspense>
-      
+
       <Footer /> {/* 즉시 하이드레이션 */}
     </div>
   );
 }
 ```
+{% endraw %}
+
 
 ### 2. 점진적 하이드레이션
 
+
+{% raw %}
 ```jsx
 // 뷰포트에 들어올 때만 하이드레이션
 function LazyHydratedComponent({ children }) {
   const [shouldHydrate, setShouldHydrate] = useState(false);
   const ref = useRef();
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -411,11 +468,11 @@ function LazyHydratedComponent({ children }) {
         observer.disconnect();
       }
     });
-    
+
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-  
+
   return (
     <div ref={ref}>
       {shouldHydrate ? children : <div>로딩중...</div>}
@@ -423,24 +480,28 @@ function LazyHydratedComponent({ children }) {
   );
 }
 ```
+{% endraw %}
+
 
 ### 3. 하이드레이션 상태 관리
 
+
+{% raw %}
 ```jsx
 // 커스텀 훅으로 하이드레이션 상태 관리
 function useHydrated() {
   const [hydrated, setHydrated] = useState(false);
-  
+
   useEffect(() => {
     setHydrated(true);
   }, []);
-  
+
   return hydrated;
 }
 
 function MyComponent() {
   const hydrated = useHydrated();
-  
+
   return (
     <div>
       {hydrated ? (
@@ -452,6 +513,8 @@ function MyComponent() {
   );
 }
 ```
+{% endraw %}
+
 
 ## 모범 사례 요약
 
