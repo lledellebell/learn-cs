@@ -926,7 +926,7 @@
     let startTime = Date.now();
 
     // 롤링 설정
-    const DURATION = 6000; // 6초
+    const DURATION = 14000; // 14초
 
     // 카드 너비 + 간격 계산
     const getScrollDistance = () => {
@@ -948,7 +948,7 @@
       const trackWidth = track.scrollWidth;
       const loopWidth = trackWidth / 5; // 5세트 구조
 
-      // 6초에 1/5 이동 (한 세트)
+      // 14초에 1/5 이동 (한 세트)
       const progress = (elapsed % DURATION) / DURATION;
       currentPosition = -(loopWidth * progress);
 
