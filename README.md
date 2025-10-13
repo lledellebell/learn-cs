@@ -33,39 +33,41 @@
 
 ## 목차
 
-> **총 38개의 문서** | 마지막 업데이트: 2025. 10. 13.
+> **총 43개의 문서** | 마지막 업데이트: 2025. 10. 13.
 
 ### 카테고리
 
-- **[알고리즘 (Algorithms)](#algorithms)** (1개 문서)
-- **[프로그래밍 언어 (Languages)](#languages)** (13개 문서)
-- **[네트워킹 (Networking)](#networking)** (1개 문서)
-- **[데이터베이스 (Databases)](#databases)** (1개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (19개 문서)
+- **[알고리즘 (Algorithms)](#algorithms)** (2개 문서)
+- **[프로그래밍 언어 (Languages)](#languages)** (14개 문서)
+- **[네트워킹 (Networking)](#networking)** (2개 문서)
+- **[데이터베이스 (Databases)](#databases)** (2개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (20개 문서)
 - **[기타 (Miscellaneous)](#misc)** (3개 문서)
 
 ### 최근 추가된 문서
 
-- **[저작권 및 이용 정책](/copyright.md)**
-- **[index](/index.md)**
 - **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)**
 - **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
+- **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
 - **[Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)**
+- **[JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)**
 
 ### 전체 목차
 
 모든 문서의 상세한 목록과 설명은 <u><b>[NAVIGATION.md](./NAVIGATION.md)</b></u>에서 확인하실 수 있습니다.
 
 <details>
-<summary><strong>알고리즘 (Algorithms)</strong> (1개)</summary>
+<summary><strong>알고리즘 (Algorithms)</strong> (2개)</summary>
 
+- [index](/algorithms/index.md)
 - [메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)
 
 </details>
 
 <details>
-<summary><strong>프로그래밍 언어 (Languages)</strong> (13개)</summary>
+<summary><strong>프로그래밍 언어 (Languages)</strong> (14개)</summary>
 
+- [index](/languages/index.md)
 - [`bind()` 메소드](/languages/javascript/bind.md)
 - [Callback](/languages/javascript/callback.md)
 - [Factory Pattern](/languages/javascript/factory_pattern.md)
@@ -75,27 +77,28 @@
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
 - [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)
 - [Prototype](/languages/javascript/prototype.md)
-- [Prototype Chain](/languages/javascript/prototype_chain.md)
-- ... 그 외 3개 문서
+- ... 그 외 4개 문서
 
 </details>
 
 <details>
-<summary><strong>네트워킹 (Networking)</strong> (1개)</summary>
+<summary><strong>네트워킹 (Networking)</strong> (2개)</summary>
 
 - [HTTP 인증 방법 비교](/networking/http/http_authentication_methods.md)
+- [index](/networking/index.md)
 
 </details>
 
 <details>
-<summary><strong>데이터베이스 (Databases)</strong> (1개)</summary>
+<summary><strong>데이터베이스 (Databases)</strong> (2개)</summary>
 
+- [index](/databases/index.md)
 - [Prisma ORM 가이드](/databases/prisma-orm-guide.md)
 
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (19개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (20개)</summary>
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
@@ -107,7 +110,7 @@
 - [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
-- ... 그 외 9개 문서
+- ... 그 외 10개 문서
 
 </details>
 
