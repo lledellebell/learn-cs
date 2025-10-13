@@ -940,7 +940,7 @@ pre[data-language="tsx"]::before {
 .home-section-title::after {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
