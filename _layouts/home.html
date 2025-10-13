@@ -181,12 +181,13 @@ layout: default
             </a>
           </div>
 
-          <div class="home-news-grid">
-            {% comment %} 뉴스 미리보기 - 처음 5개만 표시 {% endcomment %}
-            {% assign news_content = latest_news.content | split: '## ' %}
-            {% assign news_count = 0 %}
-            {% for section in news_content %}
-              {% if section contains '. ' and news_count < 5 %}
+          <div class="home-news-grid" aria-label="HackerNews 뉴스 목록" role="region">
+            {% comment %} 뉴스 미리보기 {% endcomment %}
+            <div class="home-news-track">
+              {% assign news_content = latest_news.content | split: '## ' %}
+              {% assign news_count = 0 %}
+              {% for section in news_content %}
+                {% if section contains '. ' and news_count < 10 %}
                 {% assign parts = section | split: '**원문:**' %}
                 {% if parts.size > 1 %}
                   {% comment %} 제목과 요약 부분 추출 {% endcomment %}
@@ -219,6 +220,39 @@ layout: default
                 {% endif %}
               {% endif %}
             {% endfor %}
+
+            {% comment %} 무한 롤링을 위해 뉴스 항목 복제 {% endcomment %}
+            {% assign news_count = 0 %}
+            {% for section in news_content %}
+              {% if section contains '. ' and news_count < 10 %}
+                {% assign parts = section | split: '**원문:**' %}
+                {% if parts.size > 1 %}
+                  {% assign content_part = parts[0] %}
+                  {% assign link_part = parts[1] %}
+                  {% assign paragraphs = content_part | split: '
+
+' %}
+                  {% assign title_line = paragraphs[0] | strip %}
+                  {% assign summary = paragraphs[1] | default: '' | strip %}
+                  {% assign url = link_part | split: '[' | last | split: ']' | first %}
+
+                  <a href="{{ url }}" class="home-news-item" target="_blank" rel="noopener noreferrer" aria-hidden="true">
+                    <div class="home-news-rank">{{ news_count | plus: 1 }}</div>
+                    <div class="home-news-info">
+                      <h3 class="home-news-title">{{ title_line }}</h3>
+                      <p class="home-news-summary">{{ summary | strip_html | truncate: 150 }}</p>
+                    </div>
+                    <div class="home-news-arrow">
+                      <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                      </svg>
+                    </div>
+                  </a>
+                  {% assign news_count = news_count | plus: 1 %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </div>
           </div>
 
           <div class="home-news-footer">
