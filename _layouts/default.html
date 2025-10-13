@@ -7,8 +7,10 @@
 
   <title>{{ page.title | default: site.title | escape }}</title>
 
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap&subset=korean" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/category.css' | relative_url }}">

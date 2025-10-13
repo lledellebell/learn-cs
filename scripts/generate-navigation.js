@@ -43,7 +43,7 @@ class NavigationGenerator {
         // 중복 방지를 위해 경로 기준으로 확인
         const existingDoc = this.documents.find(doc => doc.path === itemRelativePath);
         if (!existingDoc) {
-          const stat = fs.statSync(fullPath);
+          const dates = this.extractDatesFromFrontMatter(fullPath);
           this.documents.push({
             path: itemRelativePath,
             fullPath: fullPath,
@@ -51,18 +51,58 @@ class NavigationGenerator {
             category: this.categorizeDocument(itemRelativePath),
             title: this.extractTitle(fullPath),
             description: this.extractDescription(fullPath),
-            lastModified: stat.mtime,
-            createdDate: stat.birthtime || stat.ctime
+            lastModified: dates.lastModified,
+            createdDate: dates.created
           });
         }
       }
     }
   }
 
+  // Frontmatter에서 날짜 정보 추출
+  extractDatesFromFrontMatter(filePath) {
+    try {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const frontMatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
+
+      if (frontMatterMatch) {
+        const frontMatter = frontMatterMatch[1];
+
+        // date 추출
+        const dateMatch = frontMatter.match(/^date:\s*(.+)$/m);
+        const createdDate = dateMatch ? new Date(dateMatch[1].trim()) : null;
+
+        // last_modified_at 추출
+        const lastModifiedMatch = frontMatter.match(/^last_modified_at:\s*(.+)$/m);
+        const lastModified = lastModifiedMatch
+          ? new Date(lastModifiedMatch[1].trim())
+          : createdDate;
+
+        return {
+          created: createdDate || new Date(),
+          lastModified: lastModified || new Date()
+        };
+      }
+
+      // frontmatter가 없으면 파일시스템 날짜 사용 (fallback)
+      const stat = fs.statSync(filePath);
+      return {
+        created: stat.birthtime || stat.ctime,
+        lastModified: stat.mtime
+      };
+    } catch (error) {
+      const now = new Date();
+      return {
+        created: now,
+        lastModified: now
+      };
+    }
+  }
+
   // 문서 카테고리 분류
   categorizeDocument(filePath) {
     const parts = filePath.split(path.sep);
-    
+
     if (parts.includes('algorithms')) return 'algorithms';
     if (parts.includes('data-structures')) return 'data-structures';
     if (parts.includes('languages')) return 'languages';
@@ -71,7 +111,7 @@ class NavigationGenerator {
     if (parts.includes('databases')) return 'databases';
     if (parts.includes('web-development')) return 'web-development';
     if (parts.includes('security')) return 'security';
-    
+
     return 'misc';
   }
 

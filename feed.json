@@ -16,793 +16,14 @@
   ],
   "items": [
     {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md",
-      "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유",
-      "content_html": "<p>혹시 이런 의문을 가져보신 적 있으신가요? &quot;Card 컴포넌트는 Compound 패턴을 사용하는데, 왜 Header는 그냥 props로만 관리하지?&quot; 저도 처음엔 똑같이 궁금했습니...</p>",
-      "content_text": "혹시 이런 의문을 가져보신 적 있으신가요? \"Card 컴포넌트는 Compound 패턴을 사용하는데, 왜 Header는 그냥 props로만 관리하지?\" 저도 처음엔 똑같이 궁금했습니...",
-      "summary": "혹시 이런 의문을 가져보신 적 있으신가요? \"Card 컴포넌트는 Compound 패턴을 사용하는데, 왜 Header는 그냥 props로만 관리하지?\" 저도 처음엔 똑같이 궁금했습니...",
-      "date_published": "2025-10-13T11:07:35.883Z",
-      "date_modified": "2025-10-13T11:07:35.884Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md",
-      "title": "CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지",
-      "content_html": "<p>웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.</p>",
-      "content_text": "웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.",
-      "summary": "웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.",
-      "date_published": "2025-10-13T08:41:15.627Z",
-      "date_modified": "2025-10-13T11:07:00.799Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md",
-      "title": "HTML 새니타이징(Sanitization) - XSS 공격 방어",
-      "content_html": "<p>HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...</p>",
-      "content_text": "HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...",
-      "summary": "HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...",
-      "date_published": "2025-10-13T08:41:15.631Z",
-      "date_modified": "2025-10-13T11:03:45.135Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md",
-      "title": "Configuration over Composition Pattern",
-      "content_html": "<p>**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...</p>",
-      "content_text": "**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...",
-      "summary": "**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...",
-      "date_published": "2025-10-13T08:41:15.629Z",
-      "date_modified": "2025-10-13T11:02:59.571Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md",
-      "title": "React 하이드레이션과 CSS 재적용 문제",
-      "content_html": "<p>React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...</p>",
-      "content_text": "React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...",
-      "summary": "React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...",
-      "date_published": "2025-10-13T08:41:15.630Z",
-      "date_modified": "2025-10-13T11:02:52.629Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md",
-      "title": "React Provider Pattern",
-      "content_html": "<p>**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...</p>",
-      "content_text": "**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...",
-      "summary": "**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...",
-      "date_published": "2025-10-13T08:41:15.630Z",
-      "date_modified": "2025-10-13T11:02:41.400Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
-      "title": "Context API`를 활용한 Compound Pattern 구현",
-      "content_html": "<p>&gt; React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.</p>",
-      "content_text": "> React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.",
-      "summary": "> React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.",
-      "date_published": "2025-10-13T08:41:15.630Z",
-      "date_modified": "2025-10-13T11:00:04.510Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
-      "title": "Chrome User Agent Override 가이드",
-      "content_html": "<p>**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...</p>",
-      "content_text": "**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...",
-      "summary": "**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...",
-      "date_published": "2025-09-25T11:05:32.785Z",
-      "date_modified": "2025-10-13T09:12:12.315Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
-      "title": "Custom Hook 리팩토링: useAsync",
-      "content_html": "<p>API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.</p>",
-      "content_text": "API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.",
-      "summary": "API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.",
-      "date_published": "2025-10-13T08:41:15.631Z",
-      "date_modified": "2025-10-13T09:12:12.314Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/json-feed-specification.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/json-feed-specification.md",
-      "title": "JSON Feed 사양",
-      "content_html": "<p>JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...</p>",
-      "content_text": "JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...",
-      "summary": "JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...",
-      "date_published": "2025-10-13T08:41:15.631Z",
-      "date_modified": "2025-10-13T09:12:12.314Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/npm-library-guide.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/npm-library-guide.md",
-      "title": "`npm`에 라이브러리 배포하기",
-      "content_html": "<p>라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.</p>",
-      "content_text": "라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.",
-      "summary": "라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.",
-      "date_published": "2025-10-02T10:58:37.898Z",
-      "date_modified": "2025-10-13T09:12:12.314Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md",
-      "title": "`React`에서 `Composite`/`Compound` Pattern 활용 가이드",
-      "content_html": "<p>&gt; **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: &quot;sailboat&quot;)이고, Composite(합성어)...</p>",
-      "content_text": "> **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: \"sailboat\")이고, Composite(합성어)...",
-      "summary": "> **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: \"sailboat\")이고, Composite(합성어)...",
-      "date_published": "2025-10-13T08:41:15.630Z",
-      "date_modified": "2025-10-13T09:12:12.313Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md",
-      "title": "Composite Pattern",
-      "content_html": "<p>**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.</p>",
-      "content_text": "**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.",
-      "summary": "**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.",
-      "date_published": "2025-10-13T08:41:15.628Z",
-      "date_modified": "2025-10-13T09:12:12.312Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md",
-      "title": "Compound Pattern",
-      "content_html": "<p>**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...</p>",
-      "content_text": "**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...",
-      "summary": "**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...",
-      "date_published": "2025-10-13T08:41:15.629Z",
-      "date_modified": "2025-10-13T09:12:12.312Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
-      "title": "Custom Hooks 가이드 (React 공식 문서 기반)",
-      "content_html": "<p>&gt; React 공식 문서를 기반으로 작성된 Custom Hooks 가이드</p>",
-      "content_text": "> React 공식 문서를 기반으로 작성된 Custom Hooks 가이드",
-      "summary": "> React 공식 문서를 기반으로 작성된 Custom Hooks 가이드",
-      "date_published": "2025-10-13T08:41:15.627Z",
-      "date_modified": "2025-10-13T09:12:12.311Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md",
-      "title": "`useMemo`를 활용한 성능 최적화",
-      "content_html": "<p>`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,</p>",
-      "content_text": "`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,",
-      "summary": "`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,",
-      "date_published": "2025-10-13T08:41:15.627Z",
-      "date_modified": "2025-10-13T09:12:12.311Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
-      "title": "CSS Mask Composite",
-      "content_html": "<p>CSS `mask-composite` 속성에 대한 문서입니다.</p>",
-      "content_text": "CSS `mask-composite` 속성에 대한 문서입니다.",
-      "summary": "CSS `mask-composite` 속성에 대한 문서입니다.",
-      "date_published": "2025-10-13T08:41:15.626Z",
-      "date_modified": "2025-10-13T09:12:12.310Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
-      "title": "## 참조",
-      "content_html": "<p>- https://drafts.csswg.org/css-images/#propdef-object-fit</p>",
-      "content_text": "- https://drafts.csswg.org/css-images/#propdef-object-fit",
-      "summary": "- https://drafts.csswg.org/css-images/#propdef-object-fit",
-      "date_published": "2025-10-02T10:58:37.898Z",
-      "date_modified": "2025-10-13T09:12:12.310Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/networking/http/http_authentication_methods.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/networking/http/http_authentication_methods.md",
-      "title": "HTTP 인증 방법 비교",
-      "content_html": "<p>| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |</p>",
-      "content_text": "| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |",
-      "summary": "| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |",
-      "date_published": "2025-09-25T11:05:32.783Z",
-      "date_modified": "2025-10-13T09:12:12.309Z",
-      "tags": [
-        "네트워킹"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md",
-      "title": "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지",
-      "content_html": "<p>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</p>",
-      "content_text": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
-      "summary": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
-      "date_published": "2025-09-25T11:05:32.783Z",
-      "date_modified": "2025-10-13T09:12:12.309Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md",
-      "title": "Get Return Type",
-      "content_html": "<p>- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...</p>",
-      "content_text": "- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...",
-      "summary": "- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...",
-      "date_published": "2025-09-25T11:05:32.783Z",
-      "date_modified": "2025-10-13T09:12:12.308Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md",
-      "title": "메타프로그래밍(Metaprogramming)",
-      "content_html": "<p>메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.</p>",
-      "content_text": "메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.",
-      "summary": "메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.",
-      "date_published": "2025-09-25T11:05:32.783Z",
-      "date_modified": "2025-10-13T09:12:12.308Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
-      "title": "Prototype Chain",
-      "content_html": "<p>JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.</p>",
-      "content_text": "JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.",
-      "summary": "JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.",
-      "date_published": "2025-10-13T08:41:15.625Z",
-      "date_modified": "2025-10-13T09:12:12.307Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
-      "title": "this Keyword",
-      "content_html": "<p>JavaScript의 `this` 키워드에 대한 문서입니다.</p>",
-      "content_text": "JavaScript의 `this` 키워드에 대한 문서입니다.",
-      "summary": "JavaScript의 `this` 키워드에 대한 문서입니다.",
-      "date_published": "2025-10-13T08:41:15.625Z",
-      "date_modified": "2025-10-13T09:12:12.307Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/naming-conventions.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/naming-conventions.md",
-      "title": "JavaScript 네이밍 컨벤션: Public vs Private",
-      "content_html": "<p>JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.</p>",
-      "content_text": "JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.",
-      "summary": "JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.",
-      "date_published": "2025-10-13T08:41:15.625Z",
-      "date_modified": "2025-10-13T09:12:12.306Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
-      "title": "Prototype",
-      "content_html": "<p>JavaScript의 프로토타입(Prototype)에 대한 문서입니다.</p>",
-      "content_text": "JavaScript의 프로토타입(Prototype)에 대한 문서입니다.",
-      "summary": "JavaScript의 프로토타입(Prototype)에 대한 문서입니다.",
-      "date_published": "2025-10-13T08:41:15.625Z",
-      "date_modified": "2025-10-13T09:12:12.306Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation.md",
-      "title": "JavaScript에서 Mutation vs Non-Mutation",
-      "content_html": "<p>JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...</p>",
-      "content_text": "JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...",
-      "summary": "JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...",
-      "date_published": "2025-09-25T11:05:32.782Z",
-      "date_modified": "2025-10-13T09:12:12.305Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation-examples.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation-examples.md",
-      "title": "JavaScript의 Mutation vs Non-Mutation 심화",
-      "content_html": "<p>&gt; 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.</p>",
-      "content_text": "> 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.",
-      "summary": "> 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.",
-      "date_published": "2025-10-13T08:41:15.624Z",
-      "date_modified": "2025-10-13T09:12:12.304Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/instance.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/instance.md",
-      "title": "인스턴스 (Instance)",
-      "content_html": "<p>**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.</p>",
-      "content_text": "**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.",
-      "summary": "**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.",
-      "date_published": "2025-10-02T10:58:37.897Z",
-      "date_modified": "2025-10-13T09:12:12.303Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/foreach-vs-reduce-functional-programming.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/foreach-vs-reduce-functional-programming.md",
-      "title": "`forEach` vs `reduce`",
-      "content_html": "<p>함수형 프로그래밍 관점에서의 배열 메서드 선택</p>",
-      "content_text": "함수형 프로그래밍 관점에서의 배열 메서드 선택",
-      "summary": "함수형 프로그래밍 관점에서의 배열 메서드 선택",
-      "date_published": "2025-09-25T11:05:32.782Z",
-      "date_modified": "2025-10-13T09:12:12.302Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
-      "title": "Factory Pattern",
-      "content_html": "<p>팩토리 패턴(Factory Pattern)에 대한 문서입니다.</p>",
-      "content_text": "팩토리 패턴(Factory Pattern)에 대한 문서입니다.",
-      "summary": "팩토리 패턴(Factory Pattern)에 대한 문서입니다.",
-      "date_published": "2025-10-13T08:41:15.624Z",
-      "date_modified": "2025-10-13T09:12:12.301Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/bind.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/bind.md",
-      "title": "`bind()` 메소드",
-      "content_html": "<p>- [정의](#정의)</p>",
-      "content_text": "- [정의](#정의)",
-      "summary": "- [정의](#정의)",
-      "date_published": "2025-10-13T08:41:15.623Z",
-      "date_modified": "2025-10-13T09:12:12.300Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
-      "title": "Callback",
-      "content_html": "<p>콜백(Callback) 함수에 대한 문서입니다.</p>",
-      "content_text": "콜백(Callback) 함수에 대한 문서입니다.",
-      "summary": "콜백(Callback) 함수에 대한 문서입니다.",
-      "date_published": "2025-10-13T08:41:15.623Z",
-      "date_modified": "2025-10-13T09:12:12.300Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md",
-      "title": "Prisma ORM 가이드",
-      "content_html": "<p>Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...</p>",
-      "content_text": "Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...",
-      "summary": "Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...",
-      "date_published": "2025-10-13T08:41:15.622Z",
-      "date_modified": "2025-10-13T09:12:12.299Z",
-      "tags": [
-        "데이터베이스"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md",
-      "title": "메모이제이션(Memoization)",
-      "content_html": "<p>메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.</p>",
-      "content_text": "메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.",
-      "summary": "메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.",
-      "date_published": "2025-10-13T08:41:15.621Z",
-      "date_modified": "2025-10-13T09:12:12.297Z",
-      "tags": [
-        "알고리즘"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md",
       "title": "Jekyll 로컬 개발 가이드",
       "content_html": "<p>이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.</p>",
       "content_text": "이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.",
       "summary": "이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.",
-      "date_published": "2025-10-13T08:41:15.619Z",
-      "date_modified": "2025-10-13T09:12:12.296Z",
-      "tags": [
-        "기타"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/index.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/index.md",
-      "title": "웹 개발",
-      "content_html": "<p>웹 개발에 대한 학습 노트</p>",
-      "content_text": "웹 개발에 대한 학습 노트",
-      "summary": "웹 개발에 대한 내용",
-      "date_published": "2025-10-13T08:41:15.631Z",
-      "date_modified": "2025-10-13T08:55:01.708Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/networking/index.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/networking/index.md",
-      "title": "네트워킹",
-      "content_html": "<p>네트워킹에 대한 학습 노트</p>",
-      "content_text": "네트워킹에 대한 학습 노트",
-      "summary": "네트워킹에 대한 내용",
-      "date_published": "2025-10-13T08:41:15.625Z",
-      "date_modified": "2025-10-13T08:54:12.508Z",
-      "tags": [
-        "네트워킹"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/index.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/index.md",
-      "title": "프로그래밍 언어",
-      "content_html": "<p>프로그래밍 언어에 대한 학습 노트</p>",
-      "content_text": "프로그래밍 언어에 대한 학습 노트",
-      "summary": "프로그래밍 언어에 대한 내용",
-      "date_published": "2025-10-13T08:41:15.623Z",
-      "date_modified": "2025-10-13T08:54:12.333Z",
-      "tags": [
-        "프로그래밍 언어"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/index.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/index.md",
-      "title": "Learn CS",
-      "content_html": "<p>Learn CS에 대한 학습 노트</p>",
-      "content_text": "Learn CS에 대한 학습 노트",
-      "summary": "Learn CS에 대한 내용",
-      "date_published": "2025-10-13T08:41:15.623Z",
-      "date_modified": "2025-10-13T08:54:12.321Z",
-      "tags": [
-        "기타"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/databases/index.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/databases/index.md",
-      "title": "데이터베이스",
-      "content_html": "<p>데이터베이스에 대한 학습 노트</p>",
-      "content_text": "데이터베이스에 대한 학습 노트",
-      "summary": "데이터베이스에 대한 내용",
-      "date_published": "2025-10-13T08:41:15.621Z",
-      "date_modified": "2025-10-13T08:54:12.291Z",
-      "tags": [
-        "데이터베이스"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/copyright.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/copyright.md",
-      "title": "저작권 및 이용 정책",
-      "content_html": "<p>최종 업데이트: {{ site.time | date: &quot;%Y년 %m월 %d일&quot; }}</p>",
-      "content_text": "최종 업데이트: {{ site.time | date: \"%Y년 %m월 %d일\" }}",
-      "summary": "최종 업데이트: {{ site.time | date: \"%Y년 %m월 %d일\" }}",
-      "date_published": "2025-10-13T08:41:15.621Z",
-      "date_modified": "2025-10-13T08:54:12.275Z",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
       "tags": [
         "기타"
       ],
@@ -820,10 +41,789 @@
       "content_html": "<p>알고리즘에 대한 학습 노트</p>",
       "content_text": "알고리즘에 대한 학습 노트",
       "summary": "알고리즘에 대한 내용",
-      "date_published": "2025-10-13T08:41:15.620Z",
-      "date_modified": "2025-10-13T08:54:12.245Z",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
       "tags": [
         "알고리즘"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md",
+      "title": "메모이제이션(Memoization)",
+      "content_html": "<p>메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.</p>",
+      "content_text": "메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.",
+      "summary": "메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "알고리즘"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/copyright.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/copyright.md",
+      "title": "저작권 및 이용 정책",
+      "content_html": "<p>최종 업데이트: {{ site.time | date: &quot;%Y년 %m월 %d일&quot; }}</p>",
+      "content_text": "최종 업데이트: {{ site.time | date: \"%Y년 %m월 %d일\" }}",
+      "summary": "최종 업데이트: {{ site.time | date: \"%Y년 %m월 %d일\" }}",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "기타"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/databases/index.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/databases/index.md",
+      "title": "데이터베이스",
+      "content_html": "<p>데이터베이스에 대한 학습 노트</p>",
+      "content_text": "데이터베이스에 대한 학습 노트",
+      "summary": "데이터베이스에 대한 내용",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "데이터베이스"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md",
+      "title": "Prisma ORM 가이드",
+      "content_html": "<p>Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...</p>",
+      "content_text": "Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...",
+      "summary": "Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "데이터베이스"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/index.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/index.md",
+      "title": "Learn CS",
+      "content_html": "<p>Learn CS에 대한 학습 노트</p>",
+      "content_text": "Learn CS에 대한 학습 노트",
+      "summary": "Learn CS에 대한 내용",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "기타"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/index.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/index.md",
+      "title": "프로그래밍 언어",
+      "content_html": "<p>프로그래밍 언어에 대한 학습 노트</p>",
+      "content_text": "프로그래밍 언어에 대한 학습 노트",
+      "summary": "프로그래밍 언어에 대한 내용",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/callback.md",
+      "title": "Callback",
+      "content_html": "<p>콜백(Callback) 함수에 대한 문서입니다.</p>",
+      "content_text": "콜백(Callback) 함수에 대한 문서입니다.",
+      "summary": "콜백(Callback) 함수에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/factory_pattern.md",
+      "title": "Factory Pattern",
+      "content_html": "<p>팩토리 패턴(Factory Pattern)에 대한 문서입니다.</p>",
+      "content_text": "팩토리 패턴(Factory Pattern)에 대한 문서입니다.",
+      "summary": "팩토리 패턴(Factory Pattern)에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation-examples.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation-examples.md",
+      "title": "JavaScript의 Mutation vs Non-Mutation 심화",
+      "content_html": "<p>&gt; 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.</p>",
+      "content_text": "> 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.",
+      "summary": "> 이 문서는 [Mutation vs Non-Mutation 개념](./mutation-vs-non-mutation.md)의 실무 활용 예시를 다룹니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/naming-conventions.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/naming-conventions.md",
+      "title": "JavaScript 네이밍 컨벤션: Public vs Private",
+      "content_html": "<p>JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.</p>",
+      "content_text": "JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.",
+      "summary": "JavaScript/TypeScript에서 클래스의 메서드나 프로퍼티 이름을 짓는 방식은 **접근 권한**(public/private)에 따라 달라집니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype.md",
+      "title": "Prototype",
+      "content_html": "<p>JavaScript의 프로토타입(Prototype)에 대한 문서입니다.</p>",
+      "content_text": "JavaScript의 프로토타입(Prototype)에 대한 문서입니다.",
+      "summary": "JavaScript의 프로토타입(Prototype)에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/prototype_chain.md",
+      "title": "Prototype Chain",
+      "content_html": "<p>JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.</p>",
+      "content_text": "JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.",
+      "summary": "JavaScript의 프로토타입 체인(Prototype Chain)에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/this.md",
+      "title": "this Keyword",
+      "content_html": "<p>JavaScript의 `this` 키워드에 대한 문서입니다.</p>",
+      "content_text": "JavaScript의 `this` 키워드에 대한 문서입니다.",
+      "summary": "JavaScript의 `this` 키워드에 대한 문서입니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/networking/index.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/networking/index.md",
+      "title": "네트워킹",
+      "content_html": "<p>네트워킹에 대한 학습 노트</p>",
+      "content_text": "네트워킹에 대한 학습 노트",
+      "summary": "네트워킹에 대한 내용",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "네트워킹"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md",
+      "title": "CSS Mask Composite",
+      "content_html": "<p>CSS `mask-composite` 속성에 대한 문서입니다.</p>",
+      "content_text": "CSS `mask-composite` 속성에 대한 문서입니다.",
+      "summary": "CSS `mask-composite` 속성에 대한 문서입니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md",
+      "title": "CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지",
+      "content_html": "<p>웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.</p>",
+      "content_text": "웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.",
+      "summary": "웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+      "title": "Custom Hooks 가이드 (React 공식 문서 기반)",
+      "content_html": "<p>&gt; React 공식 문서를 기반으로 작성된 Custom Hooks 가이드</p>",
+      "content_text": "> React 공식 문서를 기반으로 작성된 Custom Hooks 가이드",
+      "summary": "> React 공식 문서를 기반으로 작성된 Custom Hooks 가이드",
+      "date_published": "2025-10-10T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md",
+      "title": "`useMemo`를 활용한 성능 최적화",
+      "content_html": "<p>`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,</p>",
+      "content_text": "`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,",
+      "summary": "`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md",
+      "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유",
+      "content_html": "<p>React로 컴포넌트를 설계하다 보면 이런 고민을 하게 됩니다. &quot;Card 컴포넌트는 Compound 패턴을 사용해서 유연하게 만들었는데, Header도 똑같이 만들어야 하나?&quot; ...</p>",
+      "content_text": "React로 컴포넌트를 설계하다 보면 이런 고민을 하게 됩니다. \"Card 컴포넌트는 Compound 패턴을 사용해서 유연하게 만들었는데, Header도 똑같이 만들어야 하나?\" ...",
+      "summary": "React로 컴포넌트를 설계하다 보면 이런 고민을 하게 됩니다. \"Card 컴포넌트는 Compound 패턴을 사용해서 유연하게 만들었는데, Header도 똑같이 만들어야 하나?\" ...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md",
+      "title": "Composite Pattern",
+      "content_html": "<p>**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.</p>",
+      "content_text": "**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.",
+      "summary": "**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md",
+      "title": "Compound Pattern",
+      "content_html": "<p>**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...</p>",
+      "content_text": "**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...",
+      "summary": "**Compound Pattern**은 React에서 여러 컴포넌트가 함께 작동하여 하나의 완전한 기능을 제공하는 디자인 패턴입니다. 각 컴포넌트는 독립적으로 사용할 수 있지만, ...",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md",
+      "title": "Configuration over Composition Pattern",
+      "content_html": "<p>**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...</p>",
+      "content_text": "**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...",
+      "summary": "**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md",
+      "title": "React 하이드레이션과 CSS 재적용 문제",
+      "content_html": "<p>React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...</p>",
+      "content_text": "React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...",
+      "summary": "React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+      "title": "`React`에서 `Composite`/`Compound` Pattern 활용 가이드",
+      "content_html": "<p>&gt; **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: &quot;sailboat&quot;)이고, Composite(합성어)...</p>",
+      "content_text": "> **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: \"sailboat\")이고, Composite(합성어)...",
+      "summary": "> **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: \"sailboat\")이고, Composite(합성어)...",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "title": "Context API`를 활용한 Compound Pattern 구현",
+      "content_html": "<p>&gt; React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.</p>",
+      "content_text": "> React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.",
+      "summary": "> React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md",
+      "title": "React Provider Pattern",
+      "content_html": "<p>**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...</p>",
+      "content_text": "**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...",
+      "summary": "**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+      "title": "Custom Hook 리팩토링: useAsync",
+      "content_html": "<p>API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.</p>",
+      "content_text": "API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.",
+      "summary": "API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.",
+      "date_published": "2025-10-10T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/json-feed-specification.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/json-feed-specification.md",
+      "title": "JSON Feed 사양",
+      "content_html": "<p>JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...</p>",
+      "content_text": "JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...",
+      "summary": "JSON Feed는 RSS/Atom과 같은 콘텐츠 신디케이션(syndication) 포맷으로, XML 대신 JSON을 사용합니다. 2017년에 발표된 오픈 사양으로, JSON 표준...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/index.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/index.md",
+      "title": "웹 개발",
+      "content_html": "<p>웹 개발에 대한 학습 노트</p>",
+      "content_text": "웹 개발에 대한 학습 노트",
+      "summary": "웹 개발에 대한 내용",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md",
+      "title": "HTML 새니타이징(Sanitization) - XSS 공격 방어",
+      "content_html": "<p>HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...</p>",
+      "content_text": "HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...",
+      "summary": "HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/bind.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/bind.md",
+      "title": "`bind()` 메소드",
+      "content_html": "<p>- [정의](#정의)</p>",
+      "content_text": "- [정의](#정의)",
+      "summary": "- [정의](#정의)",
+      "date_published": "2025-10-10T00:00:00.000Z",
+      "date_modified": "2025-10-10T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/foreach-vs-reduce-functional-programming.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/foreach-vs-reduce-functional-programming.md",
+      "title": "`forEach` vs `reduce`",
+      "content_html": "<p>함수형 프로그래밍 관점에서의 배열 메서드 선택</p>",
+      "content_text": "함수형 프로그래밍 관점에서의 배열 메서드 선택",
+      "summary": "함수형 프로그래밍 관점에서의 배열 메서드 선택",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/instance.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/instance.md",
+      "title": "인스턴스 (Instance)",
+      "content_html": "<p>**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.</p>",
+      "content_text": "**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.",
+      "summary": "**인스턴스(instance)**는 클래스(class)로부터 생성된 실제 객체입니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/mutation-vs-non-mutation.md",
+      "title": "JavaScript에서 Mutation vs Non-Mutation",
+      "content_html": "<p>JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...</p>",
+      "content_text": "JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...",
+      "summary": "JavaScript에서 배열과 객체를 다룰 때 **원본 데이터를 변경하는 방식(Mutation)**과 **새로운 데이터를 생성하는 방식(Non-Mutation)**의 차이점과 활용...",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md",
+      "title": "Get Return Type",
+      "content_html": "<p>- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...</p>",
+      "content_text": "- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...",
+      "summary": "- [Type Challenges - Get Return Type](https://github.com/type-challenges/type-challenges/tree/main/q...",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md",
+      "title": "메타프로그래밍(Metaprogramming)",
+      "content_html": "<p>메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.</p>",
+      "content_text": "메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.",
+      "summary": "메타프로그래밍(Metaprogramming)은 **프로그램이 다른 프로그램을 조작하거나, 자기 자신을 조작하는 프로그래밍 기법**을 의미합니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/networking/http/http_authentication_methods.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/networking/http/http_authentication_methods.md",
+      "title": "HTTP 인증 방법 비교",
+      "content_html": "<p>| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |</p>",
+      "content_text": "| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |",
+      "summary": "| 특성 | Basic 인증 | Digest 인증 | SSL 클라이언트 인증 | 폼 기반 인증 |",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "네트워킹"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md",
+      "title": "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지",
+      "content_html": "<p>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</p>",
+      "content_text": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
+      "summary": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
+      "title": "## 참조",
+      "content_html": "<p>- https://drafts.csswg.org/css-images/#propdef-object-fit</p>",
+      "content_text": "- https://drafts.csswg.org/css-images/#propdef-object-fit",
+      "summary": "- https://drafts.csswg.org/css-images/#propdef-object-fit",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/npm-library-guide.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/npm-library-guide.md",
+      "title": "`npm`에 라이브러리 배포하기",
+      "content_html": "<p>라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.</p>",
+      "content_text": "라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.",
+      "summary": "라이브러리 배포를 시작하기 전에 `package.json` 파일에 다음 사항이 올바르게 설정되어 있는지 확인해야 합니다.",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
+      "title": "Chrome User Agent Override 가이드",
+      "content_html": "<p>**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...</p>",
+      "content_text": "**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...",
+      "summary": "**User Agent String**은 웹 브라우저가 웹 서버에게 자신의 정체성을 알려주는 문자열입니다. 이 문자열에는 브라우저 종류, 버전, 운영체제, 렌더링 엔진 등의 정보가...",
+      "date_published": "2025-10-02T00:00:00.000Z",
+      "date_modified": "2025-10-02T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
       ],
       "authors": [
         {

@@ -181,7 +181,7 @@ class DateUpdater {
 
     let frontMatter;
     let contentWithoutFrontMatter;
-    let updated = false;
+    let needsUpdate = false;
 
     if (!parsed) {
       // Front matter가 없는 경우 새로 생성
@@ -196,9 +196,9 @@ class DateUpdater {
         layout: 'page'
       };
       contentWithoutFrontMatter = content;
-      updated = true;
+      needsUpdate = true;
     } else {
-      frontMatter = parsed.frontMatter;
+      frontMatter = { ...parsed.frontMatter };
       contentWithoutFrontMatter = parsed.contentWithoutFrontMatter;
 
       // title이 없으면 본문에서 추출
@@ -206,11 +206,11 @@ class DateUpdater {
         const title = this.extractTitle(content);
         if (title) {
           frontMatter.title = title;
-          updated = true;
+          needsUpdate = true;
         } else {
           console.warn(`⚠️  경고: ${relativePath} 파일의 frontmatter에 title이 없습니다.`);
           frontMatter.title = path.basename(filePath, '.md');
-          updated = true;
+          needsUpdate = true;
         }
       }
     }
@@ -218,37 +218,44 @@ class DateUpdater {
     const formattedCreationDate = this.formatDate(dates.creation);
     const formattedModificationDate = this.formatDate(dates.modification);
 
-    // date 업데이트
-    if (frontMatter.date !== formattedCreationDate) {
-      frontMatter.date = formattedCreationDate;
-      updated = true;
-    }
+    // 중요: frontmatter에 이미 날짜 필드가 있으면 절대 변경하지 않음
+    // 이는 사용자가 수동으로 설정한 날짜를 보존하고,
+    // 파일시스템 mtime 변경으로 인한 오류를 방지합니다
+    const hasExistingDates = parsed && (parsed.frontMatter.date || parsed.frontMatter.last_modified_at);
 
-    // last_modified_at 업데이트 (생성일과 다른 경우에만)
-    if (formattedModificationDate !== formattedCreationDate) {
-      if (frontMatter.last_modified_at !== formattedModificationDate) {
-        frontMatter.last_modified_at = formattedModificationDate;
-        updated = true;
+    if (!hasExistingDates) {
+      // frontmatter가 없거나 날짜 필드가 없는 경우에만 NAVIGATION.md의 날짜로 설정
+      if (!frontMatter.date) {
+        frontMatter.date = formattedCreationDate;
+        needsUpdate = true;
       }
-    } else {
-      // 생성일과 수정일이 같으면 last_modified_at 제거
-      if (frontMatter.last_modified_at) {
-        delete frontMatter.last_modified_at;
-        updated = true;
+
+      // last_modified_at 설정 (생성일과 수정일이 다른 경우에만)
+      if (formattedModificationDate !== formattedCreationDate) {
+        if (!frontMatter.last_modified_at) {
+          frontMatter.last_modified_at = formattedModificationDate;
+          needsUpdate = true;
+        }
       }
     }
+    // 기존 날짜가 있으면 그대로 유지 (아무것도 하지 않음)
 
-    if (updated) {
+    // 변경사항이 있을 때만 파일 업데이트
+    if (needsUpdate) {
       const newContent = this.stringifyFrontMatter(frontMatter) + contentWithoutFrontMatter;
-      fs.writeFileSync(filePath, newContent, 'utf8');
 
-      this.updatedFiles.push({
-        path: relativePath,
-        date: frontMatter.date,
-        lastModified: frontMatter.last_modified_at
-      });
+      // 실제 내용이 변경되었는지 최종 확인
+      if (newContent !== content) {
+        fs.writeFileSync(filePath, newContent, 'utf8');
 
-      return true;
+        this.updatedFiles.push({
+          path: relativePath,
+          date: frontMatter.date,
+          lastModified: frontMatter.last_modified_at
+        });
+
+        return true;
+      }
     }
 
     return false;
