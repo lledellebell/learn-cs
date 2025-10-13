@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 34개의 문서**(마지막 업데이트 정보: 2025년 10월 10일 오전 11:44)
+> **총 35개의 문서**(마지막 업데이트 정보: 2025년 10월 13일 오전 09:19)
 
 > 최근 수정된 문서:
->- **`bind()` 메소드** (2025년 10월 10일)
+>- **JSON Feed 사양** (2025년 10월 13일)
 
 ### 알고리즘 (Algorithms)
 
@@ -22,7 +22,7 @@
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
 | [`bind()` 메소드](/languages/javascript/bind.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md) | 2025년 10월 2일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md) | 2025년 10월 2일 | 2025년 10월 10일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [인스턴스 (Instance)](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [prototype](/languages/javascript/prototype.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
@@ -67,7 +67,6 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [`Context API`를 활용한 `Compound Pattern` 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
@@ -82,7 +81,14 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | [mask-composite](/web-development/frontend/css/mask-composite.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [## 참조](/web-development/frontend/css/object-position_&_object-fit.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
-#### 도구 및 툴
+#### 가이드
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [JSON Feed 사양](/web-development/guides/json-feed-specification.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [`npm`에 라이브러리 배포하기](/web-development/guides/npm-library-guide.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+#### 도구
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
@@ -94,7 +100,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 18개 |
+| 웹 개발 (Web Development) | 19개 |
 | 프로그래밍 언어 (Languages) | 13개 |
 | 알고리즘 (Algorithms) | 1개 |
 | 네트워킹 (Networking) | 1개 |
@@ -102,9 +108,9 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 ### 최근 수정된 문서
 
+1. **[JSON Feed 사양](/web-development/guides/json-feed-specification.md)** - 2025년 10월 13일
 1. **[`bind()` 메소드](/languages/javascript/bind.md)** - 2025년 10월 10일
 1. **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)** - 2025년 10월 10일
 1. **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)** - 2025년 10월 10일
 1. **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)** - 2025년 10월 10일
-1. **[인스턴스 (Instance)](/languages/javascript/instance.md)** - 2025년 10월 2일
 

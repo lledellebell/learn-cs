@@ -18,11 +18,13 @@ class JSONFeedGenerator {
       homePageUrl: config.homePageUrl || 'https://github.com/lledellebell/learn-cs',
       feedUrl: config.feedUrl || 'https://lledellebell.github.io/learn-cs/feed.json',
       icon: config.icon || 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif',
+      favicon: config.favicon || 'https://github.githubassets.com/favicons/favicon.png',
       author: {
-        name: config.authorName || 'lledellebell',
+        name: config.authorName || 'deep',
         url: config.authorUrl || 'https://github.com/lledellebell'
       },
       language: config.language || 'ko',
+      userComment: config.userComment || '이 피드는 JSON Feed 1.1 포맷을 사용하며, 최근 학습한 CS 개념과 기술 문서를 제공합니다.',
       maxItems: config.maxItems || 50
     };
   }
@@ -52,16 +54,22 @@ class JSONFeedGenerator {
     const url = `${this.config.homePageUrl}/blob/master/${doc.path.replace(/\\/g, '/')}`;
     const category = this.getCategoryDisplayName(doc.category);
 
-    // HTML 형식의 콘텐츠 (description이 없으면 제목 사용)
-    const contentHtml = doc.description
-      ? `<p>${this.escapeHtml(doc.description)}</p>`
-      : `<p>${this.escapeHtml(doc.title)}에 대한 학습 노트</p>`;
+    // 평문 콘텐츠
+    const contentText = doc.description || `${doc.title}에 대한 학습 노트`;
+
+    // HTML 형식의 콘텐츠
+    const contentHtml = `<p>${this.escapeHtml(contentText)}</p>`;
+
+    // 요약 (description이 있으면 사용)
+    const summary = doc.description || `${doc.title}에 대한 내용`;
 
     return {
       id: url,
       url: url,
       title: doc.title,
       content_html: contentHtml,
+      content_text: contentText,
+      summary: summary,
       date_published: new Date(doc.createdDate).toISOString(),
       date_modified: new Date(doc.lastModified).toISOString(),
       tags: [category],
@@ -99,7 +107,9 @@ class JSONFeedGenerator {
       home_page_url: this.config.homePageUrl,
       feed_url: this.config.feedUrl,
       description: this.config.description,
+      user_comment: this.config.userComment,
       icon: this.config.icon,
+      favicon: this.config.favicon,
       language: this.config.language,
       authors: [this.config.author],
       items: items

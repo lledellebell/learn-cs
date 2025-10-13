@@ -21,9 +21,11 @@ class FeedGenerator {
       rssUrl: config.rssUrl || 'https://lledellebell.github.io/learn-cs/feed.xml',
       jsonUrl: config.jsonUrl || 'https://lledellebell.github.io/learn-cs/feed.json',
       icon: config.icon || 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif',
-      authorName: config.authorName || 'lledellebell',
+      favicon: config.favicon || 'https://github.githubassets.com/favicons/favicon.png',
+      authorName: config.authorName || 'deep',
       authorUrl: config.authorUrl || 'https://github.com/lledellebell',
       language: config.language || 'ko',
+      userComment: config.userComment || '이 피드는 JSON Feed 1.1 포맷을 사용하며, 최근 학습한 CS 개념과 기술 문서를 제공합니다.',
       maxItems: config.maxItems || 50
     };
   }
@@ -68,9 +70,11 @@ class FeedGenerator {
       homePageUrl: this.config.homePageUrl,
       feedUrl: this.config.jsonUrl,
       icon: this.config.icon,
+      favicon: this.config.favicon,
       authorName: this.config.authorName,
       authorUrl: this.config.authorUrl,
       language: this.config.language,
+      userComment: this.config.userComment,
       maxItems: this.config.maxItems
     });
 

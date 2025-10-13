@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 34개의 문서** | 마지막 업데이트: 2025. 10. 10.
+> **총 35개의 문서** | 마지막 업데이트: 2025. 10. 13.
 
 ### 카테고리
 
@@ -41,15 +41,15 @@
 - **[프로그래밍 언어 (Languages)](#languages)** (13개 문서)
 - **[네트워킹 (Networking)](#networking)** (1개 문서)
 - **[데이터베이스 (Databases)](#databases)** (1개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (18개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (19개 문서)
 
 ### 최근 추가된 문서
 
+- **[JSON Feed 사양](/web-development/guides/json-feed-specification.md)**
 - **[`bind()` 메소드](/languages/javascript/bind.md)**
 - **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
 - **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
 - **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
-- **[인스턴스 (Instance)](/languages/javascript/instance.md)**
 
 ### 전체 목차
 
@@ -94,7 +94,7 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (18개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (19개)</summary>
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [mask-composite](/web-development/frontend/css/mask-composite.md)
@@ -106,7 +106,7 @@
 - [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
-- ... 그 외 8개 문서
+- ... 그 외 9개 문서
 
 </details>
 

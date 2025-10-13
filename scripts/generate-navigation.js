@@ -324,7 +324,8 @@ class NavigationGenerator {
     const subCategories = {
       'frontend': { title: '프론트엔드', documents: [] },
       'backend': { title: '백엔드', documents: [] },
-      'tools': { title: '도구 및 툴', documents: [] }
+      'guides': { title: '가이드', documents: [] },
+      'tools': { title: '도구', documents: [] }
     };
 
     for (const doc of documents) {
@@ -332,6 +333,8 @@ class NavigationGenerator {
         subCategories.frontend.documents.push(doc);
       } else if (doc.path.includes('backend')) {
         subCategories.backend.documents.push(doc);
+      } else if (doc.path.includes('guides')) {
+        subCategories.guides.documents.push(doc);
       } else if (doc.path.includes('tools')) {
         subCategories.tools.documents.push(doc);
       } else {
