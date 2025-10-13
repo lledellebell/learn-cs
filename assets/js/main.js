@@ -697,11 +697,141 @@
   };
 
   // =========================================
+  // Hero Canvas 인터랙티브
+  // =========================================
+  const initHeroCanvas = () => {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null };
+    let animationId;
+
+    const setCanvasSize = () => {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    };
+
+    setCanvasSize();
+    window.addEventListener('resize', () => {
+      setCanvasSize();
+      initParticles();
+    });
+
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.baseX = x;
+        this.baseY = y;
+        this.size = 2;
+        this.density = (Math.random() * 30) + 10;
+      }
+
+      draw() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const color = theme === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
+
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      update() {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const forceDirectionX = dx / distance;
+        const forceDirectionY = dy / distance;
+        const maxDistance = 150;
+        const force = (maxDistance - distance) / maxDistance;
+        const directionX = forceDirectionX * force * this.density;
+        const directionY = forceDirectionY * force * this.density;
+
+        if (distance < maxDistance) {
+          this.x -= directionX;
+          this.y -= directionY;
+        } else {
+          // 원래 위치로 복귀
+          if (this.x !== this.baseX) {
+            const dx = this.x - this.baseX;
+            this.x -= dx / 10;
+          }
+          if (this.y !== this.baseY) {
+            const dy = this.y - this.baseY;
+            this.y -= dy / 10;
+          }
+        }
+      }
+    }
+
+    const initParticles = () => {
+      particles = [];
+      const spacing = 40;
+      const cols = Math.ceil(canvas.width / spacing);
+      const rows = Math.ceil(canvas.height / spacing);
+
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const posX = x * spacing + spacing / 2;
+          const posY = y * spacing + spacing / 2;
+          particles.push(new Particle(posX, posY));
+        }
+      }
+    };
+
+    initParticles();
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(particle => {
+        particle.draw();
+        particle.update();
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const observer = new MutationObserver(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      observer.disconnect();
+    };
+  };
+
+  // =========================================
   // 초기화
   // =========================================
   const init = () => {
     initTheme();
     initMobileNav();
+    initHeroCanvas();
     generateTOC();
     initCodeLanguageLabels();
     initCodeCopy();
