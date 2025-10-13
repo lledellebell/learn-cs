@@ -900,12 +900,102 @@
   };
 
   // =========================================
+  // 뉴스 캐러셀 네비게이션
+  // =========================================
+  const initNewsCarouselNav = () => {
+    const wrapper = document.querySelector('.home-news-wrapper');
+    if (!wrapper) return;
+
+    const prevBtn = wrapper.querySelector('.home-news-nav-prev');
+    const nextBtn = wrapper.querySelector('.home-news-nav-next');
+    const track = wrapper.querySelector('.home-news-track');
+
+    if (!prevBtn || !nextBtn || !track) return;
+
+    // 카드 너비 + 간격 계산
+    const getScrollDistance = () => {
+      const card = track.querySelector('.home-news-item');
+      if (!card) return 0;
+
+      const cardWidth = card.offsetWidth;
+      const gap = parseInt(getComputedStyle(track).gap) || 0;
+      return cardWidth + gap;
+    };
+
+    const getCurrentTransform = () => {
+      const style = window.getComputedStyle(track);
+      const matrix = new DOMMatrix(style.transform);
+      return matrix.m41; // translateX 값
+    };
+
+    const pauseAnimation = () => {
+      const currentTransform = getCurrentTransform();
+      track.style.animation = 'none';
+      track.style.transform = `translateX(${currentTransform}px)`;
+    };
+
+    const smoothScroll = (targetX) => {
+      track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      track.style.transform = `translateX(${targetX}px)`;
+
+      setTimeout(() => {
+        track.style.transition = '';
+      }, 500);
+    };
+
+    prevBtn.addEventListener('click', () => {
+      pauseAnimation();
+
+      const currentX = getCurrentTransform();
+      const scrollDistance = getScrollDistance();
+      const targetX = currentX + scrollDistance;
+
+      const maxX = 0;
+      const finalX = Math.min(targetX, maxX);
+
+      smoothScroll(finalX);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      pauseAnimation();
+
+      const currentX = getCurrentTransform();
+      const scrollDistance = getScrollDistance();
+      const targetX = currentX - scrollDistance;
+
+      // 최소 스크롤 제한 (너무 왼쪽으로 가지 않도록)
+      // 전체 너비의 1/3까지만 스크롤 (3세트 구조)
+      const trackWidth = track.scrollWidth;
+      const minX = -(trackWidth / 3);
+      const finalX = Math.max(targetX, minX);
+
+      smoothScroll(finalX);
+    });
+
+    // 호버가 끝나고 일정 시간(3초) 후 애니메이션 재개
+    let resumeTimeout;
+    wrapper.addEventListener('mouseleave', () => {
+      clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(() => {
+        const currentX = getCurrentTransform();
+        track.style.animation = 'news-scroll 60s linear infinite';
+        track.style.transform = '';
+      }, 3000);
+    });
+
+    wrapper.addEventListener('mouseenter', () => {
+      clearTimeout(resumeTimeout);
+    });
+  };
+
+  // =========================================
   // 초기화
   // =========================================
   const init = () => {
     initTheme();
     initMobileNav();
     initHeroCanvas();
+    initNewsCarouselNav();
     generateTOC();
     initCodeLanguageLabels();
     initCodeCopy();
