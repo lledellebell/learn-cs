@@ -732,7 +732,18 @@
 
       draw() {
         const theme = document.documentElement.getAttribute('data-theme');
-        const color = theme === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
+        let color = theme === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
+
+        if (mouse.x !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            const opacity = 1 - (distance / 150);
+            color = `rgba(255, 35, 10, ${opacity * 0.6})`;
+          }
+        }
 
         ctx.fillStyle = color;
         ctx.beginPath();
@@ -742,6 +753,18 @@
       }
 
       update() {
+        if (mouse.x === null) {
+          if (this.x !== this.baseX) {
+            const dx = this.x - this.baseX;
+            this.x -= dx / 10;
+          }
+          if (this.y !== this.baseY) {
+            const dy = this.y - this.baseY;
+            this.y -= dy / 10;
+          }
+          return;
+        }
+
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -768,6 +791,31 @@
         }
       }
     }
+
+    const drawConnections = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const maxDistance = 100;
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < maxDistance) {
+            const opacity = 1 - (distance / maxDistance);
+            ctx.strokeStyle = theme === 'dark'
+              ? `rgba(255, 255, 255, ${opacity * 0.1})`
+              : `rgba(0, 0, 0, ${opacity * 0.05})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    };
 
     const initParticles = () => {
       particles = [];
@@ -800,9 +848,11 @@
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      drawConnections();
+
       particles.forEach(particle => {
-        particle.draw();
         particle.update();
+        particle.draw();
       });
 
       animationId = requestAnimationFrame(animate);
