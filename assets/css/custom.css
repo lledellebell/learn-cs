@@ -1244,6 +1244,7 @@ pre[data-language="tsx"]::before {
 
 /* Breadcrumb */
 .breadcrumb {
+  margin-top: var(--space-8);
   margin-bottom: var(--space-8);
 }
 
