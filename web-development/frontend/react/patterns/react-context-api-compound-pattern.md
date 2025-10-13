@@ -190,6 +190,7 @@ Context를 사용하면 서브컴포넌트들이 내부적으로 상태를 공�
 
 ### 3. 유연한 구조
 
+{% raw %}
 ```tsx
 // 순서와 구조를 자유롭게 변경 가능
 <Tabs>
@@ -203,6 +204,7 @@ Context를 사용하면 서브컴포넌트들이 내부적으로 상태를 공�
   </TabList>
 </Tabs>
 ```
+{% endraw %}
 
 ## 단계별 구현 가이드
 
@@ -212,6 +214,7 @@ Context를 사용하면 서브컴포넌트들이 내부적으로 상태를 공�
 
 먼저 공유할 데이터의 타입과 Context를 정의합니다.
 
+{% raw %}
 ```tsx
 // types.ts
 interface TabsContextValue {
@@ -227,9 +230,11 @@ const TabsContext = createContext<TabsContextValue | null>(null);
 
 export default TabsContext;
 ```
+{% endraw %}
 
 ### Step 2: Provider 컴포넌트 구현
 
+{% raw %}
 ```tsx
 // Tabs.tsx
 import { useState, ReactNode } from 'react';
@@ -267,11 +272,13 @@ const Tabs = ({
 
 export default Tabs;
 ```
+{% endraw %}
 
 ### Step 3: Custom Hook 생성
 
 Context를 안전하게 사용하기 위한 Hook을 만듭니다.
 
+{% raw %}
 ```tsx
 // useTabsContext.ts
 import { useContext } from 'react';
@@ -297,11 +304,13 @@ const useTabsContext = () => {
 
 export default useTabsContext;
 ```
+{% endraw %}
 
 ### Step 4: 서브컴포넌트 구현
 
 이제 Context를 사용하는 서브컴포넌트들을 만듭니다.
 
+{% raw %}
 ```tsx
 // Tab.tsx
 import { ReactNode } from 'react';
@@ -340,7 +349,9 @@ const Tab = ({ id, children, disabled = false }: TabProps) => {
 
 export default Tab;
 ```
+{% endraw %}
 
+{% raw %}
 ```tsx
 // TabPanel.tsx
 import { ReactNode } from 'react';
@@ -372,9 +383,11 @@ const TabPanel = ({ id, children }: TabPanelProps) => {
 
 export default TabPanel;
 ```
+{% endraw %}
 
 ### Step 5: 컴포넌트 조합
 
+{% raw %}
 ```tsx
 // index.ts
 import Tabs from './Tabs';
@@ -391,9 +404,11 @@ Tabs.Panel = TabPanel;
 
 export default Tabs;
 ```
+{% endraw %}
 
 ### Step 6: 사용하기
 
+{% raw %}
 ```tsx
 // App.tsx
 import Tabs from './components/Tabs';
@@ -428,6 +443,7 @@ function App() {
   );
 }
 ```
+{% endraw %}
 
 ## 풍부한 실전 예제
 
@@ -435,6 +451,7 @@ function App() {
 
 여러 아이템을 펼치고 접을 수 있는 컴포넌트입니다.
 
+{% raw %}
 ```tsx
 // AccordionContext.tsx
 interface AccordionContextValue {
@@ -564,11 +581,13 @@ const AccordionContent = ({ children }: { children: ReactNode }) => {
   </AccordionItem>
 </Accordion>
 ```
+{% endraw %}
 
 ### 예제 2: Form with Steps (다단계 폼)
 
 복잡한 폼을 여러 단계로 나누어 관리하는 컴포넌트입니다.
 
+{% raw %}
 ```tsx
 // FormContext.tsx
 interface FormContextValue {
@@ -714,11 +733,13 @@ const FormProgress = () => {
   <FormNavigation />
 </Form>
 ```
+{% endraw %}
 
 ### 예제 3: Carousel (캐러셀)
 
 이미지나 콘텐츠를 슬라이드 형태로 보여주는 컴포넌트입니다.
 
+{% raw %}
 ```tsx
 // CarouselContext.tsx
 interface CarouselContextValue {
@@ -857,11 +878,13 @@ const CarouselIndicators = () => {
   <CarouselIndicators />
 </Carousel>
 ```
+{% endraw %}
 
 ### 예제 4: Modal (모달)
 
 Context를 활용한 모달 시스템입니다.
 
+{% raw %}
 ```tsx
 // ModalContext.tsx
 interface ModalContextValue {
@@ -977,11 +1000,13 @@ const ModalClose = ({ children }: ModalCloseProps) => {
   </ModalContent>
 </Modal>
 ```
+{% endraw %}
 
 ### 예제 5: Menu (드롭다운 메뉴)
 
 Context로 관리되는 드롭다운 메뉴입니다.
 
+{% raw %}
 ```tsx
 // MenuContext.tsx
 interface MenuContextValue {
@@ -1098,11 +1123,13 @@ const MenuItem = ({ value, children, disabled }: MenuItemProps) => {
   </MenuList>
 </Menu>
 ```
+{% endraw %}
 
 ### 예제 6: Stepper (단계 표시기)
 
 프로세스의 진행 상황을 시각적으로 보여주는 컴포넌트입니다.
 
+{% raw %}
 ```tsx
 // StepperContext.tsx
 interface StepperContextValue {
@@ -1285,6 +1312,7 @@ const StepperActions = () => {
   <StepperActions />
 </Stepper>
 ```
+{% endraw %}
 
 ## 시각적 데이터 흐름 다이어그램
 
@@ -1482,6 +1510,7 @@ const Form = ({ children }) => {
 
 ### 해결 2: Context 분리
 
+{% raw %}
 ```tsx
 // ✅ 좋은 예: 관심사별로 Context 분리
 const NameContext = createContext(null);
@@ -1510,9 +1539,11 @@ const Form = ({ children }) => {
 
 // 이제 각 컴포넌트는 필요한 Context만 구독합니다
 ```
+{% endraw %}
 
 ### 문제 3: 불필요한 컴포넌트 리렌더링
 
+{% raw %}
 ```tsx
 // ❌ 나쁜 예: 모든 자식이 리렌더링됨
 const Tabs = ({ children }) => {
@@ -1527,6 +1558,7 @@ const Tabs = ({ children }) => {
   );
 };
 ```
+{% endraw %}
 
 ### 해결 3: React.memo 사용
 
@@ -1716,6 +1748,7 @@ const AccordionHeader = () => {
 
 **해결책:**
 
+{% raw %}
 ```tsx
 // ✅ Context 계층을 명확하게 설계
 const Accordion = ({ children }) => {
@@ -1736,6 +1769,7 @@ const AccordionItem = ({ id, children }) => {
   );
 };
 ```
+{% endraw %}
 
 ### 함정 4: 과도한 리렌더링
 
@@ -2060,6 +2094,7 @@ Context + Compound Pattern을 다른 상태 관리 방법과 비교해보겠습�
 | **시간여행 디버깅** | 없음 | 있음 |
 | **적합한 규모** | 작은~중간 | 중간~큰 |
 
+{% raw %}
 ```tsx
 // Context API
 const Tabs = ({ children }) => {
@@ -2095,6 +2130,7 @@ const Tab = ({ id }) => {
   );
 };
 ```
+{% endraw %}
 
 **언제 Context를 쓸까?**
 - 컴포넌트 라이브러리 (Tabs, Modal 등)
@@ -2149,6 +2185,7 @@ const ThemeToggle = () => {
 
 ### Context API vs React Query
 
+{% raw %}
 ```tsx
 // Context API (로컬 상태)
 const UserProvider = ({ children }) => {
@@ -2184,6 +2221,7 @@ const UserProfile = () => {
   return <div>{user.name}</div>;
 };
 ```
+{% endraw %}
 
 **언제 뭘 쓸까?**
 - **Context**: UI 상태 (열림/닫힘, 선택된 탭 등)
@@ -2195,6 +2233,7 @@ TypeScript와 함께 사용할 때의 베스트 프랙티스입니다.
 
 ### 제네릭을 활용한 재사용 가능한 Context
 
+{% raw %}
 ```tsx
 // 제네릭 Context Factory
 function createGenericContext<T>() {
@@ -2229,6 +2268,7 @@ const Tabs = ({ children }) => {
   );
 };
 ```
+{% endraw %}
 
 ### 엄격한 Props 타입
 
@@ -2318,6 +2358,7 @@ const Accordion = ({ children }: { children: ReactNode }) => {
 
 ### Discriminated Union으로 상태 관리
 
+{% raw %}
 ```tsx
 // 상태를 명확하게 구분
 type FetchState<T> =
@@ -2391,6 +2432,7 @@ const UserProfile = () => {
   }
 };
 ```
+{% endraw %}
 
 ## 참고 자료
 
