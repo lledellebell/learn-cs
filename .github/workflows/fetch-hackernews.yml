@@ -75,7 +75,7 @@ jobs:
 
     # 번역 버전 (선택적) - TRANSLATE_API_KEY secret이 설정된 경우에만 실행
     - name: Fetch with Translation (Optional)
-      if: secrets.TRANSLATE_API_KEY != ''
+      if: ${{ secrets.TRANSLATE_API_KEY != '' }}
       run: |
         echo "Translation API key detected, fetching with translation..."
         npm run news:fetch-translated
