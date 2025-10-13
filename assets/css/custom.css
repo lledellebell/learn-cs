@@ -2518,15 +2518,10 @@ pre {
 .home-news-track {
   display: flex;
   gap: var(--space-4);
-  animation: news-scroll 6s linear infinite;
   will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-news-track {
-    animation: none;
-  }
-
   .home-news-grid {
     overflow-x: auto;
     overflow-y: hidden;
@@ -2551,21 +2546,6 @@ pre {
 
   .home-news-grid::-webkit-scrollbar-thumb:hover {
     background: var(--color-border-dark);
-  }
-}
-
-/* hover 시 애니메이션 일시정지 */
-.home-news-grid:hover .home-news-track,
-.home-news-grid:focus-within .home-news-track {
-  animation-play-state: paused;
-}
-
-@keyframes news-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% / 3));
   }
 }
 

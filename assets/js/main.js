@@ -900,7 +900,7 @@
   };
 
   // =========================================
-  // 뉴스 캐러셀 네비게이션
+  // 뉴스 캐러셀 네비게이션 및 자동 롤링
   // =========================================
   const initNewsCarouselNav = () => {
     const wrapper = document.querySelector('.home-news-wrapper');
@@ -912,6 +912,22 @@
 
     if (!prevBtn || !nextBtn || !track) return;
 
+    // prefers-reduced-motion 체크
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      console.log('자동 롤링 비활성화 (prefers-reduced-motion)');
+      return;
+    }
+
+    let currentPosition = 0;
+    let isPaused = false;
+    let animationId = null;
+    let resumeTimeout = null;
+    let startTime = Date.now();
+
+    // 롤링 설정
+    const DURATION = 6000; // 6초
+
     // 카드 너비 + 간격 계산
     const getScrollDistance = () => {
       const card = track.querySelector('.home-news-item');
@@ -922,21 +938,58 @@
       return cardWidth + gap;
     };
 
-    const getCurrentTransform = () => {
-      const style = window.getComputedStyle(track);
-      const matrix = new DOMMatrix(style.transform);
-      return matrix.m41; // translateX 값
+    const autoScroll = () => {
+      if (isPaused) {
+        animationId = requestAnimationFrame(autoScroll);
+        return;
+      }
+
+      const elapsed = Date.now() - startTime;
+      const trackWidth = track.scrollWidth;
+      const loopWidth = trackWidth / 5; // 5세트 구조
+
+      // 6초에 1/5 이동 (한 세트)
+      const progress = (elapsed % DURATION) / DURATION;
+      currentPosition = -(loopWidth * progress);
+
+      // 무한 루프를 위해 위치 리셋
+      if (Math.abs(currentPosition) >= loopWidth) {
+        currentPosition = 0;
+        startTime = Date.now();
+      }
+
+      track.style.transform = `translateX(${currentPosition}px)`;
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    const startAnimation = () => {
+      if (!animationId) {
+        startTime = Date.now();
+        animationId = requestAnimationFrame(autoScroll);
+      }
     };
 
     const pauseAnimation = () => {
-      const currentTransform = getCurrentTransform();
-      track.style.animation = 'none';
-      track.style.transform = `translateX(${currentTransform}px)`;
+      isPaused = true;
+    };
+
+    const resumeAnimation = () => {
+      isPaused = false;
+      startTime = Date.now() - ((Math.abs(currentPosition) / (track.scrollWidth / 5)) * DURATION);
+    };
+
+    const stopAnimation = () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
     };
 
     const smoothScroll = (targetX) => {
+      stopAnimation();
       track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
       track.style.transform = `translateX(${targetX}px)`;
+      currentPosition = targetX;
 
       setTimeout(() => {
         track.style.transition = '';
@@ -946,9 +999,8 @@
     prevBtn.addEventListener('click', () => {
       pauseAnimation();
 
-      const currentX = getCurrentTransform();
       const scrollDistance = getScrollDistance();
-      const targetX = currentX + scrollDistance;
+      const targetX = currentPosition + scrollDistance;
 
       const maxX = 0;
       const finalX = Math.min(targetX, maxX);
@@ -959,31 +1011,38 @@
     nextBtn.addEventListener('click', () => {
       pauseAnimation();
 
-      const currentX = getCurrentTransform();
       const scrollDistance = getScrollDistance();
-      const targetX = currentX - scrollDistance;
+      const targetX = currentPosition - scrollDistance;
 
-      // 최소 스크롤 제한 (너무 왼쪽으로 가지 않도록)
-      // 전체 너비의 1/3까지만 스크롤 (3세트 구조)
       const trackWidth = track.scrollWidth;
-      const minX = -(trackWidth / 3);
+      const minX = -(trackWidth / 5);
       const finalX = Math.max(targetX, minX);
 
       smoothScroll(finalX);
     });
 
-    // 호버가 끝나고 일정 시간(3초) 후 애니메이션 재개
-    let resumeTimeout;
+    wrapper.addEventListener('mouseenter', () => {
+      clearTimeout(resumeTimeout);
+      pauseAnimation();
+    });
+
     wrapper.addEventListener('mouseleave', () => {
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
-        track.style.animation = 'news-scroll 6s linear infinite';
-        track.style.transform = '';
+        resumeAnimation();
+        startAnimation();
       }, 3000);
     });
 
-    wrapper.addEventListener('mouseenter', () => {
-      clearTimeout(resumeTimeout);
+    startAnimation();
+
+    // 페이지 숨김/표시 시 애니메이션 제어
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else if (!isPaused) {
+        startAnimation();
+      }
     });
   };
 

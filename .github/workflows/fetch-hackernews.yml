@@ -74,10 +74,15 @@ jobs:
         fi
 
     # 번역 버전 (선택적) - TRANSLATE_API_KEY secret이 설정된 경우에만 실행
+    # secret이 없으면 실패하지만 워크플로우는 계속 진행됩니다
     - name: Fetch with Translation (Optional)
-      if: ${{ secrets.TRANSLATE_API_KEY != '' }}
+      continue-on-error: true
       run: |
-        echo "Translation API key detected, fetching with translation..."
+        if [ -z "${TRANSLATE_API_KEY}" ]; then
+          echo "⚠️ TRANSLATE_API_KEY not set, skipping translation..."
+          exit 1
+        fi
+        echo "✅ Translation API key detected, fetching with translation..."
         npm run news:fetch-translated
       env:
         ENABLE_TRANSLATION: 'true'
