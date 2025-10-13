@@ -721,18 +721,31 @@
     });
 
     class Particle {
-      constructor(x, y) {
+      constructor(x, y, delay) {
         this.x = x;
         this.y = y;
         this.baseX = x;
         this.baseY = y;
         this.size = 2;
         this.density = (Math.random() * 30) + 10;
+        this.opacity = 0;
+        this.scale = 0;
+        this.delay = delay;
+        this.animationProgress = 0;
       }
 
       draw() {
+        // 진입 애니메이션 업데이트
+        if (this.animationProgress < 1) {
+          this.animationProgress += 0.02;
+          const eased = this.easeOutCubic(Math.max(0, this.animationProgress - this.delay));
+          this.opacity = eased;
+          this.scale = eased;
+        }
+
         const theme = document.documentElement.getAttribute('data-theme');
-        let color = theme === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
+        let baseOpacity = theme === 'dark' ? 0.15 : 0.08;
+        let color = theme === 'dark' ? 'rgba(255, 255, 255, ' : 'rgba(0, 0, 0, ';
 
         if (mouse.x !== null) {
           const dx = mouse.x - this.x;
@@ -740,16 +753,24 @@
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
-            const opacity = 1 - (distance / 150);
-            color = `rgba(255, 35, 10, ${opacity * 0.6})`;
+            const mouseOpacity = 1 - (distance / 150);
+            color = `rgba(255, 35, 10, ${mouseOpacity * 0.6 * this.opacity})`;
+          } else {
+            color += `${baseOpacity * this.opacity})`;
           }
+        } else {
+          color += `${baseOpacity * this.opacity})`;
         }
 
         ctx.fillStyle = color;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size * this.scale, 0, Math.PI * 2);
         ctx.closePath();
         ctx.fill();
+      }
+
+      easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
       }
 
       update() {
@@ -792,42 +813,21 @@
       }
     }
 
-    const drawConnections = () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      const maxDistance = 100;
-
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < maxDistance) {
-            const opacity = 1 - (distance / maxDistance);
-            ctx.strokeStyle = theme === 'dark'
-              ? `rgba(255, 255, 255, ${opacity * 0.1})`
-              : `rgba(0, 0, 0, ${opacity * 0.05})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
     const initParticles = () => {
       particles = [];
-      const spacing = 40;
+      const spacing = 25;
       const cols = Math.ceil(canvas.width / spacing);
       const rows = Math.ceil(canvas.height / spacing);
 
+      let particleIndex = 0;
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
           const posX = x * spacing + spacing / 2;
           const posY = y * spacing + spacing / 2;
-          particles.push(new Particle(posX, posY));
+          // 파도 효과를 위한 딜레이(좌측 상단에서 우측 하단으로)
+          const delay = (x + y) * 0.01;
+          particles.push(new Particle(posX, posY, delay));
+          particleIndex++;
         }
       }
     };
@@ -847,8 +847,6 @@
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      drawConnections();
 
       particles.forEach(particle => {
         particle.update();
