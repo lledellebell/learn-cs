@@ -101,7 +101,7 @@ DataProcessor._processInternal([1, 2, 3]); // ⚠️ 동작하지만 사용하�
 
 ### 3. TypeScript `private` 키워드
 
-```typescript
+```ts
 class FileManager {
   // public (기본값)
   public upload(file: File) {
@@ -276,7 +276,7 @@ class MyClass {
 ```
 
 ### TypeScript
-```typescript
+```ts
 class MyClass {
   // ✅ Public (명시적 또는 생략)
   public static create(options: Options) {
@@ -793,7 +793,7 @@ console.log(child.getPrivate()); // "parent secret"
 
 **TypeScript의 protected vs JavaScript의 private**
 
-```typescript
+```ts
 class Parent {
   private privateField = 'private'; // 자식 접근 불가
   protected protectedField = 'protected'; // 자식 접근 가능
@@ -1082,7 +1082,7 @@ export default {
 
 **Angular 서비스**
 
-```typescript
+```ts
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -1235,7 +1235,7 @@ class NewClass {
 ```
 
 ### After (TypeScript)
-```typescript
+```ts
 class NewClass {
   private static helper(): string {
     return 'private';

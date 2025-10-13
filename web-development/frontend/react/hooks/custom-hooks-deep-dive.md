@@ -17,7 +17,7 @@ Custom Hooks는 **컴포넌트 간에 상태 로직(stateful logic)을 공유**�
 
 ### 핵심 개념
 
-```typescript
+```ts
 // ✅ Custom Hook: 상태 로직을 재사용
 function useOnlineStatus() {
   const [isOnline, setIsOnline] = useState(true);
@@ -41,7 +41,7 @@ function useOnlineStatus() {
 
 **중요**: Custom Hooks는 **상태 로직(logic)을 공유**하지, **상태 자체(state)를 공유하지 않습니다**.
 
-```typescript
+```ts
 function ComponentA() {
   const isOnline = useOnlineStatus(); // 독립적인 상태
 }
@@ -57,7 +57,7 @@ function ComponentB() {
 
 **Before: 코드 중복**
 
-```typescript
+```ts
 function ChatRoom() {
   const [isOnline, setIsOnline] = useState(true);
 
@@ -88,7 +88,7 @@ function StatusBar() {
 
 **After: Custom Hook으로 추출**
 
-```typescript
+```ts
 // 한 번만 작성
 function useOnlineStatus() {
   const [isOnline, setIsOnline] = useState(true);
@@ -110,7 +110,7 @@ function StatusBar() {
 
 ### 2. 관심사의 분리 (Separation of Concerns)
 
-```typescript
+```ts
 // ❌ 컴포넌트에 모든 로직이 섞여있음
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
@@ -151,7 +151,7 @@ function ProductPage({ productId }) {
 
 ### 3. 테스트 용이성
 
-```typescript
+```ts
 // Custom Hook을 독립적으로 테스트 가능
 import { renderHook, act } from '@testing-library/react-hooks';
 
@@ -172,7 +172,7 @@ test('useCounter increments correctly', () => {
 
 **필수**: 반드시 `use`로 시작해야 합니다.
 
-```typescript
+```ts
 // ✅ 올바른 네이밍
 function useFormInput() { }
 function useOnlineStatus() { }
@@ -193,7 +193,7 @@ Custom Hooks도 일반 Hooks와 동일한 규칙을 따릅니다.
 
 #### Rule 1: 최상위에서만 호출
 
-```typescript
+```ts
 // ❌ 조건문, 반복문, 중첩 함수 내에서 호출 금지
 function useExample(condition) {
   if (condition) {
@@ -219,7 +219,7 @@ function useExample(condition) {
 
 #### Rule 2: React 함수 내에서만 호출
 
-```typescript
+```ts
 // ❌ 일반 JavaScript 함수에서 호출 금지
 function regularFunction() {
   const [state, setState] = useState(); // ❌
@@ -238,7 +238,7 @@ function useCustomHook() {
 
 ### 3. 순수 함수여야 함 (Pure Function)
 
-```typescript
+```ts
 // ❌ 부수 효과가 있는 Hook
 let globalCache = {};
 
@@ -267,7 +267,7 @@ function useData(key) {
 
 브라우저 localStorage와 동기화되는 상태 관리
 
-```typescript
+```ts
 import { useState, useEffect } from 'react';
 
 function useLocalStorage<T>(key: string, initialValue: T) {
@@ -319,7 +319,7 @@ function Settings() {
 
 입력값 디바운싱
 
-```typescript
+```ts
 import { useState, useEffect } from 'react';
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -365,7 +365,7 @@ function SearchComponent() {
 
 이전 값 추적
 
-```typescript
+```ts
 import { useRef, useEffect } from 'react';
 
 function usePrevious<T>(value: T): T | undefined {
@@ -403,7 +403,7 @@ function Counter() {
 
 데이터 페칭 로직 재사용
 
-```typescript
+```ts
 import { useState, useEffect } from 'react';
 
 interface FetchState<T> {
@@ -474,7 +474,7 @@ function UserProfile({ userId }: { userId: number }) {
 
 폼 상태 관리
 
-```typescript
+```ts
 import { useState, ChangeEvent } from 'react';
 
 interface FormValues {
@@ -568,7 +568,7 @@ function LoginForm() {
 
 ### 1. 구체적이고 집중된 Hook 만들기
 
-```typescript
+```ts
 // ❌ 너무 범용적인 Hook
 function useLifecycle(onMount, onUpdate, onUnmount) {
   useEffect(() => {
@@ -612,7 +612,7 @@ function useWindowSize() {
 
 ### 2. 명확한 네이밍
 
-```typescript
+```ts
 // ❌ 불분명한 이름
 function useData() { }
 function useValue() { }
@@ -629,7 +629,7 @@ function useMediaQuery(query: string) { }
 
 **튜플 패턴**: 단순한 값 2개
 
-```typescript
+```ts
 // useState와 유사한 패턴
 function useToggle(initialValue: boolean = false) {
   const [value, setValue] = useState(initialValue);
@@ -644,7 +644,7 @@ const [isOpen, toggleOpen] = useToggle(false);
 
 **객체 패턴**: 여러 값 또는 복잡한 API
 
-```typescript
+```ts
 // 여러 값을 반환할 때는 객체 사용
 function usePagination(totalItems: number, itemsPerPage: number) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -668,7 +668,7 @@ const { currentPage, nextPage, prevPage, isLastPage } = usePagination(100, 10);
 
 ### 4. 의존성 배열 정확히 관리
 
-```typescript
+```ts
 // ❌ 의존성 누락
 function useInterval(callback: () => void, delay: number) {
   useEffect(() => {
@@ -699,7 +699,7 @@ function useInterval(callback: () => void, delay: number) {
 
 ### 5. 타입 안정성 (TypeScript)
 
-```typescript
+```ts
 // ✅ 제네릭을 활용한 타입 안전성
 function useArray<T>(initialValue: T[] = []) {
   const [array, setArray] = useState<T[]>(initialValue);
@@ -742,7 +742,7 @@ push(123);      // ❌ Type error
 
 ### 6. 성능 최적화
 
-```typescript
+```ts
 import { useState, useCallback, useMemo } from 'react';
 
 function useExpensiveHook(data: number[]) {
@@ -764,7 +764,7 @@ function useExpensiveHook(data: number[]) {
 
 ### 1. 상태를 공유하지 않음
 
-```typescript
+```ts
 // Custom Hook은 로직만 공유, 상태는 독립적
 function useCounter() {
   const [count, setCount] = useState(0);
@@ -787,7 +787,7 @@ function ComponentB() {
 
 **상태를 공유하려면 Context API 사용**:
 
-```typescript
+```ts
 const CountContext = createContext();
 
 function CountProvider({ children }) {
@@ -806,7 +806,7 @@ function useSharedCounter() {
 
 ### 2. Effect를 데이터 흐름 제어에 사용하지 말 것
 
-```typescript
+```ts
 // ❌ Effect로 데이터 변환 (안티 패턴)
 function useFilteredData(data: Item[]) {
   const [filtered, setFiltered] = useState<Item[]>([]);
@@ -828,7 +828,7 @@ function useFilteredData(data: Item[]) {
 
 ### 3. Hook 호출 순서 유지
 
-```typescript
+```ts
 // ❌ 조건부 Hook 호출
 function useExample(shouldFetch: boolean) {
   if (shouldFetch) {
@@ -852,7 +852,7 @@ function useExample(shouldFetch: boolean) {
 
 ### 4. 무한 루프 주의
 
-```typescript
+```ts
 // ❌ 무한 루프 발생
 function useBadExample() {
   const [count, setCount] = useState(0);
@@ -878,7 +878,7 @@ function useGoodExample() {
 
 Custom Hooks는 다른 Hooks를 조합할 수 있습니다.
 
-```typescript
+```ts
 function useAuthUser() {
   const { user } = useAuth();
   const { data: profile } = useFetch(`/api/users/${user?.id}`);
@@ -895,7 +895,7 @@ function useAuthUser() {
 
 ### 2. 디버깅을 위한 useDebugValue
 
-```typescript
+```ts
 import { useDebugValue } from 'react';
 
 function useOnlineStatus() {

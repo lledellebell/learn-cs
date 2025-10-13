@@ -189,7 +189,7 @@ Remix는 각 라우트마다 필요한 CSS만 동적으로 로드하는 독특�
 
 
 
-```tsx
+```ts
 // app/routes/dashboard.tsx
 import type { LinksFunction } from "@remix-run/node";
 import dashboardStyles from "~/styles/dashboard.css";
@@ -221,7 +221,7 @@ dashboard.css 동적 로드
 
 
 
-```tsx
+```ts
 // app/routes/dashboard.tsx (부모)
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/styles/dashboard-layout.css" }
@@ -327,7 +327,7 @@ function ImprovedComponent() {
 
 
 
-```tsx
+```ts
 // app/root.tsx
 import type { LinksFunction } from "@remix-run/node";
 import globalStyles from "~/styles/global.css";
@@ -343,7 +343,7 @@ export const links: LinksFunction = () => [
 
 
 
-```tsx
+```ts
 // app/root.tsx
 export default function App() {
   return (
@@ -373,7 +373,7 @@ export default function App() {
 #### CSS 프리로딩
 
 
-```tsx
+```ts
 // 다음 페이지 CSS 미리 로드
 export default function HomePage() {
   useEffect(() => {

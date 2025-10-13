@@ -24,7 +24,7 @@ Header의 구조는 비교적 고정적입니다.
 
 메모리에서 보듯이 Card, Daily, Weekly 컴포넌트들은 Compound 패턴을 성공적으로 사용하고 있습니다. Header에도 적용할 수 있습니다.
 
-```tsx
+```ts
 // 가능한 Compound 패턴 구조
 <Header>
   <Header.HamburgerButton onClick={handleMenu} />
@@ -90,7 +90,7 @@ Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리�
 ### 2. **사용 패턴의 차이**
 
 
-```tsx
+```ts
 // Card는 다양한 조합이 유용
 <Card>
   <Card.Image />
@@ -115,7 +115,7 @@ Header에서 Compound/Composite 패턴을 사용하지 않는 이유를 정리�
 
 ### 4. **잘못된 사용 방지**
 Header에 Compound 패턴을 적용하면:
-```tsx
+```ts
 // 잘못된 조합 가능성
 <Header>
   <Header.Logo />

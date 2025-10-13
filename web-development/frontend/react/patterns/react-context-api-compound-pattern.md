@@ -23,7 +23,7 @@ layout: page
 
 
 
-```tsx
+```ts
 // Context: 데이터 구조 정의
 const ThemeContext = createContext({
   theme: 'light',
@@ -55,7 +55,7 @@ const ThemeProvider = ({ children }) => {
 
 
 
-```tsx
+```ts
 // Context 생성
 const DailyContext = createContext<DailyContextType | null>(null);
 
@@ -85,7 +85,7 @@ const Daily: DailyComponent = ({ children, ...props }) => {
 
 
 
-```tsx
+```ts
 // Custom Hook으로 Context 접근
 const useDailyContext = () => {
   const context = useContext(DailyContext);
@@ -114,7 +114,7 @@ const DailyHeader = ({ title, ...props }) => {
 ### 1. 상태 공유
 
 
-```tsx
+```ts
 const Weekly = createContext<{
   currentIndex: number;
   setCurrentIndex: (index: number) => void;
@@ -146,7 +146,7 @@ const Weekly = ({ children }) => {
 ### 2. 네비게이션 컴포넌트에서 `Context` 활용
 
 
-```tsx
+```ts
 const Navigation = ({ showIndicator }) => {
   const { currentIndex, setCurrentIndex, isAutoPlaying } = useWeeklyContext();
 
@@ -181,7 +181,7 @@ const Navigation = ({ showIndicator }) => {
 ### 1. 다중 `Context`
 
 
-```tsx
+```ts
 // 서로 다른 관심사를 분리
 const UIStateContext = createContext(null);
 const DataContext = createContext(null);
@@ -200,7 +200,7 @@ const ComplexComponent = ({ children }) => (
 ### 2. `Context` + `Reducer` 패턴
 
 
-```tsx
+```ts
 const initialState = {
   currentSlide: 0,
   isPlaying: false,
@@ -240,7 +240,7 @@ const Swiper = ({ children }) => {
 ### 1. **성능 고려**
 
 
-```tsx
+```ts
 // ❌ 매번 새 객체 생성으로 불필요한 리렌더링
 const contextValue = {
   data,
@@ -259,7 +259,7 @@ const contextValue = useMemo(() => ({
 ### 2. **타입 안정성**
 
 
-```tsx
+```ts
 interface ContextType {
   currentIndex: number;
   setCurrentIndex: (index: number) => void;
@@ -282,7 +282,7 @@ const useMyContext = (): ContextType => {
 ### 3. **적절한 범위 설정**
 
 
-```tsx
+```ts
 // Context는 필요한 범위에서만 사용
 const ArticleListProvider = ({ children }) => (
   <ArticleListContext.Provider value={contextValue}>

@@ -21,7 +21,7 @@ API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반�
 
 ### Before: 코드 중복 발생
 
-```typescript
+```ts
 // UserProfile.tsx
 function UserProfile({ userId }: { userId: number }) {
   const [user, setUser] = useState<User | null>(null);
@@ -123,7 +123,7 @@ function PostList() {
 
 ### 문제 분석
 
-```typescript
+```ts
 // 각 컴포넌트마다 반복되는 패턴
 const [data, setData] = useState(null);           // 1. 상태 선언 (3줄)
 const [loading, setLoading] = useState(true);
@@ -149,7 +149,7 @@ useEffect(() => {
 
 ### 1. useAsync Hook 생성
 
-```typescript
+```ts
 // hooks/useAsync.ts
 import { useState, useEffect, useCallback } from 'react';
 
@@ -212,7 +212,7 @@ export default useAsync;
 
 ### 2. After: Hook 사용
 
-```typescript
+```ts
 // UserProfile.tsx - 30줄 → 15줄로 축소!
 function UserProfile({ userId }: { userId: number }) {
   const fetchUser = useCallback(
@@ -268,7 +268,7 @@ function PostList() {
 
 #### 1. **코드 중복 제거**
 
-```typescript
+```ts
 // Before: 각 컴포넌트마다 반복
 const [data, setData] = useState(null);
 const [loading, setLoading] = useState(true);
@@ -281,7 +281,7 @@ const { data, loading, error } = useAsync(fetchData);
 
 #### 2. **에러 처리 일관성**
 
-```typescript
+```ts
 // Before: 각 컴포넌트마다 다른 에러 처리
 .catch(err => {
   console.log(err);      // 어디는 console.log
@@ -295,7 +295,7 @@ const { data, loading, error } = useAsync(fetchData);
 
 #### 3. **메모리 누수 방지**
 
-```typescript
+```ts
 // Before: cleanup 로직을 빼먹기 쉬움 😱
 useEffect(() => {
   fetch(url).then(setData);
@@ -308,7 +308,7 @@ const { data } = useAsync(fetchData);
 
 #### 4. **재사용성 극대화**
 
-```typescript
+```ts
 // 동일한 Hook을 다양한 곳에서 재사용
 const userProfile = useAsync(() => fetchUser(userId));
 const userPosts = useAsync(() => fetchPosts(userId));
@@ -317,7 +317,7 @@ const userComments = useAsync(() => fetchComments(userId), false); // 수동 실
 
 #### 5. **테스트 용이성**
 
-```typescript
+```ts
 // Before: 컴포넌트 전체를 테스트해야 함
 test('UserProfile renders user data', async () => {
   render(<UserProfile userId={1} />);
@@ -339,7 +339,7 @@ test('useAsync fetches data correctly', async () => {
 
 #### Before: 여러 파일 수정 필요
 
-```typescript
+```ts
 // 에러 처리 로직 변경 시
 // ❌ 10개 파일 모두 수정해야 함
 UserProfile.tsx     ← 수정
@@ -352,7 +352,7 @@ Orders.tsx          ← 수정
 
 #### After: 한 파일만 수정
 
-```typescript
+```ts
 // ✅ useAsync.ts 파일 하나만 수정
 hooks/useAsync.ts   ← 여기만 수정하면 끝!
 ```
@@ -388,7 +388,7 @@ npm install zustand                    # 📦 ~3KB
 
 **실제 영향**:
 
-```typescript
+```ts
 // React Query 사용 시
 import { useQuery } from '@tanstack/react-query';
 // + 40KB의 코드가 번들에 포함
@@ -403,7 +403,7 @@ import { useAsync } from './hooks/useAsync';
 
 ### 2. **학습 곡선 최소화**
 
-```typescript
+```ts
 // ❌ React Query: 새로운 API 학습 필요
 const { data, isLoading, error } = useQuery({
   queryKey: ['user', userId],
@@ -421,7 +421,7 @@ const { data, loading, error } = useAsync(() => fetchUser(userId));
 
 ### 3. **프로젝트 의존성 감소**
 
-```typescript
+```ts
 // ❌ 라이브러리 의존
 // package.json
 {
@@ -446,7 +446,7 @@ const { data, loading, error } = useAsync(() => fetchUser(userId));
 
 ### 4. **완전한 커스터마이징**
 
-```typescript
+```ts
 // ❌ React Query: 제한적인 커스터마이징
 const { data } = useQuery({
   queryKey: ['user'],
@@ -478,7 +478,7 @@ function useAsync<T>(asyncFn: () => Promise<T>) {
 
 #### 작고 중간 규모 프로젝트 → Custom Hook 추천
 
-```typescript
+```ts
 // 요구사항이 간단한 경우
 // ✅ 기본적인 데이터 페칭
 // ✅ loading/error 상태 관리
@@ -490,7 +490,7 @@ const { data, loading, error } = useAsync(fetchData);
 
 #### 대규모 프로젝트 + 복잡한 요구사항 → 라이브러리 고려
 
-```typescript
+```ts
 // 복잡한 요구사항이 있는 경우
 // - 자동 재시도 (exponential backoff)
 // - 정교한 캐싱 전략
@@ -507,7 +507,7 @@ const { data, loading, error } = useAsync(fetchData);
 
 #### Custom Hook을 선택해야 할 때 ✅
 
-```typescript
+```ts
 // 1. 프로젝트 초기 단계
 // 2. 간단한 CRUD 애플리케이션
 // 3. 번들 크기가 중요한 경우
@@ -517,7 +517,7 @@ const { data, loading, error } = useAsync(fetchData);
 
 #### 라이브러리를 선택해야 할 때 ⚠️
 
-```typescript
+```ts
 // 1. 복잡한 서버 상태 동기화 필요
 // 2. 고급 캐싱 전략 필요
 // 3. 대규모 데이터 fetching
@@ -527,7 +527,7 @@ const { data, loading, error } = useAsync(fetchData);
 
 ### 7. **점진적 마이그레이션 가능**
 
-```typescript
+```ts
 // 장점: Custom Hook으로 시작 → 필요시 라이브러리로 전환 쉬움
 
 // Step 1: Custom Hook으로 시작
@@ -543,7 +543,7 @@ const { data, isLoading } = useQuery(['user'], fetchUser);
 
 #### 사례 1: 스타트업 MVP 개발
 
-```typescript
+```ts
 // Before: React Query 도입
 // - 팀원 학습 시간: 2주
 // - 번들 크기 증가: 40KB
@@ -559,7 +559,7 @@ const { data, isLoading } = useQuery(['user'], fetchUser);
 
 #### 사례 2: 대규모 대시보드 애플리케이션
 
-```typescript
+```ts
 // Before: Custom Hook 사용
 // - 복잡한 캐싱 로직 직접 구현
 // - 버그 발생 빈도 높음
@@ -577,7 +577,7 @@ const { data, isLoading } = useQuery(['user'], fetchUser);
 
 ### 예제 1: 재시도 로직 추가
 
-```typescript
+```ts
 // hooks/useAsync.ts
 function useAsync<T>(
   asyncFunction: () => Promise<T>,
@@ -622,7 +622,7 @@ const { data, loading, error } = useAsync(
 
 ### 예제 2: AbortController로 취소 처리
 
-```typescript
+```ts
 function useAsync<T>(asyncFunction: () => Promise<T>) {
   const abortControllerRef = useRef<AbortController | null>(null);
 
@@ -660,7 +660,7 @@ function useAsync<T>(asyncFunction: () => Promise<T>) {
 
 ### 예제 3: 수동 실행 모드
 
-```typescript
+```ts
 function SearchComponent() {
   const [query, setQuery] = useState('');
 
@@ -701,7 +701,7 @@ function SearchComponent() {
 
 ### 예제 4: 여러 API 동시 호출
 
-```typescript
+```ts
 function UserDashboard({ userId }: { userId: number }) {
   const profile = useAsync<User>(
     () => fetch(`/api/users/${userId}`).then(r => r.json())
@@ -736,7 +736,7 @@ function UserDashboard({ userId }: { userId: number }) {
 
 ### 예제 5: 조건부 데이터 페칭
 
-```typescript
+```ts
 function PostComments({ postId, isOpen }: { postId: number; isOpen: boolean }) {
   const { data: comments, loading } = useAsync(
     () => fetch(`/api/posts/${postId}/comments`).then(r => r.json()),

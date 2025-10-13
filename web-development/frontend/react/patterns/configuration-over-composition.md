@@ -25,7 +25,7 @@ layout: page
 
 ## 기본 구조
 
-```tsx
+```ts
 // Configuration 패턴의 기본 형태
 interface ComponentProps {
   variant: 'primary' | 'secondary' | 'danger';
@@ -55,7 +55,7 @@ const Component = ({ variant, size, disabled, loading, ...props }: ComponentProp
 
 ### 1. **Button 컴포넌트**
 
-```tsx
+```ts
 // Configuration 방식
 interface ButtonProps {
   variant: 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -113,7 +113,7 @@ const Button: React.FC<ButtonProps> = ({
 ### 2. **Navigation 컴포넌트**
 
 
-```tsx
+```ts
 interface NavigationProps {
   // 네비게이션 타입 설정
   variant: 'main' | 'sub' | 'mobile';
@@ -248,7 +248,7 @@ const Navigation: React.FC<NavigationProps> = ({
 };
 ```
 
-```tsx
+```ts
 // 사용법 - 설정만으로 모든 변형 제어
 <Navigation
   variant="main"
@@ -268,8 +268,7 @@ const Navigation: React.FC<NavigationProps> = ({
 
 ### 3. **Card 컴포넌트 비교**
 
-
-```tsx
+```ts
 // Configuration 방식
 interface CardProps {
   variant: 'default' | 'elevated' | 'outlined';
@@ -380,7 +379,7 @@ const Card: React.FC<CardProps> = ({
 ## 장점
 
 ### 1. **일관성 보장**
-```tsx
+```ts
 // 모든 사용처에서 동일한 구조
 <Header isHome={true} />
 <Header isHome={false} isProgressBar={true} />
@@ -388,7 +387,7 @@ const Card: React.FC<CardProps> = ({
 ```
 
 ### 2. **사용성 향상**
-```tsx
+```ts
 // 명확한 API - 무엇을 설정해야 하는지 명확
 interface ButtonProps {
   variant: 'primary' | 'secondary';  // 필수 선택
@@ -397,7 +396,7 @@ interface ButtonProps {
 ```
 
 ### 3. **오류 방지**
-```tsx
+```ts
 // 잘못된 조합 원천 차단
 const Modal = ({ size }: { size: 'sm' | 'md' | 'lg' }) => {
   // size에 따라 내부에서 적절한 스타일 적용
@@ -406,7 +405,7 @@ const Modal = ({ size }: { size: 'sm' | 'md' | 'lg' }) => {
 ```
 
 ### 4. **유지보수성**
-```tsx
+```ts
 // 변경사항이 한 곳에서 관리됨
 const Button = ({ variant }: ButtonProps) => {
   // variant 로직 변경 시 모든 사용처에 자동 반영
@@ -423,7 +422,7 @@ const Button = ({ variant }: ButtonProps) => {
 ## 단점
 
 ### 1. **유연성 제한**
-```tsx
+```ts
 // 예상하지 못한 조합이 필요할 때 제약
 <Button variant="primary" size="lg">
   {/* 특별한 아이콘 배치가 필요하다면? */}
@@ -432,7 +431,7 @@ const Button = ({ variant }: ButtonProps) => {
 ```
 
 ### 2. **Props 복잡성**
-```tsx
+```ts
 // 많은 옵션으로 인한 인터페이스 복잡화
 interface ComplexComponentProps {
   variant: string;
@@ -445,7 +444,7 @@ interface ComplexComponentProps {
 ```
 
 ### 3. **확장성 한계**
-```tsx
+```ts
 // 새로운 요구사항마다 props 추가 필요
 interface HeaderProps {
   isHome?: boolean;
@@ -461,7 +460,7 @@ interface HeaderProps {
 ### 적합한 경우
 
 #### 1. **디자인 시스템 컴포넌트**
-```tsx
+```ts
 // 일관된 디자인이 중요한 기본 컴포넌트
 <Button variant="primary" size="md" />
 <Input variant="outlined" size="lg" />
@@ -469,7 +468,7 @@ interface HeaderProps {
 ```
 
 #### 2. **레이아웃 컴포넌트**
-```tsx
+```ts
 // 구조적 일관성이 중요한 컴포넌트
 <Header isHome={true} />
 <Sidebar collapsed={false} />
@@ -477,7 +476,7 @@ interface HeaderProps {
 ```
 
 #### 3. **제한된 변형이 필요한 경우**
-```tsx
+```ts
 // 명확하게 정의된 몇 가지 패턴만 필요
 <Alert type="success" dismissible={true} />
 <Badge variant="primary" size="sm" />
@@ -486,14 +485,14 @@ interface HeaderProps {
 ### 부적합한 경우
 
 #### 1. **높은 커스터마이징이 필요한 경우**
-```tsx
+```ts
 // 매우 다양한 조합이 필요한 복잡한 컴포넌트
 <DataTable /> // 수많은 컬럼, 필터, 정렬 옵션
 <RichTextEditor /> // 다양한 툴바 구성
 ```
 
 #### 2. **동적 구조가 필요한 경우**
-```tsx
+```ts
 // 런타임에 구조가 결정되는 컴포넌트
 <Form /> // 동적 필드 추가/제거
 <Dashboard /> // 사용자 정의 위젯 배치
@@ -502,7 +501,7 @@ interface HeaderProps {
 ## 모범 사례
 
 ### 1. **명확한 타입 정의**
-```tsx
+```ts
 // 가능한 모든 옵션을 타입으로 명시
 interface ButtonProps {
   variant: 'primary' | 'secondary' | 'danger' | 'ghost';
@@ -514,7 +513,7 @@ interface ButtonProps {
 ```
 
 ### 2. **기본값 제공**
-```tsx
+```ts
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',    // 합리적인 기본값
   size = 'md',           // 가장 일반적인 크기
@@ -526,7 +525,7 @@ const Button: React.FC<ButtonProps> = ({
 ```
 
 ### 3. **조건부 props 패턴**
-```tsx
+```ts
 // 상호 배타적인 옵션을 타입으로 표현
 type ButtonProps = 
   | { variant: 'primary'; color?: never }
@@ -539,7 +538,7 @@ type ModalProps =
 ```
 
 ### 4. **점진적 확장**
-```tsx
+```ts
 // 기본 인터페이스에서 시작
 interface BaseButtonProps {
   children: React.ReactNode;
@@ -569,7 +568,7 @@ interface ExtendedButtonProps extends BaseButtonProps {
 
 두 패턴을 조합하여 사용하는 것도 가능합니다.
 
-```tsx
+```ts
 // 기본은 Configuration, 필요시 Composition 허용
 interface CardProps {
   // Configuration 부분

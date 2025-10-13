@@ -343,7 +343,7 @@ const safeData = process.env.NODE_ENV === 'development'
 ```
 
 #### 타입스크립트와의 조합
-```typescript
+```ts
 // readonly를 활용한 컴파일 타임 보호
 interface User {
   readonly id: number;

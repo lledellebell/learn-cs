@@ -9,7 +9,7 @@
 ## `useMemo`의 기본 개념
 
 ### 1. 동작 원리
-```tsx
+```ts
 const memoizedValue = useMemo(() => {
   return expensiveCalculation(a, b);
 }, [a, b]); // 의존성 배열
@@ -19,7 +19,7 @@ const memoizedValue = useMemo(() => {
 - 값이 변경되지 않으면 이전에 계산된 값을 재사용
 
 ### 2. `Context`에서의 활용
-```tsx
+```ts
 // ❌ 매번 새 객체 생성 - 모든 Consumer가 리렌더링
 const MyProvider = ({ children }) => {
   const [data, setData] = useState(initialData);
@@ -58,7 +58,7 @@ const MyProvider = ({ children }) => {
 ## 실제 적용 사례
 
 ### 1. 복잡한 계산 최적화
-```tsx
+```ts
 const ArticleList = ({ articles, searchTerm, sortBy }) => {
   // 검색과 정렬이 포함된 복잡한 계산
   const filteredAndSortedArticles = useMemo(() => {
@@ -90,7 +90,7 @@ const ArticleList = ({ articles, searchTerm, sortBy }) => {
 ```
 
 ### 2. 객체/배열 참조 최적화
-```tsx
+```ts
 const Weekly = ({ articles }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -150,7 +150,7 @@ const Weekly = ({ articles }) => {
 ```
 
 ### 3. 함수 메모이제이션과 조합
-```tsx
+```ts
 const ArticleListProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [filters, setFilters] = useState({ category: '', isNew: false });
@@ -190,7 +190,7 @@ const ArticleListProvider = ({ children }) => {
 ## 패턴
 
 ### 1. 조건부 메모이제이션
-```tsx
+```ts
 const ExpensiveComponent = ({ data, shouldOptimize }) => {
   const processedData = useMemo(() => {
     if (!shouldOptimize) return data;
@@ -207,7 +207,7 @@ const ExpensiveComponent = ({ data, shouldOptimize }) => {
 ```
 
 ### 2. 여러 단계의 메모이제이션
-```tsx
+```ts
 const ComplexDashboard = ({ rawData, userPreferences }) => {
   // 1단계: 기본 데이터 처리
   const processedData = useMemo(() => {
@@ -238,7 +238,7 @@ const ComplexDashboard = ({ rawData, userPreferences }) => {
 ## 주의사항과 베스트 프랙티스
 
 ### 1. 과도한 사용 피하기
-```tsx
+```ts
 // ❌ 불필요한 useMemo - 단순한 계산
 const SimpleComponent = ({ a, b }) => {
   const sum = useMemo(() => a + b, [a, b]); // 오버헤드가 더 클 수 있음
@@ -253,7 +253,7 @@ const SimpleComponent = ({ a, b }) => {
 ```
 
 ### 2. 의존성 배열 정확히 설정
-```tsx
+```ts
 // ❌ 의존성 누락
 const Component = ({ items, searchTerm }) => {
   const filteredItems = useMemo(() => {
@@ -268,7 +268,7 @@ const Component = ({ items, searchTerm }) => {
 ```
 
 ### 3. 참조 동일성 고려
-```tsx
+```ts
 const ParentComponent = () => {
   const [count, setCount] = useState(0);
   
@@ -292,7 +292,7 @@ const ParentComponent = () => {
 ## 성능 측정과 디버깅
 
 ### 1. `React DevTools Profiler` 활용
-```tsx
+```ts
 const ProfiledComponent = ({ data }) => {
   const expensiveValue = useMemo(() => {
     console.time('expensive-calculation');
@@ -306,7 +306,7 @@ const ProfiledComponent = ({ data }) => {
 ```
 
 ### 2. 메모이제이션 효과 확인
-```tsx
+```ts
 const useMemorizationStats = (value, deps) => {
   const hitCount = useRef(0);
   const missCount = useRef(0);

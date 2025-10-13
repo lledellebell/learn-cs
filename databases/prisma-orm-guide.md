@@ -61,7 +61,7 @@ npx prisma studio
 ### 주요 장점
 
 
-```typescript
+```ts
 // 전통적인 SQL 쿼리
 const users = await db.query(`
   SELECT u.*, p.title 
@@ -86,7 +86,7 @@ Prisma는 **"무엇을 원하는지"만 정의**하면, **"어떻게 할지"는 
 #### 명령적(Imperative) 방식 - 단계별 명령
 
 
-```typescript
+```ts
 // "어떻게 할지"를 단계별로 명령
 // 1단계: 테이블 생성
 await db.query(`CREATE TABLE users (...)`);
@@ -129,7 +129,7 @@ model Post {
 }
 ```
 
-```typescript
+```ts
 // 복잡한 JOIN도 간단하게
 const user = await prisma.user.findUnique({
   where: { email },
@@ -194,7 +194,7 @@ CREATE TABLE "Post" (
 **사용 예시:**
 
 
-```typescript
+```ts
 // 사용자와 그의 모든 게시글 조회
 const userWithPosts = await prisma.user.findUnique({
   where: { id: 1 },
@@ -234,7 +234,7 @@ model Profile {
 **사용 예시:**
 
 
-```typescript
+```ts
 // 사용자 생성과 동시에 프로필 생성
 const user = await prisma.user.create({
   data: {
@@ -295,7 +295,7 @@ CREATE TABLE "_CategoryToPost" (
 **사용 예시:**
 
 
-```typescript
+```ts
 // 게시글 생성과 동시에 카테고리 연결
 const post = await prisma.post.create({
   data: {
@@ -348,7 +348,7 @@ model PostLike {
 **사용 예시:**
 
 
-```typescript
+```ts
 // 좋아요 추가 (시간 정보 포함)
 const like = await prisma.postLike.create({
   data: {
@@ -390,7 +390,7 @@ model Comment {
 **사용 예시:**
 
 
-```typescript
+```ts
 // 댓글과 모든 대댓글 조회
 const commentWithReplies = await prisma.comment.findUnique({
   where: { id: 1 },
@@ -581,7 +581,7 @@ npx prisma generate
 ### 1. 기본 CRUD 작업
 
 
-```typescript
+```ts
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -638,7 +638,7 @@ await prisma.user.delete({
 ### 2. 복잡한 쿼리 패턴
 
 
-```typescript
+```ts
 // 조건부 필터링
 const searchUsers = async (filters: {
   email?: string;
@@ -696,7 +696,7 @@ const postsByUser = await prisma.post.groupBy({
 **문제 상황:**
 
 
-```typescript
+```ts
 // ❌ 트랜잭션 없이 송금 처리
 async function transferMoney(senderId, receiverId, amount) {
   // 1단계: 송금자 계좌에서 차감
@@ -721,7 +721,7 @@ async function transferMoney(senderId, receiverId, amount) {
 모든 작업을 하나의 트랜잭션으로 묶어서 안전하게 처리
 
 
-```typescript
+```ts
 // ✅ 트랜잭션으로 안전한 송금 처리
 const transferMoney = await prisma.$transaction(async (tx) => {
   // 1단계: 송금자 계좌에서 차감
@@ -770,7 +770,7 @@ console.log('송금 완료:', transferMoney);
 
 
 
-```typescript
+```ts
 // 여러 작업을 배치로 처리
 const batchOperations = await prisma.$transaction([
   // 새 사용자 생성
@@ -804,7 +804,7 @@ console.log('배치 작업 결과:', batchOperations);
 **문제 상황:**
 
 
-```typescript
+```ts
 // ❌ 타임아웃 없는 위험한 트랜잭션
 const result = await prisma.$transaction(async (tx) => {
   // 수백만 개의 레코드 처리 - 매우 오래 걸림
@@ -827,7 +827,7 @@ const result = await prisma.$transaction(async (tx) => {
 **해결책: 타임아웃 설정**
 
 
-```typescript
+```ts
 // ✅ 안전한 타임아웃 설정
 const result = await prisma.$transaction(
   async (tx) => {
@@ -868,7 +868,7 @@ const result = await prisma.$transaction(
 **실제 사용 예시:**
 
 
-```typescript
+```ts
 try {
   const result = await prisma.$transaction(
     async (tx) => {
@@ -892,7 +892,7 @@ try {
 #### 실제 사용 사례들
 
 **1. 주문 처리 시스템:**
-```typescript
+```ts
 const processOrder = await prisma.$transaction(async (tx) => {
   // 재고 확인 및 차감
   const product = await tx.product.update({
@@ -919,7 +919,7 @@ const processOrder = await prisma.$transaction(async (tx) => {
 ```
 
 **2. 게시글 좋아요 토글:**
-```typescript
+```ts
 const toggleLike = await prisma.$transaction(async (tx) => {
   // 기존 좋아요 확인
   const existingLike = await tx.like.findUnique({
@@ -956,7 +956,7 @@ const toggleLike = await prisma.$transaction(async (tx) => {
 
 
 ### 2. Raw 쿼리 사용
-```typescript
+```ts
 // Raw SQL 쿼리
 const result = await prisma.$queryRaw`
   SELECT u.name, COUNT(p.id) as post_count
@@ -981,7 +981,7 @@ const typedResult = await prisma.$queryRaw<UserPostCount[]>`
 ```
 
 ### 3. 미들웨어 활용
-```typescript
+```ts
 // 로깅 미들웨어
 prisma.$use(async (params, next) => {
   const before = Date.now();
@@ -1015,7 +1015,7 @@ prisma.$use(async (params, next) => {
 ## TypeScript 통합
 
 ### 1. 타입 안전성
-```typescript
+```ts
 import { User, Post, Prisma } from '@prisma/client';
 
 // 생성된 타입 사용
@@ -1033,7 +1033,7 @@ type PostInclude = Prisma.PostInclude;
 ```
 
 ### 2. 커스텀 타입 정의
-```typescript
+```ts
 // 복잡한 쿼리 결과 타입
 type UserWithPostsAndComments = Prisma.UserGetPayload<{
   include: {
@@ -1073,7 +1073,7 @@ class UserService {
 ```
 
 ### 3. 타입 가드 및 검증
-```typescript
+```ts
 import { z } from 'zod';
 
 // Zod 스키마로 런타임 검증
@@ -1102,7 +1102,7 @@ function isUserWithPosts(user: any): user is UserWithPosts {
 ## 성능 최적화
 
 ### 1. N+1 쿼리 문제 해결
-```typescript
+```ts
 // ❌ N+1 문제 발생
 const users = await prisma.user.findMany();
 for (const user of users) {
@@ -1126,7 +1126,7 @@ const posts = await prisma.post.findMany({
 ```
 
 ### 2. 선택적 로딩
-```typescript
+```ts
 // 필요한 필드만 선택
 const users = await prisma.user.findMany({
   select: {
@@ -1153,7 +1153,7 @@ const getUserWithOptionalPosts = (includePosts: boolean) => {
 ```
 
 ### 3. 연결 풀링 및 캐싱
-```typescript
+```ts
 // 연결 풀 설정
 const prisma = new PrismaClient({
   datasources: {
@@ -1191,7 +1191,7 @@ const getCachedUser = async (id: number) => {
 ## 실제 프로젝트 예제
 
 ### 1. 블로그 API 서버
-```typescript
+```ts
 // src/services/blog.service.ts
 export class BlogService {
   constructor(private prisma: PrismaClient) {}
@@ -1261,7 +1261,7 @@ export class BlogService {
 ```
 
 ### 2. 사용자 인증 시스템
-```typescript
+```ts
 // src/services/auth.service.ts
 export class AuthService {
   constructor(private prisma: PrismaClient) {}
@@ -1373,7 +1373,7 @@ model Post {
 ```
 
 ### 2. 에러 처리 패턴
-```typescript
+```ts
 // 커스텀 에러 클래스
 export class DatabaseError extends Error {
   constructor(message: string, public code?: string) {
@@ -1410,7 +1410,7 @@ export class UserService {
 ```
 
 ### 3. 테스팅 전략
-```typescript
+```ts
 // 테스트 데이터베이스 설정
 // tests/setup.ts
 import { PrismaClient } from '@prisma/client';
@@ -1468,7 +1468,7 @@ describe('UserService', () => {
 ```
 
 ### 4. 프로덕션 고려사항
-```typescript
+```ts
 // 연결 관리
 export const createPrismaClient = () => {
   const prisma = new PrismaClient({

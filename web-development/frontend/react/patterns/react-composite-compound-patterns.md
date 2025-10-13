@@ -19,7 +19,7 @@
 
 ### 1. Card 컴포넌트 - `Composite Pattern`
 
-```tsx
+```ts
 // 기본 구조
 <Card>
   <Card.Image src="..." alt="..." />
@@ -40,7 +40,7 @@
 
 ### 2. Daily 컴포넌트 - `Compound Pattern`
 
-```tsx
+```ts
 // 컴포넌트 구성
 <Daily>
   <Daily.Header title="Daily" />
@@ -64,7 +64,7 @@
 
 ### 1. 서브컴포넌트 정의
 
-```tsx
+```ts
 // Card 컴포넌트 예시
 const Card = ({ children, className, ...props }) => {
   return (
@@ -86,7 +86,7 @@ Card.Badge = CardBadge;
 
 ### 2. 타입 정의
 
-```tsx
+```ts
 interface CardComponent extends React.FC<CardProps> {
   Image: typeof CardImage;
   Body: typeof CardBody;
@@ -100,7 +100,7 @@ interface CardComponent extends React.FC<CardProps> {
 
 ### 3. Context 활용 (Compound Pattern)
 
-```tsx
+```ts
 const DailyContext = createContext<DailyContextType | null>(null);
 
 const Daily: DailyComponent = ({ children, ...props }) => {
@@ -122,7 +122,7 @@ const Daily: DailyComponent = ({ children, ...props }) => {
 
 ### Storybook에서의 활용
 
-```tsx
+```ts
 // 기본 사용법
 export const Default: Story = {
   render: args => (
@@ -150,7 +150,7 @@ export const ContentOnly: Story = {
 
 ### 이벤트 처리
 
-```tsx
+```ts
 // 클릭 이벤트가 있는 Card
 <Daily.Card>
   <Daily.Card.Series
@@ -182,7 +182,7 @@ export const ContentOnly: Story = {
 - 계층 구조를 반영한 네이밍 사용
 
 ### 2. 타입 안정성
-```tsx
+```ts
 // 제네릭을 활용한 유연한 타입 정의
 interface CardHeadlineProps<T extends ElementType = 'h3'> {
   as?: T;
@@ -193,7 +193,7 @@ interface CardHeadlineProps<T extends ElementType = 'h3'> {
 ```
 
 ### 3. 접근성 고려
-```tsx
+```ts
 // ARIA 속성과 시맨틱 HTML 활용
 <Card.Headline 
   as="h2" 
@@ -208,7 +208,7 @@ interface CardHeadlineProps<T extends ElementType = 'h3'> {
 ```
 
 ### 4. 스타일링 전략
-```tsx
+```ts
 // className prop을 통한 외부 스타일 주입 허용
 const Card = ({ className, children, ...props }) => (
   <article className={classNames('card', className)} {...props}>
@@ -233,7 +233,7 @@ const Card = ({ className, children, ...props }) => (
 ## 성능 최적화
 
 ### 1. `React.memo` 활용
-```tsx
+```ts
 // 불필요한 리렌더링 방지
 const CardImage = React.memo<CardImageProps>(({ src, alt, className }) => (
   <img 
@@ -248,7 +248,7 @@ CardImage.displayName = 'Card.Image';
 ```
 
 ### 2. 조건부 렌더링 최적화
-```tsx
+```ts
 const Card = ({ children, variant = 'default' }) => {
   // children을 미리 필터링하여 성능 향상
   const validChildren = React.Children.toArray(children).filter(Boolean);
@@ -264,7 +264,7 @@ const Card = ({ children, variant = 'default' }) => {
 ## 테스팅 전략
 
 ### 1. 단위 테스트
-```tsx
+```ts
 import { render, screen } from '@testing-library/react';
 import { Card } from './Card';
 
@@ -298,7 +298,7 @@ describe('카드 컴포넌트', () => {
 ```
 
 ### 2. 통합 테스트
-```tsx
+```ts
 describe('카드 컴포넌트 통합 테스트', () => {
   it('클릭 이벤트 처리', async () => {
     const handleClick = jest.fn();
@@ -320,7 +320,7 @@ describe('카드 컴포넌트 통합 테스트', () => {
 ## 베스트 프랙티스
 
 ### 1. 점진적 마이그레이션
-```tsx
+```ts
 // 기존 컴포넌트를 점진적으로 패턴 적용
 const LegacyCard = ({ title, description, imageUrl }) => (
   <Card>
@@ -343,7 +343,7 @@ const FlexibleCard = ({ title, description, imageUrl, children }) => {
 ```
 
 ### 2. 개발자 경험 향상
-```tsx
+```ts
 // 개발 모드에서 잘못된 사용법 경고
 const Card = ({ children }) => {
   if (process.env.NODE_ENV === 'development') {
@@ -365,12 +365,12 @@ const Card = ({ children }) => {
 ```
 
 ### 3. 문서화 자동화
-```tsx
+```ts
 /**
  * Card 컴포넌트 - Composite Pattern 구현
  * 
  * @example
- * ```tsx
+ * ```ts
  * <Card>
  *   <Card.Image src="/image.jpg" alt="Description" />
  *   <Card.Body>
@@ -395,7 +395,7 @@ interface CardComponent extends React.FC<CardProps> {
 ## 다른 패턴과의 비교
 
 ### `Render Props` vs `Compound Components`
-```tsx
+```ts
 // Render Props 방식
 <DataFetcher url="/api/articles">
   {({ data, loading, error }) => (

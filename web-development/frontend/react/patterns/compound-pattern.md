@@ -18,7 +18,7 @@
 
 ## 기본 구조
 
-```tsx
+```ts
 // 기본 패턴 구조
 <ParentComponent>
   <ParentComponent.SubComponent1 />
@@ -31,7 +31,7 @@
 
 ### 1. **Context API 활용**
 
-```tsx
+```ts
 // Context 생성
 const AccordionContext = createContext();
 
@@ -95,7 +95,7 @@ Accordion.Panel = AccordionPanel;
 
 ### 2. **사용 예시**
 
-```tsx
+```ts
 // 유연한 조합 가능
 <Accordion>
   <Accordion.Item index={0}>
@@ -122,7 +122,7 @@ Accordion.Panel = AccordionPanel;
 
 ### 1. **Modal 컴포넌트**
 
-```tsx
+```ts
 <Modal>
   <Modal.Header>
     <Modal.Title>제목</Modal.Title>
@@ -140,7 +140,7 @@ Accordion.Panel = AccordionPanel;
 
 ### 2. **Card 컴포넌트**
 
-```tsx
+```ts
 <Card>
   <Card.Image src="..." alt="..." />
   <Card.Body>
@@ -155,7 +155,7 @@ Accordion.Panel = AccordionPanel;
 
 ### 3. **Form 컴포넌트**
 
-```tsx
+```ts
 <Form>
   <Form.Field>
     <Form.Label>이름</Form.Label>
@@ -218,7 +218,7 @@ Accordion.Panel = AccordionPanel;
 ## 모범 사례
 
 ### 1. **명확한 네이밍**
-```tsx
+```ts
 // 좋은 예
 <Card.Header />
 <Card.Body />
@@ -231,7 +231,7 @@ Accordion.Panel = AccordionPanel;
 ```
 
 ### 2. **타입 안전성 확보**
-```tsx
+```ts
 interface CardProps {
   children: React.ReactNode;
 }
@@ -251,7 +251,7 @@ const Card: React.FC<CardProps> & {
 ```
 
 ### 3. **기본값 제공**
-```tsx
+```ts
 const Modal = ({ children, isOpen = false, onClose }) => {
   // 기본 동작 제공
   const handleEscapeKey = useCallback((e) => {

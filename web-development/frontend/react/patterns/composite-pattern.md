@@ -123,7 +123,7 @@ Total size: 3584 bytes
 
 ### 1. **UI 컴포넌트 트리**
 
-```tsx
+```ts
 // 기본 컴포넌트 인터페이스
 interface UIComponent {
   render(): React.ReactNode;
@@ -191,7 +191,7 @@ class Panel implements UIComponent {
 
 ### 2. **실제 사용 예시**
 
-```tsx
+```ts
 const App: React.FC = () => {
   // UI 구조 생성
   const mainPanel = new Panel('메인 패널');
@@ -229,7 +229,7 @@ const App: React.FC = () => {
 
 ### 1. **메뉴 시스템**
 
-```tsx
+```ts
 interface MenuItem {
   render(): React.ReactNode;
   isActive(): boolean;
@@ -288,7 +288,7 @@ class MenuGroup implements MenuItem {
 
 ### 2. **폼 필드 시스템**
 
-```tsx
+```ts
 interface FormElement {
   validate(): boolean;
   getValue(): any;

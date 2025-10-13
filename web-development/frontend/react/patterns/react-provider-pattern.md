@@ -28,7 +28,7 @@ layout: page
 
 
 
-```tsx
+```ts
 // 1. Context 생성
 const MyContext = createContext<ContextType | undefined>(undefined);
 
@@ -74,7 +74,7 @@ export const useMyContext = () => {
 
 
 
-```tsx
+```ts
 // 테마 관련 타입 정의
 interface ThemeContextType {
   theme: 'light' | 'dark';
@@ -178,7 +178,7 @@ const Header = () => {
 
 
 
-```tsx
+```ts
 // 사용자 타입 정의
 interface User {
   id: string;
@@ -307,7 +307,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 
 
-```tsx
+```ts
 // 장바구니 아이템 타입
 interface CartItem {
   id: string;
@@ -468,7 +468,7 @@ const CartSummary: React.FC = () => {
 
 
 
-```tsx
+```ts
 // 여러 Provider를 조합하는 패턴
 const AppProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <ThemeProvider>
@@ -509,7 +509,7 @@ const App = () => (
 
 
 
-```tsx
+```ts
 // 복잡한 상태 관리를 위한 Reducer 패턴
 interface State {
   user: User | null;
@@ -574,7 +574,7 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 
 
-```tsx
+```ts
 // 조건부 Provider 패턴
 const ConditionalProvider: React.FC<{
   condition: boolean;
@@ -609,7 +609,7 @@ const App = () => {
 ### 1. **Prop Drilling 해결**
 
 
-```tsx
+```ts
 // ❌ Prop Drilling
 const App = () => {
   const [user, setUser] = useState(null);
@@ -654,7 +654,7 @@ const UserMenu = () => {
 ### 1. **성능 고려사항**
 
 
-```tsx
+```ts
 // ❌ 매번 새 객체 생성으로 불필요한 리렌더링
 const MyProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
@@ -697,7 +697,7 @@ const MyProvider = ({ children }) => {
 ### 2. **과도한 리렌더링**
 
 
-```tsx
+```ts
 // 문제: 하나의 값이 변경되면 모든 소비자가 리렌더링
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -740,7 +740,7 @@ const ThemeProvider = ({ children }) => {
 ### 1. **타입 안전성 확보**
 
 
-```tsx
+```ts
 interface ContextType {
   state: State;
   actions: Actions;
@@ -760,7 +760,7 @@ export const useMyContext = (): ContextType => {
 
 
 ### 2. **에러 경계 설정**
-```tsx
+```ts
 class ProviderErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -796,7 +796,7 @@ const SafeProvider = ({ children }) => (
 ### 3. **개발자 도구 지원**
 
 
-```tsx
+```ts
 const MyProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 

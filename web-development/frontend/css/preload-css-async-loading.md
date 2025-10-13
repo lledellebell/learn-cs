@@ -291,7 +291,7 @@ CSS는 전역 리소스이며 브라우저가 캐시하므로, 일반적으로 �
 
 
 
-```tsx
+```ts
 // pages/_document.js (Next.js)
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 

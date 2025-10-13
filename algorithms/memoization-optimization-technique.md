@@ -1181,7 +1181,7 @@ const fetchUserData = memoizeAsync(async (userId) => {
 ### 1. 제네릭을 활용한 타입 안전한 메모이제이션
 
 
-```typescript
+```ts
 // 기본 메모이제이션 타입 정의
 type MemoizedFunction<T extends (...args: any[]) => any> = T & {
   cache: Map<string, ReturnType<T>>;
@@ -1240,7 +1240,7 @@ const memoizedDistance = memoize(calculateDistance);
 ### 2. 비동기 함수 메모이제이션 타입
 
 
-```typescript
+```ts
 // 비동기 함수 메모이제이션 타입
 type AsyncMemoizedFunction<T extends (...args: any[]) => Promise<any>> = T & {
   cache: Map<string, { promise: ReturnType<T>; timestamp: number }>;
@@ -1303,7 +1303,7 @@ const memoizedFetchUser = memoizeAsync(fetchUser, 60000);
 ### 3. 클래스 메서드 데코레이터
 
 
-```typescript
+```ts
 // 메모이제이션 데코레이터 타입
 type MethodDecorator<T = any> = (
   target: any,
@@ -1379,7 +1379,7 @@ class MathService {
 ### 4. 타입 제약 조건
 
 
-```typescript
+```ts
 // 순수 함수만 메모이제이션 가능하도록 타입 제약
 type PureFunction<T extends readonly any[], R> = (...args: T) => R;
 
@@ -1431,7 +1431,7 @@ const memoizedAdd = memoizePure(pureAdd); // ✅ 허용
 ### 5. React Hook과의 통합
 
 
-```typescript
+```ts
 import { useCallback, useRef, useMemo } from 'react';
 
 // React용 메모이제이션 훅
