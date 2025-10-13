@@ -70,8 +70,25 @@ relative_links:
   collections: false
 
 # Liquid 템플릿 비활성화 (코드 예제의 {{ }} 구문 보호)
+# 기술 문서 디렉토리만 선택적으로 적용
 defaults:
   - scope:
-      path: ""
+      path: "web-development"
+    values:
+      render_with_liquid: false
+  - scope:
+      path: "languages"
+    values:
+      render_with_liquid: false
+  - scope:
+      path: "databases"
+    values:
+      render_with_liquid: false
+  - scope:
+      path: "algorithms"
+    values:
+      render_with_liquid: false
+  - scope:
+      path: "networking"
     values:
       render_with_liquid: false
