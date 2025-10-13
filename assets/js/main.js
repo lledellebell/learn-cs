@@ -926,7 +926,7 @@
     let startTime = Date.now();
 
     // 롤링 설정
-    const DURATION = 20000; // 20초
+    const DURATION = 30000; // 30초
 
     // 카드 너비 + 간격 계산
     const getScrollDistance = () => {
