@@ -1,0 +1,66 @@
+# Jekyll 설정
+title: Learn CS
+description: Computer Science learning materials
+url: "https://lledellebell.github.io"
+baseurl: "/learn-cs"
+
+# 빌드 설정
+markdown: kramdown
+highlighter: rouge
+
+# GitHub Pages 기본 테마
+theme: jekyll-theme-primer
+
+# 플러그인
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+
+# 제외할 파일/폴더
+exclude:
+  - node_modules
+  - scripts
+  - package.json
+  - package-lock.json
+  - .gitignore
+  - .gitmodules
+  - .learning-history.json
+  - LICENSE
+  - private
+  - private_backup_*
+  - "*.log"
+  - .vscode
+  - .idea
+  - .DS_Store
+
+# 포함할 파일 패턴
+include:
+  - .htaccess
+  - _pages
+
+# 빈 파일 처리 (엄격하지 않게)
+strict_front_matter: false
+
+# 마크다운 설정
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# 제목 자동 생성
+titles_from_headings:
+  enabled: true
+  strip_title: false
+  collections: false
+
+# 상대 링크 처리
+relative_links:
+  enabled: true
+  collections: false

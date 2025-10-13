@@ -1,6 +1,14 @@
 {{ ... }}
 node_modules/
 
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/
+
 # Environment variables
 .env
 
