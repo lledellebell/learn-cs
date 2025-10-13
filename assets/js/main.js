@@ -138,12 +138,48 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           // 접근성을 위한 포커스
           target.focus();
+
+          // 모바일에서 목차 닫기
+          if (window.innerWidth <= 768) {
+            const tocToggle = document.getElementById('tocToggle');
+            const tocWrapper = document.querySelector('.toc-wrapper');
+            if (tocToggle && tocWrapper) {
+              tocWrapper.classList.remove('expanded');
+              tocToggle.setAttribute('aria-expanded', 'false');
+            }
+          }
         }
       });
     });
 
     // 스크롤 시 현재 섹션 하이라이트
     initTOCHighlight(headings);
+
+    // 모바일 TOC 토글 기능 초기화
+    initMobileTOC();
+  };
+
+  // =========================================
+  // 모바일 TOC 토글
+  // =========================================
+  const initMobileTOC = () => {
+    const tocToggle = document.getElementById('tocToggle');
+    const tocWrapper = document.querySelector('.toc-wrapper');
+
+    if (!tocToggle || !tocWrapper) return;
+
+    tocToggle.addEventListener('click', () => {
+      const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
+      const newState = !isExpanded;
+
+      tocToggle.setAttribute('aria-expanded', newState);
+
+      if (newState) {
+        tocWrapper.classList.add('expanded');
+      } else {
+        tocWrapper.classList.remove('expanded');
+      }
+    });
   };
 
   // =========================================
@@ -334,7 +370,7 @@
 
     // 모달 열기
     shareBtn.addEventListener('click', () => {
-      modal.style.display = 'block';
+      modal.add.classList.add('flex');
       modal.setAttribute('aria-hidden', 'false');
       // 첫 번째 버튼에 포커스
       modal.querySelector('.share-option')?.focus();
@@ -342,7 +378,7 @@
 
     // 모달 닫기
     const closeModal = () => {
-      modal.style.display = 'none';
+      modal.classList.remove('flex');
       modal.setAttribute('aria-hidden', 'true');
       shareBtn.focus();
     };
@@ -488,6 +524,117 @@
   };
 
   // =========================================
+  // 문서 수정 기능
+  // =========================================
+  const initEdit = () => {
+    const editBtn = document.getElementById('editBtn');
+    const editModal = document.getElementById('editModal');
+    const closeBtn = editModal?.querySelector('.modal-close');
+    const suggestEditBtn = document.getElementById('suggestEdit');
+    const directEditBtn = document.getElementById('directEdit');
+
+    if (!editBtn) return;
+
+    const environment = editBtn.getAttribute('data-env') || 'development';
+    const pageTitle = editBtn.getAttribute('data-page-title');
+    const pagePath = editBtn.getAttribute('data-page-path');
+    const pageUrl = editBtn.getAttribute('data-page-url');
+
+    // 이슈 생성 URL 생성 함수
+    const createIssueUrl = () => {
+      const issueTitle = encodeURIComponent(`[문서 수정] ${pageTitle}`);
+      const issueBody = encodeURIComponent(`## 수정 대상 문서
+**문서 제목:** ${pageTitle}
+**문서 경로:** \`${pagePath}\`
+**문서 URL:** ${pageUrl}
+
+## 수정 유형
+<!-- 해당하는 항목에 [x]를 표시해주세요 -->
+- [ ] 오타/맞춤법 수정
+- [ ] 기술적 오류 수정
+- [ ] 내용 추가/보완
+- [ ] 예제 코드 개선
+- [ ] 링크 수정
+- [ ] 기타
+
+## 현재 내용
+<!-- 수정이 필요한 현재 내용을 적어주세요 -->
+\`\`\`
+수정 전 내용을 여기에 붙여넣으세요
+\`\`\`
+
+## 제안하는 수정 내용
+<!-- 어떻게 수정하면 좋을지 구체적으로 적어주세요 -->
+\`\`\`
+수정 후 내용을 여기에 작성해주세요
+\`\`\`
+
+## 수정 이유
+<!-- 왜 이런 수정이 필요한지 설명해주세요 -->
+
+
+## 추가 정보
+<!-- 참고 링크나 추가 설명이 있다면 작성해주세요 -->
+`);
+      return `https://github.com/lledellebell/learn-cs/issues/new?title=${issueTitle}&body=${issueBody}&labels=documentation,content-suggestion`;
+    };
+
+    // 프로덕션 환경: 바로 이슈 페이지로 이동
+    if (environment === 'production') {
+      editBtn.addEventListener('click', () => {
+        window.open(createIssueUrl(), '_blank');
+      });
+      return;
+    }
+
+    // 개발 환경: 모달 표시
+    if (!editModal) return;
+
+    // 모달 열기
+    editBtn.addEventListener('click', () => {
+      editModal.classList.add('flex');
+      editModal.setAttribute('aria-hidden', 'false');
+      suggestEditBtn?.focus();
+    });
+
+    // 모달 닫기
+    const closeModal = () => {
+      editModal.classList.remove('flex');
+      editModal.setAttribute('aria-hidden', 'true');
+      editBtn.focus();
+    };
+
+    closeBtn?.addEventListener('click', closeModal);
+
+    // 외부 클릭 시 닫기
+    editModal.addEventListener('click', (e) => {
+      if (e.target === editModal) {
+        closeModal();
+      }
+    });
+
+    // ESC 키로 닫기
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && editModal.classList.contains('flex')) {
+        closeModal();
+      }
+    });
+
+    // 수정 제안하기 (이슈 생성)
+    suggestEditBtn?.addEventListener('click', () => {
+      window.open(createIssueUrl(), '_blank');
+      closeModal();
+    });
+
+    // 직접 수정하기 (GitHub edit)
+    directEditBtn?.addEventListener('click', () => {
+      const editUrl = `https://github.com/lledellebell/learn-cs/edit/master/${pagePath}`;
+      window.open(editUrl, '_blank');
+      closeModal();
+    });
+  };
+
+  // =========================================
   // 초기화
   // =========================================
   const init = () => {
@@ -503,6 +650,7 @@
     initShare();
     initBookmark();
     initReadingProgress();
+    initEdit();
 
     console.log('✅ Learn CS 초기화 완료');
   };

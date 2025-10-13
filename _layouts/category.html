@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="category-page">
+    <!-- Category Header -->
+    <header class="category-header">
+      <h1 class="category-page-title">{{ page.title }}</h1>
+      {% if page.description %}
+        <p class="category-page-description">{{ page.description }}</p>
+      {% endif %}
+    </header>
+
+    <!-- Category Content (if any) -->
+    {% if content %}
+      <div class="category-content">
+        {{ content }}
+      </div>
+    {% endif %}
+
+    <!-- Posts in this category -->
+    {% assign category_path = page.category_path %}
+    {% assign all_posts = site.pages | where_exp: "item", "item.path contains category_path" | where_exp: "item", "item.name != 'index.md'" | sort: "date" | reverse %}
+
+    {% if all_posts.size > 0 %}
+      <section class="category-posts">
+        <h2 class="category-posts-title">
+          문서 목록
+          <span class="category-posts-count">({{ all_posts.size }}개)</span>
+        </h2>
+
+        <ul class="category-posts-list">
+          {% for post in all_posts %}
+            <li class="category-post-item">
+              <a href="{{ post.url | relative_url }}" class="category-post-link">
+                <div class="category-post-main">
+                  <h4 class="category-post-title">{{ post.title }}</h4>
+                  {% if post.description %}
+                    <p class="category-post-description">{{ post.description }}</p>
+                  {% endif %}
+                </div>
+                <div class="category-post-meta">
+                  {% if post.date %}
+                    <time datetime="{{ post.date | date_to_xmlschema }}" class="category-post-date">
+                      {{ post.date | date: "%Y.%m.%d" }}
+                    </time>
+                  {% endif %}
+                  {% if post.tags %}
+                    <div class="category-post-tags">
+                      {% for tag in post.tags limit:3 %}
+                        <span class="category-post-tag">{{ tag }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% else %}
+      <div class="category-empty">
+        <p>이 카테고리에는 아직 문서가 없습니다.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
