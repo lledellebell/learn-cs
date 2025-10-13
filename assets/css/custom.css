@@ -592,8 +592,9 @@ pre code {
 @media (max-width: 768px) {
   .toc {
     position: sticky;
-    top: var(--header-height);
+    top: calc(var(--header-height) - -8px);
     margin-bottom: var(--space-6);
+    padding: 0;
     order: -1;
   }
 }
@@ -947,6 +948,7 @@ pre:hover .code-copy-btn {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) transparent;
+    padding: var(--space-4);
   }
 
   .toc-wrapper.expanded::-webkit-scrollbar {
