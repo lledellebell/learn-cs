@@ -228,8 +228,8 @@ layout: default
               {% endif %}
             {% endfor %}
 
-            {% comment %} 무한 롤링을 위해 뉴스 항목 4번 더 복제 (총 5세트) {% endcomment %}
-            {% for copy in (1..4) %}
+            {% comment %} 무한 롤링을 위해 뉴스 항목 2번 더 복제 (총 3세트) {% endcomment %}
+            {% for copy in (1..2) %}
               {% assign news_count = 0 %}
               {% for section in news_content %}
                 {% if section contains '. ' and news_count < 10 %}
