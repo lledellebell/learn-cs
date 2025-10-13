@@ -3,7 +3,6 @@ date: 2025-10-13
 render_with_liquid: false
 layout: page
 ---
-{% raw %}
 # `Context API`를 활용한 `Compound Pattern` 구현
 
 > React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.
@@ -23,7 +22,7 @@ layout: page
 | **사용** | `useContext(Context)` | JSX에서 컴포넌트 감싸기 |
 
 
-
+{% raw %}
 ```ts
 // Context: 데이터 구조 정의
 const ThemeContext = createContext({
@@ -45,6 +44,7 @@ const ThemeProvider = ({ children }) => {
   );
 };
 ```
+{% endraw %}
 
 
 
@@ -114,7 +114,7 @@ const DailyHeader = ({ title, ...props }) => {
 
 ### 1. 상태 공유
 
-
+{% raw %}
 ```ts
 const Weekly = createContext<{
   currentIndex: number;
@@ -141,7 +141,7 @@ const Weekly = ({ children }) => {
   );
 };
 ```
-
+{% endraw %}
 
 
 ### 2. 네비게이션 컴포넌트에서 `Context` 활용
@@ -200,7 +200,7 @@ const ComplexComponent = ({ children }) => (
 
 ### 2. `Context` + `Reducer` 패턴
 
-
+{% raw %}
 ```ts
 const initialState = {
   currentSlide: 0,
@@ -233,6 +233,7 @@ const Swiper = ({ children }) => {
   );
 };
 ```
+{% endraw %}
 
 
 
@@ -310,5 +311,3 @@ const ArticleListProvider = ({ children }) => (
 다만 성능과 타입 안정성을 고려하여 설계해야 합니다.
 
 # 참고
-
-{% endraw %}
