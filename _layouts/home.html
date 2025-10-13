@@ -82,7 +82,7 @@ layout: default
           </div>
           <div class="home-category-content">
             <h3 class="home-category-title">프로그래밍 언어</h3>
-            <p class="home-category-desc">JavaScript, TypeScript 핵심 개념</p>
+            <p class="home-category-desc">JavaScript, TypeScript 등</p>
           </div>
           <div class="home-category-arrow">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -142,6 +142,108 @@ layout: default
           </div>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- IT News Section -->
+  <section class="home-news">
+    <div class="container">
+      <div class="home-section-header">
+        <h2 class="home-section-title">
+          오늘의 IT 뉴스
+          <span class="home-news-badge">HackerNews</span>
+        </h2>
+        <p class="home-section-description">HackerNews에서 가장 인기있는 기술 뉴스를 매일 업데이트합니다</p>
+      </div>
+
+      {% assign tech_news_files = site.pages | where_exp: "item", "item.path contains 'tech-news/'" | where_exp: "item", "item.path contains 'latest.md'" %}
+      {% if tech_news_files.size > 0 %}
+        {% assign latest_news = tech_news_files | first %}
+
+        <div class="home-news-content">
+          <div class="home-news-header">
+            <span class="home-news-date">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg>
+              {% if latest_news.date %}
+                {{ latest_news.date | date: "%Y년 %m월 %d일" }}
+              {% else %}
+                {{ site.time | date: "%Y년 %m월 %d일" }}
+              {% endif %}
+            </span>
+            <a href="{{ latest_news.url | relative_url }}" class="home-news-link">
+              전체 뉴스 보기
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="home-news-grid">
+            {% comment %} 뉴스 미리보기 - 처음 5개만 표시 {% endcomment %}
+            {% assign news_content = latest_news.content | split: '## ' %}
+            {% assign news_count = 0 %}
+            {% for section in news_content %}
+              {% if section contains '. ' and news_count < 5 %}
+                {% assign parts = section | split: '**원문:**' %}
+                {% if parts.size > 1 %}
+                  {% comment %} 제목과 요약 부분 추출 {% endcomment %}
+                  {% assign content_part = parts[0] %}
+                  {% assign link_part = parts[1] %}
+
+                  {% comment %} 제목은 첫 줄 {% endcomment %}
+                  {% capture newline %}
+                  {% endcapture %}
+                  {% assign lines = content_part | split: newline %}
+                  {% assign title_line = lines[0] | strip %}
+
+                  {% comment %} 요약은 제목 제거 후 나머지 {% endcomment %}
+                  {% assign summary = content_part | remove_first: title_line | strip %}
+
+                  {% comment %} URL 추출 {% endcomment %}
+                  {% assign url = link_part | split: '[' | last | split: ']' | first %}
+
+                  <a href="{{ url }}" class="home-news-item" target="_blank" rel="noopener noreferrer">
+                    <div class="home-news-rank">{{ news_count | plus: 1 }}</div>
+                    <div class="home-news-info">
+                      <h3 class="home-news-title">{{ title_line }}</h3>
+                      <p class="home-news-summary">{{ summary | strip_html | truncate: 150 }}</p>
+                    </div>
+                    <div class="home-news-arrow">
+                      <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                      </svg>
+                    </div>
+                  </a>
+                  {% assign news_count = news_count | plus: 1 %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="home-news-footer">
+            <p class="home-news-info-text">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+              </svg>
+              이 뉴스는 HackerNews API를 통해 매일 자동으로 업데이트됩니다
+            </p>
+            <a href="https://news.ycombinator.com/" class="home-news-source" target="_blank" rel="noopener noreferrer">
+              HackerNews 방문하기 →
+            </a>
+          </div>
+        </div>
+      {% else %}
+        <div class="home-news-empty">
+          <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <p>아직 뉴스가 없습니다. <code>npm run news:fetch</code>를 실행해주세요.</p>
+        </div>
+      {% endif %}
     </div>
   </section>
 

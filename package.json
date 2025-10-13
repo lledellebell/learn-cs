@@ -16,7 +16,9 @@
     "feed:rss": "node scripts/generate-rss.js",
     "feed:json": "node scripts/generate-json-feed.js",
     "dates:update": "node scripts/update-dates.js",
-    "publish": "npm run dates:update && npm run docs:update && npm run feed:generate"
+    "news:fetch": "node scripts/fetch-hackernews.js",
+    "news:fetch-translated": "ENABLE_TRANSLATION=true node scripts/fetch-hackernews.js",
+    "publish": "npm run dates:update && npm run docs:update && npm run feed:generate && npm run news:fetch"
   },
   "repository": {
     "type": "git",

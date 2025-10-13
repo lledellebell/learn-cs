@@ -1,0 +1,84 @@
+name: Fetch HackerNews Top Stories
+
+on:
+  schedule:
+    # 매일 한국 시간 오전 9시 (UTC 00:00)에 실행
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        else
+          echo "No package.json found, skipping npm install"
+        fi
+
+    - name: Fetch HackerNews Top Stories
+      run: |
+        npm run news:fetch
+        echo "HackerNews stories fetched successfully"
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if [ -n "$(git status --porcelain tech-news/)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "New HackerNews stories detected"
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "No new stories to commit"
+        fi
+
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add tech-news/
+        DATE=$(date +'%Y-%m-%d')
+        git commit -m "chore: update HackerNews top stories for ${DATE} [skip ci]"
+        git push
+        echo "Changes pushed to repository"
+
+    - name: Summary
+      if: always()
+      run: |
+        echo "## HackerNews Fetch Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ steps.check_changes.outputs.changes }}" == "true" ]; then
+          echo "✅ New HackerNews stories fetched and committed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** $(date +'%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "**Time:** $(date +'%H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "ℹ️ No new stories to commit (stories already up to date)" >> $GITHUB_STEP_SUMMARY
+        fi
+
+    # 번역 버전 (선택적) - TRANSLATE_API_KEY secret이 설정된 경우에만 실행
+    - name: Fetch with Translation (Optional)
+      if: secrets.TRANSLATE_API_KEY != ''
+      run: |
+        echo "Translation API key detected, fetching with translation..."
+        npm run news:fetch-translated
+      env:
+        ENABLE_TRANSLATION: 'true'
+        TRANSLATE_API_KEY: ${{ secrets.TRANSLATE_API_KEY }}

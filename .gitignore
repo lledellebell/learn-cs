@@ -39,3 +39,9 @@ yarn-error.log*
 
 # mcp-servers
 mcp-servers/
+
+
+# settings
+GEMINI_SETUP.md
+JEKYLL_SETUP.md
+/tech-news/README.md
