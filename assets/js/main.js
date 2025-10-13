@@ -732,15 +732,30 @@
         this.scale = 0;
         this.delay = delay;
         this.animationProgress = 0;
+        // 초기 위치를 랜덤하게 오프셋
+        this.initialOffsetX = (Math.random() - 0.5) * 100;
+        this.initialOffsetY = (Math.random() - 0.5) * 100;
       }
 
       draw() {
         // 진입 애니메이션 업데이트
         if (this.animationProgress < 1) {
-          this.animationProgress += 0.02;
-          const eased = this.easeOutCubic(Math.max(0, this.animationProgress - this.delay));
-          this.opacity = eased;
+          this.animationProgress += 0.015; // 속도 조정 (더 느리게)
+          const progress = Math.max(0, this.animationProgress - this.delay);
+
+          // easeOutBack으로 오버슈트 효과
+          const eased = this.easeOutBack(progress);
+          this.opacity = Math.min(1, eased);
           this.scale = eased;
+
+          // 진입 시 위치 애니메이션 (흩어진 상태에서 모이기)
+          const positionEased = this.easeOutCubic(progress);
+          this.x = this.baseX + this.initialOffsetX * (1 - positionEased);
+          this.y = this.baseY + this.initialOffsetY * (1 - positionEased);
+        } else {
+          // 애니메이션 완료 후 정확한 위치로
+          this.x = this.baseX;
+          this.y = this.baseY;
         }
 
         const theme = document.documentElement.getAttribute('data-theme');
@@ -769,11 +784,22 @@
         ctx.fill();
       }
 
+      easeOutBack(t) {
+        const c1 = 1.70158;
+        const c3 = c1 + 1;
+        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+      }
+
       easeOutCubic(t) {
         return 1 - Math.pow(1 - t, 3);
       }
 
       update() {
+        // 진입 애니메이션 중에는 마우스 인터랙션 비활성화
+        if (this.animationProgress < 1) {
+          return;
+        }
+
         if (mouse.x === null) {
           if (this.x !== this.baseX) {
             const dx = this.x - this.baseX;
@@ -825,7 +851,7 @@
           const posX = x * spacing + spacing / 2;
           const posY = y * spacing + spacing / 2;
           // 파도 효과를 위한 딜레이(좌측 상단에서 우측 하단으로)
-          const delay = (x + y) * 0.01;
+          const delay = (x + y) * 0.025;
           particles.push(new Particle(posX, posY, delay));
           particleIndex++;
         }
