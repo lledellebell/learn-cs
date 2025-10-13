@@ -25,6 +25,9 @@ plugins:
 # 제외할 파일/폴더
 exclude:
   - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
   - scripts
   - package.json
   - package-lock.json
