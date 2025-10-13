@@ -109,3 +109,8 @@ defaults:
     values:
       render_with_liquid: false
       layout: "page"
+  - scope:
+      path: "news"
+    values:
+      render_with_liquid: false
+      layout: "page"

@@ -1,0 +1,155 @@
+---
+layout: default
+---
+
+<div class="news-page">
+  <!-- News Header -->
+  <header class="news-header">
+    <div class="container">
+      <div class="news-header-content">
+        <div class="news-header-badge">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+            <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+          </svg>
+          HackerNews 기술 뉴스
+        </div>
+        <h1 class="news-header-title">{{ page.title }}</h1>
+        <div class="news-header-meta">
+          <span class="news-header-date">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+            </svg>
+            {% if page.date %}
+              {{ page.date | date: "%Y년 %m월 %d일 %A" }}
+            {% else %}
+              {{ site.time | date: "%Y년 %m월 %d일 %A" }}
+            {% endif %}
+          </span>
+          <span class="news-header-divider">•</span>
+          <a href="https://news.ycombinator.com/" class="news-header-source" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+              <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+            </svg>
+            HackerNews 방문하기
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- News Content -->
+  <article class="news-content">
+    <div class="container">
+      <div class="news-layout">
+        <!-- News Calendar Sidebar -->
+        <aside class="news-calendar-sidebar">
+          <div class="news-calendar-card">
+            <h3 class="news-calendar-title">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg>
+              뉴스 아카이브
+            </h3>
+
+            {% comment %} 날짜별 뉴스 파일 목록 가져오기 {% endcomment %}
+            {% assign news_pages = site.pages | where_exp: "item", "item.path contains 'tech-news/'" | where_exp: "item", "item.path contains '-hackernews-top-stories.md'" | sort: 'date' | reverse %}
+
+            {% if news_pages.size > 0 %}
+              <div class="news-calendar-list">
+                {% for news_page in news_pages limit:30 %}
+                  {% if news_page.date %}
+                    <a href="{{ news_page.url | relative_url }}"
+                       class="news-calendar-item {% if news_page.url == page.url %}active{% endif %}">
+                      <div class="news-calendar-date">
+                        <span class="news-calendar-day">{{ news_page.date | date: "%d" }}</span>
+                        <span class="news-calendar-month">{{ news_page.date | date: "%b" }}</span>
+                      </div>
+                      <div class="news-calendar-info">
+                        <span class="news-calendar-weekday">{{ news_page.date | date: "%A" }}</span>
+                        <span class="news-calendar-year">{{ news_page.date | date: "%Y" }}</span>
+                      </div>
+                      <div class="news-calendar-arrow">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                        </svg>
+                      </div>
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="news-calendar-empty">아직 저장된 뉴스가 없습니다.</p>
+            {% endif %}
+          </div>
+        </aside>
+
+        <!-- News Main Content -->
+        <div class="news-main-content">
+          <!-- News Summary Stats -->
+          <div class="news-stats">
+        <div class="news-stat-card">
+          <div class="news-stat-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+            </svg>
+          </div>
+          <div class="news-stat-info">
+            <div class="news-stat-value">10</div>
+            <div class="news-stat-label">Top Stories</div>
+          </div>
+        </div>
+        <div class="news-stat-card">
+          <div class="news-stat-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+          </div>
+          <div class="news-stat-info">
+            <div class="news-stat-value">AI 요약</div>
+            <div class="news-stat-label">Gemini Pro</div>
+          </div>
+        </div>
+        <div class="news-stat-card">
+          <div class="news-stat-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg>
+          </div>
+          <div class="news-stat-info">
+            <div class="news-stat-value">매일</div>
+            <div class="news-stat-label">자동 업데이트</div>
+          </div>
+        </div>
+      </div>
+
+          <!-- News Articles -->
+          <div class="news-articles">
+            {{ content }}
+          </div>
+
+          <!-- News Footer Info -->
+          <div class="news-footer-info">
+            <div class="news-info-card">
+              <h3>
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                </svg>
+                정보
+              </h3>
+              <ul>
+                <li><strong>출처:</strong> <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">HackerNews</a></li>
+                <li><strong>API:</strong> <a href="https://github.com/HackerNews/API" target="_blank" rel="noopener noreferrer">HackerNews API</a></li>
+                <li><strong>업데이트:</strong> 매일 한국 시간 오전 9시 자동 업데이트</li>
+                <li><strong>AI 요약:</strong> Google Gemini Pro API 사용</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

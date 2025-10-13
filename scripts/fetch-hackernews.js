@@ -342,7 +342,7 @@ async function generateMarkdown(stories) {
 
   // 마크다운 생성
   let markdown = `---
-layout: default
+layout: news
 title: "HackerNews 오늘의 IT 뉴스"
 date: ${dateStr}
 last_modified_at: ${today.toISOString()}
