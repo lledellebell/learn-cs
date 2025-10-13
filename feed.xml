@@ -5,7 +5,7 @@
     <link>https://github.com/lledellebell/learn-cs</link>
     <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 13 Oct 2025 14:24:12 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 15:08:09 +0000</lastBuildDate>
     <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
@@ -19,17 +19,27 @@
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md</guid>
       <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
       <category>데이터베이스</category>
-      <description>- [Prisma란?](#prisma란)</description>
+      <description>Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...</description>
       <author>lledellebell</author>
     </item>
 
     <item>
-      <title>메모이제이션(Memoization)</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md</guid>
-      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
-      <category>알고리즘</category>
-      <description>메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.</description>
+      <title>Configuration over Composition Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:46:06 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Custom Hook 리팩토링: useAsync</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</guid>
+      <pubDate>Fri, 10 Oct 2025 11:29:31 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -44,12 +54,72 @@
     </item>
 
     <item>
-      <title>Configuration over Composition Pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:22:45 +0000</pubDate>
+      <title>(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:15:42 +0000</pubDate>
       <category>웹 개발</category>
-      <description>**Configuration over Composition**은 컴포넌트의 동작과 외형을 props를 통한 설정으로 제어하는 디자인 패턴입니다. 복잡한 컴포넌트 조합 대신 명확한 ...</description>
+      <description>Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유와 사용할 수 있는 방법을 분석해보겠습니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>React Provider Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:15:41 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`Context API`를 활용한 `Compound Pattern` 구현</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:15:38 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:11:59 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>React 하이드레이션과 CSS 재적용 문제</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:31:14 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>HTML 새니타이징(Sanitization) - XSS 공격 방어</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md</guid>
+      <pubDate>Mon, 13 Oct 2025 14:30:49 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>메모이제이션(Memoization)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/algorithms/memoization-optimization-technique.md</guid>
+      <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
+      <category>알고리즘</category>
+      <description>메모이제이션(Memoization)은 **함수의 계산 결과를 저장해두고 재사용하는 프로그래밍 기법**입니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -74,42 +144,12 @@
     </item>
 
     <item>
-      <title>Custom Hook 리팩토링: useAsync</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</guid>
-      <pubDate>Fri, 10 Oct 2025 11:29:31 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>- [문제 상황](#문제-상황)</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>`useMemo`를 활용한 성능 최적화</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md</guid>
       <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
       <category>웹 개발</category>
       <description>`useMemo`는 React에서 성능 최적화를 위해 사용하는 훅으로,</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>CSS 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:11:59 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:15:42 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유와 사용할 수 있는 방법을 분석해보겠습니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -134,52 +174,12 @@
     </item>
 
     <item>
-      <title>React 하이드레이션과 CSS 재적용 문제</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:15:40 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>React의 서버 사이드 렌더링(SSR)에서 하이드레이션은 핵심적인 개념이지만, 동시에 CSS 재적용과 FOUC(Flash of Unstyled Content) 문제를 야기할 수 ...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>`React`에서 `Composite`/`Compound` Pattern 활용 가이드</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md</guid>
       <pubDate>Thu, 02 Oct 2025 15:22:17 +0000</pubDate>
       <category>웹 개발</category>
       <description>&gt; **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: &quot;sailboat&quot;)이고, Composite(합성어)...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>`Context API`를 활용한 `Compound Pattern` 구현</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:15:38 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>&gt; React의 `Context API`는 `Compound Pattern`을 구현할 때 사용됩니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>React Provider Pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:15:41 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>**Provider Pattern**은 React에서 컴포넌트 트리 전체에 데이터를 효율적으로 공유하기 위한 디자인 패턴입니다. Context API를 기반으로 하여 prop dr...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>HTML 새니타이징(Sanitization) - XSS 공격 방어</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/security/html-sanitization.md</guid>
-      <pubDate>Mon, 13 Oct 2025 14:15:43 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>HTML 새니타이징은 사용자 입력이나 외부 데이터에서 위험한 HTML/JavaScript 코드를 제거하거나 무력화하여 XSS(Cross-Site Scripting) 공격을 방지하는...</description>
       <author>lledellebell</author>
     </item>
 

@@ -22,6 +22,7 @@ plugins:
   - jekyll-readme-index
   - jekyll-default-layout
   - jekyll-titles-from-headings
+  - jekyll-last-modified-at
 
 # 제외할 파일/폴더
 exclude:

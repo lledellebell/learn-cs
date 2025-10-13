@@ -47,10 +47,10 @@
 ### 최근 추가된 문서
 
 - **[Prisma ORM 가이드](/databases/prisma-orm-guide.md)**
-- **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)**
-- **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
 - **[Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)**
-- **[JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md)**
+- **[Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md)**
+- **[Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)**
+- **[(수정해야함) Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)**
 
 ### 전체 목차
 
