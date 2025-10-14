@@ -112,7 +112,7 @@ async function generateSummaryWithAI(url, text) {
   }
 
   try {
-    // 텍스트가 너무 길면 자르기 (Gemini Pro는 30,720 토큰 제한)
+    // 텍스트가 너무 길면 자르기 (gemini-2.5-flash는 30,720 토큰 제한)
     const maxLength = 15000; // 약 3750 토큰
     const truncatedText = text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 
