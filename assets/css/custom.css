@@ -3365,27 +3365,9 @@ pre {
 
 .home-progress {
   padding: var(--space-16) 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #ff4520 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.home-progress::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.home-progress .container {
-  position: relative;
-  z-index: 1;
+  background: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
 }
 
 /* Progress Overview Cards */
@@ -3397,30 +3379,36 @@ pre {
 }
 
 .home-progress-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+  background: #000000;
+  border-radius: 0;
   padding: var(--space-6);
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #000000;
+  transition: transform 0.2s ease;
+}
+
+.home-progress-card:hover {
+  transform: translateY(-2px);
 }
 
 .progress-card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 14px;
-  color: var(--color-primary);
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border-radius: 0;
+  color: #000000;
   flex-shrink: 0;
+  border: 2px solid #000000;
 }
 
 .progress-card-icon svg {
-  stroke: var(--color-primary);
+  stroke: #000000;
+  stroke-width: 2.5;
 }
 
 .progress-card-content {
@@ -3428,17 +3416,20 @@ pre {
 }
 
 .progress-card-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-primary);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #ffffff;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .progress-card-label {
   font-size: 0.875rem;
-  color: #333;
+  color: #cccccc;
   margin-top: var(--space-2);
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Interactive Charts */
@@ -3451,18 +3442,19 @@ pre {
 
 .home-progress-chart-main,
 .home-progress-chart-side {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+  background: #ffffff;
+  border-radius: 0;
   padding: var(--space-6);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #000000;
 }
 
 .chart-title {
   font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-primary);
+  font-weight: 900;
+  color: #000000;
   margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .chart-container {
@@ -3478,30 +3470,36 @@ pre {
 }
 
 .stat-item {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 14px;
+  background: #000000;
+  border-radius: 0;
   padding: var(--space-5);
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #000000;
+  transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
 }
 
 .stat-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  color: var(--color-primary);
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  border-radius: 0;
+  color: #000000;
   flex-shrink: 0;
+  border: 2px solid #000000;
 }
 
 .stat-icon svg {
-  stroke: var(--color-primary);
+  stroke: #000000;
+  stroke-width: 2.5;
 }
 
 .stat-content {
@@ -3509,17 +3507,20 @@ pre {
 }
 
 .stat-value {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-primary);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #ffffff;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .stat-label {
-  font-size: 0.8rem;
-  color: #333;
+  font-size: 0.75rem;
+  color: #cccccc;
   margin-top: var(--space-1);
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Responsive */
