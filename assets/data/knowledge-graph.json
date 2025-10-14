@@ -3736,7 +3736,135 @@
         "topic": "web-development"
       }
     ],
-    "graphDensity": 0.0565
+    "graphDensity": 0.0565,
+    "completedDocuments": 5,
+    "progressPercent": 8.93,
+    "topicProgress": {
+      ".github": {
+        "total": 4,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 4,
+        "progressPercent": 0
+      },
+      "GEMINI_SETUP.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "JEKYLL_SETUP.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "NAVIGATION.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "README.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "ai-ml": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "algorithms": {
+        "total": 2,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 2,
+        "progressPercent": 0
+      },
+      "copyright.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "databases": {
+        "total": 2,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 2,
+        "progressPercent": 0
+      },
+      "index.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "languages": {
+        "total": 14,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 14,
+        "progressPercent": 0
+      },
+      "learning-progress.md": {
+        "total": 1,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 1,
+        "progressPercent": 0
+      },
+      "networking": {
+        "total": 2,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 2,
+        "progressPercent": 0
+      },
+      "tech-news": {
+        "total": 4,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 4,
+        "progressPercent": 0
+      },
+      "web-development": {
+        "total": 20,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 20,
+        "progressPercent": 0
+      }
+    },
+    "difficultyProgress": {
+      "easy": {
+        "total": 11,
+        "completed": 0
+      },
+      "medium": {
+        "total": 5,
+        "completed": 0
+      },
+      "hard": {
+        "total": 40,
+        "completed": 0
+      }
+    },
+    "recentActivity": {
+      "last7Days": 1,
+      "last30Days": 1,
+      "averagePerWeek": 0.2
+    }
   },
   "recommendations": {
     "nextToLearn": [
@@ -4637,5 +4765,5 @@
       "recommendationCount": 5
     }
   },
-  "generatedAt": "2025-10-14T13:15:01.715Z"
+  "generatedAt": "2025-10-14T13:23:34.303Z"
 }

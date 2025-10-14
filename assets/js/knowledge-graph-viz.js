@@ -15,7 +15,9 @@
   // 데이터 로드
   async function loadGraphData() {
     try {
-      const response = await fetch('/assets/data/knowledge-graph.json');
+      const baseUrl = document.querySelector('base')?.href || window.location.origin;
+      const dataUrl = new URL('/learn-cs/assets/data/knowledge-graph.json', baseUrl).href;
+      const response = await fetch(dataUrl);
       if (!response.ok) {
         throw new Error('Knowledge graph data not found');
       }
@@ -23,7 +25,7 @@
       initializePage();
     } catch (error) {
       console.error('Failed to load knowledge graph data:', error);
-      showError('지식 그래프 데이터를 불러오지 못했습니다. 스크립트를 실행해주세요: npm run generate:graph');
+      showError('지식 그래프 데이터를 불러오지 못했습니다. 스크립트를 실행해주세요: npm run graph:generate');
     }
   }
 

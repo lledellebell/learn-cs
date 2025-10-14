@@ -338,7 +338,7 @@ function calculateJaccardSimilarity(set1, set2) {
 /**
  * 통계 계산
  */
-function calculateStatistics(nodes, edges) {
+function calculateStatistics(nodes, edges, learningHistory) {
   // 각 노드의 연결 수 계산
   const connections = new Map();
   nodes.forEach(node => connections.set(node.id, 0));
@@ -418,6 +418,68 @@ function calculateStatistics(nodes, edges) {
     edgeTypeDistribution[edge.type]++;
   });
 
+  // 학습 진행 통계
+  const completedDocs = Object.keys(learningHistory || {});
+  const completedCount = completedDocs.length;
+  const progressPercent = nodes.length > 0 ?
+    parseFloat(((completedCount / nodes.length) * 100).toFixed(2)) : 0;
+
+  // 주제별 진행 상황
+  const topicProgress = {};
+  Object.keys(topicDistribution).forEach(topic => {
+    const topicNodes = nodes.filter(n => n.topic === topic);
+    const topicCompleted = topicNodes.filter(n => completedDocs.includes(n.id)).length;
+
+    topicProgress[topic] = {
+      total: topicNodes.length,
+      completed: topicCompleted,
+      inProgress: 0, // 추후 확장 가능
+      notStarted: topicNodes.length - topicCompleted,
+      progressPercent: topicNodes.length > 0 ?
+        parseFloat(((topicCompleted / topicNodes.length) * 100).toFixed(2)) : 0
+    };
+  });
+
+  // 난이도별 진행 상황
+  const difficultyProgress = {
+    easy: { total: difficultyDistribution.easy, completed: 0 },
+    medium: { total: difficultyDistribution.medium, completed: 0 },
+    hard: { total: difficultyDistribution.hard, completed: 0 }
+  };
+
+  completedDocs.forEach(docId => {
+    const node = nodes.find(n => n.id === docId);
+    if (node) {
+      if (node.difficulty <= 2) difficultyProgress.easy.completed++;
+      else if (node.difficulty === 3) difficultyProgress.medium.completed++;
+      else difficultyProgress.hard.completed++;
+    }
+  });
+
+  // 최근 활동 통계
+  const recentActivity = Object.entries(learningHistory || {})
+    .map(([id, entry]) => ({
+      id,
+      date: entry.date || entry.lastStudied,
+      ...entry
+    }))
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 30);
+
+  // 학습 속도 (최근 7일, 30일)
+  const now = new Date();
+  const last7Days = recentActivity.filter(a => {
+    const activityDate = new Date(a.date);
+    const daysDiff = (now - activityDate) / (1000 * 60 * 60 * 24);
+    return daysDiff <= 7;
+  }).length;
+
+  const last30Days = recentActivity.filter(a => {
+    const activityDate = new Date(a.date);
+    const daysDiff = (now - activityDate) / (1000 * 60 * 60 * 24);
+    return daysDiff <= 30;
+  }).length;
+
   return {
     // 기본 통계
     totalDocuments: nodes.length,
@@ -447,7 +509,20 @@ function calculateStatistics(nodes, edges) {
 
     // 그래프 밀도
     graphDensity: nodes.length > 1 ?
-      parseFloat((edges.length / (nodes.length * (nodes.length - 1) / 2)).toFixed(4)) : 0
+      parseFloat((edges.length / (nodes.length * (nodes.length - 1) / 2)).toFixed(4)) : 0,
+
+    // 학습 진행 통계
+    completedDocuments: completedCount,
+    progressPercent,
+    topicProgress,
+    difficultyProgress,
+
+    // 활동 통계
+    recentActivity: {
+      last7Days,
+      last30Days,
+      averagePerWeek: parseFloat((last30Days / 4.3).toFixed(1))
+    }
   };
 }
 
