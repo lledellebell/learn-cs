@@ -139,17 +139,19 @@ async function scanDocumentsAndBuildGraph() {
     };
   });
 
-  // 통계 계산
-  const statistics = calculateStatistics(nodes, edges);
-
   // learning-history 데이터 로드
   const learningHistory = loadLearningHistory();
+
+  // 통계 및 추천 계산
+  const statistics = calculateStatistics(nodes, edges, learningHistory);
+  const recommendations = generateRecommendations(nodes, edges, learningHistory, statistics);
 
   return {
     nodes,
     edges,
     clusters: clusterArray,
     statistics,
+    recommendations,
     learningHistory,
     generatedAt: new Date().toISOString()
   };
@@ -359,16 +361,246 @@ function calculateStatistics(nodes, edges) {
   // 고립된 문서 (연결이 0개)
   const isolated = Array.from(connections.entries())
     .filter(([, count]) => count === 0)
-    .map(([id]) => id);
+    .map(([id]) => ({
+      id,
+      title: nodes.find(n => n.id === id)?.title || id,
+      topic: nodes.find(n => n.id === id)?.topic || 'unknown'
+    }));
+
+  // 주제별 분포
+  const topicDistribution = {};
+  nodes.forEach(node => {
+    if (!topicDistribution[node.topic]) {
+      topicDistribution[node.topic] = 0;
+    }
+    topicDistribution[node.topic]++;
+  });
+
+  // 난이도 분포
+  const difficultyDistribution = {
+    easy: 0,      // 1-2
+    medium: 0,    // 3
+    hard: 0       // 4-5
+  };
+  nodes.forEach(node => {
+    if (node.difficulty <= 2) difficultyDistribution.easy++;
+    else if (node.difficulty === 3) difficultyDistribution.medium++;
+    else difficultyDistribution.hard++;
+  });
+
+  // 평균 통계
+  const totalWordCount = nodes.reduce((sum, node) => sum + (node.wordCount || 0), 0);
+  const avgWordCount = nodes.length > 0 ? Math.round(totalWordCount / nodes.length) : 0;
+  const avgDifficulty = nodes.length > 0 ?
+    (nodes.reduce((sum, node) => sum + node.difficulty, 0) / nodes.length).toFixed(2) : 0;
+  const avgKeywords = nodes.length > 0 ?
+    (nodes.reduce((sum, node) => sum + node.keywords.length, 0) / nodes.length).toFixed(1) : 0;
+
+  // 연결 분포
+  const connectionDistribution = {
+    isolated: isolated.length,
+    weaklyConnected: 0,    // 1-3 연결
+    moderatelyConnected: 0, // 4-7 연결
+    highlyConnected: 0      // 8+ 연결
+  };
+  Array.from(connections.values()).forEach(count => {
+    if (count > 0 && count <= 3) connectionDistribution.weaklyConnected++;
+    else if (count >= 4 && count <= 7) connectionDistribution.moderatelyConnected++;
+    else if (count >= 8) connectionDistribution.highlyConnected++;
+  });
+
+  // 에지 타입별 분포
+  const edgeTypeDistribution = {};
+  edges.forEach(edge => {
+    if (!edgeTypeDistribution[edge.type]) {
+      edgeTypeDistribution[edge.type] = 0;
+    }
+    edgeTypeDistribution[edge.type]++;
+  });
 
   return {
-    totalNodes: nodes.length,
+    // 기본 통계
+    totalDocuments: nodes.length,
     totalEdges: edges.length,
+    totalTopics: Object.keys(topicDistribution).length,
+
+    // 연결 통계
     averageConnections: nodes.length > 0 ?
-      (edges.length * 2 / nodes.length).toFixed(2) : 0,
+      parseFloat((edges.length * 2 / nodes.length).toFixed(2)) : 0,
+    maxConnections: mostConnected.length > 0 ? mostConnected[0].connections : 0,
+    minConnections: 0,
+
+    // 분포 통계
+    topicDistribution,
+    difficultyDistribution,
+    connectionDistribution,
+    edgeTypeDistribution,
+
+    // 평균 통계
+    averageWordCount: avgWordCount,
+    averageDifficulty: parseFloat(avgDifficulty),
+    averageKeywordsPerDoc: parseFloat(avgKeywords),
+
+    // 상위/하위 문서
     mostConnectedDocs: mostConnected,
-    isolatedDocs: isolated
+    isolatedDocs: isolated,
+
+    // 그래프 밀도
+    graphDensity: nodes.length > 1 ?
+      parseFloat((edges.length / (nodes.length * (nodes.length - 1) / 2)).toFixed(4)) : 0
   };
+}
+
+/**
+ * 학습 추천 생성
+ */
+function generateRecommendations(nodes, edges, learningHistory, statistics) {
+  const completedDocs = new Set(Object.keys(learningHistory || {}));
+  const now = new Date();
+
+  // 1. 다음 학습 추천 (미완료 중 쉬운 것부터, 연결된 문서 우선)
+  const nextToLearn = nodes
+    .filter(node => !completedDocs.has(node.id))
+    .filter(node => !node.id.match(/README|TEMPLATE|index\.md|NAVIGATION|JEKYLL/i))
+    .map(node => {
+      // 연결된 문서 중 완료한 것이 있는지 확인
+      const relatedEdges = edges.filter(e => e.source === node.id || e.target === node.id);
+      const completedRelated = relatedEdges.filter(e => {
+        const otherId = e.source === node.id ? e.target : e.source;
+        return completedDocs.has(otherId);
+      }).length;
+
+      // 추천 점수 계산
+      let score = 0;
+      score += (6 - node.difficulty) * 10; // 쉬운 문서 우선
+      score += completedRelated * 5; // 연결된 완료 문서가 많으면 우선
+      score += relatedEdges.length * 2; // 전체 연결이 많으면 중요
+
+      return {
+        id: node.id,
+        title: node.title,
+        topic: node.topic,
+        difficulty: node.difficulty,
+        reason: completedRelated > 0
+          ? `이미 학습한 ${completedRelated}개 문서와 연결됨`
+          : '기초 개념 학습',
+        score,
+        estimatedTime: estimateReadingTime(node.wordCount)
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
+
+  // 2. 복습 추천 (학습한지 오래된 문서)
+  const reviewRecommended = Object.entries(learningHistory || {})
+    .map(([id, entry]) => {
+      const node = nodes.find(n => n.id === id);
+      if (!node) return null;
+
+      const lastStudied = new Date(entry.date || entry.lastStudied);
+      const daysSince = Math.floor((now - lastStudied) / (1000 * 60 * 60 * 24));
+
+      // 복습 필요도 계산 (어려운 문서, 오래된 문서 우선)
+      let reviewScore = 0;
+      reviewScore += daysSince; // 오래될수록 높음
+      reviewScore += node.difficulty * 5; // 어려울수록 자주 복습
+
+      return {
+        id: node.id,
+        title: node.title,
+        topic: node.topic,
+        difficulty: node.difficulty,
+        lastStudied: entry.date || entry.lastStudied,
+        daysSince,
+        reason: daysSince > 30 ? '한 달 이상 지남' : daysSince > 14 ? '2주 이상 지남' : '복습 권장',
+        reviewScore
+      };
+    })
+    .filter(Boolean)
+    .filter(item => item.daysSince >= 7) // 최소 일주일 지난 것만
+    .sort((a, b) => b.reviewScore - a.reviewScore)
+    .slice(0, 10);
+
+  // 3. 추천 키워드 (자주 등장하지만 학습하지 않은 문서의 키워드)
+  const keywordFrequency = new Map();
+  nodes.forEach(node => {
+    if (!completedDocs.has(node.id)) {
+      node.keywords.forEach(keyword => {
+        keywordFrequency.set(keyword, (keywordFrequency.get(keyword) || 0) + 1);
+      });
+    }
+  });
+
+  const suggestedKeywords = Array.from(keywordFrequency.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 20)
+    .map(([keyword, frequency]) => ({
+      keyword,
+      frequency,
+      relatedDocs: nodes
+        .filter(n => !completedDocs.has(n.id) && n.keywords.includes(keyword))
+        .slice(0, 5)
+        .map(n => ({ id: n.id, title: n.title }))
+    }));
+
+  // 4. 주제별 추천 학습 경로
+  const learningPaths = {};
+  const mainTopics = ['algorithms', 'languages', 'web-development', 'databases', 'networking'];
+
+  mainTopics.forEach(topic => {
+    const topicDocs = nodes.filter(n => n.topic === topic && !completedDocs.has(n.id));
+    if (topicDocs.length === 0) return;
+
+    // 난이도순으로 정렬하여 학습 경로 생성
+    const path = topicDocs
+      .sort((a, b) => a.difficulty - b.difficulty)
+      .slice(0, 8)
+      .map((node, index) => ({
+        step: index + 1,
+        id: node.id,
+        title: node.title,
+        difficulty: node.difficulty,
+        estimatedTime: estimateReadingTime(node.wordCount)
+      }));
+
+    if (path.length > 0) {
+      learningPaths[topic] = {
+        topic,
+        totalSteps: path.length,
+        totalTime: path.reduce((sum, p) => sum + p.estimatedTime, 0),
+        path
+      };
+    }
+  });
+
+  // 5. 학습 목표 제안
+  const weeklyGoal = {
+    recommended: Math.max(3, Math.min(7, Math.floor(statistics.totalDocuments * 0.05))),
+    easy: Math.ceil(statistics.difficultyDistribution.easy * 0.1),
+    medium: Math.ceil(statistics.difficultyDistribution.medium * 0.05),
+    hard: Math.ceil(statistics.difficultyDistribution.hard * 0.02)
+  };
+
+  return {
+    nextToLearn,
+    reviewRecommended,
+    suggestedKeywords,
+    learningPaths,
+    weeklyGoal,
+    summary: {
+      totalUnread: statistics.totalDocuments - completedDocs.size,
+      readyToReview: reviewRecommended.length,
+      suggestedDaily: Math.ceil(weeklyGoal.recommended / 7)
+    }
+  };
+}
+
+/**
+ * 읽기 시간 추정 (분)
+ */
+function estimateReadingTime(wordCount) {
+  // 평균 읽기 속도: 분당 200단어
+  return Math.max(1, Math.ceil(wordCount / 200));
 }
 
 /**
@@ -385,7 +617,7 @@ function loadLearningHistory() {
     }
   }
 
-  return [];
+  return {};
 }
 
 // 실행

@@ -148,7 +148,7 @@
       .attr('y', d => y(d[0]))
       .attr('width', d => x(d[1]))
       .attr('height', y.bandwidth())
-      .attr('fill', '#ff230a')
+      .attr('fill', 'var(--color-primary)')
       .attr('rx', 4);
 
     // 값 표시
@@ -248,7 +248,7 @@
     // 영역 추가
     svg.append('path')
       .datum(last7Days)
-      .attr('fill', '#ff230a')
+      .attr('fill', 'var(--color-primary)')
       .attr('fill-opacity', 0.1)
       .attr('d', area);
 
@@ -256,7 +256,7 @@
     svg.append('path')
       .datum(last7Days)
       .attr('fill', 'none')
-      .attr('stroke', '#ff230a')
+      .attr('stroke', 'var(--color-primary)')
       .attr('stroke-width', 2)
       .attr('d', line);
 
@@ -269,7 +269,7 @@
       .attr('cx', d => x(d.label))
       .attr('cy', d => y(d.count))
       .attr('r', 4)
-      .attr('fill', '#ff230a');
+      .attr('fill', 'var(--color-primary)');
 
     // X축 추가
     svg.append('g')

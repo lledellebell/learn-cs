@@ -3384,12 +3384,6 @@ pre {
   align-items: center;
   gap: var(--space-4);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.home-progress-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .progress-card-icon {
@@ -3398,7 +3392,7 @@ pre {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #ff230a 0%, #ff6b5a 100%);
+  background: var(--color-primary);
   border-radius: 10px;
   color: var(--color-white);
   flex-shrink: 0;

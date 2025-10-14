@@ -3536,9 +3536,47 @@
     }
   ],
   "statistics": {
-    "totalNodes": 56,
+    "totalDocuments": 56,
     "totalEdges": 87,
-    "averageConnections": "3.11",
+    "totalTopics": 15,
+    "averageConnections": 3.11,
+    "maxConnections": 17,
+    "minConnections": 0,
+    "topicDistribution": {
+      ".github": 4,
+      "GEMINI_SETUP.md": 1,
+      "JEKYLL_SETUP.md": 1,
+      "NAVIGATION.md": 1,
+      "README.md": 1,
+      "ai-ml": 1,
+      "algorithms": 2,
+      "copyright.md": 1,
+      "databases": 2,
+      "index.md": 1,
+      "languages": 14,
+      "learning-progress.md": 1,
+      "networking": 2,
+      "tech-news": 4,
+      "web-development": 20
+    },
+    "difficultyDistribution": {
+      "easy": 11,
+      "medium": 5,
+      "hard": 40
+    },
+    "connectionDistribution": {
+      "isolated": 21,
+      "weaklyConnected": 16,
+      "moderatelyConnected": 10,
+      "highlyConnected": 9
+    },
+    "edgeTypeDistribution": {
+      "keyword_similarity": 62,
+      "direct_link": 25
+    },
+    "averageWordCount": 2887,
+    "averageDifficulty": 3.96,
+    "averageKeywordsPerDoc": 13.4,
     "mostConnectedDocs": [
       {
         "id": "languages/javascript/prototype.md",
@@ -3592,28 +3630,932 @@
       }
     ],
     "isolatedDocs": [
-      ".github/PULL_REQUEST_TEMPLATE.md",
-      "JEKYLL_SETUP.md",
-      "ai-ml/README.md",
-      "algorithms/memoization-optimization-technique.md",
-      "copyright.md",
-      "databases/prisma-orm-guide.md",
-      "languages/javascript/foreach-vs-reduce-functional-programming.md",
-      "languages/javascript/naming-conventions.md",
-      "learning-progress.md",
-      "networking/http/http_authentication_methods.md",
-      "tech-news/2025-10-13-hackernews-top-stories.md",
-      "web-development/frontend/css/mask-composite.md",
-      "web-development/frontend/css/object-position_&_object-fit.md",
-      "web-development/frontend/react/optimization/react-usememo-optimization.md",
-      "web-development/frontend/react/pattern.md",
-      "web-development/frontend/react/patterns/hydration-and-css-issues.md",
-      "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
-      "web-development/guides/json-feed-specification.md",
-      "web-development/guides/npm-library-guide.md",
-      "web-development/security/html-sanitization.md",
-      "web-development/tools/chrome-user-agent-override.md"
-    ]
+      {
+        "id": ".github/PULL_REQUEST_TEMPLATE.md",
+        "title": "PULL_REQUEST_TEMPLATE",
+        "topic": ".github"
+      },
+      {
+        "id": "JEKYLL_SETUP.md",
+        "title": "Jekyll 로컬 개발 가이드",
+        "topic": "JEKYLL_SETUP.md"
+      },
+      {
+        "id": "ai-ml/README.md",
+        "title": "README",
+        "topic": "ai-ml"
+      },
+      {
+        "id": "algorithms/memoization-optimization-technique.md",
+        "title": "메모이제이션(Memoization)",
+        "topic": "algorithms"
+      },
+      {
+        "id": "copyright.md",
+        "title": "저작권 및 이용 정책",
+        "topic": "copyright.md"
+      },
+      {
+        "id": "databases/prisma-orm-guide.md",
+        "title": "Prisma ORM 가이드",
+        "topic": "databases"
+      },
+      {
+        "id": "languages/javascript/foreach-vs-reduce-functional-programming.md",
+        "title": "`forEach` vs `reduce`",
+        "topic": "languages"
+      },
+      {
+        "id": "languages/javascript/naming-conventions.md",
+        "title": "JavaScript 네이밍 컨벤션: Public vs Private",
+        "topic": "languages"
+      },
+      {
+        "id": "learning-progress.md",
+        "title": "학습 진행 상황",
+        "topic": "learning-progress.md"
+      },
+      {
+        "id": "networking/http/http_authentication_methods.md",
+        "title": "HTTP 인증 방법 완벽 가이드",
+        "topic": "networking"
+      },
+      {
+        "id": "tech-news/2025-10-13-hackernews-top-stories.md",
+        "title": "HackerNews 오늘의 IT 뉴스",
+        "topic": "tech-news"
+      },
+      {
+        "id": "web-development/frontend/css/mask-composite.md",
+        "title": "CSS Mask Composite",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/frontend/css/object-position_&_object-fit.md",
+        "title": "반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/frontend/react/optimization/react-usememo-optimization.md",
+        "title": "`useMemo`를 활용한 성능 최적화",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/frontend/react/pattern.md",
+        "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/frontend/react/patterns/hydration-and-css-issues.md",
+        "title": "React 하이드레이션과 CSS 재적용 문제",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+        "title": "`React`에서 `Composite`/`Compound` Pattern 활용 가이드",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/guides/json-feed-specification.md",
+        "title": "JSON Feed 사양",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/guides/npm-library-guide.md",
+        "title": "나만의 npm 라이브러리 만들고 세상과 공유하기",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/security/html-sanitization.md",
+        "title": "HTML 새니타이징(Sanitization) - XSS 공격 방어",
+        "topic": "web-development"
+      },
+      {
+        "id": "web-development/tools/chrome-user-agent-override.md",
+        "title": "Chrome User Agent Override 가이드",
+        "topic": "web-development"
+      }
+    ],
+    "graphDensity": 0.0565
+  },
+  "recommendations": {
+    "nextToLearn": [
+      {
+        "id": "learning-progress.md",
+        "title": "학습 진행 상황",
+        "topic": "learning-progress.md",
+        "difficulty": 1,
+        "reason": "기초 개념 학습",
+        "score": 50,
+        "estimatedTime": 1
+      },
+      {
+        "id": "languages/javascript/prototype.md",
+        "title": "Prototype - JavaScript의 숨은 마법을 이해하기",
+        "topic": "languages",
+        "difficulty": 5,
+        "reason": "기초 개념 학습",
+        "score": 44,
+        "estimatedTime": 18
+      },
+      {
+        "id": "languages/javascript/prototype_chain.md",
+        "title": "Prototype Chain - JavaScript 상속의 마법 같은 여정",
+        "topic": "languages",
+        "difficulty": 5,
+        "reason": "기초 개념 학습",
+        "score": 42,
+        "estimatedTime": 25
+      },
+      {
+        "id": "GEMINI_SETUP.md",
+        "title": "GEMINI_SETUP",
+        "topic": "GEMINI_SETUP.md",
+        "difficulty": 3,
+        "reason": "기초 개념 학습",
+        "score": 34,
+        "estimatedTime": 2
+      },
+      {
+        "id": "tech-news/2025-10-14-hackernews-top-stories.md",
+        "title": "HackerNews 오늘의 IT 뉴스",
+        "topic": "tech-news",
+        "difficulty": 3,
+        "reason": "기초 개념 학습",
+        "score": 34,
+        "estimatedTime": 4
+      },
+      {
+        "id": "tech-news/latest.md",
+        "title": "HackerNews 오늘의 IT 뉴스",
+        "topic": "tech-news",
+        "difficulty": 3,
+        "reason": "기초 개념 학습",
+        "score": 34,
+        "estimatedTime": 4
+      },
+      {
+        "id": "languages/javascript/bind.md",
+        "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법",
+        "topic": "languages",
+        "difficulty": 5,
+        "reason": "기초 개념 학습",
+        "score": 32,
+        "estimatedTime": 11
+      },
+      {
+        "id": "tech-news/2025-10-13-hackernews-top-stories.md",
+        "title": "HackerNews 오늘의 IT 뉴스",
+        "topic": "tech-news",
+        "difficulty": 3,
+        "reason": "기초 개념 학습",
+        "score": 30,
+        "estimatedTime": 3
+      },
+      {
+        "id": "languages/javascript/this.md",
+        "title": "this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기",
+        "topic": "languages",
+        "difficulty": 5,
+        "reason": "기초 개념 학습",
+        "score": 28,
+        "estimatedTime": 27
+      },
+      {
+        "id": "languages/javascript/instance.md",
+        "title": "인스턴스 (Instance)",
+        "topic": "languages",
+        "difficulty": 5,
+        "reason": "기초 개념 학습",
+        "score": 24,
+        "estimatedTime": 21
+      }
+    ],
+    "reviewRecommended": [],
+    "suggestedKeywords": [
+      {
+        "keyword": "https",
+        "frequency": 42,
+        "relatedDocs": [
+          {
+            "id": "GEMINI_SETUP.md",
+            "title": "GEMINI_SETUP"
+          },
+          {
+            "id": "JEKYLL_SETUP.md",
+            "title": "Jekyll 로컬 개발 가이드"
+          },
+          {
+            "id": "NAVIGATION.md",
+            "title": "NAVIGATION"
+          },
+          {
+            "id": "README.md",
+            "title": "README"
+          },
+          {
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)"
+          }
+        ]
+      },
+      {
+        "keyword": "com",
+        "frequency": 31,
+        "relatedDocs": [
+          {
+            "id": "GEMINI_SETUP.md",
+            "title": "GEMINI_SETUP"
+          },
+          {
+            "id": "JEKYLL_SETUP.md",
+            "title": "Jekyll 로컬 개발 가이드"
+          },
+          {
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)"
+          },
+          {
+            "id": "copyright.md",
+            "title": "저작권 및 이용 정책"
+          },
+          {
+            "id": "databases/prisma-orm-guide.md",
+            "title": "Prisma ORM 가이드"
+          }
+        ]
+      },
+      {
+        "keyword": "react",
+        "frequency": 20,
+        "relatedDocs": [
+          {
+            "id": "NAVIGATION.md",
+            "title": "NAVIGATION"
+          },
+          {
+            "id": "README.md",
+            "title": "README"
+          },
+          {
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)"
+          },
+          {
+            "id": "languages/javascript/mutation-vs-non-mutation-examples.md",
+            "title": "JavaScript의 Mutation vs Non-Mutation 심화"
+          },
+          {
+            "id": "languages/javascript/mutation-vs-non-mutation.md",
+            "title": "JavaScript에서 Mutation vs Non-Mutation"
+          }
+        ]
+      },
+      {
+        "keyword": "javascript",
+        "frequency": 19,
+        "relatedDocs": [
+          {
+            "id": "NAVIGATION.md",
+            "title": "NAVIGATION"
+          },
+          {
+            "id": "README.md",
+            "title": "README"
+          },
+          {
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)"
+          },
+          {
+            "id": "languages/index.md",
+            "title": "프로그래밍 언어"
+          },
+          {
+            "id": "languages/javascript/bind.md",
+            "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법"
+          }
+        ]
+      },
+      {
+        "keyword": "org",
+        "frequency": 15,
+        "relatedDocs": [
+          {
+            "id": "languages/javascript/bind.md",
+            "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법"
+          },
+          {
+            "id": "languages/javascript/instance.md",
+            "title": "인스턴스 (Instance)"
+          },
+          {
+            "id": "languages/javascript/mutation-vs-non-mutation.md",
+            "title": "JavaScript에서 Mutation vs Non-Mutation"
+          },
+          {
+            "id": "languages/javascript/this.md",
+            "title": "this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기"
+          },
+          {
+            "id": "languages/typescript/get_return_type.md",
+            "title": "ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법"
+          }
+        ]
+      },
+      {
+        "keyword": "title",
+        "frequency": 14,
+        "relatedDocs": [
+          {
+            "id": ".github/ISSUE_TEMPLATE/bug_report.md",
+            "title": "[오류] "
+          },
+          {
+            "id": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+            "title": "[문서 수정] "
+          },
+          {
+            "id": ".github/ISSUE_TEMPLATE/feature_request.md",
+            "title": "[제안] "
+          },
+          {
+            "id": "JEKYLL_SETUP.md",
+            "title": "Jekyll 로컬 개발 가이드"
+          },
+          {
+            "id": "algorithms/index.md",
+            "title": "알고리즘"
+          }
+        ]
+      },
+      {
+        "keyword": "api",
+        "frequency": 14,
+        "relatedDocs": [
+          {
+            "id": "GEMINI_SETUP.md",
+            "title": "GEMINI_SETUP"
+          },
+          {
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)"
+          },
+          {
+            "id": "databases/prisma-orm-guide.md",
+            "title": "Prisma ORM 가이드"
+          },
+          {
+            "id": "languages/javascript/callback.md",
+            "title": "Callback - JavaScript 비동기의 시작점"
+          },
+          {
+            "id": "languages/javascript/naming-conventions.md",
+            "title": "JavaScript 네이밍 컨벤션: Public vs Private"
+          }
+        ]
+      },
+      {
+        "keyword": "github",
+        "frequency": 11,
+        "relatedDocs": [
+          {
+            "id": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+            "title": "[문서 수정] "
+          },
+          {
+            "id": "GEMINI_SETUP.md",
+            "title": "GEMINI_SETUP"
+          },
+          {
+            "id": "JEKYLL_SETUP.md",
+            "title": "Jekyll 로컬 개발 가이드"
+          },
+          {
+            "id": "copyright.md",
+            "title": "저작권 및 이용 정책"
+          },
+          {
+            "id": "languages/javascript/foreach-vs-reduce-functional-programming.md",
+            "title": "`forEach` vs `reduce`"
+          }
+        ]
+      },
+      {
+        "keyword": "docs",
+        "frequency": 11,
+        "relatedDocs": [
+          {
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)"
+          },
+          {
+            "id": "databases/prisma-orm-guide.md",
+            "title": "Prisma ORM 가이드"
+          },
+          {
+            "id": "languages/javascript/bind.md",
+            "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법"
+          },
+          {
+            "id": "languages/javascript/instance.md",
+            "title": "인스턴스 (Instance)"
+          },
+          {
+            "id": "languages/javascript/mutation-vs-non-mutation.md",
+            "title": "JavaScript에서 Mutation vs Non-Mutation"
+          }
+        ]
+      },
+      {
+        "keyword": "vs",
+        "frequency": 11,
+        "relatedDocs": [
+          {
+            "id": "languages/javascript/callback.md",
+            "title": "Callback - JavaScript 비동기의 시작점"
+          },
+          {
+            "id": "languages/javascript/factory_pattern.md",
+            "title": "Factory Pattern - 객체를 만드는 똑똑한 방법"
+          },
+          {
+            "id": "languages/javascript/foreach-vs-reduce-functional-programming.md",
+            "title": "`forEach` vs `reduce`"
+          },
+          {
+            "id": "languages/javascript/mutation-vs-non-mutation-examples.md",
+            "title": "JavaScript의 Mutation vs Non-Mutation 심화"
+          },
+          {
+            "id": "languages/javascript/naming-conventions.md",
+            "title": "JavaScript 네이밍 컨벤션: Public vs Private"
+          }
+        ]
+      },
+      {
+        "keyword": "date",
+        "frequency": 10,
+        "relatedDocs": [
+          {
+            "id": "JEKYLL_SETUP.md",
+            "title": "Jekyll 로컬 개발 가이드"
+          },
+          {
+            "id": "algorithms/index.md",
+            "title": "알고리즘"
+          },
+          {
+            "id": "copyright.md",
+            "title": "저작권 및 이용 정책"
+          },
+          {
+            "id": "databases/index.md",
+            "title": "데이터베이스"
+          },
+          {
+            "id": "index.md",
+            "title": "Learn CS"
+          }
+        ]
+      },
+      {
+        "keyword": "md",
+        "frequency": 10,
+        "relatedDocs": [
+          {
+            "id": "NAVIGATION.md",
+            "title": "NAVIGATION"
+          },
+          {
+            "id": "README.md",
+            "title": "README"
+          },
+          {
+            "id": "languages/javascript/bind.md",
+            "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법"
+          },
+          {
+            "id": "languages/javascript/callback.md",
+            "title": "Callback - JavaScript 비동기의 시작점"
+          },
+          {
+            "id": "languages/javascript/factory_pattern.md",
+            "title": "Factory Pattern - 객체를 만드는 똑똑한 방법"
+          }
+        ]
+      },
+      {
+        "keyword": "web",
+        "frequency": 10,
+        "relatedDocs": [
+          {
+            "id": "NAVIGATION.md",
+            "title": "NAVIGATION"
+          },
+          {
+            "id": "README.md",
+            "title": "README"
+          },
+          {
+            "id": "languages/javascript/instance.md",
+            "title": "인스턴스 (Instance)"
+          },
+          {
+            "id": "web-development/frontend/css/font-optimization-preload-fout.md",
+            "title": "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지"
+          },
+          {
+            "id": "web-development/frontend/css/mask-composite.md",
+            "title": "CSS Mask Composite"
+          }
+        ]
+      },
+      {
+        "keyword": "typescript",
+        "frequency": 10,
+        "relatedDocs": [
+          {
+            "id": "databases/prisma-orm-guide.md",
+            "title": "Prisma ORM 가이드"
+          },
+          {
+            "id": "languages/index.md",
+            "title": "프로그래밍 언어"
+          },
+          {
+            "id": "languages/javascript/factory_pattern.md",
+            "title": "Factory Pattern - 객체를 만드는 똑똑한 방법"
+          },
+          {
+            "id": "languages/javascript/naming-conventions.md",
+            "title": "JavaScript 네이밍 컨벤션: Public vs Private"
+          },
+          {
+            "id": "languages/typescript/get_return_type.md",
+            "title": "ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법"
+          }
+        ]
+      },
+      {
+        "keyword": "layout",
+        "frequency": 9,
+        "relatedDocs": [
+          {
+            "id": "JEKYLL_SETUP.md",
+            "title": "Jekyll 로컬 개발 가이드"
+          },
+          {
+            "id": "algorithms/index.md",
+            "title": "알고리즘"
+          },
+          {
+            "id": "databases/index.md",
+            "title": "데이터베이스"
+          },
+          {
+            "id": "index.md",
+            "title": "Learn CS"
+          },
+          {
+            "id": "languages/index.md",
+            "title": "프로그래밍 언어"
+          }
+        ]
+      },
+      {
+        "keyword": "description",
+        "frequency": 8,
+        "relatedDocs": [
+          {
+            "id": "algorithms/index.md",
+            "title": "알고리즘"
+          },
+          {
+            "id": "databases/index.md",
+            "title": "데이터베이스"
+          },
+          {
+            "id": "index.md",
+            "title": "Learn CS"
+          },
+          {
+            "id": "languages/index.md",
+            "title": "프로그래밍 언어"
+          },
+          {
+            "id": "learning-progress.md",
+            "title": "학습 진행 상황"
+          }
+        ]
+      },
+      {
+        "keyword": "www",
+        "frequency": 7,
+        "relatedDocs": [
+          {
+            "id": "databases/prisma-orm-guide.md",
+            "title": "Prisma ORM 가이드"
+          },
+          {
+            "id": "languages/typescript/get_return_type.md",
+            "title": "ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법"
+          },
+          {
+            "id": "languages/typescript/metaprogramming-concept.md",
+            "title": "메타프로그래밍(Metaprogramming)"
+          },
+          {
+            "id": "tech-news/2025-10-13-hackernews-top-stories.md",
+            "title": "HackerNews 오늘의 IT 뉴스"
+          },
+          {
+            "id": "web-development/frontend/react/patterns/composite-pattern.md",
+            "title": "Composite Pattern"
+          }
+        ]
+      },
+      {
+        "keyword": "html",
+        "frequency": 7,
+        "relatedDocs": [
+          {
+            "id": "index.md",
+            "title": "Learn CS"
+          },
+          {
+            "id": "languages/typescript/metaprogramming-concept.md",
+            "title": "메타프로그래밍(Metaprogramming)"
+          },
+          {
+            "id": "networking/http/http_authentication_methods.md",
+            "title": "HTTP 인증 방법 완벽 가이드"
+          },
+          {
+            "id": "tech-news/2025-10-13-hackernews-top-stories.md",
+            "title": "HackerNews 오늘의 IT 뉴스"
+          },
+          {
+            "id": "web-development/frontend/react/patterns/hydration-and-css-issues.md",
+            "title": "React 하이드레이션과 CSS 재적용 문제"
+          }
+        ]
+      },
+      {
+        "keyword": "pattern",
+        "frequency": 7,
+        "relatedDocs": [
+          {
+            "id": "languages/javascript/factory_pattern.md",
+            "title": "Factory Pattern - 객체를 만드는 똑똑한 방법"
+          },
+          {
+            "id": "web-development/frontend/react/pattern.md",
+            "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유"
+          },
+          {
+            "id": "web-development/frontend/react/patterns/composite-pattern.md",
+            "title": "Composite Pattern"
+          },
+          {
+            "id": "web-development/frontend/react/patterns/compound-pattern.md",
+            "title": "Compound Pattern"
+          },
+          {
+            "id": "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+            "title": "`React`에서 `Composite`/`Compound` Pattern 활용 가이드"
+          }
+        ]
+      },
+      {
+        "keyword": "dev",
+        "frequency": 7,
+        "relatedDocs": [
+          {
+            "id": "languages/javascript/factory_pattern.md",
+            "title": "Factory Pattern - 객체를 만드는 똑똑한 방법"
+          },
+          {
+            "id": "web-development/frontend/css/font-optimization-preload-fout.md",
+            "title": "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지"
+          },
+          {
+            "id": "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+            "title": "Custom Hooks 가이드 (React 공식 문서 기반)"
+          },
+          {
+            "id": "web-development/frontend/react/optimization/react-usememo-optimization.md",
+            "title": "`useMemo`를 활용한 성능 최적화"
+          },
+          {
+            "id": "web-development/frontend/react/pattern.md",
+            "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유"
+          }
+        ]
+      }
+    ],
+    "learningPaths": {
+      "algorithms": {
+        "topic": "algorithms",
+        "totalSteps": 2,
+        "totalTime": 26,
+        "path": [
+          {
+            "step": 1,
+            "id": "algorithms/index.md",
+            "title": "알고리즘",
+            "difficulty": 1,
+            "estimatedTime": 1
+          },
+          {
+            "step": 2,
+            "id": "algorithms/memoization-optimization-technique.md",
+            "title": "메모이제이션(Memoization)",
+            "difficulty": 5,
+            "estimatedTime": 25
+          }
+        ]
+      },
+      "languages": {
+        "topic": "languages",
+        "totalSteps": 8,
+        "totalTime": 152,
+        "path": [
+          {
+            "step": 1,
+            "id": "languages/index.md",
+            "title": "프로그래밍 언어",
+            "difficulty": 1,
+            "estimatedTime": 1
+          },
+          {
+            "step": 2,
+            "id": "languages/javascript/bind.md",
+            "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법",
+            "difficulty": 5,
+            "estimatedTime": 11
+          },
+          {
+            "step": 3,
+            "id": "languages/javascript/callback.md",
+            "title": "Callback - JavaScript 비동기의 시작점",
+            "difficulty": 5,
+            "estimatedTime": 27
+          },
+          {
+            "step": 4,
+            "id": "languages/javascript/factory_pattern.md",
+            "title": "Factory Pattern - 객체를 만드는 똑똑한 방법",
+            "difficulty": 5,
+            "estimatedTime": 48
+          },
+          {
+            "step": 5,
+            "id": "languages/javascript/foreach-vs-reduce-functional-programming.md",
+            "title": "`forEach` vs `reduce`",
+            "difficulty": 5,
+            "estimatedTime": 5
+          },
+          {
+            "step": 6,
+            "id": "languages/javascript/instance.md",
+            "title": "인스턴스 (Instance)",
+            "difficulty": 5,
+            "estimatedTime": 21
+          },
+          {
+            "step": 7,
+            "id": "languages/javascript/mutation-vs-non-mutation-examples.md",
+            "title": "JavaScript의 Mutation vs Non-Mutation 심화",
+            "difficulty": 5,
+            "estimatedTime": 8
+          },
+          {
+            "step": 8,
+            "id": "languages/javascript/mutation-vs-non-mutation.md",
+            "title": "JavaScript에서 Mutation vs Non-Mutation",
+            "difficulty": 5,
+            "estimatedTime": 31
+          }
+        ]
+      },
+      "web-development": {
+        "topic": "web-development",
+        "totalSteps": 8,
+        "totalTime": 121,
+        "path": [
+          {
+            "step": 1,
+            "id": "web-development/index.md",
+            "title": "웹 개발",
+            "difficulty": 1,
+            "estimatedTime": 1
+          },
+          {
+            "step": 2,
+            "id": "web-development/frontend/css/font-optimization-preload-fout.md",
+            "title": "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지",
+            "difficulty": 5,
+            "estimatedTime": 11
+          },
+          {
+            "step": 3,
+            "id": "web-development/frontend/css/mask-composite.md",
+            "title": "CSS Mask Composite",
+            "difficulty": 5,
+            "estimatedTime": 25
+          },
+          {
+            "step": 4,
+            "id": "web-development/frontend/css/object-position_&_object-fit.md",
+            "title": "반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드",
+            "difficulty": 5,
+            "estimatedTime": 18
+          },
+          {
+            "step": 5,
+            "id": "web-development/frontend/css/preload-css-async-loading.md",
+            "title": "CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지",
+            "difficulty": 5,
+            "estimatedTime": 10
+          },
+          {
+            "step": 6,
+            "id": "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+            "title": "Custom Hooks 가이드 (React 공식 문서 기반)",
+            "difficulty": 5,
+            "estimatedTime": 13
+          },
+          {
+            "step": 7,
+            "id": "web-development/frontend/react/optimization/react-usememo-optimization.md",
+            "title": "`useMemo`를 활용한 성능 최적화",
+            "difficulty": 5,
+            "estimatedTime": 31
+          },
+          {
+            "step": 8,
+            "id": "web-development/frontend/react/pattern.md",
+            "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유",
+            "difficulty": 5,
+            "estimatedTime": 12
+          }
+        ]
+      },
+      "databases": {
+        "topic": "databases",
+        "totalSteps": 2,
+        "totalTime": 45,
+        "path": [
+          {
+            "step": 1,
+            "id": "databases/index.md",
+            "title": "데이터베이스",
+            "difficulty": 1,
+            "estimatedTime": 1
+          },
+          {
+            "step": 2,
+            "id": "databases/prisma-orm-guide.md",
+            "title": "Prisma ORM 가이드",
+            "difficulty": 5,
+            "estimatedTime": 44
+          }
+        ]
+      },
+      "networking": {
+        "topic": "networking",
+        "totalSteps": 2,
+        "totalTime": 36,
+        "path": [
+          {
+            "step": 1,
+            "id": "networking/index.md",
+            "title": "네트워킹",
+            "difficulty": 1,
+            "estimatedTime": 1
+          },
+          {
+            "step": 2,
+            "id": "networking/http/http_authentication_methods.md",
+            "title": "HTTP 인증 방법 완벽 가이드",
+            "difficulty": 5,
+            "estimatedTime": 35
+          }
+        ]
+      }
+    },
+    "weeklyGoal": {
+      "recommended": 3,
+      "easy": 2,
+      "medium": 1,
+      "hard": 1
+    },
+    "summary": {
+      "totalUnread": 51,
+      "readyToReview": 0,
+      "suggestedDaily": 1
+    }
   },
   "learningHistory": {
     "version": "2.0",
@@ -3695,5 +4637,5 @@
       "recommendationCount": 5
     }
   },
-  "generatedAt": "2025-10-14T12:55:46.214Z"
+  "generatedAt": "2025-10-14T13:15:01.715Z"
 }
