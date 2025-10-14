@@ -17,7 +17,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        submodules: false  # Private submodule은 뉴스 fetch에 필요하지 않음
 
     - name: Setup Node.js
       uses: actions/setup-node@v4

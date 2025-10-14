@@ -24,8 +24,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: false  # Private submodule은 빌드에 필요하지 않음
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
