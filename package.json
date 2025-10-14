@@ -22,7 +22,9 @@
     "setup:submodule": "bash scripts/setup-submodule.sh",
     "private:status": "node scripts/manage-private-content.js status",
     "private:update": "node scripts/manage-private-content.js update",
-    "private:commit": "node scripts/manage-private-content.js commit"
+    "private:commit": "node scripts/manage-private-content.js commit",
+    "graph:generate": "node scripts/generate-knowledge-graph.js",
+    "graph:update": "npm run graph:generate"
   },
   "repository": {
     "type": "git",

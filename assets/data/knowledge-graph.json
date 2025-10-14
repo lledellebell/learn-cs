@@ -1,0 +1,3699 @@
+{
+  "nodes": [
+    {
+      "id": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "title": "[오류] ",
+      "filePath": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "topic": ".github",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "bug",
+        "assignees"
+      ],
+      "concepts": [
+        "오류 설명",
+        "파일 경로",
+        "해결 방법"
+      ],
+      "difficulty": 1,
+      "wordCount": 38
+    },
+    {
+      "id": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+      "title": "[문서 수정] ",
+      "filePath": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+      "topic": ".github",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "documentation",
+        "content",
+        "suggestion",
+        "assignees",
+        "url",
+        "pr",
+        "github"
+      ],
+      "concepts": [
+        "수정 대상 문서",
+        "수정 유형",
+        "현재 내용",
+        "제안하는 수정 내용",
+        "수정 이유",
+        "추가 정보",
+        "문서 제목:",
+        "문서 경로:",
+        "문서 url:",
+        "직접 수정하고 싶으신가요?"
+      ],
+      "difficulty": 3,
+      "wordCount": 153
+    },
+    {
+      "id": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "title": "[제안] ",
+      "filePath": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "topic": ".github",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "enhancement",
+        "assignees",
+        "cs"
+      ],
+      "concepts": [
+        "제목",
+        "설명",
+        "관련 주제",
+        "참고 자료"
+      ],
+      "difficulty": 1,
+      "wordCount": 44
+    },
+    {
+      "id": ".github/PULL_REQUEST_TEMPLATE.md",
+      "title": "PULL_REQUEST_TEMPLATE",
+      "filePath": ".github/PULL_REQUEST_TEMPLATE.md",
+      "topic": ".github",
+      "links": [],
+      "backlinks": [],
+      "keywords": [],
+      "concepts": [
+        "변경 사항 설명",
+        "관련 이슈",
+        "변경 유형",
+        "체크리스트"
+      ],
+      "difficulty": 1,
+      "wordCount": 66
+    },
+    {
+      "id": "GEMINI_SETUP.md",
+      "title": "GEMINI_SETUP",
+      "filePath": "GEMINI_SETUP.md",
+      "topic": "GEMINI_SETUP.md",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "api",
+        "gemini",
+        "google",
+        "https",
+        "requests",
+        "ai",
+        "aistudio",
+        "com",
+        "github",
+        "secrets",
+        "actions",
+        "hackernews",
+        "studio",
+        "app",
+        "apikey"
+      ],
+      "concepts": [
+        "gemini api 설정 가이드",
+        "gemini api 무료 티어",
+        "설정 방법",
+        "1. google ai studio에서 api 키 발급",
+        "2. github secrets에 추가",
+        "3. 로컬에서 테스트",
+        "작동 방식",
+        "gemini vs openai",
+        "문제 해결",
+        "api 키 오류가 발생하는 경우"
+      ],
+      "difficulty": 3,
+      "wordCount": 306
+    },
+    {
+      "id": "JEKYLL_SETUP.md",
+      "title": "Jekyll 로컬 개발 가이드",
+      "filePath": "JEKYLL_SETUP.md",
+      "topic": "JEKYLL_SETUP.md",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "github",
+        "jekyll",
+        "pages",
+        "https",
+        "com",
+        "learn",
+        "cs",
+        "title",
+        "date",
+        "layout",
+        "page",
+        "ruby",
+        "macos",
+        "bundler",
+        "http"
+      ],
+      "concepts": [
+        "jekyll 로컬 개발 가이드",
+        "로컬 환경 설정",
+        "1. ruby 설치 (macos)",
+        "homebrew로 ruby 설치",
+        "또는 rbenv 사용 (권장)",
+        "2. bundler 설치",
+        "3. 의존성 설치",
+        "로컬 개발 서버 실행",
+        "기본 서버 실행",
+        "개발 모드 (자동 새로고침)"
+      ],
+      "difficulty": 5,
+      "wordCount": 277
+    },
+    {
+      "id": "NAVIGATION.md",
+      "title": "NAVIGATION",
+      "filePath": "NAVIGATION.md",
+      "topic": "NAVIGATION.md",
+      "links": [
+        "/algorithms/index.md",
+        "/algorithms/memoization-optimization-technique.md",
+        "/languages/javascript/callback.md",
+        "/languages/javascript/factory_pattern.md",
+        "/languages/javascript/mutation-vs-non-mutation-examples.md",
+        "/languages/javascript/naming-conventions.md",
+        "/languages/javascript/prototype.md",
+        "/languages/javascript/prototype_chain.md",
+        "/languages/javascript/this.md",
+        "/languages/javascript/bind.md",
+        "/languages/javascript/foreach-vs-reduce-functional-programming.md",
+        "/languages/javascript/instance.md",
+        "/languages/javascript/mutation-vs-non-mutation.md",
+        "/languages/typescript/get_return_type.md",
+        "/languages/typescript/metaprogramming-concept.md",
+        "/networking/http/http_authentication_methods.md",
+        "/networking/index.md",
+        "/databases/index.md",
+        "/databases/prisma-orm-guide.md",
+        "/web-development/frontend/css/mask-composite.md",
+        "/web-development/frontend/css/preload-css-async-loading.md",
+        "/web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+        "/web-development/frontend/react/optimization/react-usememo-optimization.md",
+        "/web-development/frontend/react/pattern.md",
+        "/web-development/frontend/react/patterns/composite-pattern.md",
+        "/web-development/frontend/react/patterns/compound-pattern.md",
+        "/web-development/frontend/react/patterns/configuration-over-composition.md",
+        "/web-development/frontend/react/patterns/hydration-and-css-issues.md",
+        "/web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+        "/web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+        "/web-development/frontend/react/patterns/react-provider-pattern.md",
+        "/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+        "/web-development/index.md",
+        "/web-development/security/html-sanitization.md",
+        "/web-development/frontend/css/font-optimization-preload-fout.md",
+        "/web-development/frontend/css/object-position_&_object-fit.md",
+        "/web-development/guides/json-feed-specification.md",
+        "/web-development/guides/npm-library-guide.md",
+        "/web-development/tools/chrome-user-agent-override.md",
+        "/tech-news/2025-10-14-hackernews-top-stories.md",
+        "/tech-news/latest.md",
+        "/tech-news/2025-10-13-hackernews-top-stories.md",
+        "/JEKYLL_SETUP.md",
+        "/copyright.md",
+        "/index.md",
+        "/tech-news/2025-10-14-hackernews-top-stories.md",
+        "/tech-news/latest.md",
+        "/tech-news/2025-10-13-hackernews-top-stories.md",
+        "/JEKYLL_SETUP.md",
+        "/algorithms/index.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "new",
+        "md",
+        "https",
+        "img",
+        "shields",
+        "io",
+        "badge",
+        "style",
+        "flat",
+        "square",
+        "red",
+        "web",
+        "development",
+        "javascript",
+        "react"
+      ],
+      "concepts": [
+        "목차",
+        "알고리즘 (algorithms)",
+        "프로그래밍 언어 (languages)",
+        "javascript",
+        "typescript",
+        "네트워킹 (networking)",
+        "데이터베이스 (databases)",
+        "웹 개발 (web development)",
+        "프론트엔드",
+        "가이드"
+      ],
+      "difficulty": 4,
+      "wordCount": 1027
+    },
+    {
+      "id": "README.md",
+      "title": "README",
+      "filePath": "README.md",
+      "topic": "README.md",
+      "links": [
+        "/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+        "/tech-news/2025-10-14-hackernews-top-stories.md",
+        "/tech-news/latest.md",
+        "/web-development/security/html-sanitization.md",
+        "/web-development/tools/chrome-user-agent-override.md",
+        "NAVIGATION.md",
+        "/algorithms/index.md",
+        "/algorithms/memoization-optimization-technique.md",
+        "/languages/index.md",
+        "/languages/javascript/bind.md",
+        "/languages/javascript/callback.md",
+        "/languages/javascript/factory_pattern.md",
+        "/languages/javascript/foreach-vs-reduce-functional-programming.md",
+        "/languages/javascript/instance.md",
+        "/languages/javascript/mutation-vs-non-mutation-examples.md",
+        "/languages/javascript/mutation-vs-non-mutation.md",
+        "/languages/javascript/naming-conventions.md",
+        "/languages/javascript/prototype.md",
+        "/networking/http/http_authentication_methods.md",
+        "/networking/index.md",
+        "/databases/index.md",
+        "/databases/prisma-orm-guide.md",
+        "/web-development/frontend/css/font-optimization-preload-fout.md",
+        "/web-development/frontend/css/mask-composite.md",
+        "/web-development/frontend/css/object-position_&_object-fit.md",
+        "/web-development/frontend/css/preload-css-async-loading.md",
+        "/web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+        "/web-development/frontend/react/optimization/react-usememo-optimization.md",
+        "/web-development/frontend/react/pattern.md",
+        "/web-development/frontend/react/patterns/composite-pattern.md",
+        "/web-development/frontend/react/patterns/compound-pattern.md",
+        "/web-development/frontend/react/patterns/configuration-over-composition.md",
+        "/JEKYLL_SETUP.md",
+        "/copyright.md",
+        "/index.md",
+        "/tech-news/2025-10-13-hackernews-top-stories.md",
+        "/tech-news/2025-10-14-hackernews-top-stories.md",
+        "/tech-news/latest.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "md",
+        "https",
+        "web",
+        "development",
+        "javascript",
+        "languages",
+        "details",
+        "summary",
+        "strong",
+        "img",
+        "frontend",
+        "shields",
+        "io",
+        "badge",
+        "react"
+      ],
+      "concepts": [
+        "목차",
+        "카테고리",
+        "최근 추가된 문서",
+        "전체 목차",
+        "학습 방법",
+        "참고 자료",
+        "학습 계획",
+        "학습 자료",
+        "추천 책",
+        "온라인 강의"
+      ],
+      "difficulty": 4,
+      "wordCount": 742
+    },
+    {
+      "id": "ai-ml/README.md",
+      "title": "README",
+      "filePath": "ai-ml/README.md",
+      "topic": "ai-ml",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "learning",
+        "language",
+        "ai",
+        "ml",
+        "machine",
+        "deep",
+        "natural",
+        "processing",
+        "nlp",
+        "large",
+        "models",
+        "llm"
+      ],
+      "concepts": [
+        "ai/ml",
+        "주요 주제",
+        "학습 자료"
+      ],
+      "difficulty": 1,
+      "wordCount": 39
+    },
+    {
+      "id": "algorithms/index.md",
+      "title": "알고리즘",
+      "filePath": "algorithms/index.md",
+      "topic": "algorithms",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "algorithms"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 33
+    },
+    {
+      "id": "algorithms/memoization-optimization-technique.md",
+      "title": "메모이제이션(Memoization)",
+      "filePath": "algorithms/memoization-optimization-technique.md",
+      "topic": "algorithms",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "react",
+        "https",
+        "fibonacci",
+        "api",
+        "usememo",
+        "docs",
+        "com",
+        "performance",
+        "memoization",
+        "dynamic",
+        "programming",
+        "leetcode",
+        "lru",
+        "developer",
+        "javascript"
+      ],
+      "concepts": [
+        "memoization - 계산 결과를 기억하는 똑똑한 최적화 기법",
+        "왜 메모이제이션을 이해해야 할까요?",
+        "1. 실무에서 마주치는 성능 문제의 핵심 해결책",
+        "2. 알고리즘 문제 해결의 핵심 도구",
+        "3. 컴퓨터 시스템 전반에 사용되는 기본 개념",
+        "간단한 예시로 이해하기",
+        "실무에서 메모이제이션이 필요한 순간들",
+        "1. api 응답 캐싱으로 사용자 경험 개선",
+        "2. 최적화",
+        "시간/공간 복잡도 분석"
+      ],
+      "difficulty": 5,
+      "wordCount": 4857
+    },
+    {
+      "id": "copyright.md",
+      "title": "저작권 및 이용 정책",
+      "filePath": "copyright.md",
+      "topic": "copyright.md",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "github",
+        "learn",
+        "cs",
+        "lledellebell",
+        "https",
+        "com",
+        "license",
+        "mit",
+        "issues",
+        "date",
+        "site",
+        "time",
+        "io",
+        "sns",
+        "font"
+      ],
+      "concepts": [
+        "저작권 및 이용 정책",
+        "저작권 정보",
+        "콘텐츠 이용 범위",
+        "✅ 허용되는 이용",
+        "❌ 금지되는 이용",
+        "출처 표시 방법",
+        "웹사이트/블로그",
+        "학술 자료",
+        "sns",
+        "오픈소스 라이선스"
+      ],
+      "difficulty": 4,
+      "wordCount": 386
+    },
+    {
+      "id": "databases/index.md",
+      "title": "데이터베이스",
+      "filePath": "databases/index.md",
+      "topic": "databases",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "orm",
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "db",
+        "nosql",
+        "databases"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 34
+    },
+    {
+      "id": "databases/prisma-orm-guide.md",
+      "title": "Prisma ORM 가이드",
+      "filePath": "databases/prisma-orm-guide.md",
+      "topic": "databases",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "prisma",
+        "https",
+        "io",
+        "www",
+        "sql",
+        "reference",
+        "client",
+        "docs",
+        "typescript",
+        "orm",
+        "api",
+        "database",
+        "studio",
+        "schema",
+        "com"
+      ],
+      "concepts": [
+        "prisma orm 가이드",
+        "왜 prisma를 이해해야 할까요?",
+        "1. 런타임 에러에서 컴파일 타임 에러로",
+        "2. \"어떻게\"가 아니라 \"무엇을\" 원하는지만 말하세요",
+        "3. 데이터베이스 변경이 무섭지 않아집니다",
+        "2. 마이그레이션 생성 및 적용",
+        "3. prisma client 자동 재생성",
+        "→ 모든 타입이 자동으로 업데이트됨!",
+        "prisma란?",
+        "prisma의 작동 원리 (간단한 다이어그램)"
+      ],
+      "difficulty": 5,
+      "wordCount": 8609
+    },
+    {
+      "id": "index.md",
+      "title": "Learn CS",
+      "filePath": "index.md",
+      "topic": "index.md",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "home",
+        "title",
+        "learn",
+        "cs",
+        "date",
+        "layout",
+        "description",
+        "computer",
+        "science",
+        "html"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 22
+    },
+    {
+      "id": "languages/index.md",
+      "title": "프로그래밍 언어",
+      "filePath": "languages/index.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "javascript",
+        "typescript",
+        "languages"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 32
+    },
+    {
+      "id": "languages/javascript/bind.md",
+      "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법",
+      "filePath": "languages/javascript/bind.md",
+      "topic": "languages",
+      "links": [
+        "this.md",
+        "callback.md",
+        "prototype.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "this",
+        "bind",
+        "javascript",
+        "https",
+        "function",
+        "md",
+        "call",
+        "apply",
+        "prototype",
+        "developer",
+        "mozilla",
+        "org",
+        "en",
+        "us",
+        "docs"
+      ],
+      "concepts": [
+        "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법",
+        "왜 bind를 배워야 할까요?",
+        "1. javascript의 this는 예측하기 어렵습니다",
+        "2. 이벤트 핸들러와 콜백에서 필수입니다",
+        "3. 함수형 프로그래밍의 기초입니다",
+        "목차",
+        "정의",
+        "핵심 특징",
+        "문법",
+        "매개변수"
+      ],
+      "difficulty": 5,
+      "wordCount": 2162
+    },
+    {
+      "id": "languages/javascript/callback.md",
+      "title": "Callback - JavaScript 비동기의 시작점",
+      "filePath": "languages/javascript/callback.md",
+      "topic": "languages",
+      "links": [
+        "promise.md",
+        "async_await.md",
+        "event_loop.md",
+        "this.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "callback",
+        "javascript",
+        "promise",
+        "async",
+        "await",
+        "js",
+        "https",
+        "md",
+        "vs",
+        "node",
+        "api",
+        "asynchronous",
+        "hell",
+        "this",
+        "promisify"
+      ],
+      "concepts": [
+        "callback - javascript 비동기의 시작점",
+        "목차",
+        "왜 callback을 이해해야 할까요?",
+        "1. javascript는 비동기 언어입니다",
+        "2. 모든 비동기 api의 기초입니다",
+        "3. 디버깅과 에러 처리에 필수입니다",
+        "4. 고차 함수(higher-order functions)를 이해하는 핵심입니다",
+        "먼저, 문제 상황을 보면서 시작해볼까요?",
+        "접근 1: 동기적 방식 (막힘 발생)",
+        "접근 2: callback을 사용한 비동기 방식 ⭐"
+      ],
+      "difficulty": 5,
+      "wordCount": 5379
+    },
+    {
+      "id": "languages/javascript/factory_pattern.md",
+      "title": "Factory Pattern - 객체를 만드는 똑똑한 방법",
+      "filePath": "languages/javascript/factory_pattern.md",
+      "topic": "languages",
+      "links": [
+        "prototype.md",
+        "instance.md",
+        "callback.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "factory",
+        "pattern",
+        "https",
+        "patterns",
+        "javascript",
+        "typescript",
+        "object",
+        "design",
+        "function",
+        "vs",
+        "com",
+        "md",
+        "class",
+        "constructor",
+        "dev"
+      ],
+      "concepts": [
+        "factory pattern - 객체를 만드는 똑똑한 방법",
+        "목차",
+        "왜 factory pattern을 이해해야 할까요?",
+        "1. 객체 생성 로직을 한 곳에서 관리할 수 있습니다",
+        "2. 복잡한 초기화 로직을 숨길 수 있습니다",
+        "3. 조건에 따라 다른 객체를 생성할 수 있습니다",
+        "먼저, 문제 상황을 보면서 시작해볼까요?",
+        "접근 1: 직접 객체 리터럴로 만들기",
+        "접근 2: 생성 함수 만들기",
+        "접근 3: factory pattern 사용하기 ⭐"
+      ],
+      "difficulty": 5,
+      "wordCount": 9599
+    },
+    {
+      "id": "languages/javascript/foreach-vs-reduce-functional-programming.md",
+      "title": "`forEach` vs `reduce`",
+      "filePath": "languages/javascript/foreach-vs-reduce-functional-programming.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "foreach",
+        "https",
+        "reduce",
+        "com",
+        "functional",
+        "github",
+        "lodash",
+        "vs",
+        "map",
+        "filter",
+        "some",
+        "every",
+        "array",
+        "javascript",
+        "mostly"
+      ],
+      "concepts": [
+        "`foreach` vs `reduce`",
+        "`foreach`를 지양해야 하는 이유",
+        "1. 부수효과(side effect) 발생",
+        "2. 함수형 프로그래밍 원칙 위배",
+        "3. 의도가 불분명",
+        "상황별 적절한 배열 메서드 선택",
+        "1. 데이터 변환 - `map` 사용",
+        "2. 데이터 필터링 - `filter` 사용",
+        "3. 누적 계산 - `reduce` 사용",
+        "4. 조건 확인 - `some`/`every` 사용"
+      ],
+      "difficulty": 5,
+      "wordCount": 836
+    },
+    {
+      "id": "languages/javascript/instance.md",
+      "title": "인스턴스 (Instance)",
+      "filePath": "languages/javascript/instance.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "javascript",
+        "https",
+        "new",
+        "object",
+        "org",
+        "this",
+        "mdn",
+        "developer",
+        "mozilla",
+        "en",
+        "us",
+        "docs",
+        "instanceof",
+        "web",
+        "com"
+      ],
+      "concepts": [
+        "인스턴스(instance): 클래스라는 설계도에서 태어난 살아있는 객체들",
+        "왜 인스턴스를 이해해야 할까요?",
+        "1. 현대 javascript 개발의 기초",
+        "2. 메모리와 성능 최적화",
+        "3. 디버깅과 문제 해결",
+        "기본 개념: 인스턴스란 무엇인가?",
+        "객체 vs 인스턴스",
+        "생성자 함수와 인스턴스",
+        "`new` 키워드가 하는 일",
+        "클래스와 인스턴스 (es6+)"
+      ],
+      "difficulty": 5,
+      "wordCount": 4119
+    },
+    {
+      "id": "languages/javascript/mutation-vs-non-mutation-examples.md",
+      "title": "JavaScript의 Mutation vs Non-Mutation 심화",
+      "filePath": "languages/javascript/mutation-vs-non-mutation-examples.md",
+      "topic": "languages",
+      "links": [
+        "mutation-vs-non-mutation.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "mutation",
+        "non",
+        "vs",
+        "redux",
+        "javascript",
+        "react",
+        "zustand",
+        "title",
+        "date",
+        "layout",
+        "page",
+        "md",
+        "side",
+        "effects",
+        "devtools"
+      ],
+      "concepts": [
+        "javascript의 mutation vs non-mutation 심화",
+        "non-mutation이 중요한 이유",
+        "1. 예측 가능성과 안전성",
+        "2. 디버깅 용이성",
+        "3. 함수형 프로그래밍과 불변성",
+        "4. 시간 여행 디버깅",
+        "5. 병렬 및 동시성 안전성",
+        "mutation이 필요한 경우",
+        "1. 성능이 중요한 시나리오",
+        "2. mutation을 기대하는 데이터 구조"
+      ],
+      "difficulty": 5,
+      "wordCount": 1559
+    },
+    {
+      "id": "languages/javascript/mutation-vs-non-mutation.md",
+      "title": "JavaScript에서 Mutation vs Non-Mutation",
+      "filePath": "languages/javascript/mutation-vs-non-mutation.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "react",
+        "javascript",
+        "redux",
+        "mutation",
+        "com",
+        "immer",
+        "immutability",
+        "docs",
+        "in",
+        "immutable",
+        "state",
+        "org",
+        "reference",
+        "types"
+      ],
+      "concepts": [
+        "react 상태가 업데이트되지 않는 이유 - mutation의 비밀",
+        "왜 mutation을 이해해야 할까요?",
+        "1. react와 상태 관리의 핵심",
+        "2. 예측 가능한 코드 작성",
+        "3. 버그 추적과 디버깅",
+        "기본 개념: 참조와 값의 세계",
+        "메모리 모델 이해하기",
+        "원시 타입 (primitive types): 값으로 저장",
+        "참조 타입 (reference types): 주소로 저장",
+        "mutation vs non-mutation 비교"
+      ],
+      "difficulty": 5,
+      "wordCount": 6006
+    },
+    {
+      "id": "languages/javascript/naming-conventions.md",
+      "title": "JavaScript 네이밍 컨벤션: Public vs Private",
+      "filePath": "languages/javascript/naming-conventions.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "private",
+        "javascript",
+        "public",
+        "typescript",
+        "modern",
+        "api",
+        "static",
+        "legacy",
+        "js",
+        "vs",
+        "protected",
+        "json",
+        "weakmap",
+        "chrome",
+        "https"
+      ],
+      "concepts": [
+        "javascript 네이밍 컨벤션: public vs private",
+        "개요",
+        "public 메서드: 언더스코어 없이",
+        "private 메서드: `#` 또는 `_` 접두사",
+        "1. `#` 방식 (modern javascript - 권장)",
+        "2. `_` 방식 (legacy javascript)",
+        "3. typescript `private` 키워드",
+        "실전 예시: multiton 패턴",
+        "네이밍 가이드라인",
+        "왜 `_create`를 사용하는 사람들이 있을까?"
+      ],
+      "difficulty": 5,
+      "wordCount": 3452
+    },
+    {
+      "id": "languages/javascript/prototype.md",
+      "title": "Prototype - JavaScript의 숨은 마법을 이해하기",
+      "filePath": "languages/javascript/prototype.md",
+      "topic": "languages",
+      "links": [
+        "prototype_chain.md",
+        "this.md",
+        "bind.md",
+        "instance.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "prototype",
+        "javascript",
+        "class",
+        "chain",
+        "https",
+        "md",
+        "object",
+        "the",
+        "this",
+        "attack",
+        "in",
+        "com",
+        "vs",
+        "new",
+        "private"
+      ],
+      "concepts": [
+        "prototype - javascript의 숨은 마법을 이해하기",
+        "목차",
+        "왜 prototype을 이해해야 할까요?",
+        "1. javascript의 모든 것이 prototype 기반입니다",
+        "2. 디버깅할 때 필수입니다",
+        "3. 라이브러리와 프레임워크 코드를 이해하는 데 필수입니다",
+        "먼저, 문제 상황을 보면서 시작해볼까요?",
+        "접근 1: 매번 메소드를 복사하기",
+        "접근 2: 메소드를 외부에 두기",
+        "접근 3: prototype 사용하기 ⭐"
+      ],
+      "difficulty": 5,
+      "wordCount": 3496
+    },
+    {
+      "id": "languages/javascript/prototype_chain.md",
+      "title": "Prototype Chain - JavaScript 상속의 마법 같은 여정",
+      "filePath": "languages/javascript/prototype_chain.md",
+      "topic": "languages",
+      "links": [
+        "prototype.md",
+        "prototype.md",
+        "prototype.md",
+        "prototype.md",
+        "prototype.md",
+        "this.md",
+        "bind.md",
+        "instance.md",
+        "this.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "chain",
+        "prototype",
+        "javascript",
+        "md",
+        "instanceof",
+        "https",
+        "object",
+        "this",
+        "null",
+        "in",
+        "developer",
+        "docs",
+        "com",
+        "create",
+        "and"
+      ],
+      "concepts": [
+        "prototype chain - javascript 상속의 마법 같은 여정",
+        "목차",
+        "왜 prototype chain을 이해해야 할까요?",
+        "1. 상속의 비밀을 알 수 있습니다",
+        "2. 디버깅이 훨씬 쉬워집니다",
+        "3. `instanceof`가 어떻게 동작하는지 알 수 있습니다",
+        "4. 성능 최적화를 할 수 있습니다",
+        "chain이라는 단어가 무엇을 의미할까요?",
+        "비유로 이해하기",
+        "기본 chain 구조"
+      ],
+      "difficulty": 5,
+      "wordCount": 4970
+    },
+    {
+      "id": "languages/javascript/this.md",
+      "title": "this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기",
+      "filePath": "languages/javascript/this.md",
+      "topic": "languages",
+      "links": [
+        "/Users/b/personal/learn-cs/languages/javascript/bind.md",
+        "/Users/b/personal/learn-cs/languages/javascript/bind.md",
+        "/Users/b/personal/learn-cs/languages/javascript/callback.md",
+        "/Users/b/personal/learn-cs/languages/javascript/closure.md",
+        "/Users/b/personal/learn-cs/languages/javascript/prototype.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "this",
+        "javascript",
+        "bind",
+        "call",
+        "https",
+        "apply",
+        "binding",
+        "new",
+        "react",
+        "md",
+        "vs",
+        "prototype",
+        "org",
+        "docs",
+        "function"
+      ],
+      "concepts": [
+        "this 키워드 - javascript에서 가장 혼란스러운 개념을 정복하기",
+        "목차",
+        "왜 this가 이렇게 복잡할까요?",
+        "javascript의 독특한 설계 철학",
+        "python",
+        "왜 이런 설계를 했을까?",
+        "핵심 개념: 호출부(call-site)",
+        "핵심: 4가지 바인딩 규칙",
+        "1. 기본 바인딩 (default binding)",
+        "strict mode에서는 다릅니다"
+      ],
+      "difficulty": 5,
+      "wordCount": 5363
+    },
+    {
+      "id": "languages/typescript/get_return_type.md",
+      "title": "ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법",
+      "filePath": "languages/typescript/get_return_type.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "returntype",
+        "type",
+        "typescript",
+        "types",
+        "com",
+        "conditional",
+        "github",
+        "www",
+        "org",
+        "challenges",
+        "undefined",
+        "typescriptlang",
+        "handbook",
+        "return"
+      ],
+      "concepts": [
+        "returntype: 함수의 반환 타입을 자동으로 추출하는 마법",
+        "왜 returntype을 이해해야 할까요?",
+        "1. 타입 중복을 제거하고 단일 진실 공급원(single source of truth)을 만듭니다",
+        "2. 복잡한 타입 추론을 자동화합니다",
+        "3. 라이브러리 코드와의 통합을 쉽게 만듭니다",
+        "4. 제네릭 함수의 구체적인 타입을 얻습니다",
+        "기본 개념: returntype은 어떻게 작동할까?",
+        "returntype의 내부 구현",
+        "핵심 키워드: `infer`",
+        "조건부 타입 (conditional types)"
+      ],
+      "difficulty": 5,
+      "wordCount": 4427
+    },
+    {
+      "id": "languages/typescript/metaprogramming-concept.md",
+      "title": "메타프로그래밍(Metaprogramming)",
+      "filePath": "languages/typescript/metaprogramming-concept.md",
+      "topic": "languages",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "typescript",
+        "types",
+        "type",
+        "org",
+        "proxy",
+        "docs",
+        "api",
+        "www",
+        "typescriptlang",
+        "handbook",
+        "html",
+        "symbol",
+        "com",
+        "mapped"
+      ],
+      "concepts": [
+        "typescript 메타프로그래밍: 코드가 코드를 작성하는 마법",
+        "왜 메타프로그래밍을 배워야 할까요?",
+        "실제 프로젝트에서 마주하는 문제들",
+        "메타프로그래밍으로 해결하기",
+        "기본 개념: 메타프로그래밍이란 무엇인가?",
+        "정의",
+        "추상화의 레벨",
+        "typescript의 두 가지 메타프로그래밍",
+        "1. 타입 레벨 메타프로그래밍 (compile-time)",
+        "2. 런타임 메타프로그래밍 (runtime)"
+      ],
+      "difficulty": 5,
+      "wordCount": 5619
+    },
+    {
+      "id": "learning-progress.md",
+      "title": "학습 진행 상황",
+      "filePath": "learning-progress.md",
+      "topic": "learning-progress.md",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "learning",
+        "progress",
+        "layout",
+        "title",
+        "description",
+        "knowledge",
+        "graph",
+        "permalink"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 21
+    },
+    {
+      "id": "networking/http/http_authentication_methods.md",
+      "title": "HTTP 인증 방법 완벽 가이드",
+      "filePath": "networking/http/http_authentication_methods.md",
+      "topic": "networking",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "jwt",
+        "oauth",
+        "http",
+        "basic",
+        "org",
+        "token",
+        "authentication",
+        "authorization",
+        "com",
+        "api",
+        "digest",
+        "google",
+        "rfc",
+        "html"
+      ],
+      "concepts": [
+        "http 인증 방법 완벽 가이드: api를 안전하게 보호하는 법",
+        "왜 http 인증을 제대로 이해해야 할까요?",
+        "1. 보안은 선택이 아닌 필수입니다",
+        "2. 표준을 따르면 생태계의 혜택을 받습니다",
+        "3. 상황에 맞는 방식을 선택해야 합니다",
+        "기본 개념: 인증 vs 권한 부여",
+        "basic authentication: 가장 단순한 방식",
+        "어떻게 작동하나요?",
+        "시각적 흐름",
+        "실전 예제 1: curl로 basic 인증 사용하기"
+      ],
+      "difficulty": 5,
+      "wordCount": 6890
+    },
+    {
+      "id": "networking/index.md",
+      "title": "네트워킹",
+      "filePath": "networking/index.md",
+      "topic": "networking",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "http",
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "networking"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 32
+    },
+    {
+      "id": "tech-news/2025-10-13-hackernews-top-stories.md",
+      "title": "HackerNews 오늘의 IT 뉴스",
+      "filePath": "tech-news/2025-10-13-hackernews-top-stories.md",
+      "topic": "tech-news",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "com",
+        "org",
+        "www",
+        "blog",
+        "jujutsu",
+        "hackernews",
+        "github",
+        "on",
+        "pdfly",
+        "pdf",
+        "html",
+        "clockss",
+        "wireguard",
+        "fpga"
+      ],
+      "concepts": [
+        "1. show hn: sqlite online – 11 years of solo development, 11k daily users",
+        "2. the sveriges riksbank prize in economic sciences in memory of alfred nobel 2025",
+        "3. spotlight on pdfly, the swiss army knife for pdf files",
+        "4. matrices can be your friends",
+        "5. more random home lab things i've recently learned",
+        "6. switch to jujutsu already: a tutorial",
+        "7. clockss: digital preservation services run by academic publishers and libraries",
+        "8. wireguard fpga",
+        "9. control your canon camera wirelessly",
+        "10. putting a dumb weather station on the internet"
+      ],
+      "difficulty": 3,
+      "wordCount": 568
+    },
+    {
+      "id": "tech-news/2025-10-14-hackernews-top-stories.md",
+      "title": "HackerNews 오늘의 IT 뉴스",
+      "filePath": "tech-news/2025-10-14-hackernews-top-stories.md",
+      "topic": "tech-news",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "com",
+        "in",
+        "ddos",
+        "hackernews",
+        "uv",
+        "wagtail",
+        "org",
+        "jit",
+        "news",
+        "pip",
+        "ci",
+        "zig",
+        "blog",
+        "nanochat"
+      ],
+      "concepts": [
+        "hackernews 오늘의 it 뉴스",
+        "1. uv overtakes pip in ci (for wagtail users)",
+        "2. nanochat – the best chatgpt that $100 can buy",
+        "3. ddos botnet aisuru blankets us isps in record ddos",
+        "4. first device based on 'optical thermodynamics' can route light without switches",
+        "5. sony playstation 2 fixing frenzy",
+        "6. jit: so you want to be faster than an interpreter on modern cpus",
+        "7. show hn: sqlite online – 11 years of solo development, 11k daily users",
+        "8. accidentally made a zig dotenv parser",
+        "9. modern ios security features – a deep dive into sptm, txm, and exclaves"
+      ],
+      "difficulty": 3,
+      "wordCount": 714
+    },
+    {
+      "id": "tech-news/README.md",
+      "title": "README",
+      "filePath": "tech-news/README.md",
+      "topic": "tech-news",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "hackernews",
+        "api",
+        "github",
+        "actions",
+        "google",
+        "top",
+        "stories",
+        "fetch",
+        "cloud",
+        "https",
+        "com",
+        "it",
+        "translation",
+        "news",
+        "md"
+      ],
+      "concepts": [
+        "hackernews it 뉴스 자동 수집",
+        "특징",
+        "파일 구조",
+        "수동 실행",
+        "로컬에서 실행",
+        "기본 (번역 없이)",
+        "번역 포함 (google translate api 키 필요)",
+        "github actions에서 수동 실행",
+        "자동 실행",
+        "번역 설정"
+      ],
+      "difficulty": 4,
+      "wordCount": 471
+    },
+    {
+      "id": "tech-news/latest.md",
+      "title": "HackerNews 오늘의 IT 뉴스",
+      "filePath": "tech-news/latest.md",
+      "topic": "tech-news",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "com",
+        "in",
+        "ddos",
+        "hackernews",
+        "uv",
+        "wagtail",
+        "org",
+        "jit",
+        "news",
+        "pip",
+        "ci",
+        "zig",
+        "blog",
+        "nanochat"
+      ],
+      "concepts": [
+        "hackernews 오늘의 it 뉴스",
+        "1. uv overtakes pip in ci (for wagtail users)",
+        "2. nanochat – the best chatgpt that $100 can buy",
+        "3. ddos botnet aisuru blankets us isps in record ddos",
+        "4. first device based on 'optical thermodynamics' can route light without switches",
+        "5. sony playstation 2 fixing frenzy",
+        "6. jit: so you want to be faster than an interpreter on modern cpus",
+        "7. show hn: sqlite online – 11 years of solo development, 11k daily users",
+        "8. accidentally made a zig dotenv parser",
+        "9. modern ios security features – a deep dive into sptm, txm, and exclaves"
+      ],
+      "difficulty": 3,
+      "wordCount": 714
+    },
+    {
+      "id": "web-development/frontend/css/font-optimization-preload-fout.md",
+      "title": "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지",
+      "filePath": "web-development/frontend/css/font-optimization-preload-fout.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "font",
+        "web",
+        "preload",
+        "https",
+        "fout",
+        "dev",
+        "css",
+        "text",
+        "fallback",
+        "foit",
+        "com",
+        "fonts",
+        "google",
+        "invisible",
+        "display"
+      ],
+      "concepts": [
+        "웹폰트 최적화 완전 가이드: 다운로드부터 배포까지",
+        "왜 웹폰트 최적화가 중요한가?",
+        "1단계: 웹폰트 로딩 문제 이해",
+        "웹폰트 로딩 문제의 두 가지 유형: fout vs foit",
+        "fout(flash of unstyled text)",
+        "foit(flash of invisible text)",
+        "비교표",
+        "fout 문제 상황 예시",
+        "2단계: 폰트 파일 최적화 (python 활용)",
+        "python을 이용한 폰트 최적화"
+      ],
+      "difficulty": 5,
+      "wordCount": 2114
+    },
+    {
+      "id": "web-development/frontend/css/mask-composite.md",
+      "title": "CSS Mask Composite",
+      "filePath": "web-development/frontend/css/mask-composite.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "mask",
+        "css",
+        "composite",
+        "https",
+        "webkit",
+        "svg",
+        "web",
+        "masking",
+        "source",
+        "clip",
+        "image",
+        "org",
+        "developer",
+        "mozilla",
+        "en"
+      ],
+      "concepts": [
+        "css로 매직 같은 이미지 합성 효과 만들기: mask-composite 완벽 가이드",
+        "왜 mask-composite를 배워야 할까요?",
+        "1. 복잡한 비주얼 효과를 코드로 구현",
+        "2. 퍼포먼스와 유연성의 균형",
+        "3. 창의적인 디자인의 무한한 가능성",
+        "기본 개념: 마스킹이란?",
+        "마스크의 원리",
+        "mask-composite가 필요한 순간",
+        "mask-composite 연산: 네 가지 마법",
+        "1. add (합집합)"
+      ],
+      "difficulty": 5,
+      "wordCount": 4888
+    },
+    {
+      "id": "web-development/frontend/css/object-position_&_object-fit.md",
+      "title": "반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드",
+      "filePath": "web-development/frontend/css/object-position_&_object-fit.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "object",
+        "fit",
+        "position",
+        "https",
+        "css",
+        "background",
+        "cover",
+        "images",
+        "org",
+        "com",
+        "image",
+        "contain",
+        "web",
+        "alt",
+        "aspect"
+      ],
+      "concepts": [
+        "반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드",
+        "왜 object-fit과 object-position을 배워야 할까요?",
+        "1. 반응형 디자인의 핵심입니다",
+        "2. 사용자 경험을 크게 개선합니다",
+        "3. 성능과 접근성을 동시에 잡습니다",
+        "4. 코드가 단순하고 유지보수하기 쉬워집니다",
+        "기본 개념: 이미지는 왜 찌그러질까?",
+        "object-fit이 하는 일",
+        "object-position이 하는 일",
+        "object-fit 속성: 5가지 값 완벽 분석"
+      ],
+      "difficulty": 5,
+      "wordCount": 3525
+    },
+    {
+      "id": "web-development/frontend/css/preload-css-async-loading.md",
+      "title": "CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지",
+      "filePath": "web-development/frontend/css/preload-css-async-loading.md",
+      "topic": "web-development",
+      "links": [
+        "font-optimization-preload-fout.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "css",
+        "preload",
+        "https",
+        "web",
+        "media",
+        "print",
+        "onload",
+        "react",
+        "contentful",
+        "paint",
+        "first",
+        "critical",
+        "rel",
+        "javascript",
+        "next"
+      ],
+      "concepts": [
+        "css 성능 최적화 실무 가이드: 렌더링 차단에서 비동기 로딩까지",
+        "1단계: 성능 문제 진단 및 측정",
+        "css 렌더링 차단 문제 확인",
+        "2단계: 해결책 선택 - css 비동기 로딩 방법",
+        "방법 1: `preload` + `onload` 패턴 (권장)",
+        "방법 2: `media=\"print\"` + `onload` 패턴 (레거시 호환)",
+        "방법 비교 및 선택 기준",
+        "3단계: 크리티컬 css 전략",
+        "크리티컬 css 식별 및 인라인화",
+        "브라우저 처리 과정 이해"
+      ],
+      "difficulty": 5,
+      "wordCount": 1962
+    },
+    {
+      "id": "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+      "title": "Custom Hooks 가이드 (React 공식 문서 기반)",
+      "filePath": "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "hooks",
+        "react",
+        "custom",
+        "hook",
+        "of",
+        "rules",
+        "logic",
+        "https",
+        "dev",
+        "use",
+        "api",
+        "reference",
+        "rule",
+        "reusing",
+        "with"
+      ],
+      "concepts": [
+        "custom hooks 가이드 (react 공식 문서 기반)",
+        "custom hooks란?",
+        "핵심 개념",
+        "왜 `custom hooks`를 사용하는가?",
+        "1. 코드 중복 제거",
+        "2. 관심사의 분리 (separation of concerns)",
+        "3. 테스트 용이성",
+        "custom hooks 작성 규칙",
+        "1. 네이밍 규칙 (naming convention)",
+        "2. rules of hooks"
+      ],
+      "difficulty": 5,
+      "wordCount": 2474
+    },
+    {
+      "id": "web-development/frontend/react/optimization/react-usememo-optimization.md",
+      "title": "`useMemo`를 활용한 성능 최적화",
+      "filePath": "web-development/frontend/react/optimization/react-usememo-optimization.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "react",
+        "usememo",
+        "https",
+        "usecallback",
+        "memo",
+        "dev",
+        "profiler",
+        "context",
+        "com",
+        "vs",
+        "devtools",
+        "compiler",
+        "performance",
+        "reference",
+        "you"
+      ],
+      "concepts": [
+        "react 성능 최적화의 핵심, `usememo` 완벽 가이드",
+        "왜 usememo를 이해해야 할까요?",
+        "1. 불필요한 재계산 문제",
+        "2. 참조 동일성 문제",
+        "3. context api의 성능 함정",
+        "기본 개념: usememo란 무엇인가?",
+        "메모이제이션(memoization)이란?",
+        "usememo의 기본 문법",
+        "시각적 다이어그램",
+        "실전 예제: 언제 usememo를 사용해야 할까?"
+      ],
+      "difficulty": 5,
+      "wordCount": 6023
+    },
+    {
+      "id": "web-development/frontend/react/pattern.md",
+      "title": "Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유",
+      "filePath": "web-development/frontend/react/pattern.md",
+      "topic": "web-development",
+      "links": [
+        "/web-development/frontend/react/patterns/compound-pattern.md",
+        "/web-development/frontend/react/patterns/composite-pattern.md",
+        "/web-development/frontend/react/patterns/configuration-over-composition.md",
+        "/web-development/frontend/react/patterns/react-composite-compound-patterns.md"
+      ],
+      "backlinks": [],
+      "keywords": [
+        "compound",
+        "react",
+        "configuration",
+        "header",
+        "patterns",
+        "card",
+        "https",
+        "composite",
+        "pattern",
+        "web",
+        "development",
+        "frontend",
+        "composition",
+        "dev",
+        "props"
+      ],
+      "concepts": [
+        "header 컴포넌트에서 compound/composite 패턴을 사용하지 않는 이유",
+        "먼저, 두 패턴을 자세히 비교해볼까요?",
+        "compound 패턴 방식",
+        "configuration 패턴 방식",
+        "header 컴포넌트가 특별한 이유",
+        "1. 컴포넌트의 역할과 목적이 근본적으로 다릅니다",
+        "2. 구조의 고정성과 변동성",
+        "사용자 경험의 일관성",
+        "브랜딩과 디자인 시스템",
+        "3. 잘못된 사용을 방지하는 것의 중요성"
+      ],
+      "difficulty": 5,
+      "wordCount": 2342
+    },
+    {
+      "id": "web-development/frontend/react/patterns/composite-pattern.md",
+      "title": "Composite Pattern",
+      "filePath": "web-development/frontend/react/patterns/composite-pattern.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "composite",
+        "react",
+        "patterns",
+        "https",
+        "pattern",
+        "design",
+        "com",
+        "www",
+        "tree",
+        "ui",
+        "dnd",
+        "in",
+        "javascript",
+        "compound",
+        "elements"
+      ],
+      "concepts": [
+        "composite pattern",
+        "개념",
+        "1. **통일된 인터페이스**",
+        "2. **재귀적 구조**",
+        "3. **부분-전체 관계**",
+        "구조 다이어그램",
+        "기본 구현",
+        "1. **typescript로 구현한 기본 구조**",
+        "2. **사용 예시**",
+        "react에서의 composite pattern"
+      ],
+      "difficulty": 5,
+      "wordCount": 1181
+    },
+    {
+      "id": "web-development/frontend/react/patterns/compound-pattern.md",
+      "title": "Compound Pattern",
+      "filePath": "web-development/frontend/react/patterns/compound-pattern.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "compound",
+        "react",
+        "pattern",
+        "https",
+        "components",
+        "ui",
+        "context",
+        "component",
+        "props",
+        "com",
+        "patterns",
+        "accordion",
+        "headless",
+        "advanced",
+        "modal"
+      ],
+      "concepts": [
+        "compound pattern",
+        "왜 compound pattern이 필요한가?",
+        "실제 문제 상황",
+        "compound pattern의 해결책",
+        "compound pattern의 핵심 개념",
+        "1. 암묵적 상태 공유 (implicit state sharing)",
+        "2. 유연한 조합 (flexible composition)",
+        "3. 명시적 api (explicit api)",
+        "컴포넌트 관계 다이어그램",
+        "1. context 기반 통신 구조"
+      ],
+      "difficulty": 5,
+      "wordCount": 6375
+    },
+    {
+      "id": "web-development/frontend/react/patterns/configuration-over-composition.md",
+      "title": "Configuration over Composition Pattern",
+      "filePath": "web-development/frontend/react/patterns/configuration-over-composition.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "configuration",
+        "https",
+        "composition",
+        "com",
+        "props",
+        "design",
+        "www",
+        "component",
+        "react",
+        "api",
+        "ui",
+        "typescript",
+        "over",
+        "storybook",
+        "blog"
+      ],
+      "concepts": [
+        "configuration over composition pattern",
+        "왜 이 패턴을 이해해야 할까요?",
+        "두 패턴의 핵심 차이",
+        "실제 경험으로 배우는 패턴 선택",
+        "경험 1: 회사 디자인 시스템 구축",
+        "경험 2: 네비게이션 컴포넌트의 진화",
+        "언제 어느 패턴을 선택해야 할까?",
+        "의사결정 플로우차트",
+        "실전 선택 가이드",
+        "configuration을 선택하세요 ✅"
+      ],
+      "difficulty": 5,
+      "wordCount": 6223
+    },
+    {
+      "id": "web-development/frontend/react/patterns/hydration-and-css-issues.md",
+      "title": "React 하이드레이션과 CSS 재적용 문제",
+      "filePath": "web-development/frontend/react/patterns/hydration-and-css-issues.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "css",
+        "react",
+        "https",
+        "js",
+        "hydration",
+        "com",
+        "dev",
+        "ssr",
+        "rendering",
+        "next",
+        "mismatch",
+        "server",
+        "web",
+        "side",
+        "html"
+      ],
+      "concepts": [
+        "react 하이드레이션과 css 재적용 문제",
+        "hydration이란? 왜 필요할까요?",
+        "하이드레이션의 본질",
+        "하이드레이션 과정 상세히 들여다보기",
+        "next.js에서의 하이드레이션",
+        "hydration mismatch - 왜 에러가 발생할까?",
+        "mismatch 예제 1: 난수 사용",
+        "mismatch 예제 2: date.now()와 시간",
+        "mismatch 예제 3: localstorage/sessionstorage",
+        "mismatch 예제 4: 조건부 렌더링"
+      ],
+      "difficulty": 5,
+      "wordCount": 5426
+    },
+    {
+      "id": "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+      "title": "`React`에서 `Composite`/`Compound` Pattern 활용 가이드",
+      "filePath": "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "pattern",
+        "compound",
+        "card",
+        "composite",
+        "react",
+        "description",
+        "title",
+        "ui",
+        "vs",
+        "daily",
+        "image",
+        "body",
+        "headline",
+        "render",
+        "props"
+      ],
+      "concepts": [
+        "`react`에서 `composite`/`compound` pattern 활용 가이드",
+        "`composite pattern` vs `compound pattern`",
+        "`composite pattern`",
+        "`compound pattern`",
+        "실제 적용 사례",
+        "1. card 컴포넌트 - `composite pattern`",
+        "2. daily 컴포넌트 - `compound pattern`",
+        "구현 패턴",
+        "1. 서브컴포넌트 정의",
+        "2. 타입 정의"
+      ],
+      "difficulty": 5,
+      "wordCount": 1183
+    },
+    {
+      "id": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "title": "Context API를 활용한 Compound Pattern 구현",
+      "filePath": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "context",
+        "raw",
+        "endraw",
+        "compound",
+        "pattern",
+        "react",
+        "api",
+        "provider",
+        "ui",
+        "https",
+        "typescript",
+        "com",
+        "step",
+        "props",
+        "vs"
+      ],
+      "concepts": [
+        "context api를 활용한 compound pattern 구현",
+        "들어가며: prop drilling의 고통",
+        "context api란?",
+        "context의 핵심 개념",
+        "context vs provider 차이점",
+        "왜 context와 compound pattern을 함께 쓸까요?",
+        "문제 상황: tabs 컴포넌트",
+        "해결책: context + compound pattern",
+        "context + compound의 시너지",
+        "1. 사용자 친화적인 api"
+      ],
+      "difficulty": 5,
+      "wordCount": 6509
+    },
+    {
+      "id": "web-development/frontend/react/patterns/react-provider-pattern.md",
+      "title": "React Provider Pattern",
+      "filePath": "web-development/frontend/react/patterns/react-provider-pattern.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "provider",
+        "react",
+        "context",
+        "pattern",
+        "https",
+        "redux",
+        "api",
+        "com",
+        "zustand",
+        "jotai",
+        "github",
+        "hook",
+        "devtools",
+        "props",
+        "selector"
+      ],
+      "concepts": [
+        "react provider pattern",
+        "전역 상태, 어떻게 관리하고 계신가요?",
+        "provider 패턴이란?",
+        "핵심 구성요소",
+        "시각적 구조",
+        "provider 패턴이 왜 중요할까?",
+        "1. prop drilling 지옥 탈출",
+        "2. 관심사의 분리",
+        "3. 테스트 용이성",
+        "기본 구현 패턴"
+      ],
+      "difficulty": 5,
+      "wordCount": 8002
+    },
+    {
+      "id": "web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+      "title": "Custom Hook 리팩토링: useAsync",
+      "filePath": "web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "react",
+        "https",
+        "hook",
+        "custom",
+        "dev",
+        "hooks",
+        "query",
+        "typescript",
+        "org",
+        "api",
+        "reference",
+        "docs",
+        "com",
+        "vs",
+        "swr"
+      ],
+      "concepts": [
+        "custom hook 리팩토링: useasync",
+        "문제 상황",
+        "🚨 문제점",
+        "before: 코드 중복 발생",
+        "문제 분석",
+        "해결 방법: custom hook",
+        "1. useasync hook 생성",
+        "2. after: hook 사용",
+        "리팩토링 효과 비교",
+        "📊 코드 라인 수 비교"
+      ],
+      "difficulty": 5,
+      "wordCount": 2761
+    },
+    {
+      "id": "web-development/guides/json-feed-specification.md",
+      "title": "JSON Feed 사양",
+      "filePath": "web-development/guides/json-feed-specification.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "json",
+        "feed",
+        "rss",
+        "url",
+        "xml",
+        "https",
+        "atom",
+        "title",
+        "version",
+        "org",
+        "html",
+        "javascript",
+        "item",
+        "jsonfeed",
+        "authors"
+      ],
+      "concepts": [
+        "json feed 사양",
+        "개요",
+        "왜 json feed인가?",
+        "기존 rss/atom의 문제점",
+        "1. xml 파싱의 복잡성",
+        "2. 네임스페이스 충돌 문제",
+        "3. 상대적으로 장황한 문법",
+        "json feed의 장점",
+        "1. javascript 객체 표기법 활용",
+        "2. 대부분의 프로그래밍 언어에서 기본 지원"
+      ],
+      "difficulty": 5,
+      "wordCount": 2459
+    },
+    {
+      "id": "web-development/guides/npm-library-guide.md",
+      "title": "나만의 npm 라이브러리 만들고 세상과 공유하기",
+      "filePath": "web-development/guides/npm-library-guide.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "https",
+        "npm",
+        "com",
+        "github",
+        "typescript",
+        "package",
+        "date",
+        "react",
+        "node",
+        "js",
+        "json",
+        "javascript",
+        "modules",
+        "exports",
+        "docs"
+      ],
+      "concepts": [
+        "나만의 npm 라이브러리 만들고 세상과 공유하기",
+        "왜 npm 라이브러리를 만들어야 할까요?",
+        "1. 코드 재사용성과 유지보수",
+        "2. 오픈소스 기여와 포트폴리오",
+        "3. 팀 내 코드 공유",
+        "기본 개념",
+        "npm 패키지란?",
+        "esm vs commonjs",
+        "package.json의 핵심 필드",
+        "프로젝트 설정"
+      ],
+      "difficulty": 5,
+      "wordCount": 4511
+    },
+    {
+      "id": "web-development/index.md",
+      "title": "웹 개발",
+      "filePath": "web-development/index.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "web",
+        "development",
+        "css"
+      ],
+      "concepts": [],
+      "difficulty": 1,
+      "wordCount": 36
+    },
+    {
+      "id": "web-development/security/html-sanitization.md",
+      "title": "HTML 새니타이징(Sanitization) - XSS 공격 방어",
+      "filePath": "web-development/security/html-sanitization.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "xss",
+        "https",
+        "html",
+        "csp",
+        "owasp",
+        "com",
+        "api",
+        "org",
+        "dompurify",
+        "innerhtml",
+        "github",
+        "url",
+        "dom",
+        "js",
+        "react"
+      ],
+      "concepts": [
+        "html 새니타이징으로 웹사이트를 지키는 법",
+        "왜 html sanitization을 이해해야 할까요?",
+        "현대 웹의 양방향 특성",
+        "xss 공격이 일으키는 실제 피해",
+        "기본 개념: xss란 무엇인가?",
+        "xss(cross-site scripting)의 정의",
+        "xss 공격이 성공하는 메커니즘",
+        "html sanitization의 원리",
+        "xss 공격의 종류",
+        "1. stored xss (저장형 xss)"
+      ],
+      "difficulty": 5,
+      "wordCount": 5209
+    },
+    {
+      "id": "web-development/tools/chrome-user-agent-override.md",
+      "title": "Chrome User Agent Override 가이드",
+      "filePath": "web-development/tools/chrome-user-agent-override.md",
+      "topic": "web-development",
+      "links": [],
+      "backlinks": [],
+      "keywords": [
+        "user",
+        "agent",
+        "chrome",
+        "https",
+        "devtools",
+        "com",
+        "mozilla",
+        "www",
+        "iphone",
+        "string",
+        "device",
+        "client",
+        "hints",
+        "developer",
+        "docs"
+      ],
+      "concepts": [
+        "chrome devtools로 user agent를 마스터하는 완벽 가이드",
+        "왜 user agent를 이해해야 할까요?",
+        "user agent가 실제로 해결하는 문제들",
+        "1. 크로스 브라우저 이슈 디버깅",
+        "2. 반응형 디자인 검증",
+        "3. seo와 봇 크롤러 시뮬레이션",
+        "저도 처음에는 잘못 알고 있었습니다",
+        "기본 개념: user agent string 완벽 해부",
+        "user agent string이란?",
+        "user agent string 구조 분석"
+      ],
+      "difficulty": 5,
+      "wordCount": 5433
+    }
+  ],
+  "edges": [
+    {
+      "source": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "target": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+      "type": "keyword_similarity",
+      "strength": 0.4166666666666667,
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "assignees"
+      ]
+    },
+    {
+      "source": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "target": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "type": "keyword_similarity",
+      "strength": 0.625,
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "assignees"
+      ]
+    },
+    {
+      "source": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+      "target": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "type": "keyword_similarity",
+      "strength": 0.4166666666666667,
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "assignees"
+      ]
+    },
+    {
+      "source": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+      "target": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "type": "keyword_similarity",
+      "strength": 0.38461538461538464,
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "assignees"
+      ]
+    },
+    {
+      "source": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "target": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "type": "keyword_similarity",
+      "strength": 0.625,
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "assignees"
+      ]
+    },
+    {
+      "source": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "target": ".github/ISSUE_TEMPLATE/content_suggestion.md",
+      "type": "keyword_similarity",
+      "strength": 0.38461538461538464,
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "assignees"
+      ]
+    },
+    {
+      "source": "GEMINI_SETUP.md",
+      "target": "tech-news/README.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "api",
+        "google",
+        "https",
+        "com",
+        "github",
+        "actions",
+        "hackernews"
+      ]
+    },
+    {
+      "source": "NAVIGATION.md",
+      "target": "algorithms/index.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "NAVIGATION.md",
+      "target": "README.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "md",
+        "https",
+        "img",
+        "shields",
+        "io",
+        "badge",
+        "web",
+        "development",
+        "javascript",
+        "react"
+      ]
+    },
+    {
+      "source": "README.md",
+      "target": "NAVIGATION.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "README.md",
+      "target": "algorithms/index.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "README.md",
+      "target": "NAVIGATION.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "md",
+        "https",
+        "web",
+        "development",
+        "javascript",
+        "img",
+        "shields",
+        "io",
+        "badge",
+        "react"
+      ]
+    },
+    {
+      "source": "algorithms/index.md",
+      "target": "databases/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "algorithms/index.md",
+      "target": "index.md",
+      "type": "keyword_similarity",
+      "strength": 0.3333333333333333,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "description"
+      ]
+    },
+    {
+      "source": "algorithms/index.md",
+      "target": "languages/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5555555555555556,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "algorithms/index.md",
+      "target": "networking/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.625,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "algorithms/index.md",
+      "target": "web-development/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5555555555555556,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "databases/index.md",
+      "target": "algorithms/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "databases/index.md",
+      "target": "languages/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.4166666666666667,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "databases/index.md",
+      "target": "networking/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.45454545454545453,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "databases/index.md",
+      "target": "web-development/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.4166666666666667,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "index.md",
+      "target": "algorithms/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.3333333333333333,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "description"
+      ]
+    },
+    {
+      "source": "index.md",
+      "target": "networking/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.3076923076923077,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "description"
+      ]
+    },
+    {
+      "source": "languages/index.md",
+      "target": "algorithms/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5555555555555556,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "languages/index.md",
+      "target": "databases/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.4166666666666667,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "languages/index.md",
+      "target": "networking/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "languages/index.md",
+      "target": "web-development/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.45454545454545453,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "languages/javascript/bind.md",
+      "target": "languages/javascript/this.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/bind.md",
+      "target": "languages/javascript/callback.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/bind.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/bind.md",
+      "target": "languages/javascript/instance.md",
+      "type": "keyword_similarity",
+      "strength": 0.42857142857142855,
+      "keywords": [
+        "this",
+        "javascript",
+        "https",
+        "developer",
+        "mozilla",
+        "org",
+        "en",
+        "us",
+        "docs"
+      ]
+    },
+    {
+      "source": "languages/javascript/bind.md",
+      "target": "languages/javascript/prototype_chain.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "this",
+        "javascript",
+        "https",
+        "md",
+        "prototype",
+        "developer",
+        "docs"
+      ]
+    },
+    {
+      "source": "languages/javascript/bind.md",
+      "target": "languages/javascript/this.md",
+      "type": "keyword_similarity",
+      "strength": 0.5789473684210527,
+      "keywords": [
+        "this",
+        "bind",
+        "javascript",
+        "https",
+        "function",
+        "md",
+        "call",
+        "apply",
+        "prototype",
+        "org",
+        "docs"
+      ]
+    },
+    {
+      "source": "languages/javascript/callback.md",
+      "target": "languages/javascript/this.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/factory_pattern.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/factory_pattern.md",
+      "target": "languages/javascript/instance.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/factory_pattern.md",
+      "target": "languages/javascript/callback.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/factory_pattern.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "https",
+        "javascript",
+        "object",
+        "vs",
+        "com",
+        "md",
+        "class"
+      ]
+    },
+    {
+      "source": "languages/javascript/instance.md",
+      "target": "languages/javascript/bind.md",
+      "type": "keyword_similarity",
+      "strength": 0.42857142857142855,
+      "keywords": [
+        "javascript",
+        "https",
+        "org",
+        "this",
+        "developer",
+        "mozilla",
+        "en",
+        "us",
+        "docs"
+      ]
+    },
+    {
+      "source": "languages/javascript/instance.md",
+      "target": "languages/javascript/prototype_chain.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "javascript",
+        "https",
+        "object",
+        "this",
+        "developer",
+        "docs",
+        "instanceof",
+        "com"
+      ]
+    },
+    {
+      "source": "languages/javascript/mutation-vs-non-mutation-examples.md",
+      "target": "languages/javascript/mutation-vs-non-mutation.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/prototype_chain.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/this.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/bind.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/instance.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/factory_pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "javascript",
+        "class",
+        "https",
+        "md",
+        "object",
+        "com",
+        "vs"
+      ]
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/prototype_chain.md",
+      "type": "keyword_similarity",
+      "strength": 0.42857142857142855,
+      "keywords": [
+        "prototype",
+        "javascript",
+        "chain",
+        "https",
+        "md",
+        "object",
+        "this",
+        "in",
+        "com"
+      ]
+    },
+    {
+      "source": "languages/javascript/prototype.md",
+      "target": "languages/javascript/this.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "prototype",
+        "javascript",
+        "https",
+        "md",
+        "this",
+        "vs",
+        "new"
+      ]
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/this.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/bind.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/instance.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/this.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/bind.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "prototype",
+        "javascript",
+        "md",
+        "https",
+        "this",
+        "developer",
+        "docs"
+      ]
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/instance.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "javascript",
+        "instanceof",
+        "https",
+        "object",
+        "this",
+        "developer",
+        "docs",
+        "com"
+      ]
+    },
+    {
+      "source": "languages/javascript/prototype_chain.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "keyword_similarity",
+      "strength": 0.42857142857142855,
+      "keywords": [
+        "chain",
+        "prototype",
+        "javascript",
+        "md",
+        "https",
+        "object",
+        "this",
+        "in",
+        "com"
+      ]
+    },
+    {
+      "source": "languages/javascript/this.md",
+      "target": "languages/javascript/bind.md",
+      "type": "keyword_similarity",
+      "strength": 0.5789473684210527,
+      "keywords": [
+        "this",
+        "javascript",
+        "bind",
+        "call",
+        "https",
+        "apply",
+        "md",
+        "prototype",
+        "org",
+        "docs",
+        "function"
+      ]
+    },
+    {
+      "source": "languages/javascript/this.md",
+      "target": "languages/javascript/prototype.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "this",
+        "javascript",
+        "https",
+        "new",
+        "md",
+        "vs",
+        "prototype"
+      ]
+    },
+    {
+      "source": "languages/typescript/get_return_type.md",
+      "target": "languages/typescript/metaprogramming-concept.md",
+      "type": "keyword_similarity",
+      "strength": 0.42857142857142855,
+      "keywords": [
+        "https",
+        "type",
+        "typescript",
+        "types",
+        "com",
+        "www",
+        "org",
+        "typescriptlang",
+        "handbook"
+      ]
+    },
+    {
+      "source": "languages/typescript/metaprogramming-concept.md",
+      "target": "languages/typescript/get_return_type.md",
+      "type": "keyword_similarity",
+      "strength": 0.42857142857142855,
+      "keywords": [
+        "https",
+        "typescript",
+        "types",
+        "type",
+        "org",
+        "www",
+        "typescriptlang",
+        "handbook",
+        "com"
+      ]
+    },
+    {
+      "source": "networking/index.md",
+      "target": "algorithms/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.625,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "networking/index.md",
+      "target": "databases/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.45454545454545453,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "networking/index.md",
+      "target": "index.md",
+      "type": "keyword_similarity",
+      "strength": 0.3076923076923077,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "description"
+      ]
+    },
+    {
+      "source": "networking/index.md",
+      "target": "languages/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "networking/index.md",
+      "target": "web-development/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "tech-news/2025-10-14-hackernews-top-stories.md",
+      "target": "tech-news/latest.md",
+      "type": "keyword_similarity",
+      "strength": 1,
+      "keywords": [
+        "https",
+        "com",
+        "in",
+        "ddos",
+        "hackernews",
+        "uv",
+        "wagtail",
+        "org",
+        "jit",
+        "news",
+        "pip",
+        "ci",
+        "zig",
+        "blog",
+        "nanochat"
+      ]
+    },
+    {
+      "source": "tech-news/README.md",
+      "target": "GEMINI_SETUP.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "hackernews",
+        "api",
+        "github",
+        "actions",
+        "google",
+        "https",
+        "com"
+      ]
+    },
+    {
+      "source": "tech-news/latest.md",
+      "target": "tech-news/2025-10-14-hackernews-top-stories.md",
+      "type": "keyword_similarity",
+      "strength": 1,
+      "keywords": [
+        "https",
+        "com",
+        "in",
+        "ddos",
+        "hackernews",
+        "uv",
+        "wagtail",
+        "org",
+        "jit",
+        "news",
+        "pip",
+        "ci",
+        "zig",
+        "blog",
+        "nanochat"
+      ]
+    },
+    {
+      "source": "web-development/frontend/css/preload-css-async-loading.md",
+      "target": "web-development/frontend/css/font-optimization-preload-fout.md",
+      "type": "direct_link",
+      "strength": 1
+    },
+    {
+      "source": "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+      "target": "web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "hooks",
+        "react",
+        "custom",
+        "hook",
+        "https",
+        "dev",
+        "api",
+        "reference"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/composite-pattern.md",
+      "target": "web-development/frontend/react/patterns/compound-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "react",
+        "patterns",
+        "https",
+        "pattern",
+        "com",
+        "ui",
+        "compound"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/compound-pattern.md",
+      "target": "web-development/frontend/react/patterns/composite-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "compound",
+        "react",
+        "pattern",
+        "https",
+        "ui",
+        "com",
+        "patterns"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/compound-pattern.md",
+      "target": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "compound",
+        "react",
+        "pattern",
+        "https",
+        "ui",
+        "context",
+        "props",
+        "com"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/configuration-over-composition.md",
+      "target": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "https",
+        "com",
+        "props",
+        "react",
+        "api",
+        "ui",
+        "typescript"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "target": "web-development/frontend/react/patterns/compound-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "context",
+        "compound",
+        "pattern",
+        "react",
+        "ui",
+        "https",
+        "com",
+        "props"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "target": "web-development/frontend/react/patterns/configuration-over-composition.md",
+      "type": "keyword_similarity",
+      "strength": 0.30434782608695654,
+      "keywords": [
+        "react",
+        "api",
+        "ui",
+        "https",
+        "typescript",
+        "com",
+        "props"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "target": "web-development/frontend/react/patterns/react-provider-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "context",
+        "pattern",
+        "react",
+        "api",
+        "provider",
+        "https",
+        "com",
+        "props"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/patterns/react-provider-pattern.md",
+      "target": "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "provider",
+        "react",
+        "context",
+        "pattern",
+        "https",
+        "api",
+        "com",
+        "props"
+      ]
+    },
+    {
+      "source": "web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+      "target": "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+      "type": "keyword_similarity",
+      "strength": 0.36363636363636365,
+      "keywords": [
+        "react",
+        "https",
+        "hook",
+        "custom",
+        "dev",
+        "hooks",
+        "api",
+        "reference"
+      ]
+    },
+    {
+      "source": "web-development/index.md",
+      "target": "algorithms/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5555555555555556,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "web-development/index.md",
+      "target": "databases/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.4166666666666667,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "web-development/index.md",
+      "target": "languages/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.45454545454545453,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    },
+    {
+      "source": "web-development/index.md",
+      "target": "networking/index.md",
+      "type": "keyword_similarity",
+      "strength": 0.5,
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": ".github",
+      "topic": ".github",
+      "documents": [
+        ".github/ISSUE_TEMPLATE/bug_report.md",
+        ".github/ISSUE_TEMPLATE/content_suggestion.md",
+        ".github/ISSUE_TEMPLATE/feature_request.md",
+        ".github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "keywords": [
+        "name",
+        "about",
+        "title",
+        "labels",
+        "bug",
+        "assignees",
+        "documentation",
+        "content",
+        "suggestion",
+        "url"
+      ],
+      "centrality": 4
+    },
+    {
+      "id": "GEMINI_SETUP.md",
+      "topic": "GEMINI_SETUP.md",
+      "documents": [
+        "GEMINI_SETUP.md"
+      ],
+      "keywords": [
+        "api",
+        "gemini",
+        "google",
+        "https",
+        "requests",
+        "ai",
+        "aistudio",
+        "com",
+        "github",
+        "secrets"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "JEKYLL_SETUP.md",
+      "topic": "JEKYLL_SETUP.md",
+      "documents": [
+        "JEKYLL_SETUP.md"
+      ],
+      "keywords": [
+        "github",
+        "jekyll",
+        "pages",
+        "https",
+        "com",
+        "learn",
+        "cs",
+        "title",
+        "date",
+        "layout"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "NAVIGATION.md",
+      "topic": "NAVIGATION.md",
+      "documents": [
+        "NAVIGATION.md"
+      ],
+      "keywords": [
+        "new",
+        "md",
+        "https",
+        "img",
+        "shields",
+        "io",
+        "badge",
+        "style",
+        "flat",
+        "square"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "README.md",
+      "topic": "README.md",
+      "documents": [
+        "README.md"
+      ],
+      "keywords": [
+        "md",
+        "https",
+        "web",
+        "development",
+        "javascript",
+        "languages",
+        "details",
+        "summary",
+        "strong",
+        "img"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "ai-ml",
+      "topic": "ai-ml",
+      "documents": [
+        "ai-ml/README.md"
+      ],
+      "keywords": [
+        "learning",
+        "language",
+        "ai",
+        "ml",
+        "machine",
+        "deep",
+        "natural",
+        "processing",
+        "nlp",
+        "large"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "algorithms",
+      "topic": "algorithms",
+      "documents": [
+        "algorithms/index.md",
+        "algorithms/memoization-optimization-technique.md"
+      ],
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "algorithms",
+        "react",
+        "https",
+        "fibonacci",
+        "api"
+      ],
+      "centrality": 2
+    },
+    {
+      "id": "copyright.md",
+      "topic": "copyright.md",
+      "documents": [
+        "copyright.md"
+      ],
+      "keywords": [
+        "github",
+        "learn",
+        "cs",
+        "lledellebell",
+        "https",
+        "com",
+        "license",
+        "mit",
+        "issues",
+        "date"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "databases",
+      "topic": "databases",
+      "documents": [
+        "databases/index.md",
+        "databases/prisma-orm-guide.md"
+      ],
+      "keywords": [
+        "orm",
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "db",
+        "nosql",
+        "databases",
+        "prisma"
+      ],
+      "centrality": 2
+    },
+    {
+      "id": "index.md",
+      "topic": "index.md",
+      "documents": [
+        "index.md"
+      ],
+      "keywords": [
+        "home",
+        "title",
+        "learn",
+        "cs",
+        "date",
+        "layout",
+        "description",
+        "computer",
+        "science",
+        "html"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "languages",
+      "topic": "languages",
+      "documents": [
+        "languages/index.md",
+        "languages/javascript/bind.md",
+        "languages/javascript/callback.md",
+        "languages/javascript/factory_pattern.md",
+        "languages/javascript/foreach-vs-reduce-functional-programming.md",
+        "languages/javascript/instance.md",
+        "languages/javascript/mutation-vs-non-mutation-examples.md",
+        "languages/javascript/mutation-vs-non-mutation.md",
+        "languages/javascript/naming-conventions.md",
+        "languages/javascript/prototype.md",
+        "languages/javascript/prototype_chain.md",
+        "languages/javascript/this.md",
+        "languages/typescript/get_return_type.md",
+        "languages/typescript/metaprogramming-concept.md"
+      ],
+      "keywords": [
+        "title",
+        "date",
+        "layout",
+        "category",
+        "description",
+        "javascript",
+        "typescript",
+        "languages",
+        "this",
+        "bind"
+      ],
+      "centrality": 14
+    },
+    {
+      "id": "learning-progress.md",
+      "topic": "learning-progress.md",
+      "documents": [
+        "learning-progress.md"
+      ],
+      "keywords": [
+        "learning",
+        "progress",
+        "layout",
+        "title",
+        "description",
+        "knowledge",
+        "graph",
+        "permalink"
+      ],
+      "centrality": 1
+    },
+    {
+      "id": "networking",
+      "topic": "networking",
+      "documents": [
+        "networking/http/http_authentication_methods.md",
+        "networking/index.md"
+      ],
+      "keywords": [
+        "https",
+        "jwt",
+        "oauth",
+        "http",
+        "basic",
+        "org",
+        "token",
+        "authentication",
+        "authorization",
+        "com"
+      ],
+      "centrality": 2
+    },
+    {
+      "id": "tech-news",
+      "topic": "tech-news",
+      "documents": [
+        "tech-news/2025-10-13-hackernews-top-stories.md",
+        "tech-news/2025-10-14-hackernews-top-stories.md",
+        "tech-news/README.md",
+        "tech-news/latest.md"
+      ],
+      "keywords": [
+        "https",
+        "com",
+        "org",
+        "www",
+        "blog",
+        "jujutsu",
+        "hackernews",
+        "github",
+        "on",
+        "pdfly"
+      ],
+      "centrality": 4
+    },
+    {
+      "id": "web-development",
+      "topic": "web-development",
+      "documents": [
+        "web-development/frontend/css/font-optimization-preload-fout.md",
+        "web-development/frontend/css/mask-composite.md",
+        "web-development/frontend/css/object-position_&_object-fit.md",
+        "web-development/frontend/css/preload-css-async-loading.md",
+        "web-development/frontend/react/hooks/custom-hooks-deep-dive.md",
+        "web-development/frontend/react/optimization/react-usememo-optimization.md",
+        "web-development/frontend/react/pattern.md",
+        "web-development/frontend/react/patterns/composite-pattern.md",
+        "web-development/frontend/react/patterns/compound-pattern.md",
+        "web-development/frontend/react/patterns/configuration-over-composition.md",
+        "web-development/frontend/react/patterns/hydration-and-css-issues.md",
+        "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+        "web-development/frontend/react/patterns/react-context-api-compound-pattern.md",
+        "web-development/frontend/react/patterns/react-provider-pattern.md",
+        "web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md",
+        "web-development/guides/json-feed-specification.md",
+        "web-development/guides/npm-library-guide.md",
+        "web-development/index.md",
+        "web-development/security/html-sanitization.md",
+        "web-development/tools/chrome-user-agent-override.md"
+      ],
+      "keywords": [
+        "font",
+        "web",
+        "preload",
+        "https",
+        "fout",
+        "dev",
+        "css",
+        "text",
+        "fallback",
+        "foit"
+      ],
+      "centrality": 20
+    }
+  ],
+  "statistics": {
+    "totalNodes": 56,
+    "totalEdges": 87,
+    "averageConnections": "3.11",
+    "mostConnectedDocs": [
+      {
+        "id": "languages/javascript/prototype.md",
+        "title": "Prototype - JavaScript의 숨은 마법을 이해하기",
+        "connections": 17
+      },
+      {
+        "id": "languages/javascript/prototype_chain.md",
+        "title": "Prototype Chain - JavaScript 상속의 마법 같은 여정",
+        "connections": 16
+      },
+      {
+        "id": "algorithms/index.md",
+        "title": "알고리즘",
+        "connections": 12
+      },
+      {
+        "id": "languages/javascript/bind.md",
+        "title": "`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법",
+        "connections": 11
+      },
+      {
+        "id": "networking/index.md",
+        "title": "네트워킹",
+        "connections": 10
+      },
+      {
+        "id": "languages/javascript/this.md",
+        "title": "this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기",
+        "connections": 9
+      },
+      {
+        "id": "databases/index.md",
+        "title": "데이터베이스",
+        "connections": 8
+      },
+      {
+        "id": "languages/index.md",
+        "title": "프로그래밍 언어",
+        "connections": 8
+      },
+      {
+        "id": "web-development/index.md",
+        "title": "웹 개발",
+        "connections": 8
+      },
+      {
+        "id": "languages/javascript/instance.md",
+        "title": "인스턴스 (Instance)",
+        "connections": 7
+      }
+    ],
+    "isolatedDocs": [
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      "JEKYLL_SETUP.md",
+      "ai-ml/README.md",
+      "algorithms/memoization-optimization-technique.md",
+      "copyright.md",
+      "databases/prisma-orm-guide.md",
+      "languages/javascript/foreach-vs-reduce-functional-programming.md",
+      "languages/javascript/naming-conventions.md",
+      "learning-progress.md",
+      "networking/http/http_authentication_methods.md",
+      "tech-news/2025-10-13-hackernews-top-stories.md",
+      "web-development/frontend/css/mask-composite.md",
+      "web-development/frontend/css/object-position_&_object-fit.md",
+      "web-development/frontend/react/optimization/react-usememo-optimization.md",
+      "web-development/frontend/react/pattern.md",
+      "web-development/frontend/react/patterns/hydration-and-css-issues.md",
+      "web-development/frontend/react/patterns/react-composite-compound-patterns.md",
+      "web-development/guides/json-feed-specification.md",
+      "web-development/guides/npm-library-guide.md",
+      "web-development/security/html-sanitization.md",
+      "web-development/tools/chrome-user-agent-override.md"
+    ]
+  },
+  "learningHistory": {
+    "version": "2.0",
+    "lastUpdated": "2025-10-14T08:01:20.569Z",
+    "items": [],
+    "statistics": {
+      "totalDocuments": 528,
+      "completedDocuments": 0,
+      "topicProgress": {
+        "algorithms": {
+          "topic": "algorithms",
+          "total": 2,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 2,
+          "averageDifficulty": 262,
+          "totalTimeSpent": 0
+        },
+        "languages": {
+          "topic": "languages",
+          "total": 14,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 14,
+          "averageDifficulty": 710,
+          "totalTimeSpent": 0
+        },
+        "web-development": {
+          "topic": "web-development",
+          "total": 20,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 20,
+          "averageDifficulty": 682,
+          "totalTimeSpent": 0
+        },
+        "networking": {
+          "topic": "networking",
+          "total": 2,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 2,
+          "averageDifficulty": 437,
+          "totalTimeSpent": 0
+        },
+        "databases": {
+          "topic": "databases",
+          "total": 2,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 2,
+          "averageDifficulty": 803,
+          "totalTimeSpent": 0
+        },
+        "ai-ml": {
+          "topic": "ai-ml",
+          "total": 1,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 1,
+          "averageDifficulty": 27,
+          "totalTimeSpent": 0
+        },
+        "security": {
+          "topic": "security",
+          "total": 0,
+          "completed": 0,
+          "inProgress": 0,
+          "notStarted": 0,
+          "averageDifficulty": 0,
+          "totalTimeSpent": 0
+        }
+      }
+    },
+    "lastAnalysis": {
+      "date": "2025-10-14T08:01:20.568Z",
+      "totalDocuments": 528,
+      "imbalanceCount": 5,
+      "recommendationCount": 5
+    }
+  },
+  "generatedAt": "2025-10-14T12:55:46.214Z"
+}

@@ -1,0 +1,138 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/learning-progress.css' | relative_url }}">
+
+<div class="learning-progress-page">
+  <header class="page-header">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="page-description">{{ page.description }}</p>
+  </header>
+
+  <!-- 전체 진행률 개요 -->
+  <section class="progress-overview-section">
+    <h2 class="section-title">전체 학습 진행률</h2>
+    <div class="progress-cards">
+      <div class="progress-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-value" id="totalDocs">-</div>
+          <div class="card-label">전체 문서</div>
+        </div>
+      </div>
+      <div class="progress-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-value" id="completedDocs">-</div>
+          <div class="card-label">학습 완료</div>
+        </div>
+      </div>
+      <div class="progress-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-value" id="progressPercent">-%</div>
+          <div class="card-label">진행률</div>
+        </div>
+      </div>
+      <div class="progress-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-value" id="avgConnections">-</div>
+          <div class="card-label">평균 연결도</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 지식 그래프 시각화 -->
+  <section class="knowledge-graph-section">
+    <h2 class="section-title">지식 그래프</h2>
+    <div class="graph-controls">
+      <div class="control-group">
+        <label for="topicFilter">주제 필터:</label>
+        <select id="topicFilter">
+          <option value="all">전체</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="viewMode">보기 모드:</label>
+        <select id="viewMode">
+          <option value="force">Force Graph</option>
+          <option value="cluster">Cluster View</option>
+          <option value="hierarchy">Hierarchy</option>
+        </select>
+      </div>
+    </div>
+    <div id="knowledgeGraphViz" class="graph-container"></div>
+  </section>
+
+  <!-- 학습 경로 추천 -->
+  <section class="learning-path-section">
+    <h2 class="section-title">추천 학습 경로</h2>
+    <div class="path-selector">
+      <div class="selector-group">
+        <label for="startDoc">시작 문서:</label>
+        <select id="startDoc">
+          <option value="">선택하세요</option>
+        </select>
+      </div>
+      <div class="selector-group">
+        <label for="endDoc">목표 문서:</label>
+        <select id="endDoc">
+          <option value="">선택하세요</option>
+        </select>
+      </div>
+      <button id="findPathBtn" class="btn-primary">경로 찾기</button>
+    </div>
+    <div id="learningPathResult" class="path-result"></div>
+  </section>
+
+  <!-- 주제별 클러스터 -->
+  <section class="topic-clusters-section">
+    <h2 class="section-title">주제별 학습 현황</h2>
+    <div id="topicClusters" class="clusters-grid"></div>
+  </section>
+
+  <!-- 연결도 높은 문서 -->
+  <section class="hub-documents-section">
+    <h2 class="section-title">핵심 문서 (Hub)</h2>
+    <p class="section-description">많은 문서와 연결된 중요한 개념 문서들입니다</p>
+    <div id="hubDocuments" class="hub-list"></div>
+  </section>
+
+  <!-- 고립된 문서 -->
+  <section class="isolated-documents-section">
+    <h2 class="section-title">연결이 부족한 문서</h2>
+    <p class="section-description">다른 문서와의 연결을 강화하면 학습 효과가 높아집니다</p>
+    <div id="isolatedDocuments" class="isolated-list"></div>
+  </section>
+
+  <!-- 최근 활동 -->
+  <section class="recent-activity-section">
+    <h2 class="section-title">최근 학습 활동</h2>
+    <div id="recentActivity" class="activity-timeline"></div>
+  </section>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="{{ '/assets/js/knowledge-graph-viz.js' | relative_url }}"></script>
