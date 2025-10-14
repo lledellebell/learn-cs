@@ -2,7 +2,7 @@
 layout: news
 title: "HackerNews 오늘의 IT 뉴스"
 date: 2025-10-14
-last_modified_at: 2025-10-14T00:12:01.903Z
+last_modified_at: 2025-10-14T00:16:59.168Z
 category: tech-news
 ---
 
@@ -48,16 +48,16 @@ category: tech-news
 ---
 
 
-## 6. Show HN: SQLite Online – 11 years of solo development, 11K daily users
+## 6. JIT: So you want to be faster than an interpreter on modern CPUs
 
-**원문:** [https://sqliteonline.com/](https://sqliteonline.com/)
+**원문:** [https://www.pinaraf.info/2025/10/jit-so-you-want-to-be-faster-than-an-interpreter-on-modern-cpus/](https://www.pinaraf.info/2025/10/jit-so-you-want-to-be-faster-than-an-interpreter-on-modern-cpus/)
 
 ---
 
 
-## 7. JIT: So you want to be faster than an interpreter on modern CPUs
+## 7. Show HN: SQLite Online – 11 years of solo development, 11K daily users
 
-**원문:** [https://www.pinaraf.info/2025/10/jit-so-you-want-to-be-faster-than-an-interpreter-on-modern-cpus/](https://www.pinaraf.info/2025/10/jit-so-you-want-to-be-faster-than-an-interpreter-on-modern-cpus/)
+**원문:** [https://sqliteonline.com/](https://sqliteonline.com/)
 
 ---
 
