@@ -57,8 +57,17 @@
   // =========================================
   const renderProgressChart = (container, data) => {
     const { topicProgress } = data.statistics;
-    const progressData = Object.values(topicProgress)
-      .filter(topic => topic.total > 0)
+    const currentCategory = window.currentCategory;
+
+    // 카테고리 필터링: 현재 카테고리만 또는 전체
+    let progressData = Object.values(topicProgress)
+      .filter(topic => topic.total > 0);
+
+    if (currentCategory) {
+      progressData = progressData.filter(topic => topic.topic === currentCategory);
+    }
+
+    progressData = progressData
       .map(topic => ({
         topic: topic.topic,
         total: topic.total,
@@ -180,9 +189,9 @@
           .style('opacity', 1);
         tooltip.html(`
           <strong>${d.topic}</strong><br/>
-          완료: ${d.completed}개<br/>
+          완료됨: ${d.completed}개<br/>
           진행 중: ${d.inProgress}개<br/>
-          미시작: ${d.notStarted}개<br/>
+          시작 전: ${d.notStarted}개<br/>
           전체: ${d.total}개
         `)
           .style('left', (event.pageX + 10) + 'px')
@@ -204,25 +213,44 @@
     if (!container) return;
 
     const { topicProgress, totalDocuments, completedDocuments } = data.statistics;
-    const overallPercentage = totalDocuments > 0
-      ? Math.round((completedDocuments / totalDocuments) * 100)
+    const currentCategory = window.currentCategory;
+
+    // 카테고리 필터링
+    let topicsToShow = Object.values(topicProgress).filter(topic => topic.total > 0);
+
+    if (currentCategory) {
+      topicsToShow = topicsToShow.filter(topic => topic.topic === currentCategory);
+    }
+
+    // 전체 통계 계산 (카테고리별로 필터링된)
+    let filteredTotal = totalDocuments;
+    let filteredCompleted = completedDocuments;
+
+    if (currentCategory && topicsToShow.length > 0) {
+      const currentTopic = topicsToShow[0];
+      filteredTotal = currentTopic.total;
+      filteredCompleted = currentTopic.completed;
+    }
+
+    const overallPercentage = filteredTotal > 0
+      ? Math.round((filteredCompleted / filteredTotal) * 100)
       : 0;
 
-    // 전체 통계 카드
+    // 전체 통계 카드 (현재 카테고리의 통계)
     const overallCard = `
       <div class="topic-card overall">
         <div class="topic-card-header">
-          <h4>전체 진행률</h4>
+          <h4>${currentCategory ? currentCategory + ' 카테고리' : '전체'} 진행률</h4>
           <span class="topic-card-percentage">${overallPercentage}%</span>
         </div>
         <div class="topic-card-body">
           <div class="topic-card-stat">
             <span class="stat-label">전체 문서</span>
-            <span class="stat-value">${totalDocuments}개</span>
+            <span class="stat-value">${filteredTotal}개</span>
           </div>
           <div class="topic-card-stat">
-            <span class="stat-label">완료</span>
-            <span class="stat-value">${completedDocuments}개</span>
+            <span class="stat-label">완료됨</span>
+            <span class="stat-value">${filteredCompleted}개</span>
           </div>
         </div>
         <div class="topic-card-progress">
@@ -232,11 +260,14 @@
     `;
 
     // 주제별 카드
-    const topicCards = Object.values(topicProgress)
-      .filter(topic => topic.total > 0)
+    const topicCards = topicsToShow
       .sort((a, b) => (b.completed / b.total) - (a.completed / a.total))
       .map(topic => {
         const percentage = Math.round((topic.completed / topic.total) * 100);
+        const avgDifficulty = topic.averageDifficulty ? Math.round(topic.averageDifficulty) : 0;
+        const timeSpent = topic.totalTimeSpent || 0;
+        const timeSpentHours = timeSpent > 0 ? (timeSpent / 3600).toFixed(1) : 0;
+
         return `
           <div class="topic-card">
             <div class="topic-card-header">
@@ -245,7 +276,7 @@
             </div>
             <div class="topic-card-body">
               <div class="topic-card-stat">
-                <span class="stat-label">완료</span>
+                <span class="stat-label">완료됨</span>
                 <span class="stat-value">${topic.completed}개</span>
               </div>
               <div class="topic-card-stat">
@@ -253,9 +284,19 @@
                 <span class="stat-value">${topic.inProgress}개</span>
               </div>
               <div class="topic-card-stat">
-                <span class="stat-label">미시작</span>
+                <span class="stat-label">시작 전</span>
                 <span class="stat-value">${topic.notStarted}개</span>
               </div>
+              <div class="topic-card-stat">
+                <span class="stat-label">평균 난이도</span>
+                <span class="stat-value">${avgDifficulty}</span>
+              </div>
+              ${timeSpent > 0 ? `
+              <div class="topic-card-stat">
+                <span class="stat-label">학습 시간</span>
+                <span class="stat-value">${timeSpentHours}시간</span>
+              </div>
+              ` : ''}
             </div>
             <div class="topic-card-progress">
               <div class="progress-bar" style="width: ${percentage}%"></div>
@@ -274,8 +315,16 @@
     const container = document.getElementById('recentActivity');
     if (!container) return;
 
-    const recentItems = data.items
-      .filter(item => item.completedAt || item.lastReviewedAt)
+    const currentCategory = window.currentCategory;
+
+    // 카테고리별로 필터링
+    let filteredItems = data.items.filter(item => item.completedAt || item.lastReviewedAt);
+
+    if (currentCategory) {
+      filteredItems = filteredItems.filter(item => item.topic === currentCategory);
+    }
+
+    const recentItems = filteredItems
       .sort((a, b) => {
         const dateA = new Date(a.completedAt || a.lastReviewedAt).getTime();
         const dateB = new Date(b.completedAt || b.lastReviewedAt).getTime();

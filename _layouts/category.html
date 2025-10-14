@@ -107,5 +107,9 @@ layout: default
 </div>
 
 <!-- Learning Progress Script -->
+<script>
+  // 현재 카테고리 정보 전달
+  window.currentCategory = '{{ page.category_path | split: "/" | slice: -2, 1 | first }}';
+</script>
 <script src="{{ '/assets/js/learning-progress.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/category-pagination.js' | relative_url }}"></script>
