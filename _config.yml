@@ -39,6 +39,7 @@ exclude:
   - LICENSE
   - private
   - private_backup_*
+  - mcp-servers
   - "*.log"
   - .vscode
   - .idea
