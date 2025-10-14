@@ -24,7 +24,7 @@ const CONFIG = {
   translateApiKey: process.env.TRANSLATE_API_KEY || '',
   summaryEnabled: process.env.ENABLE_SUMMARY !== 'false', // 기본값: true
   geminiApiKey: process.env.GEMINI_API_KEY || '',
-  geminiModel: process.env.GEMINI_MODEL || 'gemini-pro', // gemini-pro
+  geminiModel: process.env.GEMINI_MODEL || 'gemini-2.5-flash', // gemini-2.5-flash (안정 버전)
 };
 
 /**
@@ -130,7 +130,8 @@ async function generateSummaryWithAI(url, text) {
       ],
       generationConfig: {
         temperature: 0.3,
-        maxOutputTokens: 300,
+        maxOutputTokens: 2000, // thinking 토큰 포함
+        responseModalities: ['TEXT'], // 텍스트만 출력
       },
     });
 
@@ -151,8 +152,13 @@ async function generateSummaryWithAI(url, text) {
         res.on('data', (chunk) => (data += chunk));
         res.on('end', () => {
           try {
-            resolve(JSON.parse(data));
+            const parsed = JSON.parse(data);
+            if (res.statusCode !== 200) {
+              console.warn(`  ⚠️  API 오류 (${res.statusCode}):`, JSON.stringify(parsed).substring(0, 200));
+            }
+            resolve(parsed);
           } catch (error) {
+            console.warn(`  ⚠️  JSON 파싱 오류:`, data.substring(0, 200));
             reject(error);
           }
         });
@@ -167,10 +173,33 @@ async function generateSummaryWithAI(url, text) {
       req.end();
     });
 
-    if (response.candidates && response.candidates[0] &&
-        response.candidates[0].content && response.candidates[0].content.parts &&
-        response.candidates[0].content.parts[0]) {
-      return response.candidates[0].content.parts[0].text.trim();
+    // 응답 파싱 (여러 형식 지원)
+    if (response.candidates && response.candidates[0]) {
+      const candidate = response.candidates[0];
+
+      // parts 배열이 있는 경우
+      if (candidate.content && candidate.content.parts && candidate.content.parts[0]) {
+        const text = candidate.content.parts[0].text;
+        if (text) {
+          return text.trim();
+        }
+      }
+
+      // text 필드가 직접 있는 경우
+      if (candidate.content && candidate.content.text) {
+        return candidate.content.text.trim();
+      }
+
+      // finishReason이 MAX_TOKENS인 경우 경고
+      if (candidate.finishReason === 'MAX_TOKENS') {
+        console.warn(`  ⚠️  응답이 토큰 제한에 도달했습니다 (불완전한 요약일 수 있음)`);
+      }
+    }
+
+    if (response.error) {
+      console.warn(`  ⚠️  API 에러 응답:`, response.error.message || JSON.stringify(response.error).substring(0, 100));
+    } else {
+      console.warn(`  ⚠️  예상치 못한 응답 구조:`, JSON.stringify(response).substring(0, 300));
     }
 
     return null;
@@ -367,9 +396,9 @@ category: tech-news
 
 `;
 
-    // 요약이 있으면 요약 표시
+    // 요약이 있으면 요약 표시 (CSS 클래스 포함)
     if (story.summary) {
-      markdown += `${story.summary}\n\n`;
+      markdown += `<div class="home-news-summary">\n\n${story.summary}\n\n</div>\n\n`;
     }
 
     // 원문 링크

@@ -11,6 +11,7 @@ vendor/
 
 # Environment variables
 .env
+.env_example
 
 # Private content backup directories (created during submodule setup)
 private_backup_*/
