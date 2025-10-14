@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 43개의 문서**(마지막 업데이트 정보: 2025년 10월 13일 오후 10:18)
+> **총 46개의 문서**(마지막 업데이트 정보: 2025년 10월 14일 오후 03:33)
 
 > 최근 수정된 문서:
->- **Jekyll 로컬 개발 가이드** (2025년 10월 13일)
+>- **"HackerNews 오늘의 IT 뉴스"** (2025년 10월 14일)
 
 ### 알고리즘 (Algorithms)
 
@@ -104,6 +104,9 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| ["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md) | 2025년 10월 14일 | 2025년 10월 14일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| ["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md) | 2025년 10월 14일 | 2025년 10월 14일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| ["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-13-hackernews-top-stories.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [저작권 및 이용 정책](/copyright.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Learn CS](/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
@@ -116,16 +119,16 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 |----------|--------|
 | 웹 개발 (Web Development) | 20개 |
 | 프로그래밍 언어 (Languages) | 14개 |
-| 기타 (Miscellaneous) | 3개 |
+| 기타 (Miscellaneous) | 6개 |
 | 알고리즘 (Algorithms) | 2개 |
 | 네트워킹 (Networking) | 2개 |
 | 데이터베이스 (Databases) | 2개 |
 
 ### 최근 수정된 문서
 
+1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md)** - 2025년 10월 14일
+1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md)** - 2025년 10월 14일
+1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-13-hackernews-top-stories.md)** - 2025년 10월 13일
 1. **[Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)** - 2025년 10월 13일
 1. **[알고리즘](/algorithms/index.md)** - 2025년 10월 13일
-1. **[메모이제이션(Memoization)](/algorithms/memoization-optimization-technique.md)** - 2025년 10월 13일
-1. **[저작권 및 이용 정책](/copyright.md)** - 2025년 10월 13일
-1. **[데이터베이스](/databases/index.md)** - 2025년 10월 13일
 

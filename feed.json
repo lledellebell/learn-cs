@@ -16,6 +16,63 @@
   ],
   "items": [
     {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md",
+      "title": "\"HackerNews 오늘의 IT 뉴스\"",
+      "content_html": "<p>**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기</p>",
+      "content_text": "**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기",
+      "summary": "**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기",
+      "date_published": "2025-10-14T00:00:00.000Z",
+      "date_modified": "2025-10-14T00:34:41.858Z",
+      "tags": [
+        "기타"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/latest.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/latest.md",
+      "title": "\"HackerNews 오늘의 IT 뉴스\"",
+      "content_html": "<p>**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기</p>",
+      "content_text": "**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기",
+      "summary": "**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기",
+      "date_published": "2025-10-14T00:00:00.000Z",
+      "date_modified": "2025-10-14T00:34:41.858Z",
+      "tags": [
+        "기타"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-13-hackernews-top-stories.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-13-hackernews-top-stories.md",
+      "title": "\"HackerNews 오늘의 IT 뉴스\"",
+      "content_html": "<p>SQL Online AiDE는 웹 기반 SQL 데이터베이스 편집 및 쿼리 도구입니다. SQLite, MariaDB, PostgreSQL 등 다양한 데이터베이스를 지원하며, 차트 생...</p>",
+      "content_text": "SQL Online AiDE는 웹 기반 SQL 데이터베이스 편집 및 쿼리 도구입니다. SQLite, MariaDB, PostgreSQL 등 다양한 데이터베이스를 지원하며, 차트 생...",
+      "summary": "SQL Online AiDE는 웹 기반 SQL 데이터베이스 편집 및 쿼리 도구입니다. SQLite, MariaDB, PostgreSQL 등 다양한 데이터베이스를 지원하며, 차트 생...",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T13:57:48.163Z",
+      "tags": [
+        "기타"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md",
       "title": "Jekyll 로컬 개발 가이드",
@@ -114,9 +171,9 @@
       "id": "https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md",
       "title": "Prisma ORM 가이드",
-      "content_html": "<p>Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...</p>",
-      "content_text": "Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...",
-      "summary": "Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...",
+      "content_html": "<p>혹시 이런 경험 있으신가요? 데이터베이스에서 사용자 정보를 가져오는 간단한 코드를 작성했는데, 런타임에 `email`이 아니라 `e-mail`이라는 오타 때문에 서버가 터진다든지....</p>",
+      "content_text": "혹시 이런 경험 있으신가요? 데이터베이스에서 사용자 정보를 가져오는 간단한 코드를 작성했는데, 런타임에 `email`이 아니라 `e-mail`이라는 오타 때문에 서버가 터진다든지....",
+      "summary": "혹시 이런 경험 있으신가요? 데이터베이스에서 사용자 정보를 가져오는 간단한 코드를 작성했는데, 런타임에 `email`이 아니라 `e-mail`이라는 오타 때문에 서버가 터진다든지....",
       "date_published": "2025-10-02T00:00:00.000Z",
       "date_modified": "2025-10-13T00:00:00.000Z",
       "tags": [

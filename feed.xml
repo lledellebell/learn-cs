@@ -5,13 +5,43 @@
     <link>https://github.com/lledellebell/learn-cs</link>
     <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 13 Oct 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 09:34:41 +0000</lastBuildDate>
     <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
       <title>CS 학습 노트</title>
       <link>https://github.com/lledellebell/learn-cs</link>
     </image>
+
+    <item>
+      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md</guid>
+      <pubDate>Tue, 14 Oct 2025 09:00:00 +0000</pubDate>
+      <category>기타</category>
+      <description>**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/latest.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/latest.md</guid>
+      <pubDate>Tue, 14 Oct 2025 09:00:00 +0000</pubDate>
+      <category>기타</category>
+      <description>**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-13-hackernews-top-stories.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-13-hackernews-top-stories.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>기타</category>
+      <description>SQL Online AiDE는 웹 기반 SQL 데이터베이스 편집 및 쿼리 도구입니다. SQLite, MariaDB, PostgreSQL 등 다양한 데이터베이스를 지원하며, 차트 생...</description>
+      <author>lledellebell</author>
+    </item>
 
     <item>
       <title>Jekyll 로컬 개발 가이드</title>
@@ -69,7 +99,7 @@
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/databases/prisma-orm-guide.md</guid>
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <category>데이터베이스</category>
-      <description>Prisma는 **Node.js와 TypeScript를 위한 차세대 ORM(Object-Relational Mapping)**입니다. 전통적인 ORM들의 한계를 극복하고, 개발자가...</description>
+      <description>혹시 이런 경험 있으신가요? 데이터베이스에서 사용자 정보를 가져오는 간단한 코드를 작성했는데, 런타임에 `email`이 아니라 `e-mail`이라는 오타 때문에 서버가 터진다든지....</description>
       <author>lledellebell</author>
     </item>
 

@@ -12,6 +12,28 @@ layout: default
       {% endif %}
     </header>
 
+    <!-- Learning Progress Visualization -->
+    <section class="learning-progress-section">
+      <h3 class="section-title">학습 진행 상황</h3>
+
+      <!-- Progress Chart -->
+      <div class="learning-progress-chart-wrapper">
+        <div id="learningProgressChart"></div>
+      </div>
+
+      <!-- Topic Breakdown -->
+      <div class="topic-breakdown-wrapper">
+        <h4 class="subsection-title">주제별 상세</h4>
+        <div id="topicBreakdown" class="topic-breakdown-grid"></div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="recent-activity-wrapper">
+        <h4 class="subsection-title">최근 활동</h4>
+        <div id="recentActivity" class="recent-activity-list"></div>
+      </div>
+    </section>
+
     <!-- Category Content (if any) -->
     {% if content %}
       <div class="category-content">
@@ -30,9 +52,9 @@ layout: default
           <span class="category-posts-count">({{ all_posts.size }}개)</span>
         </h3>
 
-        <ul class="category-posts-list">
+        <ul class="category-posts-list" id="categoryPostsList">
           {% for post in all_posts %}
-            <li class="category-post-item">
+            <li class="category-post-item" data-index="{{ forloop.index0 }}">
               <a href="{{ post.url | relative_url }}" class="category-post-link">
                 <div class="category-post-main">
                   <h4 class="category-post-title">{{ post.title }}</h4>
@@ -58,6 +80,23 @@ layout: default
             </li>
           {% endfor %}
         </ul>
+
+        <!-- Pagination Navigation -->
+        <nav class="pagination-nav" id="paginationNav" aria-label="페이지 네비게이션">
+          <button class="pagination-btn pagination-prev" id="paginationPrev" aria-label="이전 페이지">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>이전</span>
+          </button>
+          <div class="pagination-pages" id="paginationPages"></div>
+          <button class="pagination-btn pagination-next" id="paginationNext" aria-label="다음 페이지">
+            <span>다음</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </nav>
       </section>
     {% else %}
       <div class="category-empty">
@@ -66,3 +105,7 @@ layout: default
     {% endif %}
   </div>
 </div>
+
+<!-- Learning Progress Script -->
+<script src="{{ '/assets/js/learning-progress.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/category-pagination.js' | relative_url }}"></script>
