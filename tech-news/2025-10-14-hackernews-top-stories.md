@@ -2,7 +2,7 @@
 layout: news
 title: "HackerNews 오늘의 IT 뉴스"
 date: 2025-10-14
-last_modified_at: 2025-10-14T00:01:41.249Z
+last_modified_at: 2025-10-14T00:12:01.903Z
 category: tech-news
 ---
 
@@ -34,16 +34,16 @@ category: tech-news
 ---
 
 
-## 4. First device based on 'optical thermodynamics' can route light without switches
+## 4. Sony Playstation 2 fixing frenzy
 
-**원문:** [https://phys.org/news/2025-10-device-based-optical-thermodynamics-route.html](https://phys.org/news/2025-10-device-based-optical-thermodynamics-route.html)
+**원문:** [https://retrohax.net/sony-playstation-2-fixing-frenzy/](https://retrohax.net/sony-playstation-2-fixing-frenzy/)
 
 ---
 
 
-## 5. Sony Playstation 2 fixing frenzy
+## 5. First device based on 'optical thermodynamics' can route light without switches
 
-**원문:** [https://retrohax.net/sony-playstation-2-fixing-frenzy/](https://retrohax.net/sony-playstation-2-fixing-frenzy/)
+**원문:** [https://phys.org/news/2025-10-device-based-optical-thermodynamics-route.html](https://phys.org/news/2025-10-device-based-optical-thermodynamics-route.html)
 
 ---
 
@@ -69,16 +69,16 @@ category: tech-news
 ---
 
 
-## 9. Strudel REPL – a music live coding environment living in the browser
+## 9. Accidentally Made a Zig Dotenv Parser
 
-**원문:** [https://strudel.cc](https://strudel.cc)
+**원문:** [https://dayvster.com/blog/accidentally-made-a-zig-dotenv-parser/](https://dayvster.com/blog/accidentally-made-a-zig-dotenv-parser/)
 
 ---
 
 
-## 10. Dutch government takes control of Chinese-owned chipmaker Nexperia
+## 10. Strudel REPL – a music live coding environment living in the browser
 
-**원문:** [https://www.cnbc.com/2025/10/13/dutch-government-takes-control-of-chinese-owned-chipmaker-nexperia.html](https://www.cnbc.com/2025/10/13/dutch-government-takes-control-of-chinese-owned-chipmaker-nexperia.html)
+**원문:** [https://strudel.cc](https://strudel.cc)
 
 ---
 
@@ -89,4 +89,6 @@ category: tech-news
 - **업데이트:** 이 뉴스는 매일 자동으로 업데이트됩니다
 - **API:** [HackerNews API](https://github.com/HackerNews/API)
 
+
+**요약:** Google Gemini API 사용
 
