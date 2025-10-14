@@ -266,7 +266,7 @@ class DateUpdater {
    */
   findMarkdownFiles(dir = this.rootDir) {
     const files = [];
-    const excludeDirs = ['node_modules', '.git', '_site', 'vendor'];
+    const excludeDirs = ['node_modules', '.git', '_site', 'vendor', 'mcp-servers', 'private', 'private_backup_*'];
     const excludeFiles = ['README.md', 'NAVIGATION.md'];
 
     const walk = (currentDir) => {
@@ -274,7 +274,16 @@ class DateUpdater {
 
       for (const item of items) {
         const fullPath = path.join(currentDir, item);
-        const stat = fs.statSync(fullPath);
+
+        // 심볼릭 링크나 깨진 파일 처리
+        let stat;
+        try {
+          stat = fs.statSync(fullPath);
+        } catch (error) {
+          // 깨진 심볼릭 링크나 접근 불가능한 파일 스킵
+          console.warn(`⚠️  스킵: ${fullPath} (접근 불가)`);
+          continue;
+        }
 
         if (stat.isDirectory()) {
           if (!excludeDirs.includes(item) && !item.startsWith('.')) {
