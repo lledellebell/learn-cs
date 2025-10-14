@@ -3208,6 +3208,7 @@ pre {
   margin-top: var(--space-12);
   padding-top: var(--space-8);
   border-top: 1px solid var(--color-border);
+  margin-bottom: var(--space-10);
 }
 
 .news-info-card {
@@ -3298,6 +3299,10 @@ pre {
 
   .news-calendar-sidebar {
     position: static;
+    margin-bottom: var(--space-16);
+    border-top: 1px solid var(--color-gray-300);
+    margin-top: 0;
+    padding-top: var(--space-16);
   }
 
   .news-calendar-card {
