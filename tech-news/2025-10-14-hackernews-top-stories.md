@@ -2,7 +2,7 @@
 layout: news
 title: "HackerNews 오늘의 IT 뉴스"
 date: 2025-10-14
-last_modified_at: 2025-10-14T00:16:59.168Z
+last_modified_at: 2025-10-14T00:26:24.530Z
 category: tech-news
 ---
 
@@ -55,23 +55,23 @@ category: tech-news
 ---
 
 
-## 7. Show HN: SQLite Online – 11 years of solo development, 11K daily users
+## 7. Accidentally Made a Zig Dotenv Parser
+
+**원문:** [https://dayvster.com/blog/accidentally-made-a-zig-dotenv-parser/](https://dayvster.com/blog/accidentally-made-a-zig-dotenv-parser/)
+
+---
+
+
+## 8. Show HN: SQLite Online – 11 years of solo development, 11K daily users
 
 **원문:** [https://sqliteonline.com/](https://sqliteonline.com/)
 
 ---
 
 
-## 8. Modern iOS Security Features – A Deep Dive into SPTM, TXM, and Exclaves
+## 9. Modern iOS Security Features – A Deep Dive into SPTM, TXM, and Exclaves
 
 **원문:** [https://arxiv.org/abs/2510.09272](https://arxiv.org/abs/2510.09272)
-
----
-
-
-## 9. Accidentally Made a Zig Dotenv Parser
-
-**원문:** [https://dayvster.com/blog/accidentally-made-a-zig-dotenv-parser/](https://dayvster.com/blog/accidentally-made-a-zig-dotenv-parser/)
 
 ---
 
