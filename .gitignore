@@ -39,7 +39,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # mcp-servers (private/mcp-servers에 있고 심볼릭 링크로 연결됨)
-
+mcp-servers
 
 # settings
 GEMINI_SETUP.md
