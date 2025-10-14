@@ -22,6 +22,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        submodules: false  # Private submodule은 docs 업데이트에 필요하지 않음
       
     - name: Setup Node.js
       uses: actions/setup-node@v4
