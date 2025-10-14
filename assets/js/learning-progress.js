@@ -14,7 +14,7 @@
 
     try {
       // MCP 서버 데이터 로드 시도
-      const response = await fetch('/.learning-history.json');
+      const response = await fetch('/learn-cs/.learning-history.json');
 
       if (!response.ok) {
         showEmptyState(chartContainer);
