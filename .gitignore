@@ -38,8 +38,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# mcp-servers
-mcp-servers/
+# mcp-servers (private/mcp-servers에 있고 심볼릭 링크로 연결됨)
 
 
 # settings
