@@ -35,7 +35,6 @@ exclude:
   - package-lock.json
   - .gitignore
   - .gitmodules
-  - .learning-history.json
   - LICENSE
   - private
   - private_backup_*
@@ -49,6 +48,7 @@ exclude:
 include:
   - .htaccess
   - _pages
+  - .learning-history.json
 
 # 빈 파일 처리 (엄격하지 않게)
 strict_front_matter: false

@@ -20,21 +20,23 @@ class LearningBalanceManager {
     
     // 카테고리별 가중치 (중요도)
     this.categoryWeights = {
-      'algorithms': 0.25,        // 알고리즘 25%
-      'languages': 0.20,         // 프로그래밍 언어 20%
+      'algorithms': 0.20,        // 알고리즘 20%
+      'languages': 0.15,         // 프로그래밍 언어 15%
       'web-development': 0.25,   // 웹 개발 25%
-      'networking': 0.15,        // 네트워킹 15%
+      'networking': 0.10,        // 네트워킹 10%
       'databases': 0.10,         // 데이터베이스 10%
+      'ai-ml': 0.15,            // AI/ML 15%
       'security': 0.05          // 보안 5%
     };
-    
+
     // 학습 목표 (이상적인 분포)
     this.targetDistribution = {
-      'algorithms': 0.25,
-      'languages': 0.20,
+      'algorithms': 0.20,
+      'languages': 0.15,
       'web-development': 0.25,
-      'networking': 0.15,
+      'networking': 0.10,
       'databases': 0.10,
+      'ai-ml': 0.15,
       'security': 0.05
     };
   }
@@ -44,24 +46,79 @@ class LearningBalanceManager {
     const historyPath = path.join(this.rootDir, '.learning-history.json');
     try {
       if (fs.existsSync(historyPath)) {
-        return JSON.parse(fs.readFileSync(historyPath, 'utf8'));
+        const history = JSON.parse(fs.readFileSync(historyPath, 'utf8'));
+        // 신버전 구조 확인
+        if (history.version === '2.0') {
+          return history;
+        }
       }
     } catch (error) {
       console.log('📝 새로운 학습 기록을 시작합니다.');
     }
-    
+
+    // 신버전 빈 구조 반환
     return {
-      sessions: [],
-      totalStudyTime: 0,
-      categoryProgress: {},
-      lastUpdated: new Date().toISOString()
+      version: '2.0',
+      lastUpdated: new Date().toISOString(),
+      items: [],
+      statistics: {
+        totalDocuments: 0,
+        completedDocuments: 0,
+        topicProgress: {}
+      }
     };
   }
 
   // 학습 기록 저장
-  saveLearningHistory() {
+  saveLearningHistory(analysis) {
     const historyPath = path.join(this.rootDir, '.learning-history.json');
+
+    // 카테고리별 통계를 topic 형식으로 변환
+    const topicProgress = {};
+    const categoryToTopic = {
+      'algorithms': 'algorithms',
+      'languages': 'languages',
+      'web-development': 'web-development',
+      'networking': 'networking',
+      'databases': 'databases',
+      'ai-ml': 'ai-ml',
+      'security': 'security'
+    };
+
+    // 모든 topic 초기화
+    Object.values(categoryToTopic).forEach(topic => {
+      topicProgress[topic] = {
+        topic: topic,
+        total: 0,
+        completed: 0,
+        inProgress: 0,
+        notStarted: 0,
+        averageDifficulty: 0,
+        totalTimeSpent: 0
+      };
+    });
+
+    // 분석 결과에서 카테고리 통계를 topic으로 매핑
+    if (analysis && analysis.categoryStats) {
+      Object.entries(analysis.categoryStats).forEach(([category, stats]) => {
+        const topic = categoryToTopic[category];
+        if (topic && topicProgress[topic]) {
+          topicProgress[topic].total = stats.count || 0;
+          // 현재는 완료/진행중/미시작 정보가 없으므로 total = notStarted
+          topicProgress[topic].notStarted = stats.count || 0;
+          topicProgress[topic].averageDifficulty = Math.round(stats.avgComplexity || 0);
+        }
+      });
+    }
+
+    this.learningHistory.version = '2.0';
     this.learningHistory.lastUpdated = new Date().toISOString();
+    this.learningHistory.statistics = {
+      totalDocuments: analysis ? analysis.totalDocuments : 0,
+      completedDocuments: 0,
+      topicProgress: topicProgress
+    };
+
     fs.writeFileSync(historyPath, JSON.stringify(this.learningHistory, null, 2));
   }
 
@@ -352,9 +409,17 @@ class LearningBalanceManager {
         '인증과 권한 관리',
         'HTTPS와 SSL/TLS',
         '보안 코딩 가이드라인'
+      ],
+      'ai-ml': [
+        '머신러닝 기초',
+        '딥러닝과 신경망',
+        'LLM (Large Language Models)',
+        '자연어 처리 (NLP)',
+        '데이터 전처리 및 분석',
+        '모델 학습 및 평가'
       ]
     };
-    
+
     return topicMap[category] || [];
   }
 
@@ -377,9 +442,10 @@ class LearningBalanceManager {
       'web-development': ['마이크로서비스 아키텍처', '서버리스 컴퓨팅', '웹 접근성'],
       'networking': ['클라우드 네트워킹', '로드 밸런싱', '네트워크 모니터링'],
       'databases': ['빅데이터 처리', '데이터 웨어하우스', '실시간 데이터 처리'],
+      'ai-ml': ['강화학습', 'Transformer 아키텍처', 'Fine-tuning LLM'],
       'security': ['DevSecOps', '침투 테스트', '보안 감사']
     };
-    
+
     return relatedMap[category] || [];
   }
 
@@ -475,10 +541,11 @@ class LearningBalanceManager {
       'web-development': '웹 개발',
       'networking': '네트워킹',
       'databases': '데이터베이스',
+      'ai-ml': 'AI/ML',
       'security': '보안',
       'operating-systems': '운영체제'
     };
-    
+
     return categoryMap[category] || category;
   }
 

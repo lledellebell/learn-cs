@@ -1,12 +1,80 @@
 {
-  "sessions": [],
-  "totalStudyTime": 0,
-  "categoryProgress": {},
-  "lastUpdated": "2025-09-19T01:19:56.492Z",
+  "version": "2.0",
+  "lastUpdated": "2025-10-14T07:37:17.476Z",
+  "items": [],
+  "statistics": {
+    "totalDocuments": 0,
+    "completedDocuments": 0,
+    "topicProgress": {
+      "algorithms": {
+        "topic": "algorithms",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      },
+      "languages": {
+        "topic": "languages",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      },
+      "web-development": {
+        "topic": "web-development",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      },
+      "networking": {
+        "topic": "networking",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      },
+      "databases": {
+        "topic": "databases",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      },
+      "security": {
+        "topic": "security",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      },
+      "ai-ml": {
+        "topic": "ai-ml",
+        "total": 0,
+        "completed": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "averageDifficulty": 0,
+        "totalTimeSpent": 0
+      }
+    }
+  },
   "lastAnalysis": {
-    "date": "2025-09-19T01:19:56.491Z",
-    "totalDocuments": 21,
+    "date": "2025-10-14T07:37:17.475Z",
+    "totalDocuments": 528,
     "imbalanceCount": 5,
-    "recommendationCount": 6
+    "recommendationCount": 5
   }
 }
