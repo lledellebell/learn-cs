@@ -679,7 +679,7 @@ class LearningBalanceManager {
       imbalanceCount: imbalances.length,
       recommendationCount: recommendations.length
     };
-    this.saveLearningHistory();
+    this.saveLearningHistory(analysis);
     
     console.log('\n💾 학습 기록이 업데이트되었습니다.');
     console.log('📊 정기적으로 균형을 체크하여 효과적인 학습을 유지하세요!');
