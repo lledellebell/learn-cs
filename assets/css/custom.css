@@ -3365,7 +3365,27 @@ pre {
 
 .home-progress {
   padding: var(--space-16) 0;
-  background: var(--color-bg-secondary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #ff4520 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.home-progress .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Progress Overview Cards */
@@ -3377,29 +3397,30 @@ pre {
 }
 
 .home-progress-card {
-  background: var(--color-white);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
   padding: var(--space-6);
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .progress-card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: var(--color-primary);
-  border-radius: 10px;
-  color: var(--color-white);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
 .progress-card-icon svg {
-  stroke: var(--color-white);
+  stroke: var(--color-primary);
 }
 
 .progress-card-content {
@@ -3407,16 +3428,17 @@ pre {
 }
 
 .progress-card-value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
   line-height: 1;
 }
 
 .progress-card-label {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
-  margin-top: var(--space-1);
+  color: #333;
+  margin-top: var(--space-2);
+  font-weight: 500;
 }
 
 /* Interactive Charts */
@@ -3429,16 +3451,17 @@ pre {
 
 .home-progress-chart-main,
 .home-progress-chart-side {
-  background: var(--color-white);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
   padding: var(--space-6);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .chart-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
   margin-bottom: var(--space-4);
 }
 
@@ -3455,23 +3478,24 @@ pre {
 }
 
 .stat-item {
-  background: var(--color-white);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
   padding: var(--space-5);
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .stat-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--color-bg-secondary);
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
   color: var(--color-primary);
   flex-shrink: 0;
 }
@@ -3485,16 +3509,17 @@ pre {
 }
 
 .stat-value {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
   line-height: 1;
 }
 
 .stat-label {
-  font-size: 0.75rem;
-  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  color: #333;
   margin-top: var(--space-1);
+  font-weight: 500;
 }
 
 /* Responsive */

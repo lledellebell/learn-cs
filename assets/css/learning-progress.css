@@ -42,6 +42,16 @@
 /* Progress Overview Cards */
 .progress-overview-section {
   margin-bottom: 3rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid #000000;
+}
+
+.progress-overview-section .section-title {
+  color: #000000;
+  border-bottom-color: #000000;
+  font-weight: 900;
 }
 
 .progress-cards {
@@ -52,28 +62,36 @@
 }
 
 .progress-card {
-  background: white;
+  background: #000000;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.75rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
+  border: 2px solid #000000;
+  transition: transform 0.2s ease;
+}
+
+.progress-card:hover {
+  transform: translateY(-2px);
 }
 
 .card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
   border-radius: 12px;
-  color: white;
+  color: #000000;
   flex-shrink: 0;
+  border: 2px solid #000000;
 }
 
 .card-icon svg {
-  stroke: white;
+  stroke: #000000;
+  stroke-width: 2.5;
 }
 
 .card-content {
@@ -81,16 +99,20 @@
 }
 
 .card-value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-primary, #3b82f6);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #ffffff;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .card-label {
   font-size: 0.875rem;
-  color: var(--color-text-secondary, #666);
-  margin-top: 0.25rem;
+  color: #cccccc;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Knowledge Graph */

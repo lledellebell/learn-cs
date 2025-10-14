@@ -36,14 +36,16 @@
    */
   async function loadGraphData() {
     try {
-      const response = await fetch('/learn-cs/assets/data/knowledge-graph.json');
+      const baseUrl = document.querySelector('base')?.href || window.location.origin;
+      const dataUrl = new URL('/learn-cs/assets/data/knowledge-graph.json', baseUrl).href;
+      const response = await fetch(dataUrl);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       graphData = await response.json();
     } catch (error) {
       console.error('그래프 데이터 로드 실패:', error);
-      graphData = { nodes: [], edges: [], stats: {} };
+      graphData = { nodes: [], edges: [], statistics: {}, learningHistory: {} };
     }
   }
 
@@ -52,7 +54,9 @@
    */
   async function loadHistoryData() {
     try {
-      const response = await fetch('/learn-cs/.learning-history.json');
+      const baseUrl = document.querySelector('base')?.href || window.location.origin;
+      const dataUrl = new URL('/learn-cs/.learning-history.json', baseUrl).href;
+      const response = await fetch(dataUrl);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -67,12 +71,12 @@
    * 진행률 개요 카드 업데이트
    */
   function updateProgressCards() {
-    if (!graphData || !graphData.stats) return;
+    if (!graphData || !graphData.statistics) return;
 
-    const stats = graphData.stats;
+    const stats = graphData.statistics;
     const totalDocs = stats.totalDocuments || 0;
-    const completedDocs = Object.keys(historyData || {}).length;
-    const progressPercent = totalDocs > 0 ? Math.round((completedDocs / totalDocs) * 100) : 0;
+    const completedDocs = stats.completedDocuments || Object.keys(historyData || {}).length;
+    const progressPercent = stats.progressPercent || 0;
     const activeDays = calculateActiveDays();
 
     // 값 업데이트
@@ -102,18 +106,25 @@
    */
   function renderTopicProgressChart() {
     const container = document.getElementById('homeTopicProgressChart');
-    if (!container || !graphData || !graphData.stats) return;
+    if (!container || !graphData || !graphData.statistics) return;
 
-    const topics = graphData.stats.topicDistribution || {};
-    const topicEntries = Object.entries(topics).sort((a, b) => b[1] - a[1]).slice(0, 6);
+    const topicProgress = graphData.statistics.topicProgress || {};
+    const topicEntries = Object.entries(topicProgress)
+      .map(([topic, data]) => ({
+        topic,
+        total: data.total || 0,
+        completed: data.completed || 0,
+        progressPercent: data.progressPercent || 0
+      }))
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 6);
 
     if (topicEntries.length === 0) {
       container.innerHTML = '<p style="text-align: center; color: #666;">데이터가 없습니다</p>';
       return;
     }
 
-    const maxCount = Math.max(...topicEntries.map(([_, count]) => count));
-    const margin = { top: 10, right: 10, bottom: 40, left: 80 };
+    const margin = { top: 10, right: 50, bottom: 40, left: 100 };
     const width = container.clientWidth - margin.left - margin.right;
     const height = 230 - margin.top - margin.bottom;
 
@@ -130,39 +141,52 @@
 
     // 스케일 설정
     const x = d3.scaleLinear()
-      .domain([0, maxCount])
+      .domain([0, 100])
       .range([0, width]);
 
     const y = d3.scaleBand()
-      .domain(topicEntries.map(([topic]) => topic))
+      .domain(topicEntries.map(d => d.topic))
       .range([0, height])
-      .padding(0.2);
+      .padding(0.3);
 
-    // 바 그리기
-    svg.selectAll('.bar')
+    // 배경 바 (회색)
+    svg.selectAll('.bg-bar')
       .data(topicEntries)
       .enter()
       .append('rect')
-      .attr('class', 'bar')
+      .attr('class', 'bg-bar')
       .attr('x', 0)
-      .attr('y', d => y(d[0]))
-      .attr('width', d => x(d[1]))
+      .attr('y', d => y(d.topic))
+      .attr('width', width)
+      .attr('height', y.bandwidth())
+      .attr('fill', '#f3f4f6')
+      .attr('rx', 4);
+
+    // 진행률 바
+    svg.selectAll('.progress-bar')
+      .data(topicEntries)
+      .enter()
+      .append('rect')
+      .attr('class', 'progress-bar')
+      .attr('x', 0)
+      .attr('y', d => y(d.topic))
+      .attr('width', d => x(d.progressPercent))
       .attr('height', y.bandwidth())
       .attr('fill', 'var(--color-primary)')
       .attr('rx', 4);
 
-    // 값 표시
-    svg.selectAll('.value')
+    // 진행률 텍스트
+    svg.selectAll('.progress-text')
       .data(topicEntries)
       .enter()
       .append('text')
-      .attr('class', 'value')
-      .attr('x', d => x(d[1]) + 5)
-      .attr('y', d => y(d[0]) + y.bandwidth() / 2)
+      .attr('class', 'progress-text')
+      .attr('x', width + 5)
+      .attr('y', d => y(d.topic) + y.bandwidth() / 2)
       .attr('dy', '0.35em')
-      .attr('font-size', '12px')
+      .attr('font-size', '11px')
       .attr('fill', '#666')
-      .text(d => d[1]);
+      .text(d => `${d.completed}/${d.total}`);
 
     // Y축 추가
     svg.append('g')
@@ -300,14 +324,14 @@
     updateElement('homeStreak', `${streak}일`);
 
     // 전체 문서 수
-    const totalDocs = graphData?.stats?.totalDocuments || 0;
+    const totalDocs = graphData?.statistics?.totalDocuments || 0;
     updateElement('homeTotalDocs', totalDocs);
 
     // 평균 학습 시간 (추정)
     const avgTime = calculateAverageTime();
     updateElement('homeAvgTime', avgTime);
 
-    // 주간 목표
+    // 주간 목표 (최근 7일 활동 / 권장 목표)
     const weeklyGoal = calculateWeeklyGoal();
     updateElement('homeWeeklyGoal', weeklyGoal);
   }
