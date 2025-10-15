@@ -328,8 +328,8 @@ layout: default
       <div class="home-recent-grid">
         {% assign md_pages = site.pages | where_exp: "item", "item.path contains '.md'" %}
         {% comment %} last_modified_at를 우선으로 정렬하되, 없으면 date 사용 {% endcomment %}
-        {% assign pages_with_modified = md_pages | where_exp: "item", "item.last_modified_at != nil" | sort: 'last_modified_at' | reverse %}
-        {% assign pages_with_date_only = md_pages | where_exp: "item", "item.last_modified_at == nil and item.date != nil" | sort: 'date' | reverse %}
+        {% assign pages_with_modified = md_pages | where_exp: "item", "item.last_modified_at" | sort: 'last_modified_at' | reverse %}
+        {% assign pages_with_date_only = md_pages | where_exp: "item", "item.last_modified_at == blank and item.date" | sort: 'date' | reverse %}
         {% assign sorted_pages = pages_with_modified | concat: pages_with_date_only %}
         {% assign count = 0 %}
         {% for page in sorted_pages %}
