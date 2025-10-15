@@ -1,6 +1,7 @@
 ---
 title: Event Bus - 모듈 간 통신의 우아한 해결책
 date: 2025-10-15
+last_modified_at: 2025-10-15T00:02:11.439Z
 render_with_liquid: **false**
 layout: page
 ---
