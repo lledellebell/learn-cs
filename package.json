@@ -18,7 +18,7 @@
     "dates:update": "node scripts/update-dates.js",
     "news:fetch": "node scripts/fetch-hackernews.js",
     "news:fetch-translated": "ENABLE_TRANSLATION=true node scripts/fetch-hackernews.js",
-    "publish": "npm run dates:update && npm run docs:update && npm run feed:generate && npm run news:fetch",
+    "publish": "npm run dates:update && npm run docs:update && npm run feed:generate",
     "setup:submodule": "bash scripts/setup-submodule.sh",
     "private:status": "node scripts/manage-private-content.js status",
     "private:update": "node scripts/manage-private-content.js update",

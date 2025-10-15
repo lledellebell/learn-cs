@@ -380,6 +380,7 @@ class NavigationGenerator {
   // 웹 개발 문서 서브카테고리 그룹화
   groupWebDevDocuments(documents) {
     const subCategories = {
+      'patterns': { title: '패턴', documents: [] },
       'frontend': { title: '프론트엔드', documents: [] },
       'backend': { title: '백엔드', documents: [] },
       'guides': { title: '가이드', documents: [] },
@@ -387,7 +388,9 @@ class NavigationGenerator {
     };
 
     for (const doc of documents) {
-      if (doc.path.includes('frontend')) {
+      if (doc.path.includes('patterns')) {
+        subCategories.patterns.documents.push(doc);
+      } else if (doc.path.includes('frontend')) {
         subCategories.frontend.documents.push(doc);
       } else if (doc.path.includes('backend')) {
         subCategories.backend.documents.push(doc);

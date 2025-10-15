@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 46개의 문서**(마지막 업데이트 정보: 2025년 10월 14일 오후 03:33)
+> **총 49개의 문서**(마지막 업데이트 정보: 2025년 10월 15일 오후 01:54)
 
 > 최근 수정된 문서:
->- **"HackerNews 오늘의 IT 뉴스"** (2025년 10월 14일)
+>- **"HackerNews 오늘의 IT 뉴스"** (2025년 10월 15일)
 
 ### 알고리즘 (Algorithms)
 
@@ -63,6 +63,19 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 프론트엔드, 백엔드, 툴
 
+#### 패턴
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Context API를 활용한 Compound Pattern 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+
 #### 프론트엔드
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
@@ -72,13 +85,6 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Context API를 활용한 Compound Pattern 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [웹 개발](/web-development/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
@@ -104,8 +110,10 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| ["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-15-hackernews-top-stories.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| ["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [학습 진행 상황](/learning-progress.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | ["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md) | 2025년 10월 14일 | 2025년 10월 14일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| ["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md) | 2025년 10월 14일 | 2025년 10월 14일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | ["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-13-hackernews-top-stories.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [저작권 및 이용 정책](/copyright.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
@@ -117,18 +125,18 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 20개 |
+| 웹 개발 (Web Development) | 21개 |
 | 프로그래밍 언어 (Languages) | 14개 |
-| 기타 (Miscellaneous) | 6개 |
+| 기타 (Miscellaneous) | 8개 |
 | 알고리즘 (Algorithms) | 2개 |
 | 네트워킹 (Networking) | 2개 |
 | 데이터베이스 (Databases) | 2개 |
 
 ### 최근 수정된 문서
 
+1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-15-hackernews-top-stories.md)** - 2025년 10월 15일
+1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md)** - 2025년 10월 15일
+1. **[학습 진행 상황](/learning-progress.md)** - 2025년 10월 15일
+1. **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)** - 2025년 10월 15일
 1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md)** - 2025년 10월 14일
-1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md)** - 2025년 10월 14일
-1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-13-hackernews-top-stories.md)** - 2025년 10월 13일
-1. **[Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)** - 2025년 10월 13일
-1. **[알고리즘](/algorithms/index.md)** - 2025년 10월 13일
 
