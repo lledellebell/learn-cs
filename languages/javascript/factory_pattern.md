@@ -1,6 +1,8 @@
 ---
 title: Factory Pattern - 객체를 만드는 똑똑한 방법
 date: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Factory Pattern, Design Patterns, OOP, Object Creation, Constructor]
 layout: page
 ---
 # Factory Pattern - 객체를 만드는 똑똑한 방법

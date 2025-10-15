@@ -1,6 +1,8 @@
 ---
 title: this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기
 date: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Prototype, OOP, Inheritance, this, Context, Scope]
 layout: page
 ---
 # this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기

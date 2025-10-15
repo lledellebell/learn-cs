@@ -1,9 +1,10 @@
 ---
 title: ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법
 date: 2025-10-02
+categories: [Programming, TypeScript]
+tags: [HTTP, Authentication, Security, TypeScript, Types, Generics]
 layout: page
 ---
-
 # ReturnType: 함수의 반환 타입을 자동으로 추출하는 마법
 
 상상해보세요. 동료가 만든 복잡한 API 함수가 있습니다. 이 함수의 반환값을 다른 곳에서 사용해야 하는데, 반환 타입을 정확히 알 수가 없습니다. 함수 구현을 열어서 return 문을 하나하나 찾아보고, 조건문마다 다른 타입을 반환하는 것을 확인하고, 직접 타입을 작성해야 할까요?

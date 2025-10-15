@@ -1,6 +1,8 @@
 ---
-date: 2025-10-13
 title: Context API를 활용한 Compound Pattern 구현
+date: 2025-10-13
+categories: [Web Development]
+tags: [Callback, Async, Functions, Factory Pattern, Design Patterns, OOP]
 render_with_liquid: false
 layout: page
 ---

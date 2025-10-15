@@ -2,6 +2,8 @@
 title: JavaScript 네이밍 컨벤션: Public vs Private
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Naming Conventions, Private Fields, Encapsulation, Class, Code Style]
 layout: page
 ---
 # JavaScript 네이밍 컨벤션: Public vs Private

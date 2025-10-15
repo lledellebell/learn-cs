@@ -1,11 +1,12 @@
 ---
-layout: news
 title: "HackerNews 오늘의 IT 뉴스"
 date: 2025-10-15
 last_modified_at: 2025-10-15T00:02:11.439Z
+categories: [Tech News]
+tags: [HTTP, Authentication, Security]
+layout: news
 category: tech-news
 ---
-
 # HackerNews 오늘의 IT 뉴스
 
 **2025년 10월 15일 수요일** 기준 HackerNews Top 10 이야기

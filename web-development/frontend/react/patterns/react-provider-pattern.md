@@ -1,6 +1,8 @@
 ---
-date: 2025-10-13
 title: React Provider Pattern
+date: 2025-10-13
+categories: [Web Development]
+tags: [Callback, Async, Functions, HTTP, Authentication, Security]
 render_with_liquid: false
 layout: page
 ---

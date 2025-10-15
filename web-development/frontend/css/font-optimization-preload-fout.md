@@ -1,6 +1,8 @@
 ---
 title: 웹폰트 최적화 완전 가이드: 다운로드부터 배포까지
 date: 2025-10-02
+categories: [Web Development]
+tags: [this, Context, Scope, HTTP, Authentication, Security]
 layout: page
 ---
 # 웹폰트 최적화 완전 가이드: 다운로드부터 배포까지

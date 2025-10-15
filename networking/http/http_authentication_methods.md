@@ -1,6 +1,8 @@
 ---
 title: HTTP 인증 방법 완벽 가이드
 date: 2025-10-13
+categories: [Computer Science, Networking, HTTP]
+tags: [this, Context, Scope, Callback, Async, Functions]
 layout: page
 ---
 # HTTP 인증 방법 완벽 가이드: API를 안전하게 보호하는 법

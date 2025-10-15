@@ -1,6 +1,8 @@
 ---
-date: 2025-10-13
 title: CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지
+date: 2025-10-13
+categories: [Web Development]
+tags: [this, Context, Scope, HTTP, Authentication, Security]
 render_with_liquid: false
 layout: page
 ---

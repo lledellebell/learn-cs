@@ -1,9 +1,10 @@
 ---
 title: Prototype - JavaScript의 숨은 마법을 이해하기
 date: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Prototype, OOP, Inheritance, this, Context, Scope]
 layout: page
 ---
-
 # Prototype - JavaScript의 숨은 마법을 이해하기
 
 JavaScript를 배우면서 이런 코드를 본 적이 있나요?

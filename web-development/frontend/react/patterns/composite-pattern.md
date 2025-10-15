@@ -2,6 +2,8 @@
 title: Composite Pattern
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Web Development]
+tags: [this, Context, Scope, Factory Pattern, Design Patterns, OOP]
 layout: page
 ---
 # Composite Pattern

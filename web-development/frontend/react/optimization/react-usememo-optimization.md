@@ -2,6 +2,8 @@
 title: `useMemo`를 활용한 성능 최적화
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Web Development]
+tags: [Callback, Async, Functions, Factory Pattern, Design Patterns, OOP]
 layout: page
 ---
 # React 성능 최적화의 핵심, `useMemo` 완벽 가이드

@@ -1,6 +1,8 @@
 ---
 title: `bind()` 메소드 - this가 사라지는 문제를 해결하는 마법
 date: 2025-10-10
+categories: [Programming, JavaScript]
+tags: [bind, this, Context, Function Methods, Partial Application]
 layout: page
 ---
 # `bind()` 메소드 - this가 사라지는 문제를 해결하는 마법

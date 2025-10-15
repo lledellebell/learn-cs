@@ -2,6 +2,8 @@
 title: 메모이제이션(Memoization)
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Computer Science, Algorithms]
+tags: [Memoization, Optimization, Dynamic Programming, Caching, Performance]
 layout: page
 ---
 # Memoization - 계산 결과를 기억하는 똑똑한 최적화 기법

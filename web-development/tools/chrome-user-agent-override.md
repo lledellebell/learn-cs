@@ -1,6 +1,8 @@
 ---
 title: Chrome User Agent Override 가이드
 date: 2025-10-02
+categories: [Web Development, Tools]
+tags: [HTTP, Authentication, Security, SEO, Jekyll, Schema.org]
 layout: page
 ---
 # Chrome DevTools로 User Agent를 마스터하는 완벽 가이드

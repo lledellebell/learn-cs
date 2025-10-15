@@ -1,6 +1,8 @@
 ---
 title: JavaScript에서 Mutation vs Non-Mutation
 date: 2025-10-02
+categories: [Programming, JavaScript]
+tags: [Mutation, Immutability, React, State Management, Reference vs Value]
 layout: page
 ---
 # React 상태가 업데이트되지 않는 이유 - Mutation의 비밀

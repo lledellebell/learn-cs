@@ -1,6 +1,8 @@
 ---
 title: `forEach` vs `reduce`
 date: 2025-10-02
+categories: [Programming, JavaScript]
+tags: [forEach, reduce, Array Methods, Functional Programming, Side Effects]
 layout: page
 ---
 # `forEach` vs `reduce`

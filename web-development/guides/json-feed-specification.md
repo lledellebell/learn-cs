@@ -1,6 +1,8 @@
 ---
 title: JSON Feed 사양
 date: 2025-10-13
+categories: [Web Development, SEO]
+tags: [this, Context, Scope, HTTP, Authentication, Security]
 layout: page
 ---
 # JSON Feed 사양

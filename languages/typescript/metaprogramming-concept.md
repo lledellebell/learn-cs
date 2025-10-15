@@ -1,6 +1,8 @@
 ---
 title: 메타프로그래밍(Metaprogramming)
 date: 2025-10-02
+categories: [Programming, TypeScript]
+tags: [this, Context, Scope, HTTP, Authentication, Security]
 layout: page
 ---
 # TypeScript 메타프로그래밍: 코드가 코드를 작성하는 마법

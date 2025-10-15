@@ -1,9 +1,10 @@
 ---
 title: 나만의 npm 라이브러리 만들고 세상과 공유하기
 date: 2025-10-13
+categories: [Web Development, SEO]
+tags: [HTTP, Authentication, Security, TypeScript, Types, Generics]
 layout: page
 ---
-
 # 나만의 npm 라이브러리 만들고 세상과 공유하기
 
 프로젝트를 진행하다 보면 이런 경험을 해본 적 있나요? "아, 이 유틸리티 함수 저번 프로젝트에서도 썼는데... 복사해야 하나?" 저도 처음에는 코드를 복사-붙여넣기하면서 "나중에 정리해야지"라고 생각했습니다. 하지만 프로젝트가 늘어날수록 같은 코드가 여러 곳에 퍼져있고, 버그를 수정하려면 모든 프로젝트를 찾아다녀야 했습니다.

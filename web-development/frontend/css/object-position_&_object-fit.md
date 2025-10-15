@@ -1,9 +1,10 @@
 ---
 title: 반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드
 date: 2025-10-02
+categories: [Web Development]
+tags: [this, Context, Scope, HTTP, Authentication, Security]
 layout: page
 ---
-
 # 반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드
 
 프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 자꾸 왜곡되어서 "도대체 왜 내 마음대로 안 되는 거야?"라고 좌절했던 기억이 납니다.

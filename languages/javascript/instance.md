@@ -1,6 +1,8 @@
 ---
 title: 인스턴스 (Instance)
 date: 2025-10-02
+categories: [Programming, JavaScript]
+tags: [Instance, OOP, Prototype, Class, Constructor, new Keyword]
 layout: page
 ---
 # 인스턴스(Instance): 클래스라는 설계도에서 태어난 살아있는 객체들

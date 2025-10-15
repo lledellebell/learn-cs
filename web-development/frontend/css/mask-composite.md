@@ -2,6 +2,8 @@
 title: CSS Mask Composite
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Web Development]
+tags: [HTTP, Authentication, Security, Chrome DevTools, User Agent, Testing]
 layout: page
 ---
 # CSS로 매직 같은 이미지 합성 효과 만들기: mask-composite 완벽 가이드

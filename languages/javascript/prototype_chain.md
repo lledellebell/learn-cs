@@ -1,9 +1,10 @@
 ---
 title: Prototype Chain - JavaScript 상속의 마법 같은 여정
 date: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Prototype, OOP, Inheritance, this, Context, Scope]
 layout: page
 ---
-
 # Prototype Chain - JavaScript 상속의 마법 같은 여정
 
 [prototype.md](./prototype.md)를 읽고 오셨나요? 그렇다면 이미 Prototype이 무엇이고, 왜 중요한지 알고 계실 겁니다. 하지만 **Prototype Chain**은 또 다른 차원의 이야기입니다.

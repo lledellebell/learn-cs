@@ -1,6 +1,8 @@
 ---
-date: 2025-10-13
 title: Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유
+date: 2025-10-13
+categories: [Web Development, React]
+tags: [HTTP, Authentication, Security]
 render_with_liquid: false
 layout: page
 ---

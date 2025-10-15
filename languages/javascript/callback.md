@@ -1,9 +1,10 @@
 ---
 title: Callback - JavaScript 비동기의 시작점
 date: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Callback, Asynchronous, Event Loop, Higher-Order Functions, Promise]
 layout: page
 ---
-
 # Callback - JavaScript 비동기의 시작점
 
 이런 코드를 본 적이 있나요?

@@ -2,6 +2,8 @@
 title: JavaScript의 Mutation vs Non-Mutation 심화
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Programming, JavaScript]
+tags: [Mutation, Immutability, Array Methods, Functional Programming, Side Effects]
 layout: page
 ---
 # JavaScript의 Mutation vs Non-Mutation 심화

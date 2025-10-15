@@ -2,6 +2,8 @@
 title: `React`에서 `Composite`/`Compound` Pattern 활용 가이드
 date: 2025-10-02
 last_modified_at: 2025-10-13
+categories: [Web Development]
+tags: [React, Composite, Compound, Pattern]
 layout: page
 ---
 # `React`에서 `Composite`/`Compound` Pattern 활용 가이드
