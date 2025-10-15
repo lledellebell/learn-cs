@@ -15,6 +15,7 @@ vendor/
 
 # Private content backup directories (created during submodule setup)
 private_backup_*/
+private/
 
 # OS generated files
 .DS_Store
@@ -44,3 +45,4 @@ mcp-servers
 GEMINI_SETUP.md
 JEKYLL_SETUP.md
 /tech-news/README.md
+.gitmodules
