@@ -2,10 +2,11 @@
 title: Event Bus - 모듈 간 통신의 우아한 해결책
 date: 2025-10-15
 last_modified_at: 2025-10-15T00:02:11.439Z
-render_with_liquid: **false**
+render_with_liquid: false
 layout: page
 ---
 
+{% raw %}
 # `Event Bus` - 모듈 간 통신의 우아한 해결책
 
 이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데, 이들을 어떻게 연결해야 할지 막막하셨던 적 있으신가요?
@@ -2753,3 +2754,4 @@ Event Bus는 도구일 뿐입니다. **프로젝트의 요구사항과 팀의 �
 - [Callback](/languages/javascript/callback.md) - Callback 패턴 이해하기
 - [Observer Pattern](/web-development/patterns/observer-pattern.md) - Observer 패턴 가이드
 - [React Context API](/web-development/frontend/react/context-api.md) - Context API 활용법
+{% endraw %}
