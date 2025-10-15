@@ -4,6 +4,22 @@ description: Computer Science learning materials
 url: "https://lledellebell.github.io"
 baseurl: "/learn-cs"
 repository: lledellebell/learn-cs
+author: Learn CS
+
+# SEO 설정
+lang: ko_KR
+timezone: Asia/Seoul
+
+# Social Links (선택사항 - 필요시 추가)
+# twitter:
+#   username: your_username
+# social:
+#   name: Learn CS
+#   links:
+#     - https://github.com/lledellebell/learn-cs
+
+# Default image for social sharing (선택사항 - 이미지 추가 시 주석 해제)
+# logo: /assets/images/logo.png
 
 # 빌드 설정
 markdown: kramdown
@@ -43,6 +59,11 @@ exclude:
   - .vscode
   - .idea
   - .DS_Store
+
+# Sitemap 설정
+sitemap:
+  priority: 0.7
+  changefreq: weekly
 
 # 포함할 파일 패턴
 include:

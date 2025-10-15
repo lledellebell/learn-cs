@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /robots.txt
+---
+# robots.txt for Learn CS
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow specific paths
+Disallow: /assets/
+Disallow: /_site/
+Disallow: /node_modules/
+Disallow: /vendor/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
