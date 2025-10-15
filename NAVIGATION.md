@@ -1,6 +1,6 @@
 ## 목차
 
-> **총 49개의 문서**(마지막 업데이트 정보: 2025년 10월 15일 오후 01:54)
+> **총 49개의 문서**(마지막 업데이트 정보: 2025년 10월 15일 오후 02:13)
 
 > 최근 수정된 문서:
 >- **"HackerNews 오늘의 IT 뉴스"** (2025년 10월 15일)
@@ -136,7 +136,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-15-hackernews-top-stories.md)** - 2025년 10월 15일
 1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md)** - 2025년 10월 15일
-1. **[학습 진행 상황](/learning-progress.md)** - 2025년 10월 15일
 1. **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)** - 2025년 10월 15일
+1. **[학습 진행 상황](/learning-progress.md)** - 2025년 10월 15일
 1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md)** - 2025년 10월 14일
 

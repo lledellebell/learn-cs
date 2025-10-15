@@ -34,22 +34,22 @@
     </item>
 
     <item>
-      <title>학습 진행 상황</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md</guid>
-      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>학습 진행 상황에 대한 학습 노트</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>Event Bus - 모듈 간 통신의 우아한 해결책</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md</guid>
       <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>학습 진행 상황</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md</guid>
+      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
+      <category>기타</category>
+      <description>학습 진행 상황에 대한 학습 노트</description>
       <author>lledellebell</author>
     </item>
 

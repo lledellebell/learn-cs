@@ -54,6 +54,25 @@
       ]
     },
     {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md",
+      "title": "Event Bus - 모듈 간 통신의 우아한 해결책",
+      "content_html": "<p>이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...</p>",
+      "content_text": "이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...",
+      "summary": "이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...",
+      "date_published": "2025-10-15T00:00:00.000Z",
+      "date_modified": "2025-10-15T00:02:11.439Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md",
       "title": "학습 진행 상황",
@@ -64,25 +83,6 @@
       "date_modified": "2025-10-15T00:00:00.000Z",
       "tags": [
         "기타"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md",
-      "title": "Event Bus - 모듈 간 통신의 우아한 해결책",
-      "content_html": "<p>이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...</p>",
-      "content_text": "이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...",
-      "summary": "이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...",
-      "date_published": "2025-10-15T00:00:00.000Z",
-      "date_modified": "2025-10-15T00:00:00.000Z",
-      "tags": [
-        "웹 개발"
       ],
       "authors": [
         {
