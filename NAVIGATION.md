@@ -1,6 +1,6 @@
 ## 목차
 
-> **총 49개의 문서**(마지막 업데이트 정보: 2025년 10월 15일 오후 02:13)
+> **총 50개의 문서**(마지막 업데이트 정보: 2025년 10월 15일 오후 03:54)
 
 > 최근 수정된 문서:
 >- **"HackerNews 오늘의 IT 뉴스"** (2025년 10월 15일)
@@ -95,6 +95,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [Jekyll SEO 최적화 가이드](/web-development/guides/seo-optimization.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [JSON Feed 사양](/web-development/guides/json-feed-specification.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [나만의 npm 라이브러리 만들고 세상과 공유하기](/web-development/guides/npm-library-guide.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 
@@ -125,7 +126,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 21개 |
+| 웹 개발 (Web Development) | 22개 |
 | 프로그래밍 언어 (Languages) | 14개 |
 | 기타 (Miscellaneous) | 8개 |
 | 알고리즘 (Algorithms) | 2개 |
@@ -138,5 +139,5 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md)** - 2025년 10월 15일
 1. **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)** - 2025년 10월 15일
 1. **[학습 진행 상황](/learning-progress.md)** - 2025년 10월 15일
-1. **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md)** - 2025년 10월 14일
+1. **[Jekyll SEO 최적화 가이드](/web-development/guides/seo-optimization.md)** - 2025년 10월 15일
 

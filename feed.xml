@@ -54,6 +54,16 @@
     </item>
 
     <item>
+      <title>Jekyll SEO 최적화 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/seo-optimization.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/seo-optimization.md</guid>
+      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
       <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md</guid>

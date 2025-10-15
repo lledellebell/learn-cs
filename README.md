@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 49개의 문서** | 마지막 업데이트: 2025. 10. 15.
+> **총 50개의 문서** | 마지막 업데이트: 2025. 10. 15.
 
 ### 카테고리
 
@@ -41,16 +41,16 @@
 - **[프로그래밍 언어 (Languages)](#languages)** (14개 문서)
 - **[네트워킹 (Networking)](#networking)** (2개 문서)
 - **[데이터베이스 (Databases)](#databases)** (2개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (21개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (22개 문서)
 - **[기타 (Miscellaneous)](#misc)** (8개 문서)
 
 ### 최근 추가된 문서
 
+- **[Jekyll SEO 최적화 가이드](/web-development/guides/seo-optimization.md)**
 - **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)**
 - **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-15-hackernews-top-stories.md)**
 - **["HackerNews 오늘의 IT 뉴스"](/tech-news/latest.md)**
 - **[학습 진행 상황](/learning-progress.md)**
-- **["HackerNews 오늘의 IT 뉴스"](/tech-news/2025-10-14-hackernews-top-stories.md)**
 
 ### 전체 목차
 
@@ -98,7 +98,7 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (21개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (22개)</summary>
 
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
@@ -110,7 +110,7 @@
 - [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
 - [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
-- ... 그 외 11개 문서
+- ... 그 외 12개 문서
 
 </details>
 

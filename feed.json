@@ -92,6 +92,25 @@
       ]
     },
     {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/seo-optimization.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/seo-optimization.md",
+      "title": "Jekyll SEO 최적화 가이드",
+      "content_html": "<p>검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...</p>",
+      "content_text": "검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...",
+      "summary": "검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...",
+      "date_published": "2025-10-15T00:00:00.000Z",
+      "date_modified": "2025-10-15T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md",
       "title": "\"HackerNews 오늘의 IT 뉴스\"",
