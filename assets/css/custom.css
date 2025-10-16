@@ -121,6 +121,30 @@ body {
   outline-offset: var(--focus-offset);
 }
 
+::selection {
+  color: var(--color-text);
+  background-color: rgba(116, 251, 132, 0.5);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  color: var(--color-text);
+  background-color: rgba(116, 251, 132, 0.5);
+  text-shadow: none;
+}
+
+[data-theme="dark"] ::selection {
+  color: var(--color-text);
+  background-color: rgba(244, 255, 125, 0.6);
+  text-shadow: none;
+}
+
+[data-theme="dark"] ::-moz-selection {
+  color: var(--color-text);
+  background-color: rgba(244, 255, 125, 0.6);
+  text-shadow: none;
+}
+
 /* Skip to main content link */
 .skip-link {
   position: absolute;
@@ -219,14 +243,31 @@ pre code {
 /* Syntax Highlighting */
 /* 코드 선택 시 하이라이트 */
 pre code::selection,
-pre code span::selection {
-  background: rgba(0, 122, 255, 0.2);
+pre code span::selection,
+pre code *::selection {
+  background: rgba(64, 224, 208, 0.3);
+  color: inherit;
+}
+
+pre code::-moz-selection,
+pre code span::-moz-selection,
+pre code *::-moz-selection {
+  background: rgba(64, 224, 208, 0.3);
   color: inherit;
 }
 
 [data-theme="dark"] pre code::selection,
-[data-theme="dark"] pre code span::selection {
-  background: rgba(88, 166, 255, 0.3);
+[data-theme="dark"] pre code span::selection,
+[data-theme="dark"] pre code *::selection {
+  background: rgba(102, 252, 241, 0.4);
+  color: inherit;
+}
+
+[data-theme="dark"] pre code::-moz-selection,
+[data-theme="dark"] pre code span::-moz-selection,
+[data-theme="dark"] pre code *::-moz-selection {
+  background: rgba(102, 252, 241, 0.4);
+  color: inherit;
 }
 
 /* 주석 */
@@ -586,6 +627,7 @@ pre[data-language="tsx"]::before {
 }
 
 .main-content {
+  overflow: auto;
   flex: 1;
   padding-top: calc(var(--header-height));
   /* padding-bottom: var(--space-16); */
@@ -1859,6 +1901,7 @@ pre {
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-3);
+  flex-wrap: wrap;
 }
 
 .taxonomy-group:last-child {
@@ -1901,6 +1944,18 @@ pre {
 
 .category-tag {
   font-weight: 600;
+}
+
+/* Mobile Styles for Taxonomy */
+@media (max-width: 768px) {
+  .taxonomy-group {
+    gap: var(--space-2);
+  }
+
+  .taxonomy-tag {
+    padding: 0.375rem var(--space-2);
+    font-size: 0.75rem;
+  }
 }
 
 /* Action Buttons */
