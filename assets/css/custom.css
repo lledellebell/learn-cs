@@ -2308,18 +2308,30 @@ pre {
 }
 
 /* Focus Mode Active State */
-body.focus-mode .article-body > *:not(.highlighter-rouge) {
+body.focus-mode .article-body > * {
   opacity: 0.3;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
 }
 
-body.focus-mode .article-body *.focused {
+body.focus-mode .article-body > *.focused {
+  opacity: 1 !important;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure child elements inherit the focused state */
+body.focus-mode .article-body > .focused * {
   opacity: 1 !important;
 }
 
 /* Hover는 데스크톱에서만 동작 (모바일에서는 스크롤 기반 강조만 사용) */
 @media (hover: hover) and (pointer: fine) {
-  body.focus-mode .article-body *:hover {
+  body.focus-mode .article-body > *:hover {
+    opacity: 1 !important;
+  }
+
+  /* Ensure child elements are visible on hover */
+  body.focus-mode .article-body > *:hover * {
     opacity: 1 !important;
   }
 

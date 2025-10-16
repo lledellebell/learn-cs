@@ -1109,7 +1109,7 @@
       focusModeToggle.setAttribute('aria-pressed', isFocusMode);
 
       // 툴팁 텍스트 변경
-      focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON' : '포커스 모드');
+      focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON' : '포커스 모드 OFF');
 
       // 상태를 로컬 스토리지에 저장
       localStorage.setItem('focusMode', isFocusMode);
@@ -1163,11 +1163,13 @@
 
     // 스크롤 시 현재 뷰포트에 있는 요소 강조 (포커스 모드일 때)
     let ticking = false;
+    let currentFocusedElement = null;
+
     const highlightVisibleElement = () => {
       if (!isFocusMode) return;
 
       // 포커스 가능한 모든 요소: article-body의 직접 자식만 선택
-      const elements = articleBody.querySelectorAll(':scope > p, :scope pre, :scope blockquote, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > h5, :scope > h6, :scope > ul, :scope > ol, :scope > li');
+      const elements = articleBody.querySelectorAll(':scope > p, :scope > .highlighter-rouge, :scope > blockquote, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > h5, :scope > h6, :scope > ul, :scope > ol, :scope > li, :scope > table');
       const viewportHeight = window.innerHeight;
       const scrollTop = window.scrollY;
       const centerY = scrollTop + viewportHeight / 2;
@@ -1186,12 +1188,18 @@
         }
       });
 
+      // 동일한 요소면 업데이트하지 않음 (깜빡임 방지)
+      if (closestElement === currentFocusedElement) {
+        return;
+      }
+
       // 모든 focused 클래스 제거
       elements.forEach(el => el.classList.remove('focused'));
 
       // 가장 가까운 요소에 focused 클래스 추가
       if (closestElement) {
         closestElement.classList.add('focused');
+        currentFocusedElement = closestElement;
       }
     };
 
@@ -1218,9 +1226,10 @@
         // 상위로 올라가면서 article-body의 직접 자식을 찾음
         while (target && target !== articleBody) {
           if (target.parentElement === articleBody) {
-            // p, pre, blockquote, h1-h6, ul, ol인지 확인
+            // p, .highlighter-rouge, blockquote, h1-h6, ul, ol, table인지 확인
             const tagName = target.tagName.toLowerCase();
-            if (['p', 'pre', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'].includes(tagName)) {
+            const hasClass = target.classList.contains('highlighter-rouge');
+            if (['p', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table'].includes(tagName) || hasClass) {
               break;
             }
           }
