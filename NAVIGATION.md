@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 51개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오전 07:08)
+> **총 52개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오전 07:29)
 
 > 최근 수정된 문서:
->- **"포커스 모드 (Focus Mode)"** (2025년 10월 17일)
+>- **"TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"** (2025년 10월 17일)
 
 ### 알고리즘 (Algorithms)
 
@@ -38,6 +38,7 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| ["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법](/languages/typescript/get_return_type.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [메타프로그래밍(Metaprogramming)](/languages/typescript/metaprogramming-concept.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
@@ -61,7 +62,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 ### 웹 개발 (Web Development)
 
-프론트엔드, 백엔드, 툴, 기능
+프론트엔드, 백엔드, 툴
 
 #### 패턴
 
@@ -133,7 +134,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | 카테고리 | 문서 수 |
 |----------|--------|
 | 웹 개발 (Web Development) | 26개 |
-| 프로그래밍 언어 (Languages) | 14개 |
+| 프로그래밍 언어 (Languages) | 15개 |
 | 기타 (Miscellaneous) | 5개 |
 | 알고리즘 (Algorithms) | 2개 |
 | 네트워킹 (Networking) | 2개 |
@@ -141,9 +142,9 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 ### 최근 수정된 문서
 
+1. **["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md)** - 2025년 10월 17일
 1. **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)** - 2025년 10월 17일
 1. **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)** - 2025년 10월 16일
 1. **[Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기](/web-development/guides/liquid-syntax-guide.md)** - 2025년 10월 16일
 1. **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)** - 2025년 10월 15일
-1. **[학습 진행 상황](/learning-progress.md)** - 2025년 10월 15일
 

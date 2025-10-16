@@ -33,12 +33,12 @@
 
 ## 목차
 
-> **총 51개의 문서** | 마지막 업데이트: 2025. 10. 17.
+> **총 52개의 문서** | 마지막 업데이트: 2025. 10. 17.
 
 ### 카테고리
 
 - **[알고리즘 (Algorithms)](#algorithms)** (2개 문서)
-- **[프로그래밍 언어 (Languages)](#languages)** (14개 문서)
+- **[프로그래밍 언어 (Languages)](#languages)** (15개 문서)
 - **[네트워킹 (Networking)](#networking)** (2개 문서)
 - **[데이터베이스 (Databases)](#databases)** (2개 문서)
 - **[웹 개발 (Web Development)](#webdevelopment)** (26개 문서)
@@ -46,11 +46,11 @@
 
 ### 최근 추가된 문서
 
+- **["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md)**
 - **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)**
 - **[Gemini API 설정 가이드](/GEMINI_SETUP.md)**
 - **[`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)**
 - **[Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)**
-- **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)**
 
 ### 전체 목차
 
@@ -65,7 +65,7 @@
 </details>
 
 <details>
-<summary><strong>프로그래밍 언어 (Languages)</strong> (14개)</summary>
+<summary><strong>프로그래밍 언어 (Languages)</strong> (15개)</summary>
 
 - [프로그래밍 언어](/languages/index.md)
 - [`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법](/languages/javascript/bind.md)
@@ -77,7 +77,7 @@
 - [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md)
 - [JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)
 - [Prototype - JavaScript의 숨은 마법을 이해하기](/languages/javascript/prototype.md)
-- ... 그 외 4개 문서
+- ... 그 외 5개 문서
 
 </details>
 

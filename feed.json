@@ -16,6 +16,25 @@
   ],
   "items": [
     {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/basic-types.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/basic-types.md",
+      "title": "\"TypeScript 기본 타입 - JavaScript와 비교하며 이해하기\"",
+      "content_html": "<p>JavaScript로 프로젝트를 개발하다 보면 이런 경험 없으셨나요?</p>",
+      "content_text": "JavaScript로 프로젝트를 개발하다 보면 이런 경험 없으셨나요?",
+      "summary": "JavaScript로 프로젝트를 개발하다 보면 이런 경험 없으셨나요?",
+      "date_published": "2025-10-17T00:00:00.000Z",
+      "date_modified": "2025-10-17T00:00:00.000Z",
+      "tags": [
+        "프로그래밍 언어"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md",
       "title": "\"포커스 모드 (Focus Mode)\"",
@@ -934,25 +953,6 @@
       "content_html": "<p>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</p>",
       "content_text": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
       "summary": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
-      "date_published": "2025-10-02T00:00:00.000Z",
-      "date_modified": "2025-10-02T00:00:00.000Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
-      "title": "반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드",
-      "content_html": "<p>프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...</p>",
-      "content_text": "프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...",
-      "summary": "프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...",
       "date_published": "2025-10-02T00:00:00.000Z",
       "date_modified": "2025-10-02T00:00:00.000Z",
       "tags": [
