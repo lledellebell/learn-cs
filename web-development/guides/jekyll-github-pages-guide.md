@@ -7,7 +7,6 @@ categories: [web-development, guides]
 tags: [jekyll, github-pages, static-site, blog]
 ---
 
-{% raw %}
 # Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드
 
 무료로 블로그를 만들고 싶은데, 서버 관리는 부담스럽고 광고도 넣기 싫으신가요?
@@ -800,4 +799,3 @@ bundle exec jekyll serve --incremental
 - [Stack Overflow - Jekyll 태그](https://stackoverflow.com/questions/tagged/jekyll)
 
 블로그 운영하면서 궁금한 점이 생기면 언제든지 공식 문서와 커뮤니티를 활용하세요. 행복한 블로깅 되세요!
-{% endraw %}
