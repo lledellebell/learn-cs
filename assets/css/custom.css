@@ -3637,7 +3637,7 @@ pre {
   color: var(--color-white);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   .reactions-section {
     border-color: var(--color-gray-700);
   }
@@ -3658,7 +3658,7 @@ pre {
     color: var(--color-white);
     border-color: var(--color-primary);
   }
-} */
+}
 
 /* Responsive */
 @media (max-width: 768px) {
