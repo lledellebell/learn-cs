@@ -5,7 +5,7 @@
     <link>https://github.com/lledellebell/learn-cs</link>
     <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
     <language>ko</language>
-    <lastBuildDate>Wed, 15 Oct 2025 09:02:11 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Oct 2025 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
@@ -14,22 +14,22 @@
     </image>
 
     <item>
-      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-15-hackernews-top-stories.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-15-hackernews-top-stories.md</guid>
-      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>**2025년 10월 15일 수요일** 기준 HackerNews Top 10 이야기</description>
+      <title>Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/jekyll-github-pages-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/jekyll-github-pages-guide.md</guid>
+      <pubDate>Thu, 16 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>무료로 블로그를 만들고 싶은데, 서버 관리는 부담스럽고 광고도 넣기 싫으신가요?</description>
       <author>lledellebell</author>
     </item>
 
     <item>
-      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/latest.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/latest.md</guid>
-      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>**2025년 10월 15일 수요일** 기준 HackerNews Top 10 이야기</description>
+      <title>Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/liquid-syntax-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/liquid-syntax-guide.md</guid>
+      <pubDate>Thu, 16 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>Jekyll 블로그를 만들었는데, 포스트 목록을 자동으로 표시하고 싶으신가요? 카테고리별로 글을 필터링하고 싶으신가요?</description>
       <author>lledellebell</author>
     </item>
 
@@ -60,26 +60,6 @@
       <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-14-hackernews-top-stories.md</guid>
-      <pubDate>Tue, 14 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>**2025년 10월 14일 화요일** 기준 HackerNews Top 10 이야기</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>&quot;HackerNews 오늘의 IT 뉴스&quot;</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-13-hackernews-top-stories.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/tech-news/2025-10-13-hackernews-top-stories.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>SQL Online AiDE는 웹 기반 SQL 데이터베이스 편집 및 쿼리 도구입니다. SQLite, MariaDB, PostgreSQL 등 다양한 데이터베이스를 지원하며, 차트 생...</description>
       <author>lledellebell</author>
     </item>
 

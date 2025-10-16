@@ -266,7 +266,7 @@ class DateUpdater {
    */
   findMarkdownFiles(dir = this.rootDir) {
     const files = [];
-    const excludeDirs = ['node_modules', '.git', '_site', 'vendor', 'mcp-servers', 'private', 'private_backup_*'];
+    const excludeDirs = ['node_modules', '.git', '_site', 'vendor', 'mcp-servers', 'private', 'private_backup_*', 'tech-news'];
     const excludeFiles = ['README.md', 'NAVIGATION.md'];
 
     const walk = (currentDir) => {

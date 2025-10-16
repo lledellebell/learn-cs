@@ -12,6 +12,71 @@
   let currentPage = 1;
   let totalPages = 1;
   let allItems = [];
+  let filteredItems = [];
+  let currentSubcategory = 'all';
+
+  // =========================================
+  // 탭 초기화
+  // =========================================
+  const initTabs = () => {
+    const tabs = document.querySelectorAll('.category-tab');
+
+    if (tabs.length === 0) return;
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const subcategory = tab.getAttribute('data-subcategory');
+
+        // 탭 활성화 상태 변경
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // 서브카테고리 필터링
+        filterBySubcategory(subcategory);
+      });
+    });
+  };
+
+  // =========================================
+  // 서브카테고리별 필터링
+  // =========================================
+  const filterBySubcategory = (subcategory) => {
+    currentSubcategory = subcategory;
+    currentPage = 1; // 필터링 시 첫 페이지로 이동
+
+    if (subcategory === 'all') {
+      filteredItems = allItems;
+    } else {
+      filteredItems = allItems.filter(item => {
+        return item.getAttribute('data-subcategory') === subcategory;
+      });
+    }
+
+    // 페이지네이션 재계산
+    updatePagination();
+  };
+
+  // =========================================
+  // 페이지네이션 업데이트
+  // =========================================
+  const updatePagination = () => {
+    const paginationNav = document.getElementById('paginationNav');
+
+    if (!paginationNav) return;
+
+    // 총 페이지 수 재계산
+    totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+
+    // 페이지가 1개 이하면 페이지네이션 숨기기
+    if (totalPages <= 1) {
+      paginationNav.style.display = 'none';
+    } else {
+      paginationNav.style.display = '';
+    }
+
+    // 현재 페이지 표시
+    showPage(currentPage);
+  };
 
   // =========================================
   // 페이지네이션 초기화
@@ -24,14 +89,18 @@
 
     // 모든 아이템 가져오기
     allItems = Array.from(postsList.querySelectorAll('.category-post-item'));
+    filteredItems = allItems; // 초기에는 전체 표시
 
     if (allItems.length === 0) {
       paginationNav.style.display = 'none';
       return;
     }
 
+    // 탭 초기화
+    initTabs();
+
     // 총 페이지 수 계산
-    totalPages = Math.ceil(allItems.length / ITEMS_PER_PAGE);
+    totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
     // 페이지가 1개면 페이지네이션 숨기기
     if (totalPages <= 1) {
@@ -65,13 +134,13 @@
       item.style.display = 'none';
     });
 
-    // 현재 페이지 아이템만 표시
+    // 현재 페이지의 필터링된 아이템만 표시
     const startIndex = (page - 1) * ITEMS_PER_PAGE;
-    const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, allItems.length);
+    const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, filteredItems.length);
 
     for (let i = startIndex; i < endIndex; i++) {
-      if (allItems[i]) {
-        allItems[i].style.display = '';
+      if (filteredItems[i]) {
+        filteredItems[i].style.display = '';
       }
     }
 

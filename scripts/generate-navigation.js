@@ -18,7 +18,8 @@ class NavigationGenerator {
       '.github',
       'private', // private 폴더는 제외
       'scripts',
-      'mcp-servers' // MCP 서버 폴더 제외
+      'mcp-servers', // MCP 서버 폴더 제외
+      'tech-news' // HackerNews 자동 생성 뉴스 제외
     ];
   }
 
@@ -265,10 +266,11 @@ class NavigationGenerator {
     const totalDocs = this.documents.length;
     const now = new Date();
     
-    // 최근 수정된 문서 찾기
-    const mostRecentDoc = this.documents.reduce((latest, doc) => 
-      doc.lastModified > latest.lastModified ? doc : latest
-    );
+    // 최근 수정된 문서 찾기 (tech-news 제외)
+    const realDocs = this.documents.filter(doc => !doc.path.includes('tech-news'));
+    const mostRecentDoc = realDocs.length > 0
+      ? realDocs.reduce((latest, doc) => doc.lastModified > latest.lastModified ? doc : latest)
+      : this.documents[0];
     
     let markdown = `## 목차\n\n`;
     markdown += `> **총 ${totalDocs}개의 문서**(마지막 업데이트 정보: ${this.formatDateTime(now)})\n\n`;

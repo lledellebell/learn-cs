@@ -59,6 +59,7 @@ exclude:
   - .vscode
   - .idea
   - .DS_Store
+  - tech-news
 
 # Sitemap 설정
 sitemap:
