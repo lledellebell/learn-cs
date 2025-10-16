@@ -105,7 +105,7 @@ Cine Remote는 Canon 카메라의 WiFi 원격 제어 기능을 활용하는 애�
 ## 정보
 
 - **출처:** [HackerNews](https://news.ycombinator.com/)
-- **업데이트:** 이 뉴스는 매일 자동으로 업데이트됩니다
+- **업데이트:** 이 뉴스는 매일 오전 9시 자동으로 업데이트됩니다
 - **API:** [HackerNews API](https://github.com/HackerNews/API)
 
 

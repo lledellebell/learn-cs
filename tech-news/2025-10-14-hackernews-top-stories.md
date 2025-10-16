@@ -105,7 +105,7 @@ SQL Online AiDE는 SQLite, DuckDB, PGLite, MariaDB, PostgreSQL, MS SQL 등 다�
 ## 정보
 
 - **출처:** [HackerNews](https://news.ycombinator.com/)
-- **업데이트:** 이 뉴스는 매일 자동으로 업데이트됩니다
+- **업데이트:** 이 뉴스는 매일 오전 9시 자동으로 업데이트됩니다
 - **API:** [HackerNews API](https://github.com/HackerNews/API)
 
 
