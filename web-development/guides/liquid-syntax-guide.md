@@ -8,6 +8,7 @@ tags: [liquid, jekyll, template, static-site]
 render_with_liquid: false
 ---
 
+{% raw %}
 # Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기
 
 Jekyll 블로그를 만들었는데, 포스트 목록을 자동으로 표시하고 싶으신가요? 카테고리별로 글을 필터링하고 싶으신가요?
@@ -984,3 +985,4 @@ paginate_path: "/page/:num/"
 5. 프로젝트 포트폴리오
 
 Liquid를 익히는 가장 좋은 방법은 직접 사용해보는 것입니다. 작은 것부터 시작해서 점차 복잡한 기능을 만들어보세요!
+{% endraw %}
