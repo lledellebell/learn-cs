@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 48개의 문서** | 마지막 업데이트: 2025. 10. 16.
+> **총 51개의 문서** | 마지막 업데이트: 2025. 10. 17.
 
 ### 카테고리
 
@@ -41,16 +41,16 @@
 - **[프로그래밍 언어 (Languages)](#languages)** (14개 문서)
 - **[네트워킹 (Networking)](#networking)** (2개 문서)
 - **[데이터베이스 (Databases)](#databases)** (2개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (24개 문서)
-- **[기타 (Miscellaneous)](#misc)** (4개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (26개 문서)
+- **[기타 (Miscellaneous)](#misc)** (5개 문서)
 
 ### 최근 추가된 문서
 
+- **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)**
+- **[Gemini API 설정 가이드](/GEMINI_SETUP.md)**
 - **[`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)**
-- **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)**
-- **[HTTP 인증 방법 완벽 가이드](/networking/http/http_authentication_methods.md)**
-- **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
 - **[Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)**
+- **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)**
 
 ### 전체 목차
 
@@ -98,8 +98,9 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (24개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (26개)</summary>
 
+- ["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
 - [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/frontend/css/object-position_&_object-fit.md)
@@ -109,14 +110,14 @@
 - [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
 - [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
 - [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
-- [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md)
-- ... 그 외 14개 문서
+- ... 그 외 16개 문서
 
 </details>
 
 <details>
-<summary><strong>기타 (Miscellaneous)</strong> (4개)</summary>
+<summary><strong>기타 (Miscellaneous)</strong> (5개)</summary>
 
+- [Gemini API 설정 가이드](/GEMINI_SETUP.md)
 - [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md)
 - [저작권 및 이용 정책](/copyright.md)
 - [Learn CS](/index.md)

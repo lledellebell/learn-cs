@@ -5,13 +5,23 @@
     <link>https://github.com/lledellebell/learn-cs</link>
     <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 16 Oct 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
       <title>CS 학습 노트</title>
       <link>https://github.com/lledellebell/learn-cs</link>
     </image>
+
+    <item>
+      <title>&quot;포커스 모드 (Focus Mode)&quot;</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md</guid>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?</description>
+      <author>lledellebell</author>
+    </item>
 
     <item>
       <title>Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드</title>
@@ -60,6 +70,26 @@
       <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md</guid>
+      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>AI 에이전트와 작업하다 보면 이런 생각이 들 때가 있습니다. &quot;내 프로젝트의 특정 파일을 자동으로 읽고 쓸 수 있으면 좋을 텐데...&quot; 또는 &quot;반복적인 작업을 AI가 직접 처리할...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Gemini API 설정 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>기타</category>
+      <description>HackerNews 뉴스 자동 요약을 위한 Gemini API 설정 방법입니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -480,16 +510,6 @@
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Chrome User Agent Override 가이드</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>&quot;모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?&quot;</description>
       <author>lledellebell</author>
     </item>
   </channel>

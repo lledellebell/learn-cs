@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 48개의 문서**(마지막 업데이트 정보: 2025년 10월 16일 오후 02:32)
+> **총 51개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오전 07:08)
 
 > 최근 수정된 문서:
->- **Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드** (2025년 10월 16일)
+>- **"포커스 모드 (Focus Mode)"** (2025년 10월 17일)
 
 ### 알고리즘 (Algorithms)
 
@@ -61,7 +61,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 ### 웹 개발 (Web Development)
 
-프론트엔드, 백엔드, 툴
+프론트엔드, 백엔드, 툴, 기능
 
 #### 패턴
 
@@ -75,6 +75,12 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Context API를 활용한 Compound Pattern 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+#### 기능
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| ["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 
 #### 프론트엔드
 
@@ -105,6 +111,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기](/web-development/tools/mcp-server-guide.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
 ### 기타 (Miscellaneous)
@@ -114,6 +121,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
 | [학습 진행 상황](/learning-progress.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Gemini API 설정 가이드](/GEMINI_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [저작권 및 이용 정책](/copyright.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Learn CS](/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
@@ -124,18 +132,18 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 24개 |
+| 웹 개발 (Web Development) | 26개 |
 | 프로그래밍 언어 (Languages) | 14개 |
-| 기타 (Miscellaneous) | 4개 |
+| 기타 (Miscellaneous) | 5개 |
 | 알고리즘 (Algorithms) | 2개 |
 | 네트워킹 (Networking) | 2개 |
 | 데이터베이스 (Databases) | 2개 |
 
 ### 최근 수정된 문서
 
+1. **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)** - 2025년 10월 17일
 1. **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)** - 2025년 10월 16일
 1. **[Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기](/web-development/guides/liquid-syntax-guide.md)** - 2025년 10월 16일
 1. **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)** - 2025년 10월 15일
 1. **[학습 진행 상황](/learning-progress.md)** - 2025년 10월 15일
-1. **[Jekyll SEO 최적화 가이드](/web-development/guides/seo-optimization.md)** - 2025년 10월 15일
 

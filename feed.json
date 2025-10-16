@@ -16,6 +16,25 @@
   ],
   "items": [
     {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md",
+      "title": "\"포커스 모드 (Focus Mode)\"",
+      "content_html": "<p>긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?</p>",
+      "content_text": "긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?",
+      "summary": "긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?",
+      "date_published": "2025-10-17T00:00:00.000Z",
+      "date_modified": "2025-10-17T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
       "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/jekyll-github-pages-guide.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/jekyll-github-pages-guide.md",
       "title": "Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드",
@@ -102,6 +121,44 @@
       "date_modified": "2025-10-15T00:00:00.000Z",
       "tags": [
         "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md",
+      "title": "MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기",
+      "content_html": "<p>AI 에이전트와 작업하다 보면 이런 생각이 들 때가 있습니다. &quot;내 프로젝트의 특정 파일을 자동으로 읽고 쓸 수 있으면 좋을 텐데...&quot; 또는 &quot;반복적인 작업을 AI가 직접 처리할...</p>",
+      "content_text": "AI 에이전트와 작업하다 보면 이런 생각이 들 때가 있습니다. \"내 프로젝트의 특정 파일을 자동으로 읽고 쓸 수 있으면 좋을 텐데...\" 또는 \"반복적인 작업을 AI가 직접 처리할...",
+      "summary": "AI 에이전트와 작업하다 보면 이런 생각이 들 때가 있습니다. \"내 프로젝트의 특정 파일을 자동으로 읽고 쓸 수 있으면 좋을 텐데...\" 또는 \"반복적인 작업을 AI가 직접 처리할...",
+      "date_published": "2025-10-15T00:00:00.000Z",
+      "date_modified": "2025-10-15T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md",
+      "title": "Gemini API 설정 가이드",
+      "content_html": "<p>HackerNews 뉴스 자동 요약을 위한 Gemini API 설정 방법입니다.</p>",
+      "content_text": "HackerNews 뉴스 자동 요약을 위한 Gemini API 설정 방법입니다.",
+      "summary": "HackerNews 뉴스 자동 요약을 위한 Gemini API 설정 방법입니다.",
+      "date_published": "2025-10-13T00:00:00.000Z",
+      "date_modified": "2025-10-13T00:00:00.000Z",
+      "tags": [
+        "기타"
       ],
       "authors": [
         {
@@ -896,25 +953,6 @@
       "content_html": "<p>프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...</p>",
       "content_text": "프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...",
       "summary": "프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...",
-      "date_published": "2025-10-02T00:00:00.000Z",
-      "date_modified": "2025-10-02T00:00:00.000Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
-      "title": "Chrome User Agent Override 가이드",
-      "content_html": "<p>&quot;모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?&quot;</p>",
-      "content_text": "\"모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?\"",
-      "summary": "\"모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?\"",
       "date_published": "2025-10-02T00:00:00.000Z",
       "date_modified": "2025-10-02T00:00:00.000Z",
       "tags": [

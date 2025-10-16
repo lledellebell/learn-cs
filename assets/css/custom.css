@@ -2197,6 +2197,19 @@ pre {
     width: 20px;
     height: 20px;
   }
+
+  /* 스크롤 시 버튼 숨김/표시 */
+  .back-to-top.button-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(80px);
+  }
+
+  .back-to-top.button-visible.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 /* Focus Mode */
@@ -2365,6 +2378,19 @@ body.focus-mode .article-body > h6 {
   .focus-mode-toggle svg {
     width: 20px;
     height: 20px;
+  }
+
+  /* 스크롤 시 버튼 숨김/표시 */
+  .focus-mode-toggle.button-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(80px);
+  }
+
+  .focus-mode-toggle.button-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   /* 모바일에서 포커스 모드: 터치 기반 인터랙션 */

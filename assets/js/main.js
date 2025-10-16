@@ -1150,11 +1150,15 @@
     // 클릭 이벤트
     focusModeToggle.addEventListener('click', toggleFocusMode);
 
-    // 키보드 단축키 (Ctrl/Cmd + F)
+    // 키보드 단축키 (Ctrl/Cmd + Shift + F)
     document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'f' && !e.shiftKey) {
-        // 브라우저 기본 검색 막기 (포커스 모드만 실행)
-        if (articleBody.contains(document.activeElement)) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f' && e.shiftKey) {
+        // 입력 필드가 아닐 때만 포커스 모드 토글
+        const isInputField = document.activeElement.tagName === 'INPUT' ||
+                            document.activeElement.tagName === 'TEXTAREA' ||
+                            document.activeElement.isContentEditable;
+
+        if (!isInputField) {
           e.preventDefault();
           toggleFocusMode();
         }
@@ -1316,12 +1320,99 @@
   };
 
   // =========================================
+  // 모바일 버튼 스크롤 방향 감지
+  // =========================================
+  const initMobileButtonScroll = () => {
+    // 모바일에서만 동작
+    if (window.innerWidth > 768) return;
+
+    const focusModeToggle = document.getElementById('focusModeToggle');
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (!focusModeToggle && !backToTopBtn) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const scrollThreshold = 10; // 최소 스크롤 거리
+
+    const updateButtons = () => {
+      const currentScrollY = window.scrollY;
+
+      // 상단에 있을 때는 항상 버튼 표시
+      if (currentScrollY < 100) {
+        if (focusModeToggle) {
+          focusModeToggle.classList.remove('button-hidden');
+          focusModeToggle.classList.add('button-visible');
+        }
+        if (backToTopBtn) {
+          backToTopBtn.classList.remove('button-hidden');
+          backToTopBtn.classList.add('button-visible');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+        return;
+      }
+
+      // 스크롤 방향 감지
+      if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
+        ticking = false;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY) {
+        // 아래로 스크롤 - 버튼 숨김
+        if (focusModeToggle) {
+          focusModeToggle.classList.add('button-hidden');
+          focusModeToggle.classList.remove('button-visible');
+        }
+        if (backToTopBtn) {
+          backToTopBtn.classList.add('button-hidden');
+          backToTopBtn.classList.remove('button-visible');
+        }
+      } else {
+        // 위로 스크롤 - 버튼 표시
+        if (focusModeToggle) {
+          focusModeToggle.classList.remove('button-hidden');
+          focusModeToggle.classList.add('button-visible');
+        }
+        if (backToTopBtn) {
+          backToTopBtn.classList.remove('button-hidden');
+          backToTopBtn.classList.add('button-visible');
+        }
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateButtons);
+        ticking = true;
+      }
+    });
+
+    // 리사이즈 시 클래스 제거
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        if (focusModeToggle) {
+          focusModeToggle.classList.remove('button-hidden', 'button-visible');
+        }
+        if (backToTopBtn) {
+          backToTopBtn.classList.remove('button-hidden', 'button-visible');
+        }
+      }
+    });
+  };
+
+  // =========================================
   // 초기화
   // =========================================
   const init = () => {
     initTheme();
     initMobileNav();
     initScrollHeader();
+    initMobileButtonScroll();
     initHeroCanvas();
     initNewsCarouselNav();
     generateTOC();
