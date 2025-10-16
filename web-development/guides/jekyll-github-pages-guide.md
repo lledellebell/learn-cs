@@ -542,26 +542,6 @@ Jekyll은 정적 사이트지만 HTML/JavaScript를 자유롭게 추가할 수 �
 </script>
 ```
 
-3. 포스트 레이아웃에 추가 (`_layouts/post.html`):
-
-```html
-<article>
-  <h1>{{ page.title }}</h1>
-
-  <!-- 본문 위 광고 -->
-  {%- raw -%}
-  {% include adsense.html %}
-  {% endraw %}
-
-  {{ content }}
-
-  <!-- 본문 아래 광고 -->
-  {%- raw -%}
-  {% include adsense.html %}
-  {% endraw %}
-</article>
-```
-
 #### Carbon Ads (개발자 블로그에 적합)
 
 개발자/디자이너 블로그에 특화된 광고 네트워크입니다.
