@@ -627,7 +627,7 @@ pre[data-language="tsx"]::before {
 }
 
 .main-content {
-  overflow: auto;
+  overflow: visible;
   flex: 1;
   padding-top: calc(var(--header-height));
   /* padding-bottom: var(--space-16); */
@@ -647,6 +647,41 @@ pre[data-language="tsx"]::before {
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: var(--border-width) solid rgba(0, 0, 0, 0.1);
   z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile: Hide header on scroll down */
+@media (max-width: 768px) {
+  .site-header.header-hidden {
+    transform: translateY(-100%);
+  }
+
+  .site-header.header-visible {
+    transform: translateY(0);
+  }
+
+  /* Adjust TOC and reading progress when header is hidden */
+  .site-header.header-hidden ~ * .toc,
+  body:has(.site-header.header-hidden) .toc {
+    top: 0;
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .site-header.header-hidden ~ * .reading-progress,
+  body:has(.site-header.header-hidden) .reading-progress {
+    top: 0;
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .site-header.header-visible ~ * .toc,
+  body:has(.site-header.header-visible) .toc {
+    top: var(--header-height);
+  }
+
+  .site-header.header-visible ~ * .reading-progress,
+  body:has(.site-header.header-visible) .reading-progress {
+    top: var(--header-height);
+  }
 }
 
 [data-theme="dark"] .site-header {
@@ -1343,7 +1378,7 @@ pre[data-language="tsx"]::before {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Desktop: Sticky on the right */
+/* Desktop: Sticky on the right with enhanced UX */
 @media (min-width: 769px) {
   .toc {
     position: sticky;
@@ -1355,7 +1390,19 @@ pre[data-language="tsx"]::before {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7;
   }
+/* 
+  .toc:hover {
+    opacity: 1;
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  [data-theme="dark"] .toc:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  } */
 
   .toc::-webkit-scrollbar {
     width: 6px;
@@ -1373,6 +1420,71 @@ pre[data-language="tsx"]::before {
   .toc::-webkit-scrollbar-thumb:hover {
     background: var(--color-border-dark);
   }
+
+  /* Progress indicator dots */
+  .toc-list li {
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .focus-mode .toc-list li::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .focus-mode .toc-list a.active ~ li::before,
+  .focus-mode .toc-list li:has(a.active)::before {
+    background: rgba(116, 251, 132, 0.8);
+    box-shadow: 0 0 8px rgba(116, 251, 132, 0.6);
+    transform: translateY(-50%) scale(1.2);
+  }
+
+  [data-theme="dark"] .focus-mode .toc-list a.active ~ li::before,
+  [data-theme="dark"] .focus-mode .toc-list li:has(a.active)::before {
+    background: rgba(244, 255, 125, 0.8);
+    box-shadow: 0 0 8px rgba(244, 255, 125, 0.6);
+  }
+
+  /* Animate dots on hover */
+  .focus-mode .toc:hover .toc-list li::before {
+    transform: translateY(-50%) scale(1.3);
+  }
+
+  /* Read section styling */
+  .focus-mode .toc-list li.read::before {
+    background: rgba(116, 251, 132, 0.4);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  [data-theme="dark"] .focus-mode .toc-list li.read::before {
+    background: rgba(244, 255, 125, 0.4);
+  }
+
+  .toc-list li.read a {
+    opacity: 0.6;
+  }
+
+  .toc-list li.read:hover a,
+  .toc-list li.read a.active {
+    opacity: 1;
+  }
+
+  .toc-list .active,
+  [data-theme="light"] .toc-list .active{
+    color: rgb(94, 201, 106);
+  }
+
+  [data-theme="dark"] .toc-list .active{
+    color: rgba(244, 255, 125, 1)
+  }
 }
 
 /* Mobile: Fixed overlay style like Notion */
@@ -1385,14 +1497,12 @@ pre[data-language="tsx"]::before {
     z-index: 90;
     padding: 0;
     order: -1;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    max-height: none;
+    overflow: visible;
     box-shadow: none;
   }
 
   .toc.expanded {
-    max-height: 70vh;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
@@ -2009,14 +2119,252 @@ pre {
   top: var(--header-height);
   left: 0;
   width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-black), var(--color-gray-600));
+  height: 4px;
+  background: linear-gradient(90deg, rgba(116, 251, 132, 0.9), rgba(64, 224, 208, 0.9));
   z-index: 99;
   transition: width 100ms ease-out;
+  box-shadow: 0 2px 8px rgba(116, 251, 132, 0.4);
 }
 
 [data-theme="dark"] .reading-progress {
-  background: linear-gradient(90deg, var(--color-white), var(--color-gray-400));
+  background: linear-gradient(90deg, rgba(244, 255, 125, 0.9), rgba(102, 252, 241, 0.9));
+  box-shadow: 0 2px 8px rgba(244, 255, 125, 0.4);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  width: 48px;
+  height: 48px;
+  background: rgba(116, 251, 132, 0.95);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 98;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* box-shadow: 0 4px 12px rgba(116, 251, 132, 0.4); */
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  /* box-shadow: 0 8px 20px rgba(116, 251, 132, 0.5); */
+  background: rgba(116, 251, 132, 1);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .back-to-top {
+  background: rgba(244, 255, 125, 0.95);
+  /* box-shadow: 0 4px 12px rgba(244, 255, 125, 0.4); */
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background: rgba(244, 255, 125, 1);
+  /* box-shadow: 0 8px 20px rgba(244, 255, 125, 0.5); */
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: var(--space-6);
+    right: var(--space-6);
+    width: 44px;
+    height: 44px;
+  }
+
+  .back-to-top svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Focus Mode */
+.focus-mode-toggle {
+  position: fixed;
+  bottom: var(--space-8);
+  left: var(--space-8);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.95);
+  border: var(--border-width) solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 98;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.focus-mode-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.focus-mode-toggle svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text);
+  transition: transform 0.3s ease;
+}
+
+.focus-mode-toggle.active {
+  background: rgba(116, 251, 132, 0.95);
+  border-color: rgba(116, 251, 132, 0.3);
+}
+
+.focus-mode-toggle.active svg {
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] .focus-mode-toggle {
+  background: rgba(0, 0, 0, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .focus-mode-toggle.active {
+  background: rgba(244, 255, 125, 0.95);
+  border-color: rgba(244, 255, 125, 0.3);
+}
+
+[data-theme="dark"] .focus-mode-toggle.active svg {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Tooltip for focus mode toggle */
+.focus-mode-toggle::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  border-radius: var(--border-radius-sm);
+  opacity: 0;
+  letter-spacing: -0.07rem;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+[data-theme="dark"] .focus-mode-toggle::after {
+  background: rgba(255, 255, 255, 0.95);
+  color: black;
+}
+
+.focus-mode-toggle:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-12px);
+}
+
+/* Tooltip arrow */
+.focus-mode-toggle::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+
+[data-theme="dark"] .focus-mode-toggle::before {
+  border-top-color: rgba(255, 255, 255, 0.95);
+}
+
+.focus-mode-toggle:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Focus Mode Active State */
+body.focus-mode .article-body > *:not(.highlighter-rouge) {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+body.focus-mode .article-body *.focused {
+  opacity: 1 !important;
+}
+
+/* Hover는 데스크톱에서만 동작 (모바일에서는 스크롤 기반 강조만 사용) */
+@media (hover: hover) and (pointer: fine) {
+  body.focus-mode .article-body *:hover {
+    opacity: 1 !important;
+  }
+
+  body.focus-mode .article-body > h1:hover,
+  body.focus-mode .article-body > h2:hover,
+  body.focus-mode .article-body > h3:hover,
+  body.focus-mode .article-body > h4:hover,
+  body.focus-mode .article-body > h5:hover,
+  body.focus-mode .article-body > h6:hover {
+    opacity: 1;
+  }
+}
+
+body.focus-mode .article-body > h1,
+body.focus-mode .article-body > h2,
+body.focus-mode .article-body > h3,
+body.focus-mode .article-body > h4,
+body.focus-mode .article-body > h5,
+body.focus-mode .article-body > h6 {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .focus-mode-toggle {
+    bottom: var(--space-6);
+    left: var(--space-6);
+    width: 44px;
+    height: 44px;
+  }
+
+  .focus-mode-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* 모바일에서 포커스 모드: 터치 기반 인터랙션 */
+  body.focus-mode .article-body > * {
+    cursor: pointer;
+  }
+
+  /* 모바일에서 .focused 요소에 더 명확한 시각적 피드백 */
+  body.focus-mode .article-body > *.focused {
+    opacity: 1 !important;
+    transform: scale(1.01);
+  }
 }
 
 /* TOC Active Highlight */

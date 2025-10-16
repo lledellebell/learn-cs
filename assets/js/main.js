@@ -192,22 +192,37 @@
   };
 
   // =========================================
-  // 목차 하이라이트
+  // 목차 하이라이트 + 진행 상태 추적
   // =========================================
   const initTOCHighlight = (headings) => {
+    const tocLinks = document.querySelectorAll('#tocList a');
+    const tocItems = document.querySelectorAll('#tocList li');
+
+    // 읽은 섹션 추적
+    const readSections = new Set();
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const id = entry.target.id;
         const tocLink = document.querySelector(`#tocList a[data-target="${id}"]`);
+        const tocItem = tocLink?.closest('li');
 
         if (tocLink) {
           if (entry.isIntersecting) {
+            // 현재 섹션을 읽은 것으로 표시
+            readSections.add(id);
+
             // 모든 링크의 active 제거
-            document.querySelectorAll('#tocList a').forEach(link => {
+            tocLinks.forEach(link => {
               link.classList.remove('active');
             });
             // 현재 링크에 active 추가
             tocLink.classList.add('active');
+
+            // 읽은 섹션에 클래스 추가 (데스크톱 전용)
+            if (window.innerWidth > 768 && tocItem) {
+              tocItem.classList.add('read');
+            }
           }
         }
       });
@@ -1047,11 +1062,257 @@
   };
 
   // =========================================
+  // Back to Top 버튼
+  // =========================================
+  const initBackToTop = () => {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+
+    // 스크롤 시 버튼 표시/숨김
+    const toggleButton = () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    };
+
+    window.addEventListener('scroll', toggleButton);
+    toggleButton();
+
+    // 클릭 시 상단으로 이동
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  };
+
+  // =========================================
+  // 포커스 모드
+  // =========================================
+  const initFocusMode = () => {
+    const focusModeToggle = document.getElementById('focusModeToggle');
+    const articleBody = document.querySelector('.article-body');
+
+    if (!focusModeToggle || !articleBody) return;
+
+    let isFocusMode = false;
+    const isMobile = window.innerWidth <= 768;
+
+    // 포커스 모드 토글
+    const toggleFocusMode = () => {
+      isFocusMode = !isFocusMode;
+      document.body.classList.toggle('focus-mode', isFocusMode);
+      focusModeToggle.classList.toggle('active', isFocusMode);
+      focusModeToggle.setAttribute('aria-pressed', isFocusMode);
+
+      // 툴팁 텍스트 변경
+      focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON' : '포커스 모드');
+
+      // 상태를 로컬 스토리지에 저장
+      localStorage.setItem('focusMode', isFocusMode);
+
+      // 포커스 모드 활성화 시
+      if (isFocusMode) {
+        // 현재 보이는 요소 강조
+        highlightVisibleElement();
+
+        // 모바일에서 TOC가 열려있으면 닫기
+        if (isMobile) {
+          const tocContainer = document.getElementById('toc');
+          const tocToggle = document.getElementById('tocToggle');
+
+          if (tocContainer && tocContainer.classList.contains('expanded')) {
+            tocContainer.classList.remove('expanded');
+            if (tocToggle) {
+              tocToggle.setAttribute('aria-expanded', 'false');
+            }
+          }
+        }
+
+        // 맨 위로 스크롤 (선택사항)
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    // 저장된 상태 불러오기
+    const savedFocusMode = localStorage.getItem('focusMode') === 'true';
+    if (savedFocusMode) {
+      isFocusMode = true;
+      document.body.classList.add('focus-mode');
+      focusModeToggle.classList.add('active');
+      focusModeToggle.setAttribute('aria-pressed', 'true');
+      focusModeToggle.setAttribute('data-tooltip', '포커스 모드 ON');
+    }
+
+    // 클릭 이벤트
+    focusModeToggle.addEventListener('click', toggleFocusMode);
+
+    // 키보드 단축키 (Ctrl/Cmd + F)
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f' && !e.shiftKey) {
+        // 브라우저 기본 검색 막기 (포커스 모드만 실행)
+        if (articleBody.contains(document.activeElement)) {
+          e.preventDefault();
+          toggleFocusMode();
+        }
+      }
+    });
+
+    // 스크롤 시 현재 뷰포트에 있는 요소 강조 (포커스 모드일 때)
+    let ticking = false;
+    const highlightVisibleElement = () => {
+      if (!isFocusMode) return;
+
+      // 포커스 가능한 모든 요소: article-body의 직접 자식만 선택
+      const elements = articleBody.querySelectorAll(':scope > p, :scope pre, :scope blockquote, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > h5, :scope > h6, :scope > ul, :scope > ol, :scope > li');
+      const viewportHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+      const centerY = scrollTop + viewportHeight / 2;
+
+      let closestElement = null;
+      let closestDistance = Infinity;
+
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const elementCenter = scrollTop + rect.top + rect.height / 2;
+        const distance = Math.abs(centerY - elementCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestElement = element;
+        }
+      });
+
+      // 모든 focused 클래스 제거
+      elements.forEach(el => el.classList.remove('focused'));
+
+      // 가장 가까운 요소에 focused 클래스 추가
+      if (closestElement) {
+        closestElement.classList.add('focused');
+      }
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          highlightVisibleElement();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // 모바일: 터치한 요소 강조
+    if (isMobile) {
+      let touchTimeout;
+
+      articleBody.addEventListener('touchstart', (e) => {
+        if (!isFocusMode) return;
+
+        // 터치한 요소부터 시작해서 article-body의 직접 자식을 찾음
+        let target = e.target;
+
+        // 상위로 올라가면서 article-body의 직접 자식을 찾음
+        while (target && target !== articleBody) {
+          if (target.parentElement === articleBody) {
+            // p, pre, blockquote, h1-h6, ul, ol인지 확인
+            const tagName = target.tagName.toLowerCase();
+            if (['p', 'pre', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'].includes(tagName)) {
+              break;
+            }
+          }
+          target = target.parentElement;
+        }
+
+        if (!target || target === articleBody) return;
+
+        // 기존 강조 제거
+        const elements = articleBody.querySelectorAll('.focused');
+        elements.forEach(el => el.classList.remove('focused'));
+
+        // 터치한 요소 강조
+        target.classList.add('focused');
+
+        // 3초 후 자동으로 스크롤 기반 강조로 복귀
+        clearTimeout(touchTimeout);
+        touchTimeout = setTimeout(() => {
+          highlightVisibleElement();
+        }, 3000);
+      });
+    }
+  };
+
+  // =========================================
+  // 스크롤 방향 감지 헤더 (모바일 전용)
+  // =========================================
+  const initScrollHeader = () => {
+    // 모바일에서만 동작
+    if (window.innerWidth > 768) return;
+
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const scrollThreshold = 10; // 최소 스크롤 거리
+
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY;
+
+      // 상단에 있을 때는 항상 헤더 표시
+      if (currentScrollY < 100) {
+        header.classList.remove('header-hidden');
+        header.classList.add('header-visible');
+        lastScrollY = currentScrollY;
+        ticking = false;
+        return;
+      }
+
+      // 스크롤 방향 감지
+      if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
+        ticking = false;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY) {
+        // 아래로 스크롤 - 헤더 숨김
+        header.classList.add('header-hidden');
+        header.classList.remove('header-visible');
+      } else {
+        // 위로 스크롤 - 헤더 표시
+        header.classList.remove('header-hidden');
+        header.classList.add('header-visible');
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    });
+
+    // 리사이즈 시 재초기화
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        header.classList.remove('header-hidden', 'header-visible');
+      }
+    });
+  };
+
+  // =========================================
   // 초기화
   // =========================================
   const init = () => {
     initTheme();
     initMobileNav();
+    initScrollHeader();
     initHeroCanvas();
     initNewsCarouselNav();
     generateTOC();
@@ -1065,6 +1326,8 @@
     initShare();
     initBookmark();
     initReadingProgress();
+    initBackToTop();
+    initFocusMode();
     initEdit();
 
     console.log('✅ Learn CS 초기화 완료');
