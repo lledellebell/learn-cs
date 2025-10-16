@@ -59,7 +59,8 @@ exclude:
   - .vscode
   - .idea
   - .DS_Store
-  - tech-news
+  - web-development/guides/liquid-syntax-guide.md
+  - web-development/guides/jekyll-github-pages-guide.md
 
 # Sitemap 설정
 sitemap:
