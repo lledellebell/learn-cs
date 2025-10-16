@@ -1082,6 +1082,7 @@ function DataPipeline({ rawData, filters, sorting, grouping }) {
 
 ### 패턴 3: useMemo vs useCallback vs React.memo
 
+{% raw %}
 ```tsx
 // 시나리오: 부모 컴포넌트
 function ParentComponent() {
@@ -1183,6 +1184,7 @@ const callback = useMemo(() => fn, deps);
 
 // 하지만 useCallback이 의도를 더 명확히 표현합니다
 ```
+{% end %}
 
 ### 패턴 4: 커스텀 훅으로 복잡한 메모이제이션 추상화
 
@@ -1938,3 +1940,5 @@ const data = useMemo(async () => await fetch(...), []); // 잘못됨!
 - [useMemo 남용하지 않기 – Reddit r/reactjs](https://www.reddit.com/r/reactjs/comments/hsu5el/dont_overuse_usememo/)
 - [React 성능 최적화 FAQ – Stack Overflow](https://stackoverflow.com/questions/tagged/react-hooks+performance)
 - [React Patterns](https://www.patterns.dev/posts/react-patterns) - React 디자인 패턴 모음
+
+{% endraw %}

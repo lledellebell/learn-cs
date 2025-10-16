@@ -192,6 +192,15 @@ layout: default
         </nav>
       {% endif %}
 
+      <!-- Reactions Section -->
+      <section class="reactions-section" id="reactionsSection">
+        <h3 class="reactions-title">
+          <span id="reactionsTotalText">반응</span>
+        </h3>
+        <!-- Reactions will be dynamically rendered by JavaScript -->
+        <div class="reactions-container" id="reactionsContainer"></div>
+      </section>
+
       <!-- Comments Section -->
       {% if page.comments != false %}
         <section class="comments-section">
@@ -291,6 +300,9 @@ layout: default
     </div>
   </div>
 </div>
+
+<!-- Reactions Script -->
+<script src="{{ '/assets/js/reactions.js' | relative_url }}"></script>
 
 <!-- Edit Modal -->
 <div id="editModal" class="modal" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">

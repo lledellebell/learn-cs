@@ -6,6 +6,7 @@ categories: [Programming, JavaScript]
 tags: [Naming Conventions, Private Fields, Encapsulation, Class, Code Style]
 layout: page
 ---
+{% raw %}
 # JavaScript 네이밍 컨벤션: Public vs Private
 
 ## 개요
@@ -1254,3 +1255,4 @@ class NewClass {
   }
 }
 ```
+{% endraw %}

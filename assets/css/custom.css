@@ -3560,3 +3560,135 @@ pre {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* =========================================
+   Reactions Section
+   ========================================= */
+.reactions-section {
+  margin: var(--space-12) 0 var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.reactions-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.reactions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.reaction-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+}
+
+.reaction-btn:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border-dark);
+  transform: translateY(-1px);
+}
+
+.reaction-btn:active {
+  transform: translateY(0);
+}
+
+.reaction-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.reaction-btn.active:hover {
+  background: #e61f09;
+  border-color: #e61f09;
+}
+
+.reaction-emoji {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.reaction-count {
+  font-weight: 600;
+  min-width: 1ch;
+  text-align: center;
+}
+
+.reaction-btn.active .reaction-count {
+  color: var(--color-white);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  .reactions-section {
+    border-color: var(--color-gray-700);
+  }
+
+  .reaction-btn {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-700);
+    color: var(--color-gray-200);
+  }
+
+  .reaction-btn:hover {
+    background: var(--color-gray-700);
+    border-color: var(--color-gray-600);
+  }
+
+  .reaction-btn.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+} */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reactions-section {
+    margin: var(--space-8) 0 var(--space-6);
+  }
+
+  .reaction-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8125rem;
+  }
+
+  .reaction-emoji {
+    font-size: 1.125rem;
+  }
+}
+
+/* Reactions explanation text */
+.reactions-explanation {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .reactions-explanation {
+    color: var(--color-gray-400);
+  }
+}
+

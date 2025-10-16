@@ -46,11 +46,11 @@
 
 ### 최근 추가된 문서
 
+- **[`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)**
 - **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)**
-- **[Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기](/web-development/guides/liquid-syntax-guide.md)**
-- **[Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md)**
-- **[HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md)**
-- **[나만의 npm 라이브러리 만들고 세상과 공유하기](/web-development/guides/npm-library-guide.md)**
+- **[HTTP 인증 방법 완벽 가이드](/networking/http/http_authentication_methods.md)**
+- **[JavaScript 네이밍 컨벤션: Public vs Private](/languages/javascript/naming-conventions.md)**
+- **[Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)**
 
 ### 전체 목차
 

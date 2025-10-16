@@ -6,6 +6,7 @@ categories: [Web Development]
 tags: [Callback, Async, Functions, HTTP, Authentication, Security]
 layout: page
 ---
+{% raw %}
 # Compound Pattern
 
 Select와 Option 컴포넌트를 본 적 있나요? 아니면 HTML의 `<table>`, `<tr>`, `<td>`처럼 함께 사용해야 의미가 있는 요소들을 떠올려보세요. React의 **Compound Pattern**은 바로 이런 방식으로 작동하는 컴포넌트들을 만드는 디자인 패턴입니다.
@@ -2433,3 +2434,4 @@ import { Menu } from '@headlessui/react';
 
 - [react-component-composition](https://github.com/jxom/react-component-composition) - Compound Component 생성 도구
 - [Storybook](https://storybook.js.org/) - 컴포넌트 문서화 도구
+{% endraw %}

@@ -235,6 +235,7 @@ fetchWithBasicAuth(
 
 ### 실전 예제 4: React 컴포넌트에서 사용
 
+{% raw %}
 ```jsx
 import { useState } from 'react';
 
@@ -325,6 +326,7 @@ function LoginWithBasicAuth() {
   );
 }
 ```
+{% endraw %}
 
 ### 좋은 예 vs 나쁜 예
 
