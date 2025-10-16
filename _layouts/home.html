@@ -326,15 +326,14 @@ layout: default
       </div>
 
       <div class="home-recent-grid">
-        {% assign md_pages = site.pages | where_exp: "item", "item.path contains '.md'" %}
+        {% comment %} 최근 문서 표시 (정렬 없이 순회) {% endcomment %}
         {% assign count = 0 %}
 
-        {% comment %} 1단계: last_modified_at가 있는 페이지를 날짜 역순으로 표시 (HackerNews 제외) {% endcomment %}
-        {% assign pages_with_modified = md_pages | where_exp: "item", "item.last_modified_at" | sort: "last_modified_at" | reverse %}
-        {% for page in pages_with_modified %}
+        {% comment %} last_modified_at가 2025-10-16인 페이지 우선 표시 {% endcomment %}
+        {% for page in site.pages %}
           {% unless page.path contains 'tech-news/' %}
-          {% if page.path != 'README.md' and page.path != 'index.md' and page.title %}
-            {% if count < 6 %}
+          {% if page.path contains '.md' and page.path != 'README.md' and page.path != 'index.md' and page.title %}
+            {% if page.last_modified_at == '2025-10-16' and count < 6 %}
               <a href="{{ page.url | relative_url }}" class="home-recent-card">
                 <div class="home-recent-badge">
                   <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
@@ -361,41 +360,98 @@ layout: default
           {% endunless %}
         {% endfor %}
 
-        {% comment %} 2단계: 6개 미만이면 date만 있는 페이지를 날짜 역순으로 표시 {% endcomment %}
-        {% if count < 6 %}
-          {% assign pages_with_date = md_pages | where_exp: "item", "item.date" | sort: "date" | reverse %}
-          {% for page in pages_with_date %}
-            {% unless page.path contains 'tech-news/' %}
-            {% unless page.last_modified_at %}
-            {% if page.path != 'README.md' and page.path != 'index.md' and page.title %}
-              {% if count < 6 %}
-                <a href="{{ page.url | relative_url }}" class="home-recent-card">
-                  <div class="home-recent-badge">
-                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
-                      <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                    </svg>
-                    {{ page.date | date: "%m.%d" }}
-                  </div>
-                  <h3 class="home-recent-title">{{ page.title }}</h3>
-                  <p class="home-recent-path">
-                    {% assign path_parts = page.path | split: '/' %}
-                    {% if path_parts.size > 1 %}
-                      {% for part in path_parts %}
-                        {% unless forloop.last %}
-                          {% if forloop.first == false %} / {% endif %}{{ part }}
-                        {% endunless %}
-                      {% endfor %}
-                    {% endif %}
-                  </p>
-                </a>
-                {% assign count = count | plus: 1 %}
-              {% endif %}
+        {% comment %} last_modified_at가 2025-10-15인 페이지 {% endcomment %}
+        {% for page in site.pages %}
+          {% unless page.path contains 'tech-news/' %}
+          {% if page.path contains '.md' and page.path != 'README.md' and page.path != 'index.md' and page.title %}
+            {% if page.last_modified_at == '2025-10-15' and count < 6 %}
+              <a href="{{ page.url | relative_url }}" class="home-recent-card">
+                <div class="home-recent-badge">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg>
+                  {{ page.last_modified_at | date: "%m.%d" }}
+                </div>
+                <h3 class="home-recent-title">{{ page.title }}</h3>
+                <p class="home-recent-path">
+                  {% assign path_parts = page.path | split: '/' %}
+                  {% if path_parts.size > 1 %}
+                    {% for part in path_parts %}
+                      {% unless forloop.last %}
+                        {% if forloop.first == false %} / {% endif %}{{ part }}
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+                </p>
+              </a>
+              {% assign count = count | plus: 1 %}
             {% endif %}
-            {% endunless %}
-            {% endunless %}
-          {% endfor %}
-        {% endif %}
+          {% endif %}
+          {% endunless %}
+        {% endfor %}
+
+        {% comment %} last_modified_at가 2025-10-13인 페이지 {% endcomment %}
+        {% for page in site.pages %}
+          {% unless page.path contains 'tech-news/' %}
+          {% if page.path contains '.md' and page.path != 'README.md' and page.path != 'index.md' and page.title %}
+            {% if page.last_modified_at == '2025-10-13' and count < 6 %}
+              <a href="{{ page.url | relative_url }}" class="home-recent-card">
+                <div class="home-recent-badge">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg>
+                  {{ page.last_modified_at | date: "%m.%d" }}
+                </div>
+                <h3 class="home-recent-title">{{ page.title }}</h3>
+                <p class="home-recent-path">
+                  {% assign path_parts = page.path | split: '/' %}
+                  {% if path_parts.size > 1 %}
+                    {% for part in path_parts %}
+                      {% unless forloop.last %}
+                        {% if forloop.first == false %} / {% endif %}{{ part }}
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+                </p>
+              </a>
+              {% assign count = count | plus: 1 %}
+            {% endif %}
+          {% endif %}
+          {% endunless %}
+        {% endfor %}
+
+        {% comment %} 나머지 페이지 {% endcomment %}
+        {% for page in site.pages %}
+          {% unless page.path contains 'tech-news/' %}
+          {% if page.path contains '.md' and page.path != 'README.md' and page.path != 'index.md' and page.title %}
+            {% if page.last_modified_at and page.last_modified_at != '2025-10-16' and page.last_modified_at != '2025-10-15' and page.last_modified_at != '2025-10-13' and count < 6 %}
+              <a href="{{ page.url | relative_url }}" class="home-recent-card">
+                <div class="home-recent-badge">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg>
+                  {{ page.last_modified_at | date: "%m.%d" }}
+                </div>
+                <h3 class="home-recent-title">{{ page.title }}</h3>
+                <p class="home-recent-path">
+                  {% assign path_parts = page.path | split: '/' %}
+                  {% if path_parts.size > 1 %}
+                    {% for part in path_parts %}
+                      {% unless forloop.last %}
+                        {% if forloop.first == false %} / {% endif %}{{ part }}
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+                </p>
+              </a>
+              {% assign count = count | plus: 1 %}
+            {% endif %}
+          {% endif %}
+          {% endunless %}
+        {% endfor %}
       </div>
     </div>
   </section>
