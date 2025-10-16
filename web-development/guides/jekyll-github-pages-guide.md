@@ -544,7 +544,7 @@ Jekyll은 정적 사이트지만 HTML/JavaScript를 자유롭게 추가할 수 �
 
 3. 포스트 레이아웃에 추가 (`_layouts/post.html`):
 
-```liquid
+```html
 <article>
   <h1>{{ page.title }}</h1>
 
