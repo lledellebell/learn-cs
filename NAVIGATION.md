@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 52개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오전 07:29)
+> **총 50개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오후 02:50)
 
 > 최근 수정된 문서:
->- **"TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"** (2025년 10월 17일)
+>- **Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기** (2025년 10월 17일)
 
 ### 알고리즘 (Algorithms)
 
@@ -22,6 +22,7 @@
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기](/languages/javascript/safari-localstorage-private-mode.md) | 2025년 1월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Callback - JavaScript 비동기의 시작점](/languages/javascript/callback.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Factory Pattern - 객체를 만드는 똑똑한 방법](/languages/javascript/factory_pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [JavaScript의 Mutation vs Non-Mutation 심화](/languages/javascript/mutation-vs-non-mutation-examples.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
@@ -29,7 +30,7 @@
 | [Prototype - JavaScript의 숨은 마법을 이해하기](/languages/javascript/prototype.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Prototype Chain - JavaScript 상속의 마법 같은 여정](/languages/javascript/prototype_chain.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [this 키워드 - JavaScript에서 가장 혼란스러운 개념을 정복하기](/languages/javascript/this.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법](/languages/javascript/bind.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [`bind()` 메소드 - this가 사라지는 문제를 해결하는 마법](/languages/javascript/bind.md) | 2025년 10월 10일 | 2025년 10월 10일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [`forEach` vs `reduce`](/languages/javascript/foreach-vs-reduce-functional-programming.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [인스턴스 (Instance)](/languages/javascript/instance.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 | [JavaScript에서 Mutation vs Non-Mutation](/languages/javascript/mutation-vs-non-mutation.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
@@ -46,14 +47,27 @@
 
 네트워크 프로토콜, HTTP, TCP/IP 등
 
+#### DNS
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [DNS와 도메인, 호스팅의 관계 이해하기](/networking/dns/dns-domain-hosting-guide.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+
+#### HTTP
+
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
 | [HTTP 인증 방법 완벽 가이드](/networking/http/http_authentication_methods.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+#### 프로토콜
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
 | [네트워킹](/networking/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 
 ### 데이터베이스 (Databases)
 
-SQL, NoSQL, 데이터 모델링, 쿼리 최적화
+SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
@@ -62,7 +76,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 ### 웹 개발 (Web Development)
 
-프론트엔드, 백엔드, 툴
+프론트엔드, 백엔드, 도구 등
 
 #### 패턴
 
@@ -112,7 +126,6 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
-| [MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기](/web-development/tools/mcp-server-guide.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
 ### 기타 (Miscellaneous)
@@ -121,9 +134,6 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
-| [학습 진행 상황](/learning-progress.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Gemini API 설정 가이드](/GEMINI_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Jekyll 로컬 개발 가이드](/JEKYLL_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [저작권 및 이용 정책](/copyright.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Learn CS](/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 
@@ -133,18 +143,18 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 26개 |
-| 프로그래밍 언어 (Languages) | 15개 |
-| 기타 (Miscellaneous) | 5개 |
+| 웹 개발 (Web Development) | 25개 |
+| 프로그래밍 언어 (Languages) | 16개 |
+| 네트워킹 (Networking) | 3개 |
 | 알고리즘 (Algorithms) | 2개 |
-| 네트워킹 (Networking) | 2개 |
 | 데이터베이스 (Databases) | 2개 |
+| 기타 (Miscellaneous) | 2개 |
 
 ### 최근 수정된 문서
 
+1. **[Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기](/languages/javascript/safari-localstorage-private-mode.md)** - 2025년 10월 17일
 1. **["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md)** - 2025년 10월 17일
+1. **[DNS와 도메인, 호스팅의 관계 이해하기](/networking/dns/dns-domain-hosting-guide.md)** - 2025년 10월 17일
 1. **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)** - 2025년 10월 17일
 1. **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)** - 2025년 10월 16일
-1. **[Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기](/web-development/guides/liquid-syntax-guide.md)** - 2025년 10월 16일
-1. **[Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md)** - 2025년 10월 15일
 

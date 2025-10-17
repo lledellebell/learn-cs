@@ -15,7 +15,12 @@
     const html = document.documentElement;
 
     // 저장된 테마 불러오기
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    let savedTheme = 'light';
+    try {
+      savedTheme = localStorage.getItem('theme') || 'light';
+    } catch (e) {
+      console.warn('localStorage 접근 불가:', e);
+    }
     html.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
@@ -25,7 +30,11 @@
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
       html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+      try {
+        localStorage.setItem('theme', newTheme);
+      } catch (e) {
+        console.warn('localStorage 저장 실패:', e);
+      }
       updateThemeIcon(newTheme);
     });
   };
@@ -529,7 +538,12 @@
     if (!bookmarkBtn) return;
 
     const pageUrl = window.location.pathname;
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+    let bookmarks = {};
+    try {
+      bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+    } catch (e) {
+      console.warn('localStorage 접근 불가:', e);
+    }
 
     // 북마크 상태 확인
     const updateBookmarkUI = () => {
@@ -558,7 +572,11 @@
         };
       }
 
-      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      try {
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      } catch (e) {
+        console.warn('localStorage 저장 실패:', e);
+      }
       updateBookmarkUI();
     });
 
@@ -569,7 +587,11 @@
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
           bookmarks[pageUrl].scrollPosition = window.scrollY;
-          localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+          try {
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+          } catch (e) {
+            console.warn('localStorage 저장 실패:', e);
+          }
         }, 500);
       }
     });
@@ -1090,6 +1112,63 @@
   };
 
   // =========================================
+  // 포커스 모드 토스트 메시지
+  // =========================================
+  const showFocusModeToast = () => {
+    // 토스트 엘리먼트 생성
+    const toast = document.createElement('div');
+    toast.className = 'focus-mode-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+
+    // Mac인지 확인 (Cmd vs Ctrl 표시)
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const modifier = isMac ? 'Cmd' : 'Ctrl';
+
+    toast.innerHTML = `
+      <div class="toast-icon">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+        </svg>
+      </div>
+      <div class="toast-content">
+        <div class="toast-title">포커스 모드</div>
+        <div class="toast-message"><kbd>${modifier}</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> 로 집중 독서 모드를 켜보세요</div>
+      </div>
+      <button type="button" class="toast-close" aria-label="닫기">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M.146 1.146a.5.5 0 0 1 .708 0L8 8.293l7.146-7.147a.5.5 0 0 1 .708.708L8.707 9l7.147 7.146a.5.5 0 0 1-.708.708L8 9.707l-7.146 7.147a.5.5 0 0 1-.708-.708L7.293 9 .146 1.854a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    `;
+
+    document.body.appendChild(toast);
+
+    // 닫기 버튼 이벤트
+    const closeBtn = toast.querySelector('.toast-close');
+    const closeToast = () => {
+      toast.classList.add('hiding');
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    };
+
+    closeBtn.addEventListener('click', closeToast);
+
+    // 애니메이션을 위한 딜레이
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 100);
+
+    // 8초 후 자동으로 사라지기
+    setTimeout(() => {
+      if (document.body.contains(toast)) {
+        closeToast();
+      }
+    }, 8000);
+  };
+
+  // =========================================
   // 포커스 모드
   // =========================================
   const initFocusMode = () => {
@@ -1109,10 +1188,14 @@
       focusModeToggle.setAttribute('aria-pressed', isFocusMode);
 
       // 툴팁 텍스트 변경
-      focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON' : '포커스 모드 OFF');
+      focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON (Ctrl+Shift+F)' : '포커스 모드 (Ctrl+Shift+F)');
 
       // 상태를 로컬 스토리지에 저장
-      localStorage.setItem('focusMode', isFocusMode);
+      try {
+        localStorage.setItem('focusMode', isFocusMode);
+      } catch (e) {
+        console.warn('localStorage 저장 실패:', e);
+      }
 
       // 포커스 모드 활성화 시
       if (isFocusMode) {
@@ -1132,19 +1215,44 @@
           }
         }
 
-        // 맨 위로 스크롤 (선택사항)
+        // 맨 위로 스크롤 
         // window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
 
     // 저장된 상태 불러오기
-    const savedFocusMode = localStorage.getItem('focusMode') === 'true';
+    let savedFocusMode = false;
+    try {
+      savedFocusMode = localStorage.getItem('focusMode') === 'true';
+    } catch (e) {
+      console.warn('localStorage 접근 불가:', e);
+    }
+
     if (savedFocusMode) {
       isFocusMode = true;
       document.body.classList.add('focus-mode');
       focusModeToggle.classList.add('active');
       focusModeToggle.setAttribute('aria-pressed', 'true');
-      focusModeToggle.setAttribute('data-tooltip', '포커스 모드 ON');
+      focusModeToggle.setAttribute('data-tooltip', '포커스 모드 ON (Ctrl+Shift+F)');
+    }
+
+    // 첫 방문 시 단축키 안내 토스트 표시
+    let hasSeenFocusModeHint = true;
+    try {
+      hasSeenFocusModeHint = localStorage.getItem('hasSeenFocusModeHint');
+    } catch (e) {
+      console.warn('localStorage 접근 불가:', e);
+    }
+
+    if (!hasSeenFocusModeHint) {
+      setTimeout(() => {
+        showFocusModeToast();
+        try {
+          localStorage.setItem('hasSeenFocusModeHint', 'true');
+        } catch (e) {
+          console.warn('localStorage 저장 실패:', e);
+        }
+      }, 1500);
     }
 
     // 클릭 이벤트

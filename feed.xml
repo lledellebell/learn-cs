@@ -14,12 +14,32 @@
     </image>
 
     <item>
+      <title>Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/safari-localstorage-private-mode.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/safari-localstorage-private-mode.md</guid>
+      <pubDate>Fri, 17 Jan 2025 09:00:00 +0000</pubDate>
+      <category>프로그래밍 언어</category>
+      <description>웹사이트를 개발하다가 Safari 사용자로부터 &quot;사이트가 작동하지 않아요&quot;라는 피드백을 받은 적 있나요?</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
       <title>&quot;TypeScript 기본 타입 - JavaScript와 비교하며 이해하기&quot;</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/basic-types.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/basic-types.md</guid>
       <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
       <category>프로그래밍 언어</category>
       <description>JavaScript로 프로젝트를 개발하다 보면 이런 경험 없으셨나요?</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>DNS와 도메인, 호스팅의 관계 이해하기</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/networking/dns/dns-domain-hosting-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/networking/dns/dns-domain-hosting-guide.md</guid>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
+      <category>네트워킹</category>
+      <description>웹사이트를 만들고 배포할 때, &quot;도메인을 구매했는데 왜 DNS 설정이 필요하지?&quot;라는 의문을 가져본 적 있나요?</description>
       <author>lledellebell</author>
     </item>
 
@@ -64,52 +84,12 @@
     </item>
 
     <item>
-      <title>학습 진행 상황</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/learning-progress.md</guid>
-      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>학습 진행 상황에 대한 학습 노트</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>Jekyll SEO 최적화 가이드</title>
       <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/seo-optimization.md</link>
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/guides/seo-optimization.md</guid>
       <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md</guid>
-      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>AI 에이전트와 작업하다 보면 이런 생각이 들 때가 있습니다. &quot;내 프로젝트의 특정 파일을 자동으로 읽고 쓸 수 있으면 좋을 텐데...&quot; 또는 &quot;반복적인 작업을 AI가 직접 처리할...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Gemini API 설정 가이드</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>HackerNews 뉴스 자동 요약을 위한 Gemini API 설정 방법입니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Jekyll 로컬 개발 가이드</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/JEKYLL_SETUP.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>기타</category>
-      <description>이 레포지토리는 GitHub Pages를 사용하여 Jekyll로 빌드됩니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -510,6 +490,26 @@
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Chrome User Agent Override 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&quot;모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?&quot;</description>
       <author>lledellebell</author>
     </item>
   </channel>

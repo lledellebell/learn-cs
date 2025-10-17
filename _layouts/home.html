@@ -31,7 +31,7 @@ layout: default
       {% comment %} Quick Stats  {% endcomment %}
       <div class="home-stats">
         <div class="home-stat-item">
-          <div class="home-stat-value">{{ site.pages | where_exp: "item", "item.path contains '.md'" | size }}</div>
+          <div class="home-stat-value">50</div>
           <div class="home-stat-label">총 문서</div>
         </div>
         <div class="home-stat-divider"></div>
@@ -329,11 +329,11 @@ layout: default
         {% comment %} 최근 문서 표시 (정렬 없이 순회) {% endcomment %}
         {% assign count = 0 %}
 
-        {% comment %} last_modified_at가 2025-10-16인 페이지 우선 표시 {% endcomment %}
+        {% comment %} last_modified_at가 2025-10-17인 페이지 우선 표시 {% endcomment %}
         {% for page in site.pages %}
           {% unless page.path contains 'tech-news/' %}
           {% if page.path contains '.md' and page.path != 'README.md' and page.path != 'index.md' and page.title %}
-            {% if page.last_modified_at == '2025-10-16' and count < 6 %}
+            {% if page.last_modified_at == '2025-10-17' and count < 6 %}
               <a href="{{ page.url | relative_url }}" class="home-recent-card">
                 <div class="home-recent-badge">
                   <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">

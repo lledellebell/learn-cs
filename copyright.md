@@ -14,7 +14,7 @@ show_toc: false
 본 사이트 **Learn CS**(이하 "본 사이트")의 모든 콘텐츠는 저작권법의 보호를 받습니다.
 
 - **저작권자**: lledellebell
-- **사이트**: [https://lledellebell.github.io/learn-cs/](https://lledellebell.github.io/learn-cs/)
+- **사이트**: [https://deep-log.com](https://deep-log.com)
 - **GitHub**: [https://github.com/lledellebell/learn-cs](https://github.com/lledellebell/learn-cs)
 
 ## 콘텐츠 이용 범위
@@ -59,21 +59,21 @@ show_toc: false
 ### 웹사이트/블로그
 
 ```
-출처: Learn CS (https://lledellebell.github.io/learn-cs/)
+출처: Learn CS (https://deep-log.com)
 작성자: deep
 ```
 
 ### 학술 자료
 
 ```
-Learn CS, "문서 제목", https://lledellebell.github.io/learn-cs/path/to/page, 접근일자: YYYY.MM.DD
+Learn CS, "문서 제목", https://deep-log.com/path/to/page, 접근일자: YYYY.MM.DD
 ```
 
 ### SNS
 
 ```
 Learn CS에서 발췌
-🔗 https://lledellebell.github.io/learn-cs/path/to/page
+🔗 https://deep-log.com/path/to/page
 ```
 
 ## 오픈소스 라이선스

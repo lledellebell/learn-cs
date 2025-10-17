@@ -195,22 +195,22 @@ class NavigationGenerator {
       },
       'operating-systems': {
         title: '운영체제 (Operating Systems)',
-        description: 'OS 개념, 프로세스, 스레드, 메모리 관리',
+        description: 'OS 개념, 프로세스, 스레드, 메모리 관리 등',
         documents: []
       },
       'databases': {
         title: '데이터베이스 (Databases)',
-        description: 'SQL, NoSQL, 데이터 모델링, 쿼리 최적화',
+        description: 'SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등',
         documents: []
       },
       'web-development': {
         title: '웹 개발 (Web Development)',
-        description: '프론트엔드, 백엔드, 툴',
+        description: '프론트엔드, 백엔드, 도구 등',
         documents: []
       },
       'security': {
         title: '보안 (Security)',
-        description: '암호화, 인증, 권한 부여, 웹 보안',
+        description: '암호화, 인증, 권한 부여, 웹 보안 등',
         documents: []
       },
       'misc': {
@@ -280,11 +280,11 @@ class NavigationGenerator {
     for (const [categoryKey, category] of Object.entries(categories)) {
       markdown += `### ${category.title}\n\n`;
       markdown += `${category.description}\n\n`;
-      
+
       // 서브카테고리별로 그룹화 (웹 개발의 경우)
       if (categoryKey === 'web-development') {
         const subCategories = this.groupWebDevDocuments(category.documents);
-        
+
         for (const [subKey, subCategory] of Object.entries(subCategories)) {
           if (subCategory.documents.length > 0) {
             markdown += `#### ${subCategory.title}\n\n`;
@@ -294,11 +294,21 @@ class NavigationGenerator {
         }
       } else if (categoryKey === 'languages') {
         const langCategories = this.groupLanguageDocuments(category.documents);
-        
+
         for (const [langKey, langCategory] of Object.entries(langCategories)) {
           if (langCategory.documents.length > 0) {
             markdown += `#### ${langCategory.title}\n\n`;
             markdown += this.generateDocumentTable(langCategory.documents);
+            markdown += '\n';
+          }
+        }
+      } else if (categoryKey === 'networking') {
+        const networkCategories = this.groupNetworkingDocuments(category.documents);
+
+        for (const [netKey, netCategory] of Object.entries(networkCategories)) {
+          if (netCategory.documents.length > 0) {
+            markdown += `#### ${netCategory.title}\n\n`;
+            markdown += this.generateDocumentTable(netCategory.documents);
             markdown += '\n';
           }
         }
@@ -325,19 +335,19 @@ class NavigationGenerator {
       markdown += `| ${stat.name} | ${stat.count}개 |\n`;
     }
     markdown += `\n`;
-    
-    // 최근 수정된 문서 목록 (상위 5개)
-    const recentDocs = [...this.documents]
+
+    // 최근 수정된 문서 목록 (상위 5개, tech-news 제외)
+    const recentDocs = [...realDocs]
       .sort((a, b) => b.lastModified - a.lastModified)
       .slice(0, 5);
-    
+
     markdown += `### 최근 수정된 문서\n\n`;
     for (const doc of recentDocs) {
       const relativePath = doc.path.replace(/\\/g, '/');
       markdown += `1. **[${doc.title}](/${relativePath})** - ${this.formatDate(doc.lastModified)}\n`;
     }
     markdown += `\n`;
-    
+
     return markdown;
   }
 
@@ -433,6 +443,36 @@ class NavigationGenerator {
     }
 
     return langCategories;
+  }
+
+  // 네트워킹 문서 서브카테고리 그룹화
+  groupNetworkingDocuments(documents) {
+    const networkCategories = {
+      'dns': { title: 'DNS', documents: [] },
+      'http': { title: 'HTTP', documents: [] },
+      'tcp-ip': { title: 'TCP/IP', documents: [] },
+      'security': { title: '네트워크 보안', documents: [] },
+      'protocols': { title: '프로토콜', documents: [] }
+    };
+
+    for (const doc of documents) {
+      if (doc.path.includes('/dns/')) {
+        networkCategories.dns.documents.push(doc);
+      } else if (doc.path.includes('/http/')) {
+        networkCategories.http.documents.push(doc);
+      } else if (doc.path.includes('/tcp-ip/') || doc.path.includes('/tcp/') || doc.path.includes('/ip/')) {
+        networkCategories['tcp-ip'].documents.push(doc);
+      } else if (doc.path.includes('/security/')) {
+        networkCategories.security.documents.push(doc);
+      } else if (doc.path.includes('/protocols/')) {
+        networkCategories.protocols.documents.push(doc);
+      } else {
+        // index.md 파일은 프로토콜 섹션에 추가
+        networkCategories.protocols.documents.push(doc);
+      }
+    }
+
+    return networkCategories;
   }
 
   // 통계 정보 생성
