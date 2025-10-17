@@ -18,13 +18,13 @@
 
   <meta name="google-site-verification" content="SEN7eqeiHTKrzuYuRvCqNofZrO13Rmvy-gxXU8SLB30" />
   <meta name="google-adsense-account" content="ca-pub-6523411066526965">
-  
+
   {% if jekyll.environment == 'production' %}
     {% include head-seo.html %}
   {% endif %}
 </head>
 <body>
-  <!-- Skip to main content for accessibility -->
+  {% comment %} Skip to main content for accessibility {% endcomment %}
   <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 
   <div class="site-wrapper">
@@ -37,7 +37,7 @@
     {% include footer.html %}
   </div>
 
-  <!-- JavaScript -->
+  {% comment %} JS {% endcomment %}
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
