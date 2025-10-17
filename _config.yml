@@ -1,8 +1,8 @@
 # Jekyll 설정
 title: Learn CS
 description: Computer Science learning materials
-url: "https://lledellebell.github.io"
-baseurl: "/learn-cs"
+url: "https://deep-log.com"
+baseurl: ""
 repository: lledellebell/learn-cs
 author: Learn CS
 
