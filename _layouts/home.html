@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="home-wrapper">
-  <!-- Hero Section -->
+  {% comment %} Hero Section  {% endcomment %}
   <section class="home-hero">
     <canvas class="home-hero-canvas" id="heroCanvas"></canvas>
     <div class="container">
@@ -11,7 +11,7 @@ layout: default
         <h1 class="home-hero-title">{{ site.title }}</h1>
         <p class="home-hero-description">{{ site.description }}</p>
 
-        <!-- Hero Actions -->
+        {% comment %} Hero Actions  {% endcomment %}
         <div class="home-hero-actions">
           <a href="{{ '/NAVIGATION.html' | relative_url }}" class="home-hero-btn home-hero-btn-primary">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -28,7 +28,7 @@ layout: default
         </div>
       </div>
 
-      <!-- Quick Stats -->
+      {% comment %} Quick Stats  {% endcomment %}
       <div class="home-stats">
         <div class="home-stat-item">
           <div class="home-stat-value">{{ site.pages | where_exp: "item", "item.path contains '.md'" | size }}</div>
@@ -48,7 +48,7 @@ layout: default
     </div>
   </section>
 
-  <!-- Categories Section -->
+  {% comment %} Categories Section  {% endcomment %}
   <section class="home-categories">
     <div class="container">
       <div class="home-section-header">
@@ -162,7 +162,7 @@ layout: default
     </div>
   </section>
 
-  <!-- IT News Section -->
+  {% comment %} IT News Section  {% endcomment %}
   <section class="home-news">
     <div class="container">
       <div class="home-section-header">
@@ -312,7 +312,7 @@ layout: default
     </div>
   </section>
 
-  <!-- Recent Documents -->
+  {% comment %} Recent Documents  {% endcomment %}
   <section class="home-recent">
     <div class="container">
       <div class="home-section-header">
@@ -456,9 +456,7 @@ layout: default
     </div>
   </section>
 
-  <!-- Learning Progress -->
-
-  <!-- Footer CTA -->
+  {% comment %} Footer CTA  {% endcomment %}
   <section class="home-cta">
     <div class="container">
       <div class="home-cta-content">
