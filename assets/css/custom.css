@@ -3102,11 +3102,6 @@ body.focus-mode .article-body > h6 {
   color: var(--color-text-secondary);
   line-height: 1.7;
   margin: 0;
-  /* 3줄 말줄임 */
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
 }
 
 .home-news-meta {
