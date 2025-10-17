@@ -251,7 +251,7 @@
       await updateReactions();
     }, UPDATE_INTERVAL_MS);
 
-    console.log(`자동 업데이트 시작: ${UPDATE_INTERVAL_MS / 1000}초마다 갱신`);
+    // console.log(`자동 업데이트 시작: ${UPDATE_INTERVAL_MS / 1000}초마다 갱신`);
   }
 
   /**
@@ -261,7 +261,7 @@
     if (updateInterval) {
       clearInterval(updateInterval);
       updateInterval = null;
-      console.log('자동 업데이트 중지');
+      // console.log('자동 업데이트 중지');
     }
   }
 
@@ -317,7 +317,7 @@
       startAutoUpdate();
     } else {
       // 아직 issue가 없음
-      console.log('아직 GitHub issue가 없습니다. 댓글 작성 후 반응이 표시됩니다.');
+      // console.log('아직 GitHub issue가 없습니다. 댓글 작성 후 반응이 표시됩니다.');
       updateUI({});
 
       // Issue가 생성될 수 있으니 계속 시도
