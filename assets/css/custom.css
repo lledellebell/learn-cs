@@ -2270,7 +2270,7 @@ pre {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 100%;
-  left: 50%;
+  left: 150%;
   transform: translateX(-50%) translateY(-8px);
   padding: var(--space-2) var(--space-3);
   background: rgba(0, 0, 0, 0.9);
