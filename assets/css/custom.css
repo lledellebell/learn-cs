@@ -1907,6 +1907,7 @@ pre {
   /* Mobile Layout */
   .article-wrapper {
     flex-direction: column;
+    margin-top: var(--space-16);
   }
 
   .article-content-wrapper {
