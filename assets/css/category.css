@@ -98,6 +98,7 @@
 
 .category-post-item {
   margin: 0;
+  min-width: 0;
 }
 
 .category-post-link {
@@ -112,6 +113,8 @@
   border-radius: var(--border-radius);
   text-decoration: none;
   transition: all var(--transition);
+  width: 100%;
+  min-width: 0;
 }
 
 [data-theme="dark"] .category-post-link {
@@ -122,6 +125,7 @@
 
 .category-post-main {
   flex: 1;
+  min-width: 0;
 }
 
 .category-post-title {
@@ -136,6 +140,11 @@
   color: var(--color-text-secondary);
   margin: 0;
   line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .category-post-meta {

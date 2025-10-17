@@ -1,6 +1,6 @@
 ## 목차
 
-> **총 50개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오후 02:50)
+> **총 52개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오후 04:51)
 
 > 최근 수정된 문서:
 >- **Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기** (2025년 10월 17일)
@@ -101,6 +101,8 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/frontend/react/architecture/component-design-data-driven.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [CSS Mask Composite](/web-development/frontend/css/mask-composite.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
@@ -143,7 +145,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 25개 |
+| 웹 개발 (Web Development) | 27개 |
 | 프로그래밍 언어 (Languages) | 16개 |
 | 네트워킹 (Networking) | 3개 |
 | 알고리즘 (Algorithms) | 2개 |
@@ -156,5 +158,5 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 1. **["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md)** - 2025년 10월 17일
 1. **[DNS와 도메인, 호스팅의 관계 이해하기](/networking/dns/dns-domain-hosting-guide.md)** - 2025년 10월 17일
 1. **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)** - 2025년 10월 17일
-1. **[Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md)** - 2025년 10월 16일
+1. **[Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md)** - 2025년 10월 17일
 

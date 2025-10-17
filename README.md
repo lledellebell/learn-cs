@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 50개의 문서** | 마지막 업데이트: 2025. 10. 17.
+> **총 52개의 문서** | 마지막 업데이트: 2025. 10. 17.
 
 ### 카테고리
 
@@ -41,16 +41,16 @@
 - **[프로그래밍 언어 (Languages)](#languages)** (16개 문서)
 - **[네트워킹 (Networking)](#networking)** (3개 문서)
 - **[데이터베이스 (Databases)](#databases)** (2개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (25개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (27개 문서)
 - **[기타 (Miscellaneous)](#misc)** (2개 문서)
 
 ### 최근 추가된 문서
 
+- **[Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/frontend/react/architecture/component-design-data-driven.md)**
+- **[Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md)**
 - **[Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기](/languages/javascript/safari-localstorage-private-mode.md)**
 - **[저작권 및 이용 정책](/copyright.md)**
 - **[DNS와 도메인, 호스팅의 관계 이해하기](/networking/dns/dns-domain-hosting-guide.md)**
-- **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)**
-- **["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md)**
 
 ### 전체 목차
 
@@ -99,19 +99,19 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (25개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (27개)</summary>
 
 - ["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)
 - [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
 - [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
 - [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/frontend/css/object-position_&_object-fit.md)
 - [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
+- [Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md)
+- [Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/frontend/react/architecture/component-design-data-driven.md)
 - [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)
 - [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
 - [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
-- [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md)
-- [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md)
-- ... 그 외 15개 문서
+- ... 그 외 17개 문서
 
 </details>
 

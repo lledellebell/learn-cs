@@ -19,9 +19,9 @@
       "id": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/safari-localstorage-private-mode.md",
       "url": "https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/safari-localstorage-private-mode.md",
       "title": "Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기",
-      "content_html": "<p>웹사이트를 개발하다가 Safari 사용자로부터 &quot;사이트가 작동하지 않아요&quot;라는 피드백을 받은 적 있나요?</p>",
-      "content_text": "웹사이트를 개발하다가 Safari 사용자로부터 \"사이트가 작동하지 않아요\"라는 피드백을 받은 적 있나요?",
-      "summary": "웹사이트를 개발하다가 Safari 사용자로부터 \"사이트가 작동하지 않아요\"라는 피드백을 받은 적 있나요?",
+      "content_html": "<p>막 구현한 다크모드 기능을 iPhone으로 테스트하고 있었습니다. Chrome 개발자 도구에서는 완벽하게 작동했죠. 그런데 Safari로 열어보니... 토글을 클릭해도 아무 반응이...</p>",
+      "content_text": "막 구현한 다크모드 기능을 iPhone으로 테스트하고 있었습니다. Chrome 개발자 도구에서는 완벽하게 작동했죠. 그런데 Safari로 열어보니... 토글을 클릭해도 아무 반응이...",
+      "summary": "막 구현한 다크모드 기능을 iPhone으로 테스트하고 있었습니다. Chrome 개발자 도구에서는 완벽하게 작동했죠. 그런데 Safari로 열어보니... 토글을 클릭해도 아무 반응이...",
       "date_published": "2025-01-17T00:00:00.000Z",
       "date_modified": "2025-10-17T00:00:00.000Z",
       "tags": [
@@ -79,6 +79,44 @@
       "content_html": "<p>긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?</p>",
       "content_text": "긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?",
       "summary": "긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?",
+      "date_published": "2025-10-17T00:00:00.000Z",
+      "date_modified": "2025-10-17T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md",
+      "title": "Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀",
+      "content_html": "<p>.description {</p>",
+      "content_text": ".description {",
+      "summary": ".description {",
+      "date_published": "2025-10-17T00:00:00.000Z",
+      "date_modified": "2025-10-17T00:00:00.000Z",
+      "tags": [
+        "웹 개발"
+      ],
+      "authors": [
+        {
+          "name": "lledellebell",
+          "url": "https://github.com/lledellebell"
+        }
+      ]
+    },
+    {
+      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/architecture/component-design-data-driven.md",
+      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/architecture/component-design-data-driven.md",
+      "title": "Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?",
+      "content_html": "<p>&gt; &quot;컴포넌트를 만드는 과정에서 자식 컴포넌트를 많이 만들다 보니, prop을 여러 단계로 넘기는 게 너무 과한 것 같아요. 이게 prop drilling인가요? 설계를 잘못한 걸...</p>",
+      "content_text": "> \"컴포넌트를 만드는 과정에서 자식 컴포넌트를 많이 만들다 보니, prop을 여러 단계로 넘기는 게 너무 과한 것 같아요. 이게 prop drilling인가요? 설계를 잘못한 걸...",
+      "summary": "> \"컴포넌트를 만드는 과정에서 자식 컴포넌트를 많이 만들다 보니, prop을 여러 단계로 넘기는 게 너무 과한 것 같아요. 이게 prop drilling인가요? 설계를 잘못한 걸...",
       "date_published": "2025-10-17T00:00:00.000Z",
       "date_modified": "2025-10-17T00:00:00.000Z",
       "tags": [
@@ -915,44 +953,6 @@
       "content_html": "<p>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</p>",
       "content_text": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
       "summary": "웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.",
-      "date_published": "2025-10-02T00:00:00.000Z",
-      "date_modified": "2025-10-02T00:00:00.000Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&_object-fit.md",
-      "title": "반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드",
-      "content_html": "<p>프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...</p>",
-      "content_text": "프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...",
-      "summary": "프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...",
-      "date_published": "2025-10-02T00:00:00.000Z",
-      "date_modified": "2025-10-02T00:00:00.000Z",
-      "tags": [
-        "웹 개발"
-      ],
-      "authors": [
-        {
-          "name": "lledellebell",
-          "url": "https://github.com/lledellebell"
-        }
-      ]
-    },
-    {
-      "id": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
-      "url": "https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md",
-      "title": "Chrome User Agent Override 가이드",
-      "content_html": "<p>&quot;모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?&quot;</p>",
-      "content_text": "\"모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?\"",
-      "summary": "\"모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?\"",
       "date_published": "2025-10-02T00:00:00.000Z",
       "date_modified": "2025-10-02T00:00:00.000Z",
       "tags": [

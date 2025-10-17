@@ -19,7 +19,7 @@
       <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/javascript/safari-localstorage-private-mode.md</guid>
       <pubDate>Fri, 17 Jan 2025 09:00:00 +0000</pubDate>
       <category>프로그래밍 언어</category>
-      <description>웹사이트를 개발하다가 Safari 사용자로부터 &quot;사이트가 작동하지 않아요&quot;라는 피드백을 받은 적 있나요?</description>
+      <description>막 구현한 다크모드 기능을 iPhone으로 테스트하고 있었습니다. Chrome 개발자 도구에서는 완벽하게 작동했죠. 그런데 Safari로 열어보니... 토글을 클릭해도 아무 반응이...</description>
       <author>lledellebell</author>
     </item>
 
@@ -50,6 +50,26 @@
       <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md</guid>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>.description {</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/architecture/component-design-data-driven.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/architecture/component-design-data-driven.md</guid>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; &quot;컴포넌트를 만드는 과정에서 자식 컴포넌트를 많이 만들다 보니, prop을 여러 단계로 넘기는 게 너무 과한 것 같아요. 이게 prop drilling인가요? 설계를 잘못한 걸...</description>
       <author>lledellebell</author>
     </item>
 
@@ -490,26 +510,6 @@
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/object-position_&amp;_object-fit.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>프로필 이미지를 업로드했는데 얼굴이 잘리거나, 상품 사진이 찌그러져서 나오거나, 히어로 섹션의 배경 이미지가 이상하게 늘어난 경험 있나요? 저도 처음 웹 개발을 배울 때 이미지가 ...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Chrome User Agent Override 가이드</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/chrome-user-agent-override.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>&quot;모바일에서만 레이아웃이 깨진다는데, 제 iPhone에서는 멀쩡하게 보이는데요?&quot;</description>
       <author>lledellebell</author>
     </item>
   </channel>
