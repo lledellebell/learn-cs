@@ -1,9 +1,9 @@
 ## 목차
 
-> **총 52개의 문서**(마지막 업데이트 정보: 2025년 10월 17일 오후 04:51)
+> **총 61개의 문서**(마지막 업데이트 정보: 2025년 10월 18일 오전 10:25)
 
 > 최근 수정된 문서:
->- **Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기** (2025년 10월 17일)
+>- **웹 접근성 (Web Accessibility)** (2025년 10월 18일)
 
 ### 알고리즘 (Algorithms)
 
@@ -78,41 +78,100 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 
 프론트엔드, 백엔드, 도구 등
 
-#### 패턴
+#### React
+
+##### 패턴
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
-| [Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/patterns/event-bus.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Composite Pattern](/web-development/frontend/react/patterns/composite-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Compound Pattern](/web-development/frontend/react/patterns/compound-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Configuration over Composition Pattern](/web-development/frontend/react/patterns/configuration-over-composition.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [React 하이드레이션과 CSS 재적용 문제](/web-development/frontend/react/patterns/hydration-and-css-issues.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/frontend/react/patterns/react-composite-compound-patterns.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Context API를 활용한 Compound Pattern 구현](/web-development/frontend/react/patterns/react-context-api-compound-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [React Provider Pattern](/web-development/frontend/react/patterns/react-provider-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [Composite Pattern](/web-development/react/patterns/composite-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [Compound Pattern](/web-development/react/patterns/compound-pattern.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [Configuration over Composition Pattern](/web-development/react/patterns/configuration-over-composition.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [React 하이드레이션과 CSS 재적용 문제](/web-development/react/patterns/hydration-and-css-issues.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [`React`에서 `Composite`/`Compound` Pattern 활용 가이드](/web-development/react/patterns/react-composite-compound-patterns.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [Context API를 활용한 Compound Pattern 구현](/web-development/react/patterns/react-context-api-compound-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [React Provider Pattern](/web-development/react/patterns/react-provider-pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/react/patterns/why-not-compound-pattern-in-header.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 
-#### 기능
-
-| 제목 | 최초 생성 | 마지막 수정 | 상태 |
-|------|----------|------------|------|
-| ["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-
-#### 프론트엔드
+##### Hooks
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
-| [Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/frontend/react/architecture/component-design-data-driven.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [CSS Mask Composite](/web-development/frontend/css/mask-composite.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [Custom Hook 리팩토링: useAsync](/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [웹 개발](/web-development/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/react/hooks/custom-hooks-deep-dive.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+##### 성능 최적화
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [`useMemo`를 활용한 성능 최적화](/web-development/react/optimization/react-usememo-optimization.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+##### 아키텍처
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/react/architecture/component-design-data-driven.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+
+##### 리팩토링
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Custom Hook 리팩토링: useAsync](/web-development/react/refactoring/custom-hook-refactoring-useAsync.md) | 2025년 10월 10일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+#### 접근성 (Accessibility)
+
+##### 가이드라인
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [웹 접근성 (Web Accessibility)](/web-development/accessibility/index.md) | 2025년 10월 18일 | 2025년 10월 18일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| ["웹 접근성 가이드 - 모두를 위한 웹사이트 만들기"](/web-development/accessibility/guidelines/complete-guide.md) | 2019년 9월 27일 | 2023년 2월 1일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+##### ARIA
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [ARIA (Accessible Rich Internet Applications)](/web-development/accessibility/aria/index.md) | 2022년 11월 7일 | 2022년 11월 7일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+##### 테스팅
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [웹 접근성 테스팅 가이드](/web-development/accessibility/testing/index.md) | 2019년 9월 20일 | 2019년 10월 24일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+##### 실전 예제
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [접근성 실전 예제](/web-development/accessibility/examples/index.md) | 2022년 7월 13일 | 2022년 7월 13일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+#### 디자인 패턴
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Event Bus - 모듈 간 통신의 우아한 해결책](/web-development/frontend/patterns/event-bus.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+
+#### 기능 구현
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| ["포커스 모드 (Focus Mode)"](/web-development/frontend/features/focus-mode.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+
+#### CSS
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/css/text-overflow-ellipsis-flex-layout.md) | 2025년 10월 17일 | 2025년 10월 17일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [CSS Mask Composite](/web-development/css/mask-composite.md) | 2025년 10월 2일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/css/preload-css-async-loading.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/css/font-optimization-preload-fout.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+| [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/css/object-position_&_object-fit.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+| ["CSS 커스텀 스크롤바 스타일링 완벽 가이드"](/web-development/css/scrollbar-styling.md) | 2025년 1월 18일 | 2025년 1월 18일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+#### 보안
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
 | [HTML 새니타이징(Sanitization) - XSS 공격 방어](/web-development/security/html-sanitization.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
-| [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
-| [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/frontend/css/object-position_&_object-fit.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
 #### 가이드
 
@@ -120,15 +179,23 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 |------|----------|------------|------|
 | [Jekyll로 GitHub Pages 블로그 만들기 - 완벽 가이드](/web-development/guides/jekyll-github-pages-guide.md) | 2025년 10월 16일 | 2025년 10월 16일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
 | [Liquid 템플릿 문법 완벽 가이드 - Jekyll에서 동적 콘텐츠 만들기](/web-development/guides/liquid-syntax-guide.md) | 2025년 10월 16일 | 2025년 10월 16일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
-| [Jekyll SEO 최적화 가이드](/web-development/guides/seo-optimization.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) |
+| [Jekyll SEO 최적화 가이드](/web-development/guides/seo-optimization.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [JSON Feed 사양](/web-development/guides/json-feed-specification.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [나만의 npm 라이브러리 만들고 세상과 공유하기](/web-development/guides/npm-library-guide.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
+| ["링크가 안 눌려요!" - 이벤트 버블링으로 인한 링크 클릭 문제 해결하기](/web-development/guides/debugging-event-bubbling-issues.md) | 2025년 1월 18일 | 2025년 1월 18일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
 
-#### 도구
+#### 도구 & 설정
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기](/web-development/tools/mcp-server-guide.md) | 2025년 10월 15일 | 2025년 10월 15일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Chrome User Agent Override 가이드](/web-development/tools/chrome-user-agent-override.md) | 2025년 10월 2일 | 2025년 10월 2일 | ![완료](https://img.shields.io/badge/완료-green?style=flat-square) |
+
+#### 기타
+
+| 제목 | 최초 생성 | 마지막 수정 | 상태 |
+|------|----------|------------|------|
+| [웹 개발](/web-development/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 
 ### 기타 (Miscellaneous)
 
@@ -136,6 +203,7 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 
 | 제목 | 최초 생성 | 마지막 수정 | 상태 |
 |------|----------|------------|------|
+| [Gemini API 설정 가이드](/GEMINI_SETUP.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [저작권 및 이용 정책](/copyright.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 | [Learn CS](/index.md) | 2025년 10월 13일 | 2025년 10월 13일 | ![업데이트](https://img.shields.io/badge/업데이트-blue?style=flat-square) |
 
@@ -145,18 +213,18 @@ SQL, NoSQL, 데이터 모델링, 쿼리 최적화 등
 
 | 카테고리 | 문서 수 |
 |----------|--------|
-| 웹 개발 (Web Development) | 27개 |
+| 웹 개발 (Web Development) | 35개 |
 | 프로그래밍 언어 (Languages) | 16개 |
 | 네트워킹 (Networking) | 3개 |
+| 기타 (Miscellaneous) | 3개 |
 | 알고리즘 (Algorithms) | 2개 |
 | 데이터베이스 (Databases) | 2개 |
-| 기타 (Miscellaneous) | 2개 |
 
 ### 최근 수정된 문서
 
+1. **[웹 접근성 (Web Accessibility)](/web-development/accessibility/index.md)** - 2025년 10월 18일
 1. **[Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기](/languages/javascript/safari-localstorage-private-mode.md)** - 2025년 10월 17일
 1. **["TypeScript 기본 타입 - JavaScript와 비교하며 이해하기"](/languages/typescript/basic-types.md)** - 2025년 10월 17일
 1. **[DNS와 도메인, 호스팅의 관계 이해하기](/networking/dns/dns-domain-hosting-guide.md)** - 2025년 10월 17일
-1. **["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)** - 2025년 10월 17일
-1. **[Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md)** - 2025년 10월 17일
+1. **[Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/css/text-overflow-ellipsis-flex-layout.md)** - 2025년 10월 17일
 

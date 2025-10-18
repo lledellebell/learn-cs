@@ -60,9 +60,9 @@
   /* Transitions */
   --transition: 200ms ease-in-out;
 
-  /* Focus outline */
-  --focus-outline: 2px solid var(--color-black);
+  --focus-outline: 3px solid var(--color-primary);
   --focus-offset: 2px;
+  --focus-ring-color: rgba(255, 35, 10, 0.4);
 }
 
 /* Dark Mode */
@@ -77,6 +77,8 @@
 
   --color-border: var(--color-gray-700);
   --color-border-dark: var(--color-gray-600);
+
+  --focus-ring-color: rgba(244, 255, 125, 0.4);
 }
 
 /* =========================================
@@ -106,19 +108,32 @@ body {
   transition: background-color var(--transition), color var(--transition);
 }
 
-/* accessibility */
-:focus {
-  outline: var(--focus-outline);
-  outline-offset: var(--focus-offset);
-}
+/* =========================================
+   Accessibility - Enhanced Focus Styles
+   ========================================= */
 
-:focus:not(:focus-visible) {
+/* Default focus*/
+:focus {
   outline: none;
 }
 
+/* Keyboard focus */
 :focus-visible {
   outline: var(--focus-outline);
   outline-offset: var(--focus-offset);
+  box-shadow: 0 0 0 4px var(--focus-ring-color);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  box-shadow: 0 0 0 4px var(--focus-ring-color);
 }
 
 ::selection {
@@ -1325,6 +1340,8 @@ pre[data-language="tsx"]::before {
 .breadcrumb-item a {
   color: var(--color-text-secondary);
   text-decoration: none;
+  min-height: fit-content;
+  min-width: fit-content;
 }
 
 .breadcrumb-item a:hover {
@@ -2026,6 +2043,7 @@ pre {
 
 .taxonomy-tag {
   display: inline-block;
+  min-height: fit-content;
   padding: var(--space-1) var(--space-3);
   background: rgba(0, 0, 0, 0.05);
   border: var(--border-width) solid rgba(0, 0, 0, 0.1);
@@ -4267,5 +4285,141 @@ body.focus-mode .article-body > h6 {
     left: var(--space-4);
     max-width: none;
   }
+}
+
+/* =========================================
+   Accessibility Enhancements
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --focus-outline: 4px solid var(--color-primary);
+    --focus-offset: 3px;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+.skip-link:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.article-body a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.article-body a:focus-visible {
+  text-decoration-thickness: 3px;
+  background-color: var(--focus-ring-color);
+  padding: 2px 4px;
+  margin: -2px -4px;
+  border-radius: 3px;
+}
+
+.article-body pre {
+  border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .article-body pre {
+  border-color: var(--color-border-dark);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  box-shadow: 0 0 0 4px var(--focus-ring-color);
+}
+
+[role="status"],
+[role="alert"] {
+  padding: var(--space-4);
+  border-radius: var(--border-radius-sm);
+  margin: var(--space-4) 0;
+}
+
+[role="alert"] {
+  background-color: rgba(255, 35, 10, 0.1);
+  border-left: 4px solid var(--color-primary);
+}
+
+[aria-busy="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover,
+a:hover {
+  opacity: 0.8;
+}
+
+.text-muted {
+  color: var(--color-text-secondary);
+}
+
+.sr-only,
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.has-focus-within:focus-within {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
 }
 

@@ -285,17 +285,54 @@ class NavigationGenerator {
       if (categoryKey === 'web-development') {
         const subCategories = this.groupWebDevDocuments(category.documents);
 
-        for (const [subKey, subCategory] of Object.entries(subCategories)) {
-          if (subCategory.documents.length > 0) {
-            markdown += `#### ${subCategory.title}\n\n`;
-            markdown += this.generateDocumentTable(subCategory.documents);
+        // React 관련 섹션 그룹화
+        const reactCategories = ['react-patterns', 'react-hooks', 'react-optimization', 'react-architecture', 'react-refactoring'];
+        const hasReactDocs = reactCategories.some(key => subCategories[key].documents.length > 0);
+
+        if (hasReactDocs) {
+          markdown += `#### React\n\n`;
+          for (const reactKey of reactCategories) {
+            if (subCategories[reactKey].documents.length > 0) {
+              const cleanTitle = subCategories[reactKey].title.replace('React ', '');
+              markdown += `##### ${cleanTitle}\n\n`;
+              markdown += this.generateDocumentTable(subCategories[reactKey].documents);
+              markdown += '\n';
+            }
+          }
+        }
+
+        // 접근성 관련 섹션 그룹화
+        const a11yCategories = ['accessibility-guidelines', 'accessibility-aria', 'accessibility-testing', 'accessibility-examples'];
+        const hasA11yDocs = a11yCategories.some(key => subCategories[key].documents.length > 0);
+
+        if (hasA11yDocs) {
+          markdown += `#### 접근성 (Accessibility)\n\n`;
+          for (const a11yKey of a11yCategories) {
+            if (subCategories[a11yKey].documents.length > 0) {
+              const cleanTitle = subCategories[a11yKey].title.replace('접근성 ', '').replace('접근성', '개요');
+              markdown += `##### ${cleanTitle}\n\n`;
+              markdown += this.generateDocumentTable(subCategories[a11yKey].documents);
+              markdown += '\n';
+            }
+          }
+        }
+
+        // 나머지 카테고리들
+        const otherCategories = Object.keys(subCategories).filter(
+          key => !reactCategories.includes(key) && !a11yCategories.includes(key)
+        );
+
+        for (const otherKey of otherCategories) {
+          if (subCategories[otherKey].documents.length > 0) {
+            markdown += `#### ${subCategories[otherKey].title}\n\n`;
+            markdown += this.generateDocumentTable(subCategories[otherKey].documents);
             markdown += '\n';
           }
         }
       } else if (categoryKey === 'languages') {
         const langCategories = this.groupLanguageDocuments(category.documents);
 
-        for (const [langKey, langCategory] of Object.entries(langCategories)) {
+        for (const langCategory of Object.values(langCategories)) {
           if (langCategory.documents.length > 0) {
             markdown += `#### ${langCategory.title}\n\n`;
             markdown += this.generateDocumentTable(langCategory.documents);
@@ -305,7 +342,7 @@ class NavigationGenerator {
       } else if (categoryKey === 'networking') {
         const networkCategories = this.groupNetworkingDocuments(category.documents);
 
-        for (const [netKey, netCategory] of Object.entries(networkCategories)) {
+        for (const netCategory of Object.values(networkCategories)) {
           if (netCategory.documents.length > 0) {
             markdown += `#### ${netCategory.title}\n\n`;
             markdown += this.generateDocumentTable(netCategory.documents);
@@ -324,7 +361,7 @@ class NavigationGenerator {
     markdown += `### 통계\n\n`;
     
     // 카테고리별 통계
-    const categoryStats = Object.entries(categories).map(([key, category]) => ({
+    const categoryStats = Object.values(categories).map(category => ({
       name: category.title,
       count: category.documents.length
     })).sort((a, b) => b.count - a.count);
@@ -392,29 +429,98 @@ class NavigationGenerator {
   // 웹 개발 문서 서브카테고리 그룹화
   groupWebDevDocuments(documents) {
     const subCategories = {
-      'patterns': { title: '패턴', documents: [] },
-      'features': { title: '기능', documents: [] },
-      'frontend': { title: '프론트엔드', documents: [] },
+      'patterns': { title: '디자인 패턴', documents: [] },
+      'features': { title: '기능 구현', documents: [] },
+      'css': { title: 'CSS', documents: [] },
+      'react-patterns': { title: 'React 패턴', documents: [] },
+      'react-hooks': { title: 'React Hooks', documents: [] },
+      'react-optimization': { title: 'React 성능 최적화', documents: [] },
+      'react-architecture': { title: 'React 아키텍처', documents: [] },
+      'react-refactoring': { title: 'React 리팩토링', documents: [] },
+      'accessibility-guidelines': { title: '접근성 가이드라인', documents: [] },
+      'accessibility-aria': { title: '접근성 ARIA', documents: [] },
+      'accessibility-testing': { title: '접근성 테스팅', documents: [] },
+      'accessibility-examples': { title: '접근성 실전 예제', documents: [] },
       'backend': { title: '백엔드', documents: [] },
+      'security': { title: '보안', documents: [] },
       'guides': { title: '가이드', documents: [] },
-      'tools': { title: '도구', documents: [] }
+      'tools': { title: '도구 & 설정', documents: [] },
+      'general': { title: '기타', documents: [] }
     };
 
+
     for (const doc of documents) {
-      if (doc.path.includes('patterns')) {
+      // React 패턴 (가장 구체적인 것부터 확인)
+      if (doc.path.includes('/react/patterns/')) {
+        subCategories['react-patterns'].documents.push(doc);
+      }
+      // React Hooks
+      else if (doc.path.includes('/react/hooks/')) {
+        subCategories['react-hooks'].documents.push(doc);
+      }
+      // React 성능 최적화
+      else if (doc.path.includes('/react/optimization/')) {
+        subCategories['react-optimization'].documents.push(doc);
+      }
+      // React 아키텍처
+      else if (doc.path.includes('/react/architecture/')) {
+        subCategories['react-architecture'].documents.push(doc);
+      }
+      // React 리팩토링
+      else if (doc.path.includes('/react/refactoring/')) {
+        subCategories['react-refactoring'].documents.push(doc);
+      }
+      // 접근성 - 가이드라인
+      else if (doc.path.includes('/accessibility/guidelines/')) {
+        subCategories['accessibility-guidelines'].documents.push(doc);
+      }
+      // 접근성 - ARIA
+      else if (doc.path.includes('/accessibility/aria/')) {
+        subCategories['accessibility-aria'].documents.push(doc);
+      }
+      // 접근성 - 테스팅
+      else if (doc.path.includes('/accessibility/testing/')) {
+        subCategories['accessibility-testing'].documents.push(doc);
+      }
+      // 접근성 - 실전 예제
+      else if (doc.path.includes('/accessibility/examples/')) {
+        subCategories['accessibility-examples'].documents.push(doc);
+      }
+      // 접근성 - 메인 (index)
+      else if (doc.path.includes('/accessibility/')) {
+        subCategories['accessibility-guidelines'].documents.push(doc);
+      }
+      // 일반 디자인 패턴 (React 외)
+      else if (doc.path.includes('/patterns/')) {
         subCategories.patterns.documents.push(doc);
-      } else if (doc.path.includes('features')) {
+      }
+      // 기능 구현
+      else if (doc.path.includes('/features/')) {
         subCategories.features.documents.push(doc);
-      } else if (doc.path.includes('frontend')) {
-        subCategories.frontend.documents.push(doc);
-      } else if (doc.path.includes('backend')) {
+      }
+      // CSS
+      else if (doc.path.includes('/css/')) {
+        subCategories.css.documents.push(doc);
+      }
+      // 백엔드
+      else if (doc.path.includes('/backend/')) {
         subCategories.backend.documents.push(doc);
-      } else if (doc.path.includes('guides')) {
+      }
+      // 보안
+      else if (doc.path.includes('/security/')) {
+        subCategories.security.documents.push(doc);
+      }
+      // 가이드
+      else if (doc.path.includes('/guides/')) {
         subCategories.guides.documents.push(doc);
-      } else if (doc.path.includes('tools')) {
+      }
+      // 도구 & 설정
+      else if (doc.path.includes('/tools/')) {
         subCategories.tools.documents.push(doc);
-      } else {
-        subCategories.frontend.documents.push(doc); // 기본값
+      }
+      // 기타 (기본값)
+      else {
+        subCategories.general.documents.push(doc);
       }
     }
 
@@ -519,7 +625,7 @@ if (require.main === module) {
   console.log(`카테고리: ${stats.categories}개`);
   
   console.log('\n카테고리별 문서 수:');
-  for (const [key, category] of Object.entries(stats.byCategory)) {
+  for (const category of Object.values(stats.byCategory)) {
     console.log(`  ${category.title}: ${category.count}개`);
   }
   

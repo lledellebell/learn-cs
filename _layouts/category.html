@@ -4,7 +4,7 @@ layout: default
 
 <div class="container">
   <div class="category-page">
-    <!-- Category Header -->
+    {% comment %} Category Header {% endcomment %}
     <header class="category-header">
       <h2 class="category-page-title">{{ page.title }}</h2>
       {% if page.description %}
@@ -12,27 +12,49 @@ layout: default
       {% endif %}
     </header>
 
-    <!-- Category Content (if any) -->
+    {% comment %} Category Content (if any) {% endcomment %}
     {% if content %}
       <div class="category-content">
         {{ content }}
       </div>
     {% endif %}
 
-    <!-- Posts in this category -->
+    {% comment %} Posts in this category {% endcomment %}
     {% assign category_path = page.category_path %}
-    {% assign all_posts = site.pages | where_exp: "item", "item.path contains category_path" | where_exp: "item", "item.name != 'index.md'" | sort: "date" | reverse %}
+    {% comment %} 현재 카테고리의 index.md만 제외하고, 하위 폴더의 index.md는 포함 {% endcomment %}
+    {% assign current_index_path = category_path | append: "/index.md" %}
+    {% assign all_posts = site.pages | where_exp: "item", "item.path contains category_path" | where_exp: "item", "item.path != current_index_path" | sort: "date" | reverse %}
 
     {% if all_posts.size > 0 %}
-      <!-- 2depth 카테고리 수집 -->
-      {% assign subcategories = "" | split: "" %}
+      {% comment %} 계층적 카테고리 수집 (2depth와 3depth) {% endcomment %}
+      {% assign categories = "" | split: "" %}
+      {% assign subcategories_map = "" | split: "" %}
+
       {% for post in all_posts %}
         {% assign path_parts = post.path | split: "/" %}
-        {% if path_parts.size > 1 %}
-          {% assign depth2 = path_parts[1] %}
-          {% unless subcategories contains depth2 %}
-            {% assign subcategories = subcategories | push: depth2 %}
+        {% comment %} category_path 이후의 depth 계산 {% endcomment %}
+        {% assign category_depth = category_path | split: "/" | size %}
+
+        {% if path_parts.size > category_depth %}
+          {% assign depth2 = path_parts[category_depth] %}
+
+          {% comment %} 2depth 카테고리 수집 {% endcomment %}
+          {% unless categories contains depth2 %}
+            {% assign categories = categories | push: depth2 %}
           {% endunless %}
+
+          {% comment %} 3depth 서브카테고리 수집 (파일명이 아닌 폴더만) {% endcomment %}
+          {% assign depth3_index = category_depth | plus: 1 %}
+          {% if path_parts.size > depth3_index %}
+            {% assign depth3 = path_parts[depth3_index] %}
+            {% comment %} .md로 끝나지 않는 경우만 서브카테고리로 인식 (폴더만) {% endcomment %}
+            {% unless depth3 contains ".md" %}
+              {% assign subcat_key = depth2 | append: ":" | append: depth3 %}
+              {% unless subcategories_map contains subcat_key %}
+                {% assign subcategories_map = subcategories_map | push: subcat_key %}
+              {% endunless %}
+            {% endunless %}
+          {% endif %}
         {% endif %}
       {% endfor %}
 
@@ -43,33 +65,119 @@ layout: default
         </h3>
 
         <div>
-          <!-- 2depth 카테고리 탭 -->
-          {% if subcategories.size > 1 %}
-            <div class="category-tabs">
-              <button class="category-tab active" data-subcategory="all">전체</button>
-              {% for subcat in subcategories %}
-                {% assign display_name = subcat %}
-                {% if subcat == "javascript" %}
-                  {% assign display_name = "JavaScript" %}
-                {% elsif subcat == "typescript" %}
-                  {% assign display_name = "TypeScript" %}
-                {% elsif subcat == "frontend" %}
-                  {% assign display_name = "프론트엔드" %}
-                {% elsif subcat == "backend" %}
-                  {% assign display_name = "백엔드" %}
-                {% elsif subcat == "guides" %}
-                  {% assign display_name = "가이드" %}
-                {% elsif subcat == "patterns" %}
-                  {% assign display_name = "패턴" %}
-                {% elsif subcat == "tools" %}
-                  {% assign display_name = "도구" %}
-                {% elsif subcat == "security" %}
-                  {% assign display_name = "보안" %}
+          {% comment %} 상위 카테고리 탭 (2depth) {% endcomment %}
+          {% if categories.size > 1 %}
+            <div class="category-tabs" role="tablist" aria-label="카테고리 선택">
+              <button class="category-tab active" data-category="all" role="tab" aria-selected="true" tabindex="0">
+                전체
+              </button>
+              {% for cat in categories %}
+                {% assign cat_display_name = cat %}
+                {% comment %} 프로그래밍 언어 {% endcomment %}
+                {% if cat == "javascript" %}
+                  {% assign cat_display_name = "JavaScript" %}
+                {% elsif cat == "typescript" %}
+                  {% assign cat_display_name = "TypeScript" %}
+                {% elsif cat == "python" %}
+                  {% assign cat_display_name = "Python" %}
+                {% elsif cat == "java" %}
+                  {% assign cat_display_name = "Java" %}
+                {% elsif cat == "go" %}
+                  {% assign cat_display_name = "Go" %}
+                {% elsif cat == "rust" %}
+                  {% assign cat_display_name = "Rust" %}
+                {% comment %} 프론트엔드 관련 {% endcomment %}
+                {% elsif cat == "frontend" %}
+                  {% assign cat_display_name = "프론트엔드" %}
+                {% elsif cat == "react" %}
+                  {% assign cat_display_name = "React" %}
+                {% elsif cat == "vue" %}
+                  {% assign cat_display_name = "Vue" %}
+                {% elsif cat == "angular" %}
+                  {% assign cat_display_name = "Angular" %}
+                {% elsif cat == "css" %}
+                  {% assign cat_display_name = "CSS" %}
+                {% elsif cat == "html" %}
+                  {% assign cat_display_name = "HTML" %}
+                {% elsif cat == "accessibility" %}
+                  {% assign cat_display_name = "접근성" %}
+                {% comment %} 백엔드 관련 {% endcomment %}
+                {% elsif cat == "backend" %}
+                  {% assign cat_display_name = "백엔드" %}
+                {% elsif cat == "nodejs" %}
+                  {% assign cat_display_name = "Node.js" %}
+                {% elsif cat == "database" %}
+                  {% assign cat_display_name = "데이터베이스" %}
+                {% elsif cat == "api" %}
+                  {% assign cat_display_name = "API" %}
+                {% comment %} 일반 카테고리 {% endcomment %}
+                {% elsif cat == "guides" %}
+                  {% assign cat_display_name = "가이드" %}
+                {% elsif cat == "patterns" %}
+                  {% assign cat_display_name = "패턴" %}
+                {% elsif cat == "tools" %}
+                  {% assign cat_display_name = "도구" %}
+                {% elsif cat == "security" %}
+                  {% assign cat_display_name = "보안" %}
+                {% elsif cat == "performance" %}
+                  {% assign cat_display_name = "성능" %}
+                {% elsif cat == "testing" %}
+                  {% assign cat_display_name = "테스팅" %}
+                {% elsif cat == "deployment" %}
+                  {% assign cat_display_name = "배포" %}
+                {% elsif cat == "devops" %}
+                  {% assign cat_display_name = "DevOps" %}
                 {% else %}
-                  {% assign display_name = subcat | capitalize %}
+                  {% assign cat_display_name = cat | capitalize %}
                 {% endif %}
-                <button class="category-tab" data-subcategory="{{ subcat }}">
-                  {{ display_name }}
+                <button class="category-tab" data-category="{{ cat }}" role="tab" aria-selected="false" tabindex="-1">
+                  {{ cat_display_name }}
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% comment %} 하위 카테고리 탭 (3depth) {% endcomment %}
+          {% if subcategories_map.size > 0 %}
+            <div class="subcategory-tabs" role="tablist" aria-label="하위 카테고리 선택">
+              <button class="category-tab active" data-subcategory="all" role="tab" aria-selected="true" tabindex="0">
+                전체
+              </button>
+              {% for subcat_entry in subcategories_map %}
+                {% assign parts = subcat_entry | split: ":" %}
+                {% assign parent_cat = parts[0] %}
+                {% assign subcat = parts[1] %}
+
+                {% comment %} 하위 카테고리 표시 이름 (간결하게) {% endcomment %}
+                {% assign subcat_display_name = subcat %}
+                {% if subcat == "patterns" %}
+                  {% assign subcat_display_name = "패턴" %}
+                {% elsif subcat == "hooks" %}
+                  {% assign subcat_display_name = "Hooks" %}
+                {% elsif subcat == "optimization" %}
+                  {% assign subcat_display_name = "성능 최적화" %}
+                {% elsif subcat == "architecture" %}
+                  {% assign subcat_display_name = "아키텍처" %}
+                {% elsif subcat == "refactoring" %}
+                  {% assign subcat_display_name = "리팩토링" %}
+                {% elsif subcat == "guidelines" %}
+                  {% assign subcat_display_name = "가이드라인" %}
+                {% elsif subcat == "aria" %}
+                  {% assign subcat_display_name = "ARIA" %}
+                {% elsif subcat == "testing" %}
+                  {% assign subcat_display_name = "테스팅" %}
+                {% elsif subcat == "examples" %}
+                  {% assign subcat_display_name = "실전 예제" %}
+                {% elsif subcat == "features" %}
+                  {% assign subcat_display_name = "기능 구현" %}
+                {% elsif subcat == "css" %}
+                  {% assign subcat_display_name = "CSS" %}
+                {% else %}
+                  {% assign subcat_display_name = subcat | capitalize %}
+                {% endif %}
+
+                <button class="category-tab" data-subcategory="{{ subcat }}" data-parent-category="{{ parent_cat }}" role="tab" aria-selected="false" tabindex="-1">
+                  {{ subcat_display_name }}
                 </button>
               {% endfor %}
             </div>
@@ -79,8 +187,29 @@ layout: default
             <ul class="category-posts-list" id="categoryPostsList">
               {% for post in all_posts %}
                 {% assign post_path_parts = post.path | split: "/" %}
-                {% assign post_depth2 = post_path_parts[1] %}
-                <li class="category-post-item" data-index="{{ forloop.index0 }}" data-subcategory="{{ post_depth2 }}">
+                {% assign cat_depth = category_path | split: "/" | size %}
+
+                {% comment %} category_path 기준으로 상대적 depth 계산 {% endcomment %}
+                {% assign post_category = "" %}
+                {% assign post_subcategory = "" %}
+
+                {% if post_path_parts.size > cat_depth %}
+                  {% assign post_category = post_path_parts[cat_depth] %}
+                {% endif %}
+
+                {% assign subcat_index = cat_depth | plus: 1 %}
+                {% if post_path_parts.size > subcat_index %}
+                  {% assign potential_subcat = post_path_parts[subcat_index] %}
+                  {% comment %} .md로 끝나지 않는 경우만 서브카테고리 (폴더만) {% endcomment %}
+                  {% unless potential_subcat contains ".md" %}
+                    {% assign post_subcategory = potential_subcat %}
+                  {% endunless %}
+                {% endif %}
+
+                <li class="category-post-item"
+                    data-index="{{ forloop.index0 }}"
+                    {% if post_category != "" %}data-category="{{ post_category }}"{% endif %}
+                    {% if post_subcategory != "" %}data-subcategory="{{ post_subcategory }}"{% endif %}>
                   <a href="{{ post.url | relative_url }}" class="category-post-link">
                     <div class="category-post-main">
                       <h4 class="category-post-title">{{ post.title }}</h4>
@@ -107,7 +236,7 @@ layout: default
               {% endfor %}
             </ul>
     
-            <!-- Pagination Navigation -->
+            {% comment %} Pagination Navigation {% endcomment %}
             <nav class="pagination-nav" id="paginationNav" aria-label="페이지 네비게이션">
               <button class="pagination-btn pagination-prev" id="paginationPrev" aria-label="이전 페이지">
                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,5 +263,4 @@ layout: default
   </div>
 </div>
 
-<!-- Category Scripts -->
 <script src="{{ '/assets/js/category-pagination.js' | relative_url }}"></script>

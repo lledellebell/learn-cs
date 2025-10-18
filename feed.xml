@@ -5,13 +5,23 @@
     <link>https://github.com/lledellebell/learn-cs</link>
     <description>컴퓨터 과학 개념과 기술을 학습하고 기록하는 공간</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Oct 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Oct 2025 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://lledellebell.github.io/learn-cs/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDFtbXJsZXJtMGdkZXZpbmVoNnRtdGNnNjJvZHVxdGVvZnRqcTNvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f3iwJFOVOwuy7K6FFw/giphy.gif</url>
       <title>CS 학습 노트</title>
       <link>https://github.com/lledellebell/learn-cs</link>
     </image>
+
+    <item>
+      <title>웹 접근성 (Web Accessibility)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/accessibility/index.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/accessibility/index.md</guid>
+      <pubDate>Sat, 18 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>여러분의 웹사이트, 한 번 Tab 키로 탐색해보신 적 있나요?</description>
+      <author>lledellebell</author>
+    </item>
 
     <item>
       <title>Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기</title>
@@ -44,19 +54,9 @@
     </item>
 
     <item>
-      <title>&quot;포커스 모드 (Focus Mode)&quot;</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/features/focus-mode.md</guid>
-      <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
       <title>Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md</guid>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/css/text-overflow-ellipsis-flex-layout.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/css/text-overflow-ellipsis-flex-layout.md</guid>
       <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>.description {</description>
@@ -64,9 +64,19 @@
     </item>
 
     <item>
+      <title>&quot;포커스 모드 (Focus Mode)&quot;</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/features/focus-mode.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/features/focus-mode.md</guid>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>긴 기술 문서를 읽다 보면, 화면에 너무 많은 정보가 한 번에 보여서 집중이 어려웠던 경험 있으신가요?</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
       <title>Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/architecture/component-design-data-driven.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/architecture/component-design-data-driven.md</guid>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/architecture/component-design-data-driven.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/architecture/component-design-data-driven.md</guid>
       <pubDate>Fri, 17 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>&gt; &quot;컴포넌트를 만드는 과정에서 자식 컴포넌트를 많이 만들다 보니, prop을 여러 단계로 넘기는 게 너무 과한 것 같아요. 이게 prop drilling인가요? 설계를 잘못한 걸...</description>
@@ -95,8 +105,8 @@
 
     <item>
       <title>Event Bus - 모듈 간 통신의 우아한 해결책</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/patterns/event-bus.md</guid>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/patterns/event-bus.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/patterns/event-bus.md</guid>
       <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>이런 경험 있으신가요? 애플리케이션에서 서로 멀리 떨어져 있는 모듈들이 소통해야 하는 상황 말이죠. 사용자가 로그인하면 헤더, 사이드바, 알림 시스템이 모두 업데이트되어야 하는데,...</description>
@@ -110,6 +120,26 @@
       <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>검색 엔진 최적화(Search Engine Optimization, SEO)는 웹사이트가 검색 결과에서 더 잘 보이도록 만드는 과정입니다. Jekyll 정적 사이트에서 SEO를 효...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>MCP 서버 생성 가이드 - AI 에이전트를 위한 커스텀 도구 만들기</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/tools/mcp-server-guide.md</guid>
+      <pubDate>Wed, 15 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>AI 에이전트와 작업하다 보면 이런 생각이 들 때가 있습니다. &quot;내 프로젝트의 특정 파일을 자동으로 읽고 쓸 수 있으면 좋을 텐데...&quot; 또는 &quot;반복적인 작업을 AI가 직접 처리할...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Gemini API 설정 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/GEMINI_SETUP.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>기타</category>
+      <description>HackerNews 뉴스 자동 요약을 위한 Gemini API 설정 방법입니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -275,8 +305,8 @@
 
     <item>
       <title>CSS Mask Composite</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/mask-composite.md</guid>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/css/mask-composite.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/css/mask-composite.md</guid>
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>웹사이트를 둘러보다가 이런 멋진 효과를 본 적 있나요? 텍스트 안에 비디오가 재생되거나, 이미지가 복잡한 도형으로 잘려 나가거나, 여러 이미지가 마치 포토샵에서 레이어 블렌딩을 한...</description>
@@ -285,121 +315,11 @@
 
     <item>
       <title>CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/preload-css-async-loading.md</guid>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/css/preload-css-async-loading.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/css/preload-css-async-loading.md</guid>
       <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>웹 성능 최적화에서 CSS 로딩 전략은 사용자가 체감하는 로딩 속도에 직접적인 영향을 미칩니다. 이 가이드는 문제 진단부터 해결책 구현까지의 실무적 접근 방법을 단계별로 다룹니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Custom Hooks 가이드 (React 공식 문서 기반)</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/hooks/custom-hooks-deep-dive.md</guid>
-      <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>&gt; React 공식 문서를 기반으로 작성된 Custom Hooks 가이드</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>`useMemo`를 활용한 성능 최적화</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/optimization/react-usememo-optimization.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>상상해보세요. 여러분이 만든 React 앱의 검색 페이지에서 사용자가 검색어를 입력할 때마다 화면이 버벅입니다. 단 1글자를 입력할 때마다 수백 개의 아이템을 필터링하고 정렬하는 ...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/pattern.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>React로 컴포넌트를 설계하다 보면 이런 고민을 하게 됩니다. &quot;Card 컴포넌트는 Compound 패턴을 사용해서 유연하게 만들었는데, Header도 똑같이 만들어야 하나?&quot; ...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Composite Pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/composite-pattern.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Compound Pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/compound-pattern.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>Select와 Option 컴포넌트를 본 적 있나요? 아니면 HTML의 `&lt;table&gt;`, `&lt;tr&gt;`, `&lt;td&gt;`처럼 함께 사용해야 의미가 있는 요소들을 떠올려보세요. Reac...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Configuration over Composition Pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/configuration-over-composition.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>Header 컴포넌트를 만들 때 이런 고민을 해본 적 있나요?</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>React 하이드레이션과 CSS 재적용 문제</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/hydration-and-css-issues.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>이런 에러 메시지를 본 적 있나요?</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>`React`에서 `Composite`/`Compound` Pattern 활용 가이드</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-composite-compound-patterns.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>&gt; **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: &quot;sailboat&quot;)이고, Composite(합성어)...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Context API를 활용한 Compound Pattern 구현</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-context-api-compound-pattern.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>&gt; React의 Context API와 Compound Pattern을 결합하면 강력하고 유연한 컴포넌트 시스템을 만들 수 있습니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>React Provider Pattern</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/patterns/react-provider-pattern.md</guid>
-      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>React 애플리케이션을 개발하다 보면 이런 상황을 자주 마주하게 됩니다:</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>Custom Hook 리팩토링: useAsync</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/react/refactor/custom-hook-refactoring-useAsync.md</guid>
-      <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -430,6 +350,116 @@
       <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
       <category>웹 개발</category>
       <description>웹 개발에 대한 학습 노트</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Custom Hooks 가이드 (React 공식 문서 기반)</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/hooks/custom-hooks-deep-dive.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/hooks/custom-hooks-deep-dive.md</guid>
+      <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; React 공식 문서를 기반으로 작성된 Custom Hooks 가이드</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`useMemo`를 활용한 성능 최적화</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/optimization/react-usememo-optimization.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/optimization/react-usememo-optimization.md</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>상상해보세요. 여러분이 만든 React 앱의 검색 페이지에서 사용자가 검색어를 입력할 때마다 화면이 버벅입니다. 단 1글자를 입력할 때마다 수백 개의 아이템을 필터링하고 정렬하는 ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Composite Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/composite-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/composite-pattern.md</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>**Composite Pattern**은 객체들을 트리 구조로 구성하여 부분-전체 계층을 표현하는 구조적 디자인 패턴입니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Compound Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/compound-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/compound-pattern.md</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>Select와 Option 컴포넌트를 본 적 있나요? 아니면 HTML의 `&lt;table&gt;`, `&lt;tr&gt;`, `&lt;td&gt;`처럼 함께 사용해야 의미가 있는 요소들을 떠올려보세요. Reac...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Configuration over Composition Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/configuration-over-composition.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/configuration-over-composition.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>Header 컴포넌트를 만들 때 이런 고민을 해본 적 있나요?</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>React 하이드레이션과 CSS 재적용 문제</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/hydration-and-css-issues.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/hydration-and-css-issues.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>이런 에러 메시지를 본 적 있나요?</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>`React`에서 `Composite`/`Compound` Pattern 활용 가이드</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/react-composite-compound-patterns.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/react-composite-compound-patterns.md</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; **어원적 차이**: Compound(복합어)는 두 개 이상의 완전한 단어를 결합하여 새로운 하나의 단어를 만드는 것(예: &quot;sailboat&quot;)이고, Composite(합성어)...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Context API를 활용한 Compound Pattern 구현</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/react-context-api-compound-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/react-context-api-compound-pattern.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>&gt; React의 Context API와 Compound Pattern을 결합하면 강력하고 유연한 컴포넌트 시스템을 만들 수 있습니다.</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>React Provider Pattern</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/react-provider-pattern.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/react-provider-pattern.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>React 애플리케이션을 개발하다 보면 이런 상황을 자주 마주하게 됩니다:</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/why-not-compound-pattern-in-header.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/patterns/why-not-compound-pattern-in-header.md</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>React로 컴포넌트를 설계하다 보면 이런 고민을 하게 됩니다. &quot;Card 컴포넌트는 Compound 패턴을 사용해서 유연하게 만들었는데, Header도 똑같이 만들어야 하나?&quot; ...</description>
+      <author>lledellebell</author>
+    </item>
+
+    <item>
+      <title>Custom Hook 리팩토링: useAsync</title>
+      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/react/refactoring/custom-hook-refactoring-useAsync.md</link>
+      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/react/refactoring/custom-hook-refactoring-useAsync.md</guid>
+      <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
+      <category>웹 개발</category>
+      <description>API 데이터 페칭 로직은 대부분의 React 애플리케이션에서 반복적으로 사용됩니다. 하지만 매번 비슷한 패턴의 코드를 작성하면 다음과 같은 문제가 발생합니다.</description>
       <author>lledellebell</author>
     </item>
 
@@ -480,36 +510,6 @@
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <category>프로그래밍 언어</category>
       <description>저도 처음 React를 배울 때 이런 경험을 했습니다. 분명히 배열에 새 항목을 추가했는데, 화면에는 아무것도 나타나지 않았습니다.</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>ReturnType - 함수의 반환 타입을 자동으로 추출하는 마법</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/get_return_type.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>상상해보세요. 동료가 만든 복잡한 API 함수가 있습니다. 이 함수의 반환값을 다른 곳에서 사용해야 하는데, 반환 타입을 정확히 알 수가 없습니다. 함수 구현을 열어서 return...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>메타프로그래밍(Metaprogramming)</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/languages/typescript/metaprogramming-concept.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>프로그래밍 언어</category>
-      <description>여러분은 TypeScript로 코드를 작성하다가 이런 경험을 해본 적 있나요? &quot;어, 이 타입 정의... 80줄이나 되는데 패턴이 반복되네?&quot; 저도 처음에는 모든 타입을 손으로 하...</description>
-      <author>lledellebell</author>
-    </item>
-
-    <item>
-      <title>웹폰트 최적화 완전 가이드: 다운로드부터 배포까지</title>
-      <link>https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md</link>
-      <guid isPermaLink="true">https://github.com/lledellebell/learn-cs/blob/master/web-development/frontend/css/font-optimization-preload-fout.md</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <category>웹 개발</category>
-      <description>웹폰트는 브랜딩과 사용자 경험의 핵심 요소이지만, 잘못 구현하면 성능 문제와 접근성 이슈를 야기합니다.</description>
       <author>lledellebell</author>
     </item>
   </channel>

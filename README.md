@@ -33,7 +33,7 @@
 
 ## 목차
 
-> **총 52개의 문서** | 마지막 업데이트: 2025. 10. 17.
+> **총 61개의 문서** | 마지막 업데이트: 2025. 10. 18.
 
 ### 카테고리
 
@@ -41,16 +41,16 @@
 - **[프로그래밍 언어 (Languages)](#languages)** (16개 문서)
 - **[네트워킹 (Networking)](#networking)** (3개 문서)
 - **[데이터베이스 (Databases)](#databases)** (2개 문서)
-- **[웹 개발 (Web Development)](#webdevelopment)** (27개 문서)
-- **[기타 (Miscellaneous)](#misc)** (2개 문서)
+- **[웹 개발 (Web Development)](#webdevelopment)** (35개 문서)
+- **[기타 (Miscellaneous)](#misc)** (3개 문서)
 
 ### 최근 추가된 문서
 
-- **[Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/frontend/react/architecture/component-design-data-driven.md)**
-- **[Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md)**
-- **[Safari 사파리 브라우저 Private Browsing에서 localStorage 오류 처리하기](/languages/javascript/safari-localstorage-private-mode.md)**
-- **[저작권 및 이용 정책](/copyright.md)**
-- **[DNS와 도메인, 호스팅의 관계 이해하기](/networking/dns/dns-domain-hosting-guide.md)**
+- **[ARIA (Accessible Rich Internet Applications)](/web-development/accessibility/aria/index.md)**
+- **[접근성 실전 예제](/web-development/accessibility/examples/index.md)**
+- **[웹 접근성 테스팅 가이드](/web-development/accessibility/testing/index.md)**
+- **[웹 접근성 (Web Accessibility)](/web-development/accessibility/index.md)**
+- **["웹 접근성 가이드 - 모두를 위한 웹사이트 만들기"](/web-development/accessibility/guidelines/complete-guide.md)**
 
 ### 전체 목차
 
@@ -99,25 +99,26 @@
 </details>
 
 <details>
-<summary><strong>웹 개발 (Web Development)</strong> (27개)</summary>
+<summary><strong>웹 개발 (Web Development)</strong> (35개)</summary>
 
-- ["포커스 모드 (Focus Mode)"](/web-development/features/focus-mode.md)
-- [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/frontend/css/font-optimization-preload-fout.md)
-- [CSS Mask Composite](/web-development/frontend/css/mask-composite.md)
-- [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/frontend/css/object-position_&_object-fit.md)
-- [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/frontend/css/preload-css-async-loading.md)
-- [Flex 레이아웃에서 텍스트 말줄임이 안 될 때 - min-width의 비밀](/web-development/frontend/css/text-overflow-ellipsis-flex-layout.md)
-- [Prop Drilling과 컴포넌트 설계 - 진짜 문제는 무엇일까?](/web-development/frontend/react/architecture/component-design-data-driven.md)
-- [Custom Hooks 가이드 (React 공식 문서 기반)](/web-development/frontend/react/hooks/custom-hooks-deep-dive.md)
-- [`useMemo`를 활용한 성능 최적화](/web-development/frontend/react/optimization/react-usememo-optimization.md)
-- [Header 컴포넌트에서 Compound/Composite 패턴을 사용하지 않는 이유](/web-development/frontend/react/pattern.md)
-- ... 그 외 17개 문서
+- [ARIA (Accessible Rich Internet Applications)](/web-development/accessibility/aria/index.md)
+- [접근성 실전 예제](/web-development/accessibility/examples/index.md)
+- ["웹 접근성 가이드 - 모두를 위한 웹사이트 만들기"](/web-development/accessibility/guidelines/complete-guide.md)
+- [웹 접근성 (Web Accessibility)](/web-development/accessibility/index.md)
+- [웹 접근성 테스팅 가이드](/web-development/accessibility/testing/index.md)
+- [웹폰트 최적화 완전 가이드: 다운로드부터 배포까지](/web-development/css/font-optimization-preload-fout.md)
+- [CSS Mask Composite](/web-development/css/mask-composite.md)
+- [반응형 디자인의 필수 도구, object-fit과 object-position 완벽 가이드](/web-development/css/object-position_&_object-fit.md)
+- [CSS 성능 최적화 - 렌더링 차단에서 비동기 로딩까지](/web-development/css/preload-css-async-loading.md)
+- ["CSS 커스텀 스크롤바 스타일링 완벽 가이드"](/web-development/css/scrollbar-styling.md)
+- ... 그 외 25개 문서
 
 </details>
 
 <details>
-<summary><strong>기타 (Miscellaneous)</strong> (2개)</summary>
+<summary><strong>기타 (Miscellaneous)</strong> (3개)</summary>
 
+- [Gemini API 설정 가이드](/GEMINI_SETUP.md)
 - [저작권 및 이용 정책](/copyright.md)
 - [Learn CS](/index.md)
 

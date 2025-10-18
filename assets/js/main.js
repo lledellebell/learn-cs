@@ -6,641 +6,620 @@
   'use strict';
 
   // =========================================
-  // 테마 전환 (다크 모드)
+  // 설정
   // =========================================
-  const initTheme = () => {
-    const themeToggle = document.getElementById('themeToggle');
-    if (!themeToggle) return;
-
-    const html = document.documentElement;
-
-    // 저장된 테마 불러오기
-    let savedTheme = 'light';
-    try {
-      savedTheme = localStorage.getItem('theme') || 'light';
-    } catch (e) {
-      console.warn('localStorage 접근 불가:', e);
-    }
-    html.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
-    // 클릭 시 테마 전환
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-      html.setAttribute('data-theme', newTheme);
-      try {
-        localStorage.setItem('theme', newTheme);
-      } catch (e) {
-        console.warn('localStorage 저장 실패:', e);
-      }
-      updateThemeIcon(newTheme);
-    });
+  const CONFIG = {
+    DEBUG: false, // 디버그 모드
+    MOBILE_BREAKPOINT: 768,
+    SCROLL_THRESHOLD: 300,
+    READING_SPEED_WPM: 200,
+    DEBOUNCE_DELAY: 500,
+    CAROUSEL_DURATION: 30000
   };
 
-  const updateThemeIcon = (theme) => {
-    const toggle = document.getElementById('themeToggle');
-    if (!toggle) return;
-
-    // 접근성을 위한 aria-label 업데이트
-    toggle.setAttribute('aria-label', theme === 'dark' ? 'Light mode로 전환' : 'Dark mode로 전환');
-
-    // 아이콘 업데이트
-    const svg = toggle.querySelector('svg');
-    if (svg) {
-      if (theme === 'dark') {
-        // 라이트 모드용 태양 아이콘
-        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />';
-      } else {
-        // 다크 모드용 달 아이콘
-        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+  // =========================================
+  // 유틸리티 함수
+  // =========================================
+  const utils = {
+    /**
+     * 디버그 로그 출력
+     */
+    log: (...args) => {
+      if (CONFIG.DEBUG) {
+        console.log('[Learn CS]', ...args);
       }
+    },
+
+    /**
+     * 모바일 여부 확인
+     */
+    isMobile: () => window.innerWidth <= CONFIG.MOBILE_BREAKPOINT,
+
+    /**
+     * 요소가 존재하는지 확인
+     */
+    exists: (selector) => document.querySelector(selector) !== null,
+
+    /**
+     * 여러 요소가 모두 존재하는지 확인
+     */
+    allExist: (...selectors) => selectors.every(utils.exists),
+
+    /**
+     * 모달 닫기 헬퍼
+     */
+    createModalCloser: (modal, triggerBtn) => {
+      return () => {
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        triggerBtn?.focus();
+      };
+    }
+  };
+
+  // =========================================
+  // 테마 관리
+  // =========================================
+  const theme = {
+    icons: {
+      light: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />',
+      dark: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />'
+    },
+
+    updateIcon(toggle, currentTheme) {
+      const svg = toggle.querySelector('svg');
+      if (!svg) return;
+
+      const ariaLabel = currentTheme === 'dark' ? 'Light mode로 전환' : 'Dark mode로 전환';
+      toggle.setAttribute('aria-label', ariaLabel);
+      svg.innerHTML = currentTheme === 'dark' ? this.icons.dark : this.icons.light;
+    },
+
+    init() {
+      const toggle = document.getElementById('themeToggle');
+      if (!toggle) return;
+
+      const html = document.documentElement;
+      const savedTheme = localStorage.getItem('theme') || 'light';
+
+      html.setAttribute('data-theme', savedTheme);
+      this.updateIcon(toggle, savedTheme);
+
+      toggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        this.updateIcon(toggle, newTheme);
+      });
+
+      utils.log('Theme initialized:', savedTheme);
     }
   };
 
   // =========================================
   // 모바일 네비게이션
   // =========================================
-  const initMobileNav = () => {
-    const menuToggle = document.getElementById('menuToggle');
-    const navList = document.getElementById('navList');
+  const mobileNav = {
+    toggle(menuToggle, navList, state) {
+      menuToggle.setAttribute('aria-expanded', state);
+      navList.setAttribute('aria-hidden', !state);
+    },
 
-    if (!menuToggle || !navList) return;
+    init() {
+      const menuToggle = document.getElementById('menuToggle');
+      const navList = document.getElementById('navList');
 
-    // 버튼 클릭 시 메뉴 토글
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      const newState = !isExpanded;
+      if (!menuToggle || !navList) return;
 
-      menuToggle.setAttribute('aria-expanded', newState);
-      navList.setAttribute('aria-hidden', !newState);
-    });
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        this.toggle(menuToggle, navList, !isExpanded);
+      });
 
-    // 외부 클릭 시 메뉴 닫기
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !navList.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        navList.setAttribute('aria-hidden', 'true');
-      }
-    });
-
-    // Escape 키로 메뉴 닫기
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        navList.setAttribute('aria-hidden', 'true');
-      }
-    });
-  };
-
-  // =========================================
-  // 목차 자동 생성 + 스크롤 하이라이트
-  // =========================================
-  const generateTOC = () => {
-    const articleBody = document.querySelector('.article-body');
-    const tocList = document.getElementById('tocList');
-    const tocContainer = document.getElementById('toc');
-
-    if (!articleBody || !tocList) return;
-
-    // 모든 제목 태그 가져오기 (h2, h3, h4)
-    const headings = articleBody.querySelectorAll('h2, h3, h4');
-
-    if (headings.length === 0) {
-      // 제목이 없으면 목차 숨기기
-      if (tocContainer) {
-        tocContainer.style.display = 'none';
-      }
-      return;
-    }
-
-    // 목차 HTML 생성
-    let tocHTML = '';
-    headings.forEach((heading, index) => {
-      const level = parseInt(heading.tagName.charAt(1));
-      const id = heading.id || `heading-${index}`;
-      const text = heading.textContent;
-
-      // ID가 없으면 추가
-      if (!heading.id) {
-        heading.id = id;
-      }
-
-      const indent = level === 2 ? '' : level === 3 ? 'padding-left: 1rem;' : 'padding-left: 2rem;';
-
-      tocHTML += `<li style="${indent}">
-        <a href="#${id}" data-target="${id}">${text}</a>
-      </li>`;
-    });
-
-    tocList.innerHTML = tocHTML;
-
-    // 부드러운 스크롤 추가
-    tocList.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const target = document.getElementById(targetId);
-
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // 접근성을 위한 포커스
-          target.focus();
-
-          // 모바일에서 목차 닫기
-          if (window.innerWidth <= 768) {
-            const tocToggle = document.getElementById('tocToggle');
-            const tocContainer = document.getElementById('toc');
-            if (tocToggle && tocContainer) {
-              tocContainer.classList.remove('expanded');
-              tocToggle.setAttribute('aria-expanded', 'false');
-            }
-          }
+      // 외부 클릭 시 닫기
+      document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navList.contains(e.target)) {
+          this.toggle(menuToggle, navList, false);
         }
       });
-    });
 
-    // 스크롤 시 현재 섹션 하이라이트
-    initTOCHighlight(headings);
-
-    // 모바일 TOC 토글 기능 초기화
-    initMobileTOC();
-  };
-
-  // =========================================
-  // 모바일 TOC 토글
-  // =========================================
-  const initMobileTOC = () => {
-    const tocToggle = document.getElementById('tocToggle');
-    const tocContainer = document.getElementById('toc');
-
-    if (!tocToggle || !tocContainer) return;
-
-    tocToggle.addEventListener('click', () => {
-      const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
-      const newState = !isExpanded;
-
-      tocToggle.setAttribute('aria-expanded', newState);
-
-      if (newState) {
-        tocContainer.classList.add('expanded');
-      } else {
-        tocContainer.classList.remove('expanded');
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        if (!tocContainer.contains(e.target) && tocContainer.classList.contains('expanded')) {
-          tocContainer.classList.remove('expanded');
-          tocToggle.setAttribute('aria-expanded', 'false');
+      // Escape 키로 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          this.toggle(menuToggle, navList, false);
         }
-      }
-    });
+      });
+
+      utils.log('Mobile navigation initialized');
+    }
   };
 
   // =========================================
-  // 목차 하이라이트 + 진행 상태 추적
+  // 목차 (Table of Contents)
   // =========================================
-  const initTOCHighlight = (headings) => {
-    const tocLinks = document.querySelectorAll('#tocList a');
-    const tocItems = document.querySelectorAll('#tocList li');
+  const toc = {
+    generateHTML(headings) {
+      return Array.from(headings).map((heading, index) => {
+        const level = parseInt(heading.tagName.charAt(1));
+        const id = heading.id || `heading-${index}`;
+        const text = heading.textContent;
 
-    // 읽은 섹션 추적
-    const readSections = new Set();
+        if (!heading.id) heading.id = id;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const tocLink = document.querySelector(`#tocList a[data-target="${id}"]`);
-        const tocItem = tocLink?.closest('li');
+        const indent = level === 2 ? '' : level === 3 ? 'padding-left: 1rem;' : 'padding-left: 2rem;';
+        return `<li style="${indent}"><a href="#${id}" data-target="${id}">${text}</a></li>`;
+      }).join('');
+    },
 
-        if (tocLink) {
-          if (entry.isIntersecting) {
-            // 현재 섹션을 읽은 것으로 표시
+    attachClickHandlers(tocList) {
+      tocList.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.focus();
+
+            // 모바일에서 목차 닫기
+            if (utils.isMobile()) {
+              const tocToggle = document.getElementById('tocToggle');
+              const tocContainer = document.getElementById('toc');
+              if (tocToggle && tocContainer) {
+                tocContainer.classList.remove('expanded');
+                tocToggle.setAttribute('aria-expanded', 'false');
+              }
+            }
+          }
+        });
+      });
+    },
+
+    initHighlight(headings) {
+      const tocLinks = document.querySelectorAll('#tocList a');
+      const readSections = new Set();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          const tocLink = document.querySelector(`#tocList a[data-target="${id}"]`);
+          const tocItem = tocLink?.closest('li');
+
+          if (tocLink && entry.isIntersecting) {
             readSections.add(id);
-
-            // 모든 링크의 active 제거
-            tocLinks.forEach(link => {
-              link.classList.remove('active');
-            });
-            // 현재 링크에 active 추가
+            tocLinks.forEach(link => link.classList.remove('active'));
             tocLink.classList.add('active');
 
-            // 읽은 섹션에 클래스 추가 (데스크톱 전용)
-            if (window.innerWidth > 768 && tocItem) {
+            if (!utils.isMobile() && tocItem) {
               tocItem.classList.add('read');
             }
           }
+        });
+      }, {
+        rootMargin: '-100px 0px -66%',
+        threshold: 0
+      });
+
+      headings.forEach(heading => observer.observe(heading));
+    },
+
+    initMobileToggle() {
+      const tocToggle = document.getElementById('tocToggle');
+      const tocContainer = document.getElementById('toc');
+
+      if (!tocToggle || !tocContainer) return;
+
+      tocToggle.addEventListener('click', () => {
+        const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
+        tocToggle.setAttribute('aria-expanded', !isExpanded);
+        tocContainer.classList.toggle('expanded', !isExpanded);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (utils.isMobile() && !tocContainer.contains(e.target) && tocContainer.classList.contains('expanded')) {
+          tocContainer.classList.remove('expanded');
+          tocToggle.setAttribute('aria-expanded', 'false');
         }
       });
-    }, {
-      rootMargin: '-100px 0px -66%',
-      threshold: 0
-    });
+    },
 
-    headings.forEach(heading => {
-      observer.observe(heading);
-    });
+    init() {
+      const articleBody = document.querySelector('.article-body');
+      const tocList = document.getElementById('tocList');
+      const tocContainer = document.getElementById('toc');
+
+      if (!articleBody || !tocList) return;
+
+      const headings = articleBody.querySelectorAll('h2, h3, h4');
+
+      if (headings.length === 0) {
+        if (tocContainer) tocContainer.style.display = 'none';
+        return;
+      }
+
+      tocList.innerHTML = this.generateHTML(headings);
+      this.attachClickHandlers(tocList);
+      this.initHighlight(headings);
+      this.initMobileToggle();
+
+      utils.log('TOC initialized with', headings.length, 'headings');
+    }
   };
 
   // =========================================
-  // 코드 언어 감지 및 라벨 표시
+  // 코드 블록
   // =========================================
-  const initCodeLanguageLabels = () => {
-    const codeBlocks = document.querySelectorAll('.article-body pre');
-
-    codeBlocks.forEach(block => {
-      let language = '';
-
+  const codeBlocks = {
+    detectLanguage(block) {
       const codeElement = block.querySelector('code');
       if (codeElement) {
-        const classList = Array.from(codeElement.classList);
-        for (const className of classList) {
+        for (const className of codeElement.classList) {
           if (className.startsWith('language-')) {
-            language = className.replace('language-', '');
-            break;
+            return className.replace('language-', '');
           }
         }
       }
 
-      if (!language) {
-        let parent = block.parentElement;
-        while (parent && parent !== document.body) {
-          const parentClasses = Array.from(parent.classList);
-          for (const className of parentClasses) {
-            if (className.startsWith('language-')) {
-              language = className.replace('language-', '');
-              break;
-            }
-          }
-          if (language) break;
-          parent = parent.parentElement;
-        }
-      }
-
-      if (!language) {
-        const preClasses = Array.from(block.classList);
-        for (const className of preClasses) {
+      let parent = block.parentElement;
+      while (parent && parent !== document.body) {
+        for (const className of parent.classList) {
           if (className.startsWith('language-')) {
-            language = className.replace('language-', '');
-            break;
+            return className.replace('language-', '');
           }
+        }
+        parent = parent.parentElement;
+      }
+
+      for (const className of block.classList) {
+        if (className.startsWith('language-')) {
+          return className.replace('language-', '');
         }
       }
 
-      if (language) {
-        block.setAttribute('data-language', language);
-      } else {
-        block.setAttribute('data-language', 'code');
+      return 'code';
+    },
+
+    initLanguageLabels() {
+      const blocks = document.querySelectorAll('.article-body pre');
+      blocks.forEach(block => {
+        block.setAttribute('data-language', this.detectLanguage(block));
+      });
+      utils.log('Language labels initialized for', blocks.length, 'code blocks');
+    },
+
+    async copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (error) {
+        utils.log('Copy failed:', error);
+        return false;
       }
-    });
-  };
+    },
 
-  // =========================================
-  // 코드 복사 버튼
-  // =========================================
-  const initCodeCopy = () => {
-    const codeBlocks = document.querySelectorAll('.article-body pre');
+    initCopyButtons() {
+      const blocks = document.querySelectorAll('.article-body pre');
 
-    codeBlocks.forEach(block => {
-      const button = document.createElement('button');
-      button.className = 'code-copy-btn';
-      button.textContent = 'Copy';
-      button.setAttribute('type', 'button');
-      button.setAttribute('aria-label', '코드를 클립보드에 복사');
+      blocks.forEach(block => {
+        const button = document.createElement('button');
+        button.className = 'code-copy-btn';
+        button.textContent = 'Copy';
+        button.setAttribute('type', 'button');
+        button.setAttribute('aria-label', '코드를 클립보드에 복사');
 
-      button.addEventListener('click', async () => {
-        const code = block.querySelector('code')?.textContent || block.textContent;
+        button.addEventListener('click', async () => {
+          const code = block.querySelector('code')?.textContent || block.textContent;
+          const watermark = `\n\n// 출처: ${document.title}\n// ${window.location.href}`;
+          const success = await this.copyToClipboard(code + watermark);
 
-        // 워터마크 추가
-        const watermark = `\n\n// 출처: ${document.title}\n// ${window.location.href}`;
-        const textWithWatermark = code + watermark;
-
-        try {
-          await navigator.clipboard.writeText(textWithWatermark);
-          button.textContent = 'Copied!';
-          button.setAttribute('aria-label', '코드가 클립보드에 복사됨');
+          button.textContent = success ? 'Copied!' : 'Failed';
+          button.setAttribute('aria-label', success ? '코드가 클립보드에 복사됨' : '복사 실패');
 
           setTimeout(() => {
             button.textContent = 'Copy';
             button.setAttribute('aria-label', '코드를 클립보드에 복사');
           }, 2000);
-        } catch (error) {
-          console.error('코드 복사 실패:', error);
-          button.textContent = 'Failed';
+        });
 
-          setTimeout(() => {
-            button.textContent = 'Copy';
-          }, 2000);
+        block.appendChild(button);
+      });
+
+      utils.log('Copy buttons initialized for', blocks.length, 'code blocks');
+    },
+
+    init() {
+      this.initLanguageLabels();
+      this.initCopyButtons();
+    }
+  };
+
+  // =========================================
+  // 링크 처리
+  // =========================================
+  const links = {
+    markExternal() {
+      const externalLinks = document.querySelectorAll('.article-body a[href^="http"]');
+
+      externalLinks.forEach(link => {
+        try {
+          const url = new URL(link.href);
+          if (url.hostname !== window.location.hostname) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+
+            const srText = document.createElement('span');
+            srText.className = 'visually-hidden';
+            srText.textContent = ' (새 창에서 열림)';
+            link.appendChild(srText);
+          }
+        } catch (e) {
+          utils.log('Invalid URL:', link.href);
         }
       });
 
-      block.appendChild(button);
-    });
+      utils.log('Marked', externalLinks.length, 'external links');
+    },
+
+    init() {
+      this.markExternal();
+    }
   };
 
   // =========================================
-  // 외부 링크 표시
+  // 복사 워터마크
   // =========================================
-  const markExternalLinks = () => {
-    const links = document.querySelectorAll('.article-body a[href^="http"]');
+  const copyWatermark = {
+    init() {
+      document.addEventListener('copy', (e) => {
+        const selection = window.getSelection();
+        const selectedText = selection.toString();
 
-    links.forEach(link => {
-      const url = new URL(link.href);
-      if (url.hostname !== window.location.hostname) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+        if (!selectedText || selectedText.length < 10) return;
 
-        // 스크린 리더용 숨김 텍스트 추가
-        const srText = document.createElement('span');
-        srText.className = 'visually-hidden';
-        srText.textContent = ' (새 창에서 열림)';
-        link.appendChild(srText);
-      }
-    });
-  };
+        const watermark = `\n\n━━━━━━━━━━━━━━━━━━━━━━\n출처: ${document.title}\n${window.location.href}`;
+        e.preventDefault();
+        e.clipboardData.setData('text/plain', selectedText + watermark);
+      });
 
-  // =========================================
-  // 텍스트 복사 시 워터마크 추가
-  // =========================================
-  const initCopyWatermark = () => {
-    document.addEventListener('copy', (e) => {
-      // 선택된 텍스트 가져오기
-      const selection = window.getSelection();
-      const selectedText = selection.toString();
-
-      // 텍스트가 선택되지 않았거나 너무 짧으면 워터마크 추가 안 함
-      if (!selectedText || selectedText.length < 10) {
-        return;
-      }
-
-      // 워터마크 생성
-      const pageTitle = document.title;
-      const pageUrl = window.location.href;
-      const watermark = `\n\n━━━━━━━━━━━━━━━━━━━━━━\n출처: ${pageTitle}\n${pageUrl}`;
-
-      // 클립보드에 워터마크가 포함된 텍스트 복사
-      e.preventDefault();
-      e.clipboardData.setData('text/plain', selectedText + watermark);
-    });
+      utils.log('Copy watermark initialized');
+    }
   };
 
   // =========================================
   // 키보드 단축키
   // =========================================
-  const initKeyboardShortcuts = () => {
-    document.addEventListener('keydown', (e) => {
-      // Ctrl/Cmd + D: 다크 모드 전환
-      if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
-        e.preventDefault();
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-          themeToggle.click();
-        }
-      }
+  const shortcuts = {
+    handlers: {
+      'd': () => document.getElementById('themeToggle')?.click(),
+      'm': () => document.getElementById('menuToggle')?.click()
+    },
 
-      // Ctrl/Cmd + M: 모바일 메뉴 토글
-      if ((e.ctrlKey || e.metaKey) && e.key === 'm') {
-        e.preventDefault();
-        const menuToggle = document.getElementById('menuToggle');
-        if (menuToggle) {
-          menuToggle.click();
+    init() {
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && this.handlers[e.key]) {
+          e.preventDefault();
+          this.handlers[e.key]();
         }
-      }
-    });
+      });
+
+      utils.log('Keyboard shortcuts initialized');
+    }
   };
 
   // =========================================
-  // 읽는 시간 계산
+  // 읽기 시간 계산
   // =========================================
-  const calculateReadingTime = () => {
-    const readingTimeElement = document.getElementById('readingTimeText');
-    if (!readingTimeElement) return;
+  const readingTime = {
+    calculate() {
+      const element = document.getElementById('readingTimeText');
+      const articleBody = document.querySelector('.article-body');
 
-    const articleBody = document.querySelector('.article-body');
-    if (!articleBody) return;
+      if (!element || !articleBody) return;
 
-    // 텍스트 추출 (코드 블록 제외)
-    const text = articleBody.textContent || '';
-    const wordsPerMinute = 200; // 평균 읽기 속도
-    const wordCount = text.trim().split(/\s+/).length;
-    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+      const text = articleBody.textContent || '';
+      const wordCount = text.trim().split(/\s+/).length;
+      const minutes = Math.ceil(wordCount / CONFIG.READING_SPEED_WPM);
 
-    readingTimeElement.textContent = `${readingTime}분 읽기`;
+      element.textContent = `${minutes}분 읽기`;
+      utils.log('Reading time:', minutes, 'minutes');
+    },
+
+    init() {
+      this.calculate();
+    }
   };
 
   // =========================================
-  // 인쇄 최적화
+  // 인쇄 기능
   // =========================================
-  const initPrint = () => {
-    const printBtn = document.getElementById('printBtn');
-    if (!printBtn) return;
+  const print = {
+    init() {
+      const printBtn = document.getElementById('printBtn');
+      if (!printBtn) return;
 
-    printBtn.addEventListener('click', () => {
-      window.print();
-    });
+      printBtn.addEventListener('click', () => window.print());
+      utils.log('Print button initialized');
+    }
   };
 
   // =========================================
   // 공유 기능
   // =========================================
-  const initShare = () => {
-    const shareBtn = document.getElementById('shareBtn');
-    const modal = document.getElementById('shareModal');
-    const closeBtn = modal?.querySelector('.modal-close');
-    const shareOptions = document.querySelectorAll('.share-option');
+  const share = {
+    platforms: {
+      twitter: (url, title) => `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+      linkedin: (url) => `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+      facebook: (url) => `https://www.facebook.com/sharer/sharer.php?u=${url}`
+    },
 
-    if (!shareBtn || !modal) return;
+    openWindow(url) {
+      window.open(url, '_blank', 'width=550,height=420');
+    },
 
-    // 모달 열기
-    shareBtn.addEventListener('click', () => {
-      modal.classList.add('flex');
-      modal.setAttribute('aria-hidden', 'false');
-      // 첫 번째 버튼에 포커스
-      modal.querySelector('.share-option')?.focus();
-    });
+    async copyLink(option) {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const originalHTML = option.innerHTML;
+        option.innerHTML = '<svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> 복사됨!';
+        setTimeout(() => option.innerHTML = originalHTML, 2000);
+      } catch (err) {
+        utils.log('Link copy failed:', err);
+      }
+    },
 
-    // 모달 닫기
-    const closeModal = () => {
-      modal.classList.remove('flex');
-      modal.setAttribute('aria-hidden', 'true');
-      shareBtn.focus();
-    };
+    handleShare(type, closeModal, target) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
 
-    closeBtn?.addEventListener('click', closeModal);
-
-    // 외부 클릭 시 닫기
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+      if (type === 'copy') {
+        this.copyLink(target);
+      } else if (this.platforms[type]) {
+        this.openWindow(this.platforms[type](url, title));
         closeModal();
       }
-    });
+    },
 
-    // ESC 키로 닫기
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
-        closeModal();
-      }
-    });
+    init() {
+      const shareBtn = document.getElementById('shareBtn');
+      const modal = document.getElementById('shareModal');
+      const closeBtn = modal?.querySelector('.modal-close');
+      const shareOptions = document.querySelectorAll('.share-option');
 
-    // 공유 옵션 처리
-    shareOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        const shareType = option.getAttribute('data-share');
-        const url = encodeURIComponent(window.location.href);
-        const title = encodeURIComponent(document.title);
+      if (!shareBtn || !modal) return;
 
-        let shareUrl = '';
+      const closeModal = utils.createModalCloser(modal, shareBtn);
 
-        switch (shareType) {
-          case 'twitter':
-            shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-            window.open(shareUrl, '_blank', 'width=550,height=420');
-            break;
-          case 'linkedin':
-            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-            window.open(shareUrl, '_blank', 'width=550,height=420');
-            break;
-          case 'facebook':
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-            window.open(shareUrl, '_blank', 'width=550,height=420');
-            break;
-          case 'copy':
-            navigator.clipboard.writeText(window.location.href).then(() => {
-              const originalText = option.innerHTML;
-              option.innerHTML = '<svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> 복사됨!';
-              setTimeout(() => {
-                option.innerHTML = originalText;
-              }, 2000);
-            }).catch(err => {
-              console.error('링크 복사 실패:', err);
-            });
-            break;
-        }
+      shareBtn.addEventListener('click', () => {
+        modal.classList.add('flex');
+        modal.setAttribute('aria-hidden', 'false');
+        modal.querySelector('.share-option')?.focus();
+      });
 
-        if (shareType !== 'copy') {
+      closeBtn?.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
           closeModal();
         }
       });
-    });
-  };
 
-  // =========================================
-  // 북마크/읽기 진행률 저장
-  // =========================================
-  const initBookmark = () => {
-    const bookmarkBtn = document.getElementById('bookmarkBtn');
-    const bookmarkIcon = document.getElementById('bookmarkIcon');
-    const bookmarkText = document.getElementById('bookmarkText');
+      shareOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+          const type = option.getAttribute('data-share');
+          this.handleShare(type, closeModal, e.target);
+        });
+      });
 
-    if (!bookmarkBtn) return;
-
-    const pageUrl = window.location.pathname;
-    let bookmarks = {};
-    try {
-      bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
-    } catch (e) {
-      console.warn('localStorage 접근 불가:', e);
-    }
-
-    // 북마크 상태 확인
-    const updateBookmarkUI = () => {
-      if (bookmarks[pageUrl]) {
-        bookmarkIcon.innerHTML = '<path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>';
-        bookmarkText.textContent = '북마크됨';
-        bookmarkBtn.setAttribute('aria-pressed', 'true');
-      } else {
-        bookmarkIcon.innerHTML = '<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>';
-        bookmarkText.textContent = '북마크';
-        bookmarkBtn.setAttribute('aria-pressed', 'false');
-      }
-    };
-
-    updateBookmarkUI();
-
-    // 북마크 토글
-    bookmarkBtn.addEventListener('click', () => {
-      if (bookmarks[pageUrl]) {
-        delete bookmarks[pageUrl];
-      } else {
-        bookmarks[pageUrl] = {
-          title: document.title,
-          timestamp: new Date().toISOString(),
-          scrollPosition: window.scrollY
-        };
-      }
-
-      try {
-        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-      } catch (e) {
-        console.warn('localStorage 저장 실패:', e);
-      }
-      updateBookmarkUI();
-    });
-
-    // 스크롤 위치 저장 (디바운스)
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-      if (bookmarks[pageUrl]) {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          bookmarks[pageUrl].scrollPosition = window.scrollY;
-          try {
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-          } catch (e) {
-            console.warn('localStorage 저장 실패:', e);
-          }
-        }, 500);
-      }
-    });
-
-    // 페이지 로드 시 스크롤 위치 복원
-    if (bookmarks[pageUrl]?.scrollPosition) {
-      window.scrollTo(0, bookmarks[pageUrl].scrollPosition);
+      utils.log('Share initialized');
     }
   };
 
   // =========================================
-  // 읽기 진행률 표시
+  // 북마크
   // =========================================
-  const initReadingProgress = () => {
-    const progressBar = document.getElementById('readingProgress');
-    if (!progressBar) return;
+  const bookmark = {
+    icons: {
+      filled: '<path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>',
+      outline: '<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>'
+    },
 
-    const updateProgress = () => {
+    getBookmarks() {
+      return JSON.parse(localStorage.getItem('bookmarks') || '{}');
+    },
+
+    saveBookmarks(bookmarks) {
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    },
+
+    updateUI(bookmarkBtn, bookmarkIcon, bookmarkText, pageUrl, bookmarks) {
+      const isBookmarked = !!bookmarks[pageUrl];
+      bookmarkIcon.innerHTML = isBookmarked ? this.icons.filled : this.icons.outline;
+      bookmarkText.textContent = isBookmarked ? '북마크됨' : '북마크';
+      bookmarkBtn.setAttribute('aria-pressed', isBookmarked);
+    },
+
+    init() {
+      const bookmarkBtn = document.getElementById('bookmarkBtn');
+      const bookmarkIcon = document.getElementById('bookmarkIcon');
+      const bookmarkText = document.getElementById('bookmarkText');
+
+      if (!bookmarkBtn) return;
+
+      const pageUrl = window.location.pathname;
+      const bookmarks = this.getBookmarks();
+
+      this.updateUI(bookmarkBtn, bookmarkIcon, bookmarkText, pageUrl, bookmarks);
+
+      bookmarkBtn.addEventListener('click', () => {
+        if (bookmarks[pageUrl]) {
+          delete bookmarks[pageUrl];
+        } else {
+          bookmarks[pageUrl] = {
+            title: document.title,
+            timestamp: new Date().toISOString(),
+            scrollPosition: window.scrollY
+          };
+        }
+        this.saveBookmarks(bookmarks);
+        this.updateUI(bookmarkBtn, bookmarkIcon, bookmarkText, pageUrl, bookmarks);
+      });
+
+      // 스크롤 위치 저장 (디바운스)
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        if (bookmarks[pageUrl]) {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            bookmarks[pageUrl].scrollPosition = window.scrollY;
+            this.saveBookmarks(bookmarks);
+          }, CONFIG.DEBOUNCE_DELAY);
+        }
+      });
+
+      // 페이지 로드 시 스크롤 위치 복원
+      if (bookmarks[pageUrl]?.scrollPosition) {
+        window.scrollTo(0, bookmarks[pageUrl].scrollPosition);
+      }
+
+      utils.log('Bookmark initialized');
+    }
+  };
+
+  // =========================================
+  // 읽기 진행률
+  // =========================================
+  const readingProgress = {
+    update(progressBar) {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight - windowHeight;
       const scrolled = window.scrollY;
       const progress = (scrolled / documentHeight) * 100;
 
       progressBar.style.width = `${Math.min(progress, 100)}%`;
-    };
+    },
 
-    window.addEventListener('scroll', updateProgress);
-    updateProgress();
+    init() {
+      const progressBar = document.getElementById('readingProgress');
+      if (!progressBar) return;
+
+      window.addEventListener('scroll', () => this.update(progressBar));
+      this.update(progressBar);
+
+      utils.log('Reading progress initialized');
+    }
   };
 
   // =========================================
-  // 문서 수정 기능
+  // 문서 수정
   // =========================================
-  const initEdit = () => {
-    const editBtn = document.getElementById('editBtn');
-    const editModal = document.getElementById('editModal');
-    const closeBtn = editModal?.querySelector('.modal-close');
-    const suggestEditBtn = document.getElementById('suggestEdit');
-    const directEditBtn = document.getElementById('directEdit');
-
-    if (!editBtn) return;
-
-    const environment = editBtn.getAttribute('data-env') || 'development';
-    const pageTitle = editBtn.getAttribute('data-page-title');
-    const pagePath = editBtn.getAttribute('data-page-path');
-    const pageUrl = editBtn.getAttribute('data-page-url');
-
-    // 이슈 생성 URL 생성 함수
-    const createIssueUrl = () => {
+  const edit = {
+    createIssueUrl(pageTitle, pagePath, pageUrl) {
       const issueTitle = encodeURIComponent(`[문서 수정] ${pageTitle}`);
       const issueBody = encodeURIComponent(`## 수정 대상 문서
 **문서 제목:** ${pageTitle}
@@ -676,88 +655,72 @@
 <!-- 참고 링크나 추가 설명이 있다면 작성해주세요 -->
 `);
       return `https://github.com/lledellebell/learn-cs/issues/new?title=${issueTitle}&body=${issueBody}&labels=documentation,content-suggestion`;
-    };
+    },
 
-    // 프로덕션 환경: 바로 이슈 페이지로 이동
-    if (environment === 'production') {
+    init() {
+      const editBtn = document.getElementById('editBtn');
+      if (!editBtn) return;
+
+      const environment = editBtn.getAttribute('data-env') || 'development';
+      const pageTitle = editBtn.getAttribute('data-page-title');
+      const pagePath = editBtn.getAttribute('data-page-path');
+      const pageUrl = editBtn.getAttribute('data-page-url');
+
+      const issueUrl = this.createIssueUrl(pageTitle, pagePath, pageUrl);
+
+      // 프로덕션: 바로 이슈 페이지로
+      if (environment === 'production') {
+        editBtn.addEventListener('click', () => window.open(issueUrl, '_blank'));
+        return;
+      }
+
+      // 개발: 모달 표시
+      const editModal = document.getElementById('editModal');
+      if (!editModal) return;
+
+      const closeBtn = editModal.querySelector('.modal-close');
+      const suggestEditBtn = document.getElementById('suggestEdit');
+      const directEditBtn = document.getElementById('directEdit');
+
+      const closeModal = utils.createModalCloser(editModal, editBtn);
+
       editBtn.addEventListener('click', () => {
-        window.open(createIssueUrl(), '_blank');
+        editModal.classList.add('flex');
+        editModal.setAttribute('aria-hidden', 'false');
+        suggestEditBtn?.focus();
       });
-      return;
+
+      closeBtn?.addEventListener('click', closeModal);
+      editModal.addEventListener('click', (e) => {
+        if (e.target === editModal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && editModal.classList.contains('flex')) {
+          closeModal();
+        }
+      });
+
+      suggestEditBtn?.addEventListener('click', () => {
+        window.open(issueUrl, '_blank');
+        closeModal();
+      });
+
+      directEditBtn?.addEventListener('click', () => {
+        const editUrl = `https://github.com/lledellebell/learn-cs/edit/master/${pagePath}`;
+        window.open(editUrl, '_blank');
+        closeModal();
+      });
+
+      utils.log('Edit initialized');
     }
-
-    // 개발 환경: 모달 표시
-    if (!editModal) return;
-
-    // 모달 열기
-    editBtn.addEventListener('click', () => {
-      editModal.classList.add('flex');
-      editModal.setAttribute('aria-hidden', 'false');
-      suggestEditBtn?.focus();
-    });
-
-    // 모달 닫기
-    const closeModal = () => {
-      editModal.classList.remove('flex');
-      editModal.setAttribute('aria-hidden', 'true');
-      editBtn.focus();
-    };
-
-    closeBtn?.addEventListener('click', closeModal);
-
-    // 외부 클릭 시 닫기
-    editModal.addEventListener('click', (e) => {
-      if (e.target === editModal) {
-        closeModal();
-      }
-    });
-
-    // ESC 키로 닫기
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && editModal.classList.contains('flex')) {
-        closeModal();
-      }
-    });
-
-    // 수정 제안하기 (이슈 생성)
-    suggestEditBtn?.addEventListener('click', () => {
-      window.open(createIssueUrl(), '_blank');
-      closeModal();
-    });
-
-    // 직접 수정하기 (GitHub edit)
-    directEditBtn?.addEventListener('click', () => {
-      const editUrl = `https://github.com/lledellebell/learn-cs/edit/master/${pagePath}`;
-      window.open(editUrl, '_blank');
-      closeModal();
-    });
   };
 
   // =========================================
-  // Hero Canvas 인터랙티브
+  // Hero Canvas
   // =========================================
-  const initHeroCanvas = () => {
-    const canvas = document.getElementById('heroCanvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let mouse = { x: null, y: null };
-    let animationId;
-
-    const setCanvasSize = () => {
-      const rect = canvas.parentElement.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
-    };
-
-    setCanvasSize();
-    window.addEventListener('resize', () => {
-      setCanvasSize();
-      initParticles();
-    });
-
-    class Particle {
+  const heroCanvas = {
+    Particle: class {
       constructor(x, y, delay) {
         this.x = x;
         this.y = y;
@@ -769,34 +732,38 @@
         this.scale = 0;
         this.delay = delay;
         this.animationProgress = 0;
-        // 초기 위치를 랜덤하게 오프셋
         this.initialOffsetX = (Math.random() - 0.5) * 100;
         this.initialOffsetY = (Math.random() - 0.5) * 100;
       }
 
-      draw() {
-        // 진입 애니메이션 업데이트
-        if (this.animationProgress < 1) {
-          this.animationProgress += 0.015; // 속도 조정 (더 느리게)
-          const progress = Math.max(0, this.animationProgress - this.delay);
+      easeOutBack(t) {
+        const c1 = 1.70158;
+        const c3 = c1 + 1;
+        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+      }
 
-          // easeOutBack으로 오버슈트 효과
+      easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      draw(ctx, mouse) {
+        if (this.animationProgress < 1) {
+          this.animationProgress += 0.015;
+          const progress = Math.max(0, this.animationProgress - this.delay);
           const eased = this.easeOutBack(progress);
           this.opacity = Math.min(1, eased);
           this.scale = eased;
 
-          // 진입 시 위치 애니메이션 (흩어진 상태에서 모이기)
           const positionEased = this.easeOutCubic(progress);
           this.x = this.baseX + this.initialOffsetX * (1 - positionEased);
           this.y = this.baseY + this.initialOffsetY * (1 - positionEased);
         } else {
-          // 애니메이션 완료 후 정확한 위치로
           this.x = this.baseX;
           this.y = this.baseY;
         }
 
         const theme = document.documentElement.getAttribute('data-theme');
-        let baseOpacity = theme === 'dark' ? 0.15 : 0.08;
+        const baseOpacity = theme === 'dark' ? 0.15 : 0.08;
         let color = theme === 'dark' ? 'rgba(255, 255, 255, ' : 'rgba(0, 0, 0, ';
 
         if (mouse.x !== null) {
@@ -821,30 +788,15 @@
         ctx.fill();
       }
 
-      easeOutBack(t) {
-        const c1 = 1.70158;
-        const c3 = c1 + 1;
-        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-      }
-
-      easeOutCubic(t) {
-        return 1 - Math.pow(1 - t, 3);
-      }
-
-      update() {
-        // 진입 애니메이션 중에는 마우스 인터랙션 비활성화
-        if (this.animationProgress < 1) {
-          return;
-        }
+      update(mouse) {
+        if (this.animationProgress < 1) return;
 
         if (mouse.x === null) {
           if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX;
-            this.x -= dx / 10;
+            this.x -= (this.x - this.baseX) / 10;
           }
           if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY;
-            this.y -= dy / 10;
+            this.y -= (this.y - this.baseY) / 10;
           }
           return;
         }
@@ -863,424 +815,250 @@
           this.x -= directionX;
           this.y -= directionY;
         } else {
-          // 원래 위치로 복귀
           if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX;
-            this.x -= dx / 10;
+            this.x -= (this.x - this.baseX) / 10;
           }
           if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY;
-            this.y -= dy / 10;
+            this.y -= (this.y - this.baseY) / 10;
           }
         }
       }
-    }
+    },
 
-    const initParticles = () => {
-      particles = [];
-      const spacing = 25;
-      const cols = Math.ceil(canvas.width / spacing);
-      const rows = Math.ceil(canvas.height / spacing);
+    init() {
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
 
-      let particleIndex = 0;
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const posX = x * spacing + spacing / 2;
-          const posY = y * spacing + spacing / 2;
-          // 파도 효과를 위한 딜레이(좌측 상단에서 우측 하단으로)
-          const delay = (x + y) * 0.025;
-          particles.push(new Particle(posX, posY, delay));
-          particleIndex++;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const mouse = { x: null, y: null };
+      let animationId;
+
+      const setCanvasSize = () => {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      };
+
+      const initParticles = () => {
+        particles = [];
+        const spacing = 25;
+        const cols = Math.ceil(canvas.width / spacing);
+        const rows = Math.ceil(canvas.height / spacing);
+
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const posX = x * spacing + spacing / 2;
+            const posY = y * spacing + spacing / 2;
+            const delay = (x + y) * 0.025;
+            particles.push(new this.Particle(posX, posY, delay));
+          }
         }
-      }
-    };
+      };
 
-    initParticles();
+      const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(particle => {
+          particle.update(mouse);
+          particle.draw(ctx, mouse);
+        });
+        animationId = requestAnimationFrame(animate);
+      };
 
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
+      setCanvasSize();
+      initParticles();
 
-    canvas.addEventListener('mouseleave', () => {
-      mouse.x = null;
-      mouse.y = null;
-    });
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
+      window.addEventListener('resize', () => {
+        setCanvasSize();
+        initParticles();
       });
 
-      animationId = requestAnimationFrame(animate);
-    };
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
 
-    animate();
+      canvas.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
 
-    const observer = new MutationObserver(() => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    });
+      animate();
 
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme']
-    });
+      const observer = new MutationObserver(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      observer.disconnect();
-    };
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      });
+
+      utils.log('Hero canvas initialized');
+
+      return () => {
+        cancelAnimationFrame(animationId);
+        observer.disconnect();
+      };
+    }
   };
 
   // =========================================
-  // 뉴스 캐러셀 네비게이션 및 자동 롤링
+  // 뉴스 캐러셀
   // =========================================
-  const initNewsCarouselNav = () => {
-    const wrapper = document.querySelector('.home-news-wrapper');
-    if (!wrapper) return;
+  const newsCarousel = {
+    init() {
+      const wrapper = document.querySelector('.home-news-wrapper');
+      if (!wrapper) return;
 
-    const prevBtn = wrapper.querySelector('.home-news-nav-prev');
-    const nextBtn = wrapper.querySelector('.home-news-nav-next');
-    const track = wrapper.querySelector('.home-news-track');
+      const prevBtn = wrapper.querySelector('.home-news-nav-prev');
+      const nextBtn = wrapper.querySelector('.home-news-nav-next');
+      const track = wrapper.querySelector('.home-news-track');
 
-    if (!prevBtn || !nextBtn || !track) return;
+      if (!prevBtn || !nextBtn || !track) return;
 
-    // prefers-reduced-motion 체크
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      console.log('자동 롤링 비활성화 (prefers-reduced-motion)');
-      return;
-    }
-
-    let currentPosition = 0;
-    let isPaused = false;
-    let animationId = null;
-    let resumeTimeout = null;
-    let startTime = Date.now();
-
-    // 롤링 설정
-    const DURATION = 30000; // 30초
-
-    // 카드 너비 + 간격 계산
-    const getScrollDistance = () => {
-      const card = track.querySelector('.home-news-item');
-      if (!card) return 0;
-
-      const cardWidth = card.offsetWidth;
-      const gap = parseInt(getComputedStyle(track).gap) || 0;
-      return cardWidth + gap;
-    };
-
-    const autoScroll = () => {
-      if (isPaused) {
-        animationId = requestAnimationFrame(autoScroll);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        utils.log('Auto-rolling disabled (prefers-reduced-motion)');
         return;
       }
 
-      const elapsed = Date.now() - startTime;
-      const trackWidth = track.scrollWidth;
-      const loopWidth = trackWidth / 5; // 5세트 구조
+      let currentPosition = 0;
+      let isPaused = false;
+      let animationId = null;
+      let resumeTimeout = null;
+      let startTime = Date.now();
 
-      // 14초에 1/5 이동 (한 세트)
-      const progress = (elapsed % DURATION) / DURATION;
-      currentPosition = -(loopWidth * progress);
+      const getScrollDistance = () => {
+        const card = track.querySelector('.home-news-item');
+        if (!card) return 0;
+        const cardWidth = card.offsetWidth;
+        const gap = parseInt(getComputedStyle(track).gap) || 0;
+        return cardWidth + gap;
+      };
 
-      // 무한 루프를 위해 위치 리셋
-      if (Math.abs(currentPosition) >= loopWidth) {
-        currentPosition = 0;
-        startTime = Date.now();
-      }
+      const autoScroll = () => {
+        if (isPaused) {
+          animationId = requestAnimationFrame(autoScroll);
+          return;
+        }
 
-      track.style.transform = `translateX(${currentPosition}px)`;
-      animationId = requestAnimationFrame(autoScroll);
-    };
+        const elapsed = Date.now() - startTime;
+        const trackWidth = track.scrollWidth;
+        const loopWidth = trackWidth / 5;
+        const progress = (elapsed % CONFIG.CAROUSEL_DURATION) / CONFIG.CAROUSEL_DURATION;
+        currentPosition = -(loopWidth * progress);
 
-    const startAnimation = () => {
-      if (!animationId) {
-        startTime = Date.now();
+        if (Math.abs(currentPosition) >= loopWidth) {
+          currentPosition = 0;
+          startTime = Date.now();
+        }
+
+        track.style.transform = `translateX(${currentPosition}px)`;
         animationId = requestAnimationFrame(autoScroll);
-      }
-    };
+      };
 
-    const pauseAnimation = () => {
-      isPaused = true;
-    };
+      const startAnimation = () => {
+        if (!animationId) {
+          startTime = Date.now();
+          animationId = requestAnimationFrame(autoScroll);
+        }
+      };
 
-    const resumeAnimation = () => {
-      isPaused = false;
-      startTime = Date.now() - ((Math.abs(currentPosition) / (track.scrollWidth / 5)) * DURATION);
-    };
+      const pauseAnimation = () => { isPaused = true; };
+      const resumeAnimation = () => {
+        isPaused = false;
+        startTime = Date.now() - ((Math.abs(currentPosition) / (track.scrollWidth / 5)) * CONFIG.CAROUSEL_DURATION);
+      };
 
-    const stopAnimation = () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-        animationId = null;
-      }
-    };
+      const stopAnimation = () => {
+        if (animationId) {
+          cancelAnimationFrame(animationId);
+          animationId = null;
+        }
+      };
 
-    const smoothScroll = (targetX) => {
-      stopAnimation();
-      track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-      track.style.transform = `translateX(${targetX}px)`;
-      currentPosition = targetX;
-
-      setTimeout(() => {
-        track.style.transition = '';
-      }, 500);
-    };
-
-    prevBtn.addEventListener('click', () => {
-      pauseAnimation();
-
-      const scrollDistance = getScrollDistance();
-      const targetX = currentPosition + scrollDistance;
-
-      const maxX = 0;
-      const finalX = Math.min(targetX, maxX);
-
-      smoothScroll(finalX);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      pauseAnimation();
-
-      const scrollDistance = getScrollDistance();
-      const targetX = currentPosition - scrollDistance;
-
-      const trackWidth = track.scrollWidth;
-      const minX = -(trackWidth / 5);
-      const finalX = Math.max(targetX, minX);
-
-      smoothScroll(finalX);
-    });
-
-    wrapper.addEventListener('mouseenter', () => {
-      clearTimeout(resumeTimeout);
-      pauseAnimation();
-    });
-
-    wrapper.addEventListener('mouseleave', () => {
-      clearTimeout(resumeTimeout);
-      resumeTimeout = setTimeout(() => {
-        resumeAnimation();
-        startAnimation();
-      }, 3000);
-    });
-
-    startAnimation();
-
-    // 페이지 숨김/표시 시 애니메이션 제어
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
+      const smoothScroll = (targetX) => {
         stopAnimation();
-      } else if (!isPaused) {
-        startAnimation();
-      }
-    });
-  };
+        track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        track.style.transform = `translateX(${targetX}px)`;
+        currentPosition = targetX;
+        setTimeout(() => track.style.transition = '', 500);
+      };
 
-  // =========================================
-  // Back to Top 버튼
-  // =========================================
-  const initBackToTop = () => {
-    const backToTopBtn = document.getElementById('backToTop');
-    if (!backToTopBtn) return;
-
-    // 스크롤 시 버튼 표시/숨김
-    const toggleButton = () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    };
-
-    window.addEventListener('scroll', toggleButton);
-    toggleButton();
-
-    // 클릭 시 상단으로 이동
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      prevBtn.addEventListener('click', () => {
+        pauseAnimation();
+        const scrollDistance = getScrollDistance();
+        const targetX = Math.min(currentPosition + scrollDistance, 0);
+        smoothScroll(targetX);
       });
-    });
+
+      nextBtn.addEventListener('click', () => {
+        pauseAnimation();
+        const scrollDistance = getScrollDistance();
+        const minX = -(track.scrollWidth / 5);
+        const targetX = Math.max(currentPosition - scrollDistance, minX);
+        smoothScroll(targetX);
+      });
+
+      wrapper.addEventListener('mouseenter', () => {
+        clearTimeout(resumeTimeout);
+        pauseAnimation();
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+          resumeAnimation();
+          startAnimation();
+        }, 3000);
+      });
+
+      startAnimation();
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopAnimation();
+        } else if (!isPaused) {
+          startAnimation();
+        }
+      });
+
+      utils.log('News carousel initialized');
+    }
   };
 
   // =========================================
-  // 포커스 모드 토스트 메시지
+  // Back to Top
   // =========================================
-  const showFocusModeToast = () => {
-    // 토스트 엘리먼트 생성
-    const toast = document.createElement('div');
-    toast.className = 'focus-mode-toast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
+  const backToTop = {
+    toggle(button) {
+      const shouldShow = window.scrollY > CONFIG.SCROLL_THRESHOLD;
+      button.classList.toggle('visible', shouldShow);
+    },
 
-    // Mac인지 확인 (Cmd vs Ctrl 표시)
-    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-    const modifier = isMac ? 'Cmd' : 'Ctrl';
+    init() {
+      const button = document.getElementById('backToTop');
+      if (!button) return;
 
-    toast.innerHTML = `
-      <div class="toast-icon">
-        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-        </svg>
-      </div>
-      <div class="toast-content">
-        <div class="toast-title">포커스 모드</div>
-        <div class="toast-message"><kbd>${modifier}</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> 로 집중 독서 모드를 켜보세요</div>
-      </div>
-      <button type="button" class="toast-close" aria-label="닫기">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M.146 1.146a.5.5 0 0 1 .708 0L8 8.293l7.146-7.147a.5.5 0 0 1 .708.708L8.707 9l7.147 7.146a.5.5 0 0 1-.708.708L8 9.707l-7.146 7.147a.5.5 0 0 1-.708-.708L7.293 9 .146 1.854a.5.5 0 0 1 0-.708z"/>
-        </svg>
-      </button>
-    `;
+      window.addEventListener('scroll', () => this.toggle(button));
+      this.toggle(button);
 
-    document.body.appendChild(toast);
+      button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
 
-    // 닫기 버튼 이벤트
-    const closeBtn = toast.querySelector('.toast-close');
-    const closeToast = () => {
-      toast.classList.add('hiding');
-      setTimeout(() => {
-        toast.remove();
-      }, 300);
-    };
-
-    closeBtn.addEventListener('click', closeToast);
-
-    // 애니메이션을 위한 딜레이
-    setTimeout(() => {
-      toast.classList.add('show');
-    }, 100);
-
-    // 8초 후 자동으로 사라지기
-    setTimeout(() => {
-      if (document.body.contains(toast)) {
-        closeToast();
-      }
-    }, 8000);
+      utils.log('Back to top initialized');
+    }
   };
 
   // =========================================
   // 포커스 모드
   // =========================================
-  const initFocusMode = () => {
-    const focusModeToggle = document.getElementById('focusModeToggle');
-    const articleBody = document.querySelector('.article-body');
+  const focusMode = {
+    highlightVisibleElement(articleBody, isFocusMode, currentFocusedElement) {
+      if (!isFocusMode) return currentFocusedElement;
 
-    if (!focusModeToggle || !articleBody) return;
-
-    let isFocusMode = false;
-    const isMobile = window.innerWidth <= 768;
-
-    // 포커스 모드 토글
-    const toggleFocusMode = () => {
-      isFocusMode = !isFocusMode;
-      document.body.classList.toggle('focus-mode', isFocusMode);
-      focusModeToggle.classList.toggle('active', isFocusMode);
-      focusModeToggle.setAttribute('aria-pressed', isFocusMode);
-
-      // 툴팁 텍스트 변경
-      focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON (Ctrl+Shift+F)' : '포커스 모드 (Ctrl+Shift+F)');
-
-      // 상태를 로컬 스토리지에 저장
-      try {
-        localStorage.setItem('focusMode', isFocusMode);
-      } catch (e) {
-        console.warn('localStorage 저장 실패:', e);
-      }
-
-      // 포커스 모드 활성화 시
-      if (isFocusMode) {
-        // 현재 보이는 요소 강조
-        highlightVisibleElement();
-
-        // 모바일에서 TOC가 열려있으면 닫기
-        if (isMobile) {
-          const tocContainer = document.getElementById('toc');
-          const tocToggle = document.getElementById('tocToggle');
-
-          if (tocContainer && tocContainer.classList.contains('expanded')) {
-            tocContainer.classList.remove('expanded');
-            if (tocToggle) {
-              tocToggle.setAttribute('aria-expanded', 'false');
-            }
-          }
-        }
-
-        // 맨 위로 스크롤 
-        // window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    };
-
-    // 저장된 상태 불러오기
-    let savedFocusMode = false;
-    try {
-      savedFocusMode = localStorage.getItem('focusMode') === 'true';
-    } catch (e) {
-      console.warn('localStorage 접근 불가:', e);
-    }
-
-    if (savedFocusMode) {
-      isFocusMode = true;
-      document.body.classList.add('focus-mode');
-      focusModeToggle.classList.add('active');
-      focusModeToggle.setAttribute('aria-pressed', 'true');
-      focusModeToggle.setAttribute('data-tooltip', '포커스 모드 ON (Ctrl+Shift+F)');
-    }
-
-    // 첫 방문 시 단축키 안내 토스트 표시
-    let hasSeenFocusModeHint = true;
-    try {
-      hasSeenFocusModeHint = localStorage.getItem('hasSeenFocusModeHint');
-    } catch (e) {
-      console.warn('localStorage 접근 불가:', e);
-    }
-
-    if (!hasSeenFocusModeHint) {
-      setTimeout(() => {
-        showFocusModeToast();
-        try {
-          localStorage.setItem('hasSeenFocusModeHint', 'true');
-        } catch (e) {
-          console.warn('localStorage 저장 실패:', e);
-        }
-      }, 1500);
-    }
-
-    // 클릭 이벤트
-    focusModeToggle.addEventListener('click', toggleFocusMode);
-
-    // 키보드 단축키 (Ctrl/Cmd + Shift + F)
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'f' && e.shiftKey) {
-        // 입력 필드가 아닐 때만 포커스 모드 토글
-        const isInputField = document.activeElement.tagName === 'INPUT' ||
-                            document.activeElement.tagName === 'TEXTAREA' ||
-                            document.activeElement.isContentEditable;
-
-        if (!isInputField) {
-          e.preventDefault();
-          toggleFocusMode();
-        }
-      }
-    });
-
-    // 스크롤 시 현재 뷰포트에 있는 요소 강조 (포커스 모드일 때)
-    let ticking = false;
-    let currentFocusedElement = null;
-
-    const highlightVisibleElement = () => {
-      if (!isFocusMode) return;
-
-      // 포커스 가능한 모든 요소: article-body의 직접 자식만 선택
       const elements = articleBody.querySelectorAll(':scope > p, :scope > .highlighter-rouge, :scope > blockquote, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > h5, :scope > h6, :scope > ul, :scope > ol, :scope > li, :scope > table');
       const viewportHeight = window.innerHeight;
       const scrollTop = window.scrollY;
@@ -1300,245 +1078,208 @@
         }
       });
 
-      // 동일한 요소면 업데이트하지 않음 (깜빡임 방지)
       if (closestElement === currentFocusedElement) {
-        return;
+        return currentFocusedElement;
       }
 
-      // 모든 focused 클래스 제거
       elements.forEach(el => el.classList.remove('focused'));
-
-      // 가장 가까운 요소에 focused 클래스 추가
       if (closestElement) {
         closestElement.classList.add('focused');
-        currentFocusedElement = closestElement;
       }
-    };
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          highlightVisibleElement();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
+      return closestElement;
+    },
 
-    // 모바일: 터치한 요소 강조
-    if (isMobile) {
-      let touchTimeout;
+    init() {
+      const focusModeToggle = document.getElementById('focusModeToggle');
+      const articleBody = document.querySelector('.article-body');
 
-      articleBody.addEventListener('touchstart', (e) => {
-        if (!isFocusMode) return;
+      if (!focusModeToggle || !articleBody) return;
 
-        // 터치한 요소부터 시작해서 article-body의 직접 자식을 찾음
-        let target = e.target;
+      let isFocusMode = false;
+      let currentFocusedElement = null;
+      let ticking = false;
 
-        // 상위로 올라가면서 article-body의 직접 자식을 찾음
-        while (target && target !== articleBody) {
-          if (target.parentElement === articleBody) {
-            // p, .highlighter-rouge, blockquote, h1-h6, ul, ol, table인지 확인
-            const tagName = target.tagName.toLowerCase();
-            const hasClass = target.classList.contains('highlighter-rouge');
-            if (['p', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table'].includes(tagName) || hasClass) {
-              break;
+      const toggleFocusMode = () => {
+        isFocusMode = !isFocusMode;
+        document.body.classList.toggle('focus-mode', isFocusMode);
+        focusModeToggle.classList.toggle('active', isFocusMode);
+        focusModeToggle.setAttribute('aria-pressed', isFocusMode);
+        focusModeToggle.setAttribute('data-tooltip', isFocusMode ? '포커스 모드 ON' : '포커스 모드 OFF');
+        localStorage.setItem('focusMode', isFocusMode);
+
+        if (isFocusMode) {
+          currentFocusedElement = this.highlightVisibleElement(articleBody, isFocusMode, currentFocusedElement);
+
+          if (utils.isMobile()) {
+            const tocContainer = document.getElementById('toc');
+            const tocToggle = document.getElementById('tocToggle');
+            if (tocContainer?.classList.contains('expanded')) {
+              tocContainer.classList.remove('expanded');
+              tocToggle?.setAttribute('aria-expanded', 'false');
             }
           }
-          target = target.parentElement;
         }
+      };
 
-        if (!target || target === articleBody) return;
+      // 저장된 상태 복원
+      const savedFocusMode = localStorage.getItem('focusMode') === 'true';
+      if (savedFocusMode) {
+        isFocusMode = true;
+        document.body.classList.add('focus-mode');
+        focusModeToggle.classList.add('active');
+        focusModeToggle.setAttribute('aria-pressed', 'true');
+        focusModeToggle.setAttribute('data-tooltip', '포커스 모드 ON');
+      }
 
-        // 기존 강조 제거
-        const elements = articleBody.querySelectorAll('.focused');
-        elements.forEach(el => el.classList.remove('focused'));
+      focusModeToggle.addEventListener('click', toggleFocusMode);
 
-        // 터치한 요소 강조
-        target.classList.add('focused');
-
-        // 3초 후 자동으로 스크롤 기반 강조로 복귀
-        clearTimeout(touchTimeout);
-        touchTimeout = setTimeout(() => {
-          highlightVisibleElement();
-        }, 3000);
+      // 키보드 단축키
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'f' && !e.shiftKey) {
+          if (articleBody.contains(document.activeElement)) {
+            e.preventDefault();
+            toggleFocusMode();
+          }
+        }
       });
+
+      // 스크롤 시 요소 강조
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            currentFocusedElement = this.highlightVisibleElement(articleBody, isFocusMode, currentFocusedElement);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // 모바일 터치
+      if (utils.isMobile()) {
+        let touchTimeout;
+        articleBody.addEventListener('touchstart', (e) => {
+          if (!isFocusMode) return;
+
+          let target = e.target;
+          while (target && target !== articleBody) {
+            if (target.parentElement === articleBody) {
+              const tagName = target.tagName.toLowerCase();
+              const hasClass = target.classList.contains('highlighter-rouge');
+              if (['p', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table'].includes(tagName) || hasClass) {
+                break;
+              }
+            }
+            target = target.parentElement;
+          }
+
+          if (!target || target === articleBody) return;
+
+          articleBody.querySelectorAll('.focused').forEach(el => el.classList.remove('focused'));
+          target.classList.add('focused');
+
+          clearTimeout(touchTimeout);
+          touchTimeout = setTimeout(() => {
+            currentFocusedElement = this.highlightVisibleElement(articleBody, isFocusMode, currentFocusedElement);
+          }, 3000);
+        });
+      }
+
+      utils.log('Focus mode initialized');
     }
   };
 
   // =========================================
-  // 스크롤 방향 감지 헤더 (모바일 전용)
+  // 스크롤 헤더 (모바일)
   // =========================================
-  const initScrollHeader = () => {
-    // 모바일에서만 동작
-    if (window.innerWidth > 768) return;
+  const scrollHeader = {
+    init() {
+      if (!utils.isMobile()) return;
 
-    const header = document.querySelector('.site-header');
-    if (!header) return;
+      const header = document.querySelector('.site-header');
+      if (!header) return;
 
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    const scrollThreshold = 10; // 최소 스크롤 거리
+      let lastScrollY = window.scrollY;
+      let ticking = false;
 
-    const updateHeader = () => {
-      const currentScrollY = window.scrollY;
+      const updateHeader = () => {
+        const currentScrollY = window.scrollY;
 
-      // 상단에 있을 때는 항상 헤더 표시
-      if (currentScrollY < 100) {
-        header.classList.remove('header-hidden');
-        header.classList.add('header-visible');
+        if (currentScrollY < 100) {
+          header.classList.remove('header-hidden');
+          header.classList.add('header-visible');
+          lastScrollY = currentScrollY;
+          ticking = false;
+          return;
+        }
+
+        if (Math.abs(currentScrollY - lastScrollY) < 10) {
+          ticking = false;
+          return;
+        }
+
+        if (currentScrollY > lastScrollY) {
+          header.classList.add('header-hidden');
+          header.classList.remove('header-visible');
+        } else {
+          header.classList.remove('header-hidden');
+          header.classList.add('header-visible');
+        }
+
         lastScrollY = currentScrollY;
         ticking = false;
-        return;
-      }
+      };
 
-      // 스크롤 방향 감지
-      if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
-        ticking = false;
-        return;
-      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      });
 
-      if (currentScrollY > lastScrollY) {
-        // 아래로 스크롤 - 헤더 숨김
-        header.classList.add('header-hidden');
-        header.classList.remove('header-visible');
-      } else {
-        // 위로 스크롤 - 헤더 표시
-        header.classList.remove('header-hidden');
-        header.classList.add('header-visible');
-      }
+      window.addEventListener('resize', () => {
+        if (!utils.isMobile()) {
+          header.classList.remove('header-hidden', 'header-visible');
+        }
+      });
 
-      lastScrollY = currentScrollY;
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateHeader);
-        ticking = true;
-      }
-    });
-
-    // 리사이즈 시 재초기화
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        header.classList.remove('header-hidden', 'header-visible');
-      }
-    });
+      utils.log('Scroll header initialized');
+    }
   };
 
   // =========================================
-  // 모바일 버튼 스크롤 방향 감지
-  // =========================================
-  const initMobileButtonScroll = () => {
-    // 모바일에서만 동작
-    if (window.innerWidth > 768) return;
-
-    const focusModeToggle = document.getElementById('focusModeToggle');
-    const backToTopBtn = document.getElementById('backToTop');
-
-    if (!focusModeToggle && !backToTopBtn) return;
-
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    const scrollThreshold = 10; // 최소 스크롤 거리
-
-    const updateButtons = () => {
-      const currentScrollY = window.scrollY;
-
-      // 상단에 있을 때는 항상 버튼 표시
-      if (currentScrollY < 100) {
-        if (focusModeToggle) {
-          focusModeToggle.classList.remove('button-hidden');
-          focusModeToggle.classList.add('button-visible');
-        }
-        if (backToTopBtn) {
-          backToTopBtn.classList.remove('button-hidden');
-          backToTopBtn.classList.add('button-visible');
-        }
-        lastScrollY = currentScrollY;
-        ticking = false;
-        return;
-      }
-
-      // 스크롤 방향 감지
-      if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
-        ticking = false;
-        return;
-      }
-
-      if (currentScrollY > lastScrollY) {
-        // 아래로 스크롤 - 버튼 숨김
-        if (focusModeToggle) {
-          focusModeToggle.classList.add('button-hidden');
-          focusModeToggle.classList.remove('button-visible');
-        }
-        if (backToTopBtn) {
-          backToTopBtn.classList.add('button-hidden');
-          backToTopBtn.classList.remove('button-visible');
-        }
-      } else {
-        // 위로 스크롤 - 버튼 표시
-        if (focusModeToggle) {
-          focusModeToggle.classList.remove('button-hidden');
-          focusModeToggle.classList.add('button-visible');
-        }
-        if (backToTopBtn) {
-          backToTopBtn.classList.remove('button-hidden');
-          backToTopBtn.classList.add('button-visible');
-        }
-      }
-
-      lastScrollY = currentScrollY;
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateButtons);
-        ticking = true;
-      }
-    });
-
-    // 리사이즈 시 클래스 제거
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        if (focusModeToggle) {
-          focusModeToggle.classList.remove('button-hidden', 'button-visible');
-        }
-        if (backToTopBtn) {
-          backToTopBtn.classList.remove('button-hidden', 'button-visible');
-        }
-      }
-    });
-  };
-
-  // =========================================
-  // 초기화
+  // 메인 초기화
   // =========================================
   const init = () => {
-    initTheme();
-    initMobileNav();
-    initScrollHeader();
-    initMobileButtonScroll();
-    initHeroCanvas();
-    initNewsCarouselNav();
-    generateTOC();
-    initCodeLanguageLabels();
-    initCodeCopy();
-    markExternalLinks();
-    initCopyWatermark();
-    initKeyboardShortcuts();
-    calculateReadingTime();
-    initPrint();
-    initShare();
-    initBookmark();
-    initReadingProgress();
-    initBackToTop();
-    initFocusMode();
-    initEdit();
+    if (CONFIG.DEBUG) {
+      console.log('🚀 Learn CS 초기화 시작...');
+    }
 
-    console.log('✅ Learn CS 초기화 완료');
+    // 순서대로 초기화
+    theme.init();
+    mobileNav.init();
+    scrollHeader.init();
+    heroCanvas.init();
+    newsCarousel.init();
+    toc.init();
+    codeBlocks.init();
+    links.init();
+    copyWatermark.init();
+    shortcuts.init();
+    readingTime.init();
+    print.init();
+    share.init();
+    bookmark.init();
+    readingProgress.init();
+    backToTop.init();
+    focusMode.init();
+    edit.init();
+
+    if (CONFIG.DEBUG) {
+      console.log('✅ Learn CS 초기화 완료');
+    } else {
+      console.log('✅ Learn CS 초기화 완료');
+    }
   };
 
   // DOM 준비 완료 시 실행
